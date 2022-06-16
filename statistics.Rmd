@@ -3,6 +3,9 @@ title: "Intro to Statistics"
 output:
   html_document:
     fig_width: 1
+    toc: true  
+    toc_float: true 
 ---
 
 More Coming Soon!
+

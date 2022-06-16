@@ -8,20 +8,17 @@ navbar:
       href: index.html
     - text: "Statistics"
       icon: 
-      href: datascience.html
+      href: statistics.html
     - text: "Data Science"
       icon: 
       href: datascience.html
   right:
-    - text: "Contact me"
-      icon: fa-envelope-o
-      href: mailto:emalcolmwhite@middlebury.edu  # CHANGE HERE
     - text: "YouTube"
       icon: fa-youtube-play
       href: https://www.youtube.com/channel/UCGE_eugh_WGuQfb1T4Y35SA
-    - text: "GitHub"
-      icon: fa-github
-      href: https://github.com/ebmwhite       # CHANGE HERE 
+    - text: "Contact me"
+      icon: fa-envelope-o
+      href: mailto:emalcolmwhite@middlebury.edu  # CHANGE HERE
 output:
   html_document:
     theme: yeti
