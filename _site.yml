@@ -3,8 +3,7 @@ output_dir: "."
 navbar:
   title: "Emily Malcolm-White"                             # CHANGE HERE 
   left:
-    - text: "Home"
-      icon: fa-home
+    - text: "About"
       href: index.html
     - text: "Statistics"
       icon: 
