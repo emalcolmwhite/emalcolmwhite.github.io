@@ -37,7 +37,7 @@ include:
 
 Emily Malcolm-White\
 *Lecturer at Middlebury College*\
-<a href = "mailto: emalcolmwhite@middlebury.edu"> emalcolmwhite@middlebury.edu </a>
+<i class="fa fa-envelope"></i> <a href = "mailto: emalcolmwhite@middlebury.edu"> emalcolmwhite@middlebury.edu </a>
 </div>
 
 <div class="column-main">
