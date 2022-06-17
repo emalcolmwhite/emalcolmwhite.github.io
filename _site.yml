@@ -5,12 +5,14 @@ navbar:
   left:
     - text: "About"
       href: index.html
-    - text: "Statistics"
-      icon: 
-      href: statistics.html
-    - text: "Data Science"
-      icon: 
-      href: datascience.html
+    - text: "Course Materials"
+      menu: 
+        - text: "Statistics"
+          icon: 
+          href: statistics.html
+        - text: "Data Science"
+          icon: 
+          href: datascience.html
   right:
     - text: "YouTube"
       icon: fa-youtube-play
