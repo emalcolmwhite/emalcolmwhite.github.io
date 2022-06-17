@@ -1,11 +1,17 @@
 ---
-title: " "
+title: "EMW"
 output:
   html_document:
     fig_width: 1
 include: 
   - .img-circle {border-radius: 50%;}
 ---
+
+<style>
+  .title{
+    display: none;
+  }
+</style>
 
 <style>
 .column-left{
