@@ -1,10 +1,9 @@
-name: "Emily Malcolm-White"                                # CHANGE HERE 
+name: "Emily Malcolm-White"                                 
 output_dir: "."
 navbar:
-  title: "Emily Malcolm-White"                             # CHANGE HERE 
+  title: "Emily Malcolm-White"                             
+  href: index.html
   left:
-    - text: "About"
-      href: index.html
     - text: "Course Materials"
       menu: 
         - text: "Statistics"
@@ -13,6 +12,9 @@ navbar:
         - text: "Data Science"
           icon: 
           href: datascience.html
+        - text: "Calculus I"
+          icon: 
+          href: Calculus1.html
   right:
     - text: "YouTube"
       icon: fa-youtube-play

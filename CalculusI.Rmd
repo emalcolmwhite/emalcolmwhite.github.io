@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Statistics"
+title: "Calculus I"
 output:
   html_document:
     fig_width: 1
