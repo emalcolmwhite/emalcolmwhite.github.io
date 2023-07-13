@@ -19,9 +19,13 @@ navbar:
     - text: "YouTube"
       icon: fa-youtube-play
       href: https://youtube.com/@emalcolmwhite
-    - text: "Contact me"
+    - text: "GitHub"
+      icon: fa-github
+      href: https://github.com/emalcolmwhite
+    - text: "Email"
       icon: fa-envelope-o
-      href: mailto:emalcolmwhite@middlebury.edu  # CHANGE HERE
+      href: mailto:emalcolmwhite@middlebury.edu  
+      
 output:
   html_document:
     theme: yeti
