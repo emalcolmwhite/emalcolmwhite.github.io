@@ -12,9 +12,6 @@ navbar:
         - text: "Data Science"
           icon: 
           href: datascience.html
-        - text: "Calculus I"
-          icon: 
-          href: Calculus1.html
   right:
     - text: "YouTube"
       icon: fa-youtube-play
