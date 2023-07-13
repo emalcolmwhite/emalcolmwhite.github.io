@@ -22,10 +22,12 @@ navbar:
     - text: "GitHub"
       icon: fa-github
       href: https://github.com/emalcolmwhite
+    - text: "CV"
+      icon: fa-file-pdf-o
+      href: EMW_CV.pdf
     - text: "Email"
       icon: fa-envelope-o
       href: mailto:emalcolmwhite@middlebury.edu  
-      
 output:
   html_document:
     theme: yeti
