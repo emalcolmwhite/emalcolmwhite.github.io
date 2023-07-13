@@ -18,7 +18,7 @@ navbar:
   right:
     - text: "YouTube"
       icon: fa-youtube-play
-      href: https://www.youtube.com/channel/UCGE_eugh_WGuQfb1T4Y35SA
+      href: https://youtube.com/@emalcolmwhite
     - text: "Contact me"
       icon: fa-envelope-o
       href: mailto:emalcolmwhite@middlebury.edu  # CHANGE HERE
