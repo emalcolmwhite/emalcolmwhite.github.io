@@ -5,7 +5,7 @@ output:
     fig_width: 1
 ---
 
-These are my notes from "Introduction to Statistical Science" at Middlebury College (Spring 2023)
+These are my notes from "Introduction to Statistical Science" at Middlebury College in Spring 2023.
 
 +-----------------------------------------------------+--------------+--------------+------------------------------------------+
 | Topic                                               | Notes        | Homework     | Other Resources                          |
