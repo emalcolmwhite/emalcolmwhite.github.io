@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -224,69 +221,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -294,16 +228,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -384,12 +308,12 @@ div.tocify {
 
 <p>These are my notes from “Introduction to Data Science” at Middlebury
 College (Spring 2023)</p>
-<table style="width:99%;">
+<table>
 <colgroup>
-<col width="70%" />
-<col width="6%" />
-<col width="6%" />
-<col width="14%" />
+<col width="27%" />
+<col width="17%" />
+<col width="17%" />
+<col width="36%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -401,129 +325,125 @@ College (Spring 2023)</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td><h4 id="introduction-to-r-rstudio-and-rmarkdown">Introduction to R,
-RStudio, and RMarkdown</h4></td>
+<td>Introduction to R, RStudio, and RMarkdown</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="wrangling">wrangling</h4></td>
+<td>wrangling</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="aggregating">aggregating</h4></td>
+<td>aggregating</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="pretty-tables-with-kableextra">pretty tables with <a
-href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra</a></h4></td>
+<td>pretty tables with <a
+href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra</a></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="creating-plots-with-ggplot2-part-1">creating plots with <a
-href="https://ggplot2.tidyverse.org/">ggplot2</a> (Part 1)</h4></td>
+<td>creating plots with <a
+href="https://ggplot2.tidyverse.org/">ggplot2</a> (Part 1)</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="creating-plots-with-ggplot2-part-2">creating plots with <a
-href="https://ggplot2.tidyverse.org/">ggplot2</a> (Part 2)</h4></td>
+<td>creating plots with <a
+href="https://ggplot2.tidyverse.org/">ggplot2</a> (Part 2)</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="working-with-categorical-data-using-forcats">working with
-categorical data using <a
-href="https://forcats.tidyverse.org/">forcats</a></h4></td>
+<td>working with categorical data using <a
+href="https://forcats.tidyverse.org/">forcats</a></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="working-with-numeric-data-using-scales">working with numeric
-data using <a href="https://scales.r-lib.org/">scales</a></h4></td>
+<td>working with numeric data using <a
+href="https://scales.r-lib.org/">scales</a></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="joining">joining</h4></td>
+<td>joining</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="reshaping">reshaping</h4></td>
+<td>reshaping</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="maps-cloropleth">maps (cloropleth)</h4></td>
+<td>maps (cloropleth)</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="maps-points">maps (points)</h4></td>
+<td>maps (points)</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="simple-linear-regression">Simple Linear Regression</h4></td>
+<td>Simple Linear Regression</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="multiple-regression">Multiple Regression</h4></td>
+<td>Multiple Regression</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="web-scraping-with-rvest-tables">Web Scraping with <a
-href="https://rvest.tidyverse.org/">rvest</a> (tables)</h4></td>
+<td>Web Scraping with <a href="https://rvest.tidyverse.org/">rvest</a>
+(tables)</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="webscraping-with-rvest-text">Webscraping with <a
-href="https://rvest.tidyverse.org/">rvest</a> (text)</h4></td>
+<td>Webscraping with <a href="https://rvest.tidyverse.org/">rvest</a>
+(text)</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><h4 id="working-with-text-using-stringr">Working with text using <a
-href="https://stringr.tidyverse.org/">stringr</a></h4></td>
+<td>Working with text using <a
+href="https://stringr.tidyverse.org/">stringr</a></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><h4 id="working-with-dates-and-times-using-lubridate">Working with
-dates and times using <a
-href="https://lubridate.tidyverse.org/">lubridate</a></h4></td>
+<td>Working with dates and times using <a
+href="https://lubridate.tidyverse.org/">lubridate</a></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<div id="animation" class="section level4">
-<h4>Animation</h4>
+<p><strong>Animation</strong></p>
 <ul>
 <li><a href="notes/Notes_Animation.html">.html file</a></li>
 <li><a href="notes/Notes_Animation.Rmd">.Rmd file</a></li>
@@ -540,12 +460,9 @@ Quality” data (YouTube Video)</a></li>
 <li><a href="https://youtu.be/gk5VhST4h_Q">Animation - plotly (YouTube
 Video)</a></li>
 </ul>
-</div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -578,35 +495,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
