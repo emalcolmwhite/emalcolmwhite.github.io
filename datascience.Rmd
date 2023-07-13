@@ -8,7 +8,7 @@ output:
 These are my notes from "Introduction to Data Science" at Middlebury College (Spring 2023)
 
 | Topic                                                                                                                    | Notes           | Homework | Other Resources |
-|--------------------------------------------------------------------------------------------------------------------------|-----------------|----------|-----------------|
+|:----------------|:----------------|:----------------|:---------------------|
 | Introduction to R, RStudio, and RMarkdown                                                                                | [🖥️](notes.Rmd) |          |                 |
 | wrangling                                                                                                                |                 |          |                 |
 | aggregating                                                                                                              |                 |          |                 |
