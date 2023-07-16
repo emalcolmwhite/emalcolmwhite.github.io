@@ -33,7 +33,7 @@ ten_lang <- can_lang %>%
 
 # ggplot: barplots with `geom_bar`
 
-![](stat0118/STAT0118_C_Aggregating_img-ggplot-1.png)
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/master/stat0118/STAT0118_C_Aggregating_img-ggplot-1.png)
 
 ```{r}
 ggplot(ten_lang, aes(x = language, y = mother_tongue)) +
