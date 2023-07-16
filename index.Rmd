@@ -42,17 +42,11 @@ include:
 ::: card
 <img src="emily_square.jpg" alt="Emily Malcolm-White headshot" class="img-circle" align="middle" width="200" height="200" style=" margin: 20px 20px 20px 20px;"/>
 
-<h2>Emily Malcolm-White</h2> <h5>she/her</h5>
+### **Emily Malcolm-White** (she/her)
 
-<p class="title">
-
-Faculty
-
-</p>
-
-<p>Middlebury College</p>
-
-<p>Department of Mathematics & Statistics</p>
+<p> Faculty <br>
+Middlebury College <br>
+Department of Mathematics & Statistics</p>
 
 <i class="fa fa-envelope"></i><a href = "mailto: emalcolmwhite@middlebury.edu"> emalcolmwhite\@middlebury.edu </a>
 :::
@@ -68,7 +62,7 @@ I believe that STEM education should be inclusive and accessible for all. I hope
 
 I am currently Faculty in Mathematics and Statistics at Middlebury College where I focus on teaching introductory mathematics, statistics, and data science courses.
 
-### **Education**
+#### Education
 
   <ul class="fa-ul">
     <li><span class="fa-li"><i class="fas fa-graduation-cap"></i></span>MSc in Statistics</li>
