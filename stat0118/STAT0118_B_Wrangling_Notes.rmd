@@ -1,0 +1,115 @@
+---
+title: 'STAT 118: Notes B'
+author: ' '
+subtitle: 'Naming Objects, Wrangling data with dplyr: filter, select, arrange'
+output:
+  pdf_document: default
+  html_document:
+    code_folding: hide
+---
+
+
+# Importing Data
+
+In this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian Residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census. 
+
+What is a .csv file? 
+
+How do we import it into R?
+
+```{r}
+#can_lang.csv needs to be saved in the same directory as this file. 
+can_lang <- read.csv("can_lang.csv")
+```
+
+Alternatively, you can download it directly from the internet. Github user `ttimbers` hosts this file to share with the public. 
+```{r}
+can_lang <- read.csv("https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv")
+```
+
+Let's take a look at this data for a minute to see what information has been recorded. 
+
+# Installing and Using Packages
+
+Sometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used. 
+
+First, you need to download the package from the right hand menu --> 
+You only need to do this once. 
+
+In each new .Rmd document, you need to call any packages you want to use. 
+
+For example, in this class we will use the `tidyverse` package a lot. 
+
+```{r}
+library(tidyverse)
+```
+# `dplyr`
+
+There are actually many commonly used packages wrapped up inside one `tidyverse` package. 
+
+Today we are specifically going to be talking about the package `dplyr` which is useful to manipulating datasets.
+
+# `filter`
+
+We can use the `filter` function to extract ***rows*** from the data that have a particular characteristic. 
+
+For example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages. 
+
+```{r}
+#To print out the data
+can_lang %>%
+  filter(category == "Aboriginal languages")
+
+# OR to save it as it's own dataset
+aboriginal_lang <- can_lang %>%
+  filter(category == "Aboriginal languages")
+```
+
+It can also be used with numeric criteria
+
+```{r}
+aboriginal_lang %>%
+  filter(mother_tongue < 50)
+```
+
+# `select`
+
+select is used to extract only certain ***columns***. For example, perhaps we only want to print out a list names of the aboriginal languages (language column). 
+
+```{r}
+aboriginal_lang %>%
+  select(language)
+```
+
+We can combine criteria together as well: 
+
+```{r}
+aboriginal_lang %>%
+  filter(mother_tongue < 50) %>%
+  select(language, mother_tongue)
+```
+
+# `arrange`
+
+The `arrange` function allows us to order the rows of the data frame by the values of a particular column. 
+
+For example, 
+
+```{r}
+aboriginal_lang %>% 
+  arrange(by=desc(mother_tongue))
+```
+
+# `slice`
+
+The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last). 
+
+For example, if I want a list of the 10 most commonly spoken aboriginal languages. 
+
+```{r}
+aboriginal_lang %>% 
+  arrange(by=desc(mother_tongue)) %>%
+  select(language, mother_tongue) %>%
+  slice(1:10)
+  
+```
