@@ -1,5 +1,7 @@
 ---
-title: "Introduction to Data Science (STAT 0118)"
+title: |
+  ![](stat0118/STAT0118_hex_sticker.png){width=1in}  
+  Introduction to Data Science (STAT 0118)
 output:
   html_document:
     fig_width: 1
