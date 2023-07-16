@@ -65,7 +65,9 @@ I believe that STEM education should be inclusive and accessible for all. I hope
 
 I am currently Faculty at Middlebury College where I focus on teaching introductory mathematics, statistics, and data science courses.
 
-#### Education
+<br>
+
+##### Education
 
   <ul class="fa-ul">
     <li><span class="fa-li"><i class="fas fa-graduation-cap"></i></span>MSc in Statistics</li>
