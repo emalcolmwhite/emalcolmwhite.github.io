@@ -1,7 +1,7 @@
-name: "Emily Malcolm-White"                                 
+name: "EMW"                                 
 output_dir: "."
 navbar:
-  title: "Emily Malcolm-White"                             
+  title: "EMW"                             
   href: index.html
   left:
     - text: "Course Materials"
