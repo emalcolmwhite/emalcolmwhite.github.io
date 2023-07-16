@@ -7,6 +7,12 @@ output:
 
 These are my notes from "Introduction to Data Science" at Middlebury College in Spring 2023.
 
+There is no official textbook for this course. Here are some resources that I utilize for inspiration/examples. They are great references.
+
+-   "Data Science: A First Introduction by Tiffany Timbers, Trevor Campbell, and Melissa Lee" available for free online here: <https://datasciencebook.ca/>
+
+-   "R for Data Science" by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund available for free online here: <https://r4ds.hadley.nz/>
+
 +--------------------------------------------------------------------------------------------------------------------------+--------+-----------+-----------+-----------------+
 | Topic                                                                                                                    | Blank\ | Complete\ | Homework\ | Other Resources |
 |                                                                                                                          | Notes\ | Notes\    | Template\ |                 |
