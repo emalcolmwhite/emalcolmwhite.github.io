@@ -50,6 +50,8 @@ Middlebury College <br>
 Department of Mathematics & Statistics</p>
 
 <i class="fa fa-envelope"></i><a href = "mailto: emalcolmwhite@middlebury.edu"> emalcolmwhite\@middlebury.edu </a>
+<br>
+<br>
 :::
 :::
 
