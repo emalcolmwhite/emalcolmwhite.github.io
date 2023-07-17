@@ -1,6 +1,6 @@
 ---
 title: |
-  ![](stat0118/STAT0118_hex_sticker.png){width=1in}  
+  ![](STAT0118/STAT0118_hex_sticker.png){width=2in}  
   Introduction to Data Science (STAT 0118)
 output:
   html_document:

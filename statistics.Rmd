@@ -1,6 +1,6 @@
 ---
 title: |
-  ![](stat0116/STAT0116_hex_sticker.png){width=1in}  
+  ![](stat0116/STAT0116_hex_sticker.png){width=2in}  
   Introduction to Statistical Science (STAT 0116)
 output:
   html_document:
