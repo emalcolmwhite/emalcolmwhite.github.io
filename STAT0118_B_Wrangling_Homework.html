@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="" />
 
 
-<title> Introduction to Statistical Science (STAT 0116)</title>
+<title>STAT 118: Homework B</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +31,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
@@ -218,6 +220,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -296,215 +301,62 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore"><p><img src="STAT0116_hex_sticker.png"
-style="width:2in" /><br />
-Introduction to Statistical Science (STAT 0116)</p></h1>
+
+<h1 class="title toc-ignore">STAT 118: Homework B</h1>
+<h3 class="subtitle">Wrangling data with dplyr: filter, select,
+arrange</h3>
+<h4 class="author"></h4>
 
 </div>
 
 
-<p>These are my notes from “Introduction to Statistical Science” at
-Middlebury College in Spring 2023.</p>
-<ul>
-<li><p>We roughly follow <a
-href="https://www.openintro.org/book/ims/">Introduction to Modern
-Statistics</a> by Mine Çetinkaya-Rundel and Johanna Hardin. This is an
-open-source and free textbook available through <a
-href="https://openintro.org/">OpenIntro</a>.</p></li>
-<li><p>This course utilizes R and RStudio for computation. Free download
-available <a
-href="https://posit.co/download/rstudio-desktop/">here</a>.</p></li>
-</ul>
-<table style="width:98%;">
-<colgroup>
-<col width="53%" />
-<col width="12%" />
-<col width="12%" />
-<col width="18%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Topic</th>
-<th align="left">Notes</th>
-<th align="left">Homework</th>
-<th align="left">Other Resources</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Ch 1 - Hello Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Intro to Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 2 - Study Design</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 4 - Categorical Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Categorical Data in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 5 - Numeric Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Supp - Probability (Part 1)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Numeric Data in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">joining</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Supp - Probability (Part 2)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Normal Variables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Normal Variables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Central Limit Theorem</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 11 - Hypothesis Testing</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Hypothesis Testing Activity</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 16 - Inference for One Proportion<br />
-Ch 19 - Inference for One Mean</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Confidence Intervals</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for One Proportion or One Mean in
-R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 17 - Inference for Comparing Two Proportions</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 18 - Inference for Two Way Tables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Inference for Proportions in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 20 - Inference for Two Independent Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 21 - Inference for Two Paired Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for Two Means in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Errors</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 7 - Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Linear Regression in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 24 - Inference for Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code>#make sure the package is installed on your computer or this won&#39;t run! 
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ───────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ─────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>#This assignment concerns the gapminder dataset
+# First, Download gapminder from the menu at the right ---&gt; 
+library(gapminder)
+data(gapminder) #this code loads the gapminder data so you can view it in your environment. Click on the word gapminder to be able see it </code></pre>
+<ol style="list-style-type: decimal">
+<li><p>How many rows and columns does this dataset have?</p></li>
+<li><p>What are the names of the 6 columns?</p></li>
+<li><p>Create a dataset called <code>gapminder2007</code> which only
+contains information for each of the countries in 2007.</p></li>
+<li><p>If you instead try to choose the subset with year equal to 2005,
+something will go wrong. Try it and explain what happens and
+why.</p></li>
+<li><p>Print out the row of data corresponding to the US in
+2007.</p></li>
+<li><p>In the above problem, you would have put quotes around
+<code>United States</code> but not around <code>2007</code>. Explain
+why.</p></li>
+<li><p>Which country had a higher life expectancy per capita in 1977:
+Ireland or Brazil?</p></li>
+<li><p>What is the lowest life expectancy in the gapminder dataset?
+Which country and year does it correspond to?</p></li>
+<li><p>For the year 2007, print out a list of the top 10 countries with
+the highest life expectancy. They should be ordered from highest life
+expectancy to 10th highest life expectancy. You should only display the
+countries name and life expectancy (and no other data).</p></li>
+</ol>
 
 
 
@@ -539,6 +391,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

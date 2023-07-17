@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="" />
 
 
-<title> Introduction to Statistical Science (STAT 0116)</title>
+<title>MATH 118: Homework A</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +31,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
@@ -218,6 +220,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -296,215 +301,72 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore"><p><img src="STAT0116_hex_sticker.png"
-style="width:2in" /><br />
-Introduction to Statistical Science (STAT 0116)</p></h1>
+
+<h1 class="title toc-ignore">MATH 118: Homework A</h1>
+<h3 class="subtitle">Intro to RStudio and RMarkdown</h3>
+<h4 class="author"></h4>
 
 </div>
 
 
-<p>These are my notes from “Introduction to Statistical Science” at
-Middlebury College in Spring 2023.</p>
-<ul>
-<li><p>We roughly follow <a
-href="https://www.openintro.org/book/ims/">Introduction to Modern
-Statistics</a> by Mine Çetinkaya-Rundel and Johanna Hardin. This is an
-open-source and free textbook available through <a
-href="https://openintro.org/">OpenIntro</a>.</p></li>
-<li><p>This course utilizes R and RStudio for computation. Free download
-available <a
-href="https://posit.co/download/rstudio-desktop/">here</a>.</p></li>
-</ul>
-<table style="width:98%;">
-<colgroup>
-<col width="53%" />
-<col width="12%" />
-<col width="12%" />
-<col width="18%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Topic</th>
-<th align="left">Notes</th>
-<th align="left">Homework</th>
-<th align="left">Other Resources</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Ch 1 - Hello Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Intro to Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 2 - Study Design</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 4 - Categorical Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Categorical Data in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 5 - Numeric Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Supp - Probability (Part 1)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Numeric Data in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">joining</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Supp - Probability (Part 2)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Normal Variables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Normal Variables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Central Limit Theorem</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 11 - Hypothesis Testing</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Hypothesis Testing Activity</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 16 - Inference for One Proportion<br />
-Ch 19 - Inference for One Mean</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Confidence Intervals</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for One Proportion or One Mean in
-R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 17 - Inference for Comparing Two Proportions</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 18 - Inference for Two Way Tables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Inference for Proportions in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 20 - Inference for Two Independent Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 21 - Inference for Two Paired Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for Two Means in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Errors</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 7 - Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Linear Regression in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 24 - Inference for Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
+<div id="in-lab-examples" class="section level1">
+<h1>In-lab Examples</h1>
+<p>bold</p>
+<p>italics</p>
+<p>bold and italics</p>
+<p>a list</p>
+<p>link</p>
+<p>image</p>
+<hr />
+<p>R chunks</p>
+<p>create an object</p>
+<p>inline code</p>
+<p>commenting code</p>
+</div>
+<div id="questions" class="section level1">
+<h1>Questions</h1>
+<ol style="list-style-type: decimal">
+<li><p>Tell me your name in bold lettering. Is there anything I should
+know about your name and how to address you? (ie. I prefer to be called
+Liz instead of Elizabeth, my pronouns are he/his/him, etc.)</p></li>
+<li><p>Tell me your major in italics lettering. Any ideas what you might
+like to do after you graduate? (It’s okay to say you don’t
+know)</p></li>
+<li><p>Make a list of a few of your interests</p></li>
+<li><p>Include a link to something interesting or funny</p></li>
+<li><p>Include a picture. This could be a picture of you or a picture of
+something you find funny or interesting.</p></li>
+<li><p>Create an object called <code>c</code>. Decide on a number
+between 1 and 10 that denotes your comfort level with taking a data
+science course this semester (10 being that you are so, so excited and 1
+being that you almost threw up this morning just thinking about it).
+Assign this value to <code>c</code>.</p></li>
+<li><p>Write a few sentences about why you choose this number. Be sure
+to print out this value of <code>c</code> somewhere in your paragraph as
+inline code.</p></li>
+<li><p>Create an object called <code>height</code>. Assign your height
+in inches to this object (you can also use a made up number here if you
+like). Use R to convert the height to meters. Be sure to comment your
+code to explain what you are doing.</p></li>
+<li><p>Have you ever taken a class that used R before?</p></li>
+<li><p>Tell me a little about how you feel about taking data science
+this semester. Are you nervous? Do you feel like this course is out of
+your comfort zone? Are you confident?</p></li>
+<li><p>(Optional) Use this space below to tell me anything about
+yourself that you think Emily should know in order to teach you
+effectively. You can also use this space below to ask any questions or
+state any concerns.</p></li>
+</ol>
+</div>
 
 
 
@@ -539,6 +401,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

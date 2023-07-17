@@ -11,7 +11,7 @@
 
 
 
-<title> Introduction to Statistical Science (STAT 0116)</title>
+<title>STAT 118: Notes B</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +30,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
@@ -218,6 +219,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -296,215 +300,135 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore"><p><img src="STAT0116_hex_sticker.png"
-style="width:2in" /><br />
-Introduction to Statistical Science (STAT 0116)</p></h1>
+
+<h1 class="title toc-ignore">STAT 118: Notes B</h1>
+<h3 class="subtitle">Wrangling data with dplyr: filter, select,
+arrange</h3>
 
 </div>
 
 
-<p>These are my notes from “Introduction to Statistical Science” at
-Middlebury College in Spring 2023.</p>
+<div id="importing-data" class="section level1">
+<h1>Importing Data</h1>
+<p>In this class, we are going to be working with a dataset relating to
+the languages spoken at home by Canadian Residents. Many Indigenous
+peoples exist in Canada with their own languages and cultures. Sadly,
+colonization has led to the loss of many of these languages. This data
+is a subset of data collected during the 2016 census.</p>
+<p>What is a .csv file?</p>
+<p>How do we import it into R?</p>
+<pre class="r"><code>#can_lang.csv needs to be saved in the same directory as this file. 
+#can_lang &lt;- read.csv(&quot;can_lang.csv&quot;)</code></pre>
+<p>Alternatively, you can download it directly from the internet. Github
+user <code>ttimbers</code> hosts this file to share with the public.</p>
+<pre class="r"><code>can_lang &lt;- read.csv(&quot;https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv&quot;)</code></pre>
+<p>Let’s take a look at this data for a minute to see what information
+has been recorded.</p>
+</div>
+<div id="installing-and-using-packages" class="section level1">
+<h1>Installing and Using Packages</h1>
+<p>Sometimes everything we need (data, functions, etc) are not available
+in base R. In R, expert users will package up useful things like data
+and functions into packages that be download and used.</p>
+<p>First, you need to download the package from the right hand menu
+–&gt; You only need to do this once.</p>
+<p>In each new .Rmd document, you need to call any packages you want to
+use but adding the code <code>library(packagename)</code> inside an R
+chunk.</p>
+<p>For example, in this class we will use the <code>tidyverse</code>
+package a lot.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+</div>
+<div id="dplyr" class="section level1">
+<h1><code>dplyr</code></h1>
+<p>There are actually many commonly used packages wrapped up inside one
+<code>tidyverse</code> package.</p>
+<p>Today we are specifically going to be talking about the package
+<code>dplyr</code> which is useful to manipulating data sets.</p>
+</div>
+<div id="filter" class="section level1">
+<h1><code>filter</code></h1>
+<p>We can use the <code>filter</code> function to extract
+<strong><em>rows</em></strong> from the data that have a particular
+characteristic.</p>
+<p>For example, we may be interested in only looking at only the
+languages in this dataset that are Aboriginal languages.</p>
+<pre class="r"><code>#start with the can_lang dataset, the pipe &quot;%&quot; means apply the action on the following line to the previous line. In this case, pick out only the rows were the category variable is &quot;Aboriginal languages&quot; 
+
+
+
+
+##note the aboriginal languages is text/categorical and so quotation marks are needed. 
+##R doesn&#39;t care about whether they are double quotation marks (&quot;) or single (&#39;). They work the same. 
+# If we don&#39;t assign it to an object, then it just prints out for us to see! </code></pre>
+<pre class="r"><code>#oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called `aboriginal_lang`. 
+
+
+
+
+#Notice if you assign it to an object that it doesn&#39;t print out the contents. 
+# You&#39;ll see the new object in your environment on the top right ---&gt; 
+# If you click on the word `aboriginal languages` (not the blue play button) it will open the object so you can see what is saved inside. </code></pre>
+<p>It can also be used with numeric criteria.</p>
+<p>Suppose we want a list of all the languages in Canada that are spoken
+by less than 100 people as their mother tongue.</p>
+<p>The logical operators are given below:</p>
+<p><img src="https://ehsanx.github.io/intro2R/images/logical.png"
+style="width:50.0%" /></p>
+</div>
+<div id="select" class="section level1">
+<h1><code>select</code></h1>
+<p>select is used to extract only certain
+<strong><em>columns</em></strong>. For example, perhaps we only want to
+print out a list names of the aboriginal languages (language
+column).</p>
+<p>We can combine criteria together as well in one command with multiple
+pipes:</p>
+</div>
+<div id="arrange" class="section level1">
+<h1><code>arrange</code></h1>
+<p>The <code>arrange</code> function allows us to order the rows of the
+data frame by the values of a particular column.</p>
+<p>For example, arrange all the aboriginal languages in canada by from
+most to least spoken as mother tongue.</p>
+</div>
+<div id="slice" class="section level1">
+<h1><code>slice</code></h1>
+<p>The slice function will allow us to pick only a subset of the rows
+based on their numeric order (1st through last).</p>
+<p>For example, if I want a list of the 10 most commonly spoken
+aboriginal languages.</p>
+<div id="badges-earned" class="section level4">
+<h4>Badges Earned <img
+src="https://github.com/rstudio/hex-stickers/raw/main/thumbs/pipe.png"
+style="width:1in" /> <img
+src="https://github.com/rstudio/hex-stickers/raw/main/thumbs/dplyr.png"
+style="width:1in" /></h4>
+</div>
+</div>
+<div id="brain-break" class="section level1">
+<h1>Brain Break</h1>
 <ul>
-<li><p>We roughly follow <a
-href="https://www.openintro.org/book/ims/">Introduction to Modern
-Statistics</a> by Mine Çetinkaya-Rundel and Johanna Hardin. This is an
-open-source and free textbook available through <a
-href="https://openintro.org/">OpenIntro</a>.</p></li>
-<li><p>This course utilizes R and RStudio for computation. Free download
-available <a
-href="https://posit.co/download/rstudio-desktop/">here</a>.</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=99-LoEkAA3w">Students at
+Allison Bernard Memorial High School in Eskasoni, Cape Breton recorded
+Paul McCartney’s Blackbird in their native Mi’kmaq
+language.</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=wW0gpo2deKg">The Jerry
+Cans are a band from Iqaluit, Nunavut who combine traditional Inuit
+throat singing with folk music and country rock. Their music is largely
+written in Inuktitut (the indigineous language of the
+Inuit)</a></p></li>
 </ul>
-<table style="width:98%;">
-<colgroup>
-<col width="53%" />
-<col width="12%" />
-<col width="12%" />
-<col width="18%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Topic</th>
-<th align="left">Notes</th>
-<th align="left">Homework</th>
-<th align="left">Other Resources</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Ch 1 - Hello Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Intro to Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 2 - Study Design</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 4 - Categorical Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Categorical Data in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 5 - Numeric Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Supp - Probability (Part 1)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Numeric Data in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">joining</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Supp - Probability (Part 2)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Normal Variables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Normal Variables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Central Limit Theorem</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 11 - Hypothesis Testing</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Hypothesis Testing Activity</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 16 - Inference for One Proportion<br />
-Ch 19 - Inference for One Mean</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 13 - Confidence Intervals</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for One Proportion or One Mean in
-R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 17 - Inference for Comparing Two Proportions</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 18 - Inference for Two Way Tables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Inference for Proportions in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 20 - Inference for Two Independent Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 21 - Inference for Two Paired Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for Two Means in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Errors</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 7 - Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Linear Regression in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 24 - Inference for Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
+</div>
 
 
 
@@ -539,6 +463,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
