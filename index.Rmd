@@ -33,7 +33,7 @@ include:
   max-width: 300px;
   margin: auto;
   text-align: center;
-  background-color:#B0C1D1;
+  background-color:#96ACA8;
 }
 </style>
 
@@ -62,8 +62,6 @@ Department of Mathematics & Statistics</p>
 I am an educator and student support specialist with a love for developing and teaching mathematics, statistics, and data science courses.
 
 I believe that STEM education should be inclusive and accessible for all. I hope to minimize barriers for all students, including those with varying academic backgrounds, those with responsibilities outside of academics, and those with disabilities. I take the time to learn about innovative and effective teaching pedagogy and like to keep trying new things to maximize my effectiveness as an instructor.
-
-I am currently Faculty at Middlebury College where I focus on teaching introductory mathematics, statistics, and data science courses.
 
 <br>
 
