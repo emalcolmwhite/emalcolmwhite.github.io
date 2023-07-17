@@ -25,6 +25,16 @@ include:
   width: 60%;
   text-align: left;
 }
+@media only screen and (max-width: 629px) {
+  .column-left {
+    float: none ;
+    width: 100% ;
+  }
+  .column-main {
+    float: none ;
+    width: 100% ;
+  }
+}
 </style>
 
 <style>
