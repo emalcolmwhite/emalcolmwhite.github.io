@@ -1,0 +1,65 @@
+---
+title: "STAT 118: Homework D"
+subtitle: 'pretty tables with xtable + a little ggplot'
+author: " "
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(kableExtra)
+```
+
+```{r}
+#LOAD DATASET
+# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. 
+data("iris")
+```
+
+Today we will again use the famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.
+
+
+1. Create a dataset called `setosa_data` from `iris` which only displays the rows in the dataset corresponding to the `setosa` species. Do not include the species column (since they are all Setosa species). 
+
+```{r}
+
+```
+
+2. Use `kbl` to make `setosa_data` display in a pleasant way. The flowers should be ordered from the largest sepal length to the smallest. The numbers for the sepal length should display in your favorite shade of purple. Ensure your table looks appropriate, well-labeled, and well-styled for a general audience. 
+
+```{r}
+
+```
+
+
+3. Create a table which displays the minimum sepal length, the average sepal length and, the maximum sepal length for each of the three different species of iris. Save this summary table as `table1`. *It help you look at your last homework when you did something similar*
+
+```{r}
+
+```
+
+
+4. Use `kbl` to make `table1` display in a pleasant way. All the species names should be bolded. Ensure your table looks appropriate, well-labeled, and well-styled for a general audience. 
+
+```{r}
+
+```
+
+5. Add a new blank column to `table1` called `picture`. You can acheieve this by piping in `mutate(picture = "")` to your table. 
+
+```{r}
+
+```
+
+6. Download `virginica.png`, `versicolor.png`, and `setosa.png` from the assignment on Canvas and save in your local folder. Add these pictures in the picture columns where each image is displayed in the corresponding row for each species. Ensure you table looks appropriate, well-labeled, and well-styled for a general audience. 
+It may help you to refer to the Column/Row Specification -> Insert Images into Columns section available at: [https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#xtable](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#xtable)
+
+```{r}
+
+```
+
+
+

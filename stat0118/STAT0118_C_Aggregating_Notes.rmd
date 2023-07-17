@@ -1,7 +1,7 @@
 ---
 title: 'STAT 118: Notes C'
 author: ' '
-subtitle: 'Making plots  with ggplot2: barplots'
+subtitle: 'Aggregating Data and making pretty tables with `kableExtra`'
 output:
   pdf_document: default
   html_document:
@@ -9,133 +9,154 @@ output:
 ---
 
 ```{r}
+#LOAD PACKAGES
 library(tidyverse)
+
+```
+
+Today’s Dataset: `palmerpenguins` Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by
+Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.
+
+## Missing Data
+
+```{r}
+library(palmerpenguins)
+data('penguins')
 ```
 
 ```{r}
-#Import the can_lang dataset from last class
-
-#can_lang <- read.csv("can_lang.csv")
-
-#OR
-can_lang <- read.csv("https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv")
+penguins <- penguins %>%
+drop_na()
+#sometimes this is appropriate...
+#need to think about why data is missing...
 ```
 
-# Recall our last example: 
+## `summarize` / `summarise` function
+
+Suppose we are interested in the average bill length of all Adelie penguins:
 
 ```{r}
-ten_lang <- can_lang %>% 
-  filter(category == "Aboriginal languages") %>%
-  arrange(by=desc(mother_tongue)) %>%
-  select(language, mother_tongue) %>%
-  slice(1:10)
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarize(average_bill_lenth = mean(bill_length_mm))
 ```
 
-# ggplot: barplots with `geom_bar`
-
-![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/master/stat0118/STAT0118_C_Aggregating_img-ggplot-1.png)
+Suppose we are interested in the average bill length AND average bill depth of all Adelie penguins:
 
 ```{r}
-ggplot(ten_lang, aes(x = language, y = mother_tongue)) +
-  geom_bar(stat = "identity")
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarize(average_bill_lenth = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm))
 ```
 
-Is there any improvements we could make to this graph? 
+There are lots of other functions available:
 
-# To better view text
+  - `min` : minimum value
+  - `max` : maximum value
+  - `mean` : average or mean value
+  - `median` : median value
+  - `var` : variance
+  - `sd` : standard deviation
+  - `n` : count or number of values
+  - `n_distinct` : counts number of distinct values
+  
+Suppose we are interested in the average bill length AND the median bill length of all Adelie penguins:
 
 ```{r}
-ggplot(ten_lang, aes(x = language, y = mother_tongue)) +
-  geom_bar(stat = "identity") +  
-  coord_flip()
-
-#OR
-
-ggplot(ten_lang, aes(x = mother_tongue, y = language)) +
-  geom_bar(stat = "identity") 
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarise(average_bill_lenth = mean(bill_length_mm),
+  median_bill_length = median(bill_length_mm))
 ```
 
+# `group_by()`
 
-# Labels, Colors, and Themes
+Let’s say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.
 
 ```{r}
-ggplot(ten_lang, aes(x = mother_tongue, y = reorder(language, mother_tongue))) +
-  geom_bar(fill="lightblue", stat = "identity") + 
-  ylab("Language") +
-  xlab("Mother Tongue (Number of Canadian Residents)") + 
-  ggtitle("Ten Aboriginal Languages Most Often \n Reported by Canadian Residents \n as Their Mother Tongue") + 
-  theme_minimal()
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm))
 ```
 
+## Multiple Groups
 
 ```{r}
-ggplot(can_lang, aes(x=most_at_home, y=mother_tongue)) +
-  geom_point()
+penguins %>%
+  group_by(species, sex) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm))
 ```
 
-# With labels
+# Using `kable` to get pretty tables
 
 ```{r}
-ggplot(can_lang, aes(x = most_at_home, y = mother_tongue)) +
-  geom_point() +
-  xlab("Language spoken most at home \n (number of Canadian residents)") +
-  ylab("Mother tongue \n (number of Canadian residents)") +
-  theme(text = element_text(size = 12))
-```
-
-# Axis transformations
-
-```{r}
-library(scales)
+library(kableExtra)
 ```
 
 ```{r}
-ggplot(can_lang, aes(x = most_at_home, y = mother_tongue)) +
-  geom_point() +
-  xlab("Language spoken most at home \n (number of Canadian residents)") +
-  ylab("Mother tongue \n (number of Canadian residents)") +
-  theme(text = element_text(size = 12)) +
-  scale_x_log10(labels = label_comma()) +
-  scale_y_log10(labels = label_comma())
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+  kbl()
 ```
 
+Note that kable will work if you knit to .html (like we do in this class), but also if you choose to knit to Word or PDF (note you need to install some things to knit to PDF).
 
-# `mutate` to create new columns
+## Options in `kbl`
+
+We customize the content so it’s displaying the information more clearly.
 
 ```{r}
-can_lang <- can_lang %>%
-  mutate(
-    mother_tongue_percent = (mother_tongue / 35151728) * 100,
-    most_at_home_percent = (most_at_home / 35151728) * 100
-  )
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"),
+  caption = "Average Bill Characteristics by Species",
+digits = 2)
 ```
 
-# Scatterplot with percents
+Better... 
+
+## `kable_styling()`
 
 ```{r}
-ggplot(can_lang, aes(x = most_at_home_percent, y = mother_tongue_percent)) +
-  geom_point() +
-  xlab("Language spoken most at home \n (percentage of Canadian residents)") +
-  ylab("Mother tongue \n (percentage of Canadian residents)") +
-  theme(text = element_text(size = 12)) +
-  scale_x_log10(labels = comma) +
-  scale_y_log10(labels = comma)
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"),
+caption = "Average Bill Characteristics by Species",
+digits = 2) %>%
+kable_styling()
 ```
 
-# Scatterplot with Percents and Colors
+Many options for customizing the look of the tables – more here: [https://cran.r-project.org/web/packages/k
+ableExtra/vignettes/awesome_table_in_html.html](https://cran.r-project.org/web/packages/k
+ableExtra/vignettes/awesome_table_in_html.html)
+
+Let’s try one...
 
 ```{r}
-ggplot(can_lang, aes(x = most_at_home_percent, 
-                     y = mother_tongue_percent, 
-                     color = category, shape=category)) +
-  geom_point() +
-  xlab("Language spoken most at home \n (percentage of Canadian residents)") +
-  ylab("Mother tongue \n (percentage of Canadian residents)") +
-  theme(text = element_text(size = 12),
-        legend.position = "top",
-        legend.direction = "vertical") +
-  scale_x_log10(labels = comma) +
-  scale_y_log10(labels = comma)
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"),
+  caption = "Average Bill Characteristics by Species",
+  digits = 2) %>%
+  kable_paper() %>%
+  column_spec(1, bold=T) %>%
+  row_spec(2, color = "#c85bcc") %>%
+  row_spec(3, color = "#067176") %>%
+  row_spec(1, color = "#ff7501")
 ```
 
+# Brain Break
 
+This is a story about Jinjing the South American Magellanic Penguin, that swims 5000 miles each year to be reunited with the man who saved his life. 
+[https://youtu.be/oks2R4LqWtE](https://youtu.be/oks2R4LqWtE)
