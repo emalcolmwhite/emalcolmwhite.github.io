@@ -7,7 +7,7 @@ output:
     fig_width: 1
 ---
 
-These are my notes from "Introduction to Statistical Science" at Middlebury College in Spring 2023.
+These are my materials from "Introduction to Statistical Science" at Middlebury College in Spring 2023.
 
 -   We roughly follow [Introduction to Modern Statistics](https://www.openintro.org/book/ims/) by Mine Çetinkaya-Rundel and Johanna Hardin. This is an open-source and free textbook available through [OpenIntro](https://openintro.org/).
 

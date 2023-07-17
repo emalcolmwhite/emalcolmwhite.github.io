@@ -7,7 +7,7 @@ output:
     fig_width: 1
 ---
 
-These are my notes from "Introduction to Data Science" at Middlebury College in Spring 2023.
+These are my materials from "Introduction to Data Science" at Middlebury College in Spring 2023.
 
 This course utilizes R and RStudio for computation. Free download available [here](https://posit.co/download/rstudio-desktop/).
 
@@ -16,6 +16,8 @@ There is no official textbook for this course. Here are some resources that I ut
 -   "Data Science: A First Introduction by Tiffany Timbers, Trevor Campbell, and Melissa Lee" available for free online here: <https://datasciencebook.ca/>
 
 -   "R for Data Science" by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund available for free online here: <https://r4ds.hadley.nz/>
+
+## Course Materials
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------+-----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Topic                                                                                                                                           | Blank Notes (.Rmd)                                                             | Complete Notes (.pdf)                                                     | Homework (.Rmd)                                                             | Other Resources                                                                                                    |
@@ -67,13 +69,13 @@ There is no official textbook for this course. Here are some resources that I ut
 |                                                                                                                                                 |                                                                                |                                                                           |                                                                             | -   [Animation - plotly (YouTube Video)](https://youtu.be/gk5VhST4h_Q)                                             |
 +-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------+-----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
-### Notes
+## Notes
 
 -   I will not post solution keys to the homework assignments above since I use similar assignments in my current courses.
 
 -   I am human and sometimes make mistakes. Don't hesitate to email me if you have any suggestions or corrections.
 
-**What's Next?**
+## **What's Next?**
 
 This course is meant to be an *Introduction* to Data Science and is only the tip of the iceberg! If you you interested in further reading or next steps, I would recommend the following:
 
