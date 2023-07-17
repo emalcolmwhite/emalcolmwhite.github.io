@@ -33,7 +33,7 @@ include:
   max-width: 300px;
   margin: auto;
   text-align: center;
-  background-color:#96ACA8;
+  background-color:#B4C1BE;
 }
 </style>
 
