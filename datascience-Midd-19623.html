@@ -11,9 +11,9 @@
 
 
 
-<title> Introduction to Statistical Science (STAT 0116)</title>
+<title> Introduction to Data Science (STAT 0118)</title>
 
-<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -298,85 +298,131 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><p><img src="STAT0116_hex_sticker.png"
+<h1 class="title toc-ignore"><p><img src="STAT0118_hex_sticker.png"
 style="width:2in" /><br />
-Introduction to Statistical Science (STAT 0116)</p></h1>
+Introduction to Data Science (STAT 0118)</p></h1>
 
 </div>
 
 
-<p>These are my materials from “Introduction to Statistical Science” at
+<p>These are my materials from “Introduction to Data Science” at
 Middlebury College in Spring 2023.</p>
-<ul>
-<li><p>We roughly follow <a
-href="https://www.openintro.org/book/ims/">Introduction to Modern
-Statistics</a> by Mine Çetinkaya-Rundel and Johanna Hardin. This is an
-open-source and free textbook available through <a
-href="https://openintro.org/">OpenIntro</a>.</p></li>
-<li><p>This course utilizes R and RStudio for computation. Free download
+<p>This course utilizes R and RStudio for computation. Free download
 available <a
-href="https://posit.co/download/rstudio-desktop/">here</a>.</p></li>
+href="https://posit.co/download/rstudio-desktop/">here</a>.</p>
+<p>There is no official textbook for this course. Here are some
+resources that I utilize for inspiration/examples. They are great
+references.</p>
+<ul>
+<li><p>“Data Science: A First Introduction by Tiffany Timbers, Trevor
+Campbell, and Melissa Lee” available for free online here: <a
+href="https://datasciencebook.ca/"
+class="uri">https://datasciencebook.ca/</a></p></li>
+<li><p>“R for Data Science” by Hadley Wickham, Mine Çetinkaya-Rundel,
+and Garrett Grolemund available for free online here: <a
+href="https://r4ds.hadley.nz/"
+class="uri">https://r4ds.hadley.nz/</a></p></li>
 </ul>
-<table style="width:98%;">
+<div id="course-materials" class="section level2">
+<h2>Course Materials</h2>
+<table style="width:99%;">
 <colgroup>
-<col width="58%" />
-<col width="8%" />
-<col width="11%" />
-<col width="19%" />
+<col width="29%" />
+<col width="16%" />
+<col width="15%" />
+<col width="15%" />
+<col width="23%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Topic</th>
-<th align="left">Notes</th>
-<th align="left">Homework</th>
+<th align="left">Blank Notes (.Rmd)</th>
+<th align="left">Complete Notes (.pdf)</th>
+<th align="left">Homework (.Rmd)</th>
 <th align="left">Other Resources</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Ch 1 - Hello Data</td>
+<td align="left">Introduction to R, RStudio, and RMarkdown</td>
 <td align="left"></td>
-<td align="left"></td>
+<td align="left"><a
+href="STAT0118_A_Intro.pdf"><i class="fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_A_Intro_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Lab - Intro to Data</td>
+<td align="left">wrangling with <code>dplyr</code></td>
+<td align="left"><a
+href="STAT0118_B_Wrangling_Notes_Blank.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_B_Notes.pdf"><i class = "fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_B_Wrangling_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">aggregating data with <code>summarize()</code> and
+<code>group_by()</code></td>
+<td align="left"><a
+href="STAT0118_C_Aggregating_Notes_Blank.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_C_Aggregating_Notes.pdf"><i class = "fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_C_Aggregating_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">pretty tables with <a
+href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html"><code>kableExtra</code></a>
+&amp; intro to <code>ggplot2</code></td>
+<td align="left"><a
+href="STAT0118/STAT0118_D_Kable_Notes_Blank.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><a
+href="STAT0118/STAT0118_D_Kable_Notes.pdf"><i class = "fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118/STAT0118_D_Kable_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><ul>
+<li><a
+href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable
+Styling Guide</a></li>
+<li>Inspiration: <a
+href="https://community.rstudio.com/c/table-gallery/64">RStudio table
+gallery</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td align="left">creating plots with <a
+href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> (Part
+2)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="https://ggplot2-book.org/"
+class="uri">https://ggplot2-book.org/</a></td>
+</tr>
+<tr class="even">
+<td align="left">creating plots with <a
+href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> (Part
+3)</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Ch 2 - Study Design</td>
+<td align="left">working with categorical data using <a
+href="https://forcats.tidyverse.org/"><code>forcats</code></a></td>
 <td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 4 - Categorical Data</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Categorical Data in R</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Ch 5 - Numeric Data</td>
+<td align="left">working with numeric data using <a
+href="https://scales.r-lib.org/"><code>scales</code></a></td>
 <td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Supp - Probability (Part 1)</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Numeric Data in R</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -386,125 +432,159 @@ href="https://posit.co/download/rstudio-desktop/">here</a>.</p></li>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Supp - Probability (Part 2)</td>
+<td align="left">reshaping</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Ch 13 - Normal Variables</td>
+<td align="left">maps (cloropleth)</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Lab - Normal Variables</td>
+<td align="left">maps (points)</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Ch 13 - Central Limit Theorem</td>
+<td align="left">Simple Linear Regression</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Ch 11 - Hypothesis Testing</td>
+<td align="left">Multiple Regression</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Lab - Hypothesis Testing Activity</td>
+<td align="left">Web Scraping with <a
+href="https://rvest.tidyverse.org/"><code>rvest</code></a> (tables)</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Ch 16 - Inference for One Proportion<br />
-Ch 19 - Inference for One Mean</td>
+<td align="left">Webscraping with <a
+href="https://rvest.tidyverse.org/"><code>rvest</code></a> (text)</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Ch 13 - Confidence Intervals</td>
+<td align="left">Working with text using <a
+href="https://stringr.tidyverse.org/"><code>stringr</code></a></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Lab - Inference for One Proportion or One Mean in
-R</td>
+<td align="left">Working with dates and times using <a
+href="https://lubridate.tidyverse.org/"><code>lubridate</code></a></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Ch 17 - Inference for Comparing Two Proportions</td>
+<td align="left">Bonus Topic: Animation</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 18 - Inference for Two Way Tables</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Inference for Proportions in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 20 - Inference for Two Independent Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Ch 21 - Inference for Two Paired Means</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Lab - Inference for Two Means in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Errors</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 7 - Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Lab - Linear Regression in R</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ch 24 - Inference for Linear Regression</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left"><ul>
+<li><a href="notes/Notes_Animation.html">.html file</a></li>
+<li><a href="notes/Notes_Animation.Rmd">.Rmd file</a></li>
+<li><a href="https://youtu.be/kL7Ogq5MKh8">Animation - Intro (YouTube
+Video)</a></li>
+<li><a href="https://youtu.be/tCGW49nipQY">Animation - gganimate
+“Gapminder” data (YouTube Video)</a></li>
+<li><a href="https://youtu.be/m7MsjJZ_QpI">Animation - ease_aes()
+(YouTube Video)</a></li>
+<li><a href="https://youtu.be/X6J8jh-Gdbs">Animation - gganimate “Air
+Quality” data (YouTube Video)</a></li>
+<li><a href="https://youtu.be/ZQTK3A2xN2o">Animation - more examples
+(YouTube Video)</a></li>
+<li><a href="https://youtu.be/gk5VhST4h_Q">Animation - plotly (YouTube
+Video)</a></li>
+</ul></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="notes" class="section level2">
+<h2>Notes</h2>
+<ul>
+<li><p>I will not post solution keys to the homework assignments above
+since I use similar assignments in my current courses.</p></li>
+<li><p>I am human and sometimes make mistakes. Don’t hesitate to email
+me if you have any suggestions or corrections.</p></li>
+</ul>
+</div>
+<div id="whats-next" class="section level2">
+<h2><strong>What’s Next?</strong></h2>
+<p>This course is meant to be an <em>Introduction</em> to Data Science
+and is only the tip of the iceberg! If you you interested in further
+reading or next steps, I would recommend the following:</p>
+<ul>
+<li><p>You may wish to <em>improve your programming skills</em>.</p>
+<ul>
+<li><p>I’d recommend an introduction to programming course (like CSCI
+0101 at Middlebury College).</p></li>
+<li><p>For more information about programming in R, you can check out
+Advanced R by Hadley Wickham. This book is available for free online
+here: <a href="https://adv-r.hadley.nz/"
+class="uri">https://adv-r.hadley.nz/</a></p></li>
+<li><p>You may wish to learn more about additional programming languages
+that are useful for data science: R, Python (popular libraries include
+NumPy, pandas), SQL, and Julia. <a href="www.datacamp.com">Data Camp</a>
+is a popular website for interactive courses and tutorials.</p></li>
+</ul></li>
+<li><p>You may wish to improve your understanding of statistics.
+Understanding statistical concepts and probability theory is crucial for
+data science.</p>
+<ul>
+<li><p>I’d recommend an introduction to statistics course (like MATH
+0116 or MATH 0201 at Middlebury College).</p></li>
+<li><p>If you’ve already taken an intro level class, you will want to
+look for additional classes in regression (like MATH 0211 at
+Middlebury), probability theory (like MATH 0310 at Middlebury), and
+inference (like MATH 0311 at Middlebury).</p></li>
+</ul></li>
+<li><p>You may wish to <em>learn more about <a
+href="https://github.com/">GitHub</a></em> which is useful for version
+control, collaborative development, and creating open-source materials.
+Here is a link to some resources that may be helpful: <a
+href="https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources"
+class="uri">https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources</a></p></li>
+<li><p>You may wish to <em>read</em> insightful articles, tutorials, and
+resources related to data science in R:</p>
+<ul>
+<li><p>R-bloggers (<a
+href="https://www.r-bloggers.com/"><strong>https://www.r-bloggers.com/</strong></a>)</p></li>
+<li><p>Towards Data Science (<a
+href="https://towardsdatascience.com/"><strong>https://towardsdatascience.com/</strong></a>)</p></li>
+<li><p>Simply Statistics (<a
+href="https://simplystatistics.org/"><strong>https://simplystatistics.org/</strong></a>)</p></li>
+<li><p>Data Science Central (<a
+href="https://www.datasciencecentral.com/"><strong>https://www.datasciencecentral.com/</strong></a>)</p></li>
+</ul></li>
+</ul>
+</div>
 
 
 
