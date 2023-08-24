@@ -1,0 +1,162 @@
+---
+title: 'STAT 118: Notes C'
+author: ' '
+subtitle: 'Aggregating Data and making pretty tables with `kableExtra`'
+output:
+  pdf_document: default
+  html_document:
+    code_folding: hide
+---
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+
+```
+
+Today’s Dataset: `palmerpenguins` Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by
+Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.
+
+## Missing Data
+
+```{r}
+library(palmerpenguins)
+data('penguins')
+```
+
+```{r}
+penguins <- penguins %>%
+drop_na()
+#sometimes this is appropriate...
+#need to think about why data is missing...
+```
+
+## `summarize` / `summarise` function
+
+Suppose we are interested in the average bill length of all Adelie penguins:
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarize(average_bill_lenth = mean(bill_length_mm))
+```
+
+Suppose we are interested in the average bill length AND average bill depth of all Adelie penguins:
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarize(average_bill_lenth = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm))
+```
+
+There are lots of other functions available:
+
+  - `min` : minimum value
+  - `max` : maximum value
+  - `mean` : average or mean value
+  - `median` : median value
+  - `var` : variance
+  - `sd` : standard deviation
+  - `n` : count or number of values
+  - `n_distinct` : counts number of distinct values
+  
+Suppose we are interested in the average bill length AND the median bill length of all Adelie penguins:
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarise(average_bill_lenth = mean(bill_length_mm),
+  median_bill_length = median(bill_length_mm))
+```
+
+# `group_by()`
+
+Let’s say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm))
+```
+
+## Multiple Groups
+
+```{r}
+penguins %>%
+  group_by(species, sex) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm))
+```
+
+# Using `kable` to get pretty tables
+
+```{r}
+library(kableExtra)
+```
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+  kbl()
+```
+
+Note that kable will work if you knit to .html (like we do in this class), but also if you choose to knit to Word or PDF (note you need to install some things to knit to PDF).
+
+## Options in `kbl`
+
+We customize the content so it’s displaying the information more clearly.
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"),
+  caption = "Average Bill Characteristics by Species",
+digits = 2)
+```
+
+Better... 
+
+## `kable_styling()`
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"),
+caption = "Average Bill Characteristics by Species",
+digits = 2) %>%
+kable_styling()
+```
+
+Many options for customizing the look of the tables – more here: [https://cran.r-project.org/web/packages/k
+ableExtra/vignettes/awesome_table_in_html.html](https://cran.r-project.org/web/packages/k
+ableExtra/vignettes/awesome_table_in_html.html)
+
+Let’s try one...
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm),
+  average_bill_depth = mean(bill_depth_mm)) %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"),
+  caption = "Average Bill Characteristics by Species",
+  digits = 2) %>%
+  kable_paper() %>%
+  column_spec(1, bold=T) %>%
+  row_spec(2, color = "#c85bcc") %>%
+  row_spec(3, color = "#067176") %>%
+  row_spec(1, color = "#ff7501")
+```
+
+# Brain Break
+
+This is a story about Jinjing the South American Magellanic Penguin, that swims 5000 miles each year to be reunited with the man who saved his life. 
+[https://youtu.be/oks2R4LqWtE](https://youtu.be/oks2R4LqWtE)

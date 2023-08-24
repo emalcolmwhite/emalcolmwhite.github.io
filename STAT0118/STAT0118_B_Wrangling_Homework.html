@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="" />
 
 
-<title>EMW</title>
+<title>STAT 118: Homework B</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +31,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
@@ -218,6 +220,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -296,98 +301,62 @@ $(document).ready(function () {
 
 <div id="header">
 
-
-
-<h1 class="title toc-ignore">EMW</h1>
-
-</div>
-
-
-<style>
-  .title{
-    display: none;
-  }
-</style>
-<style>
-.column-left{
-  float: left;
-  width: 40%;
-  text-align: center;
-}
-.column-main{
-  display: inline-block;
-  width: 60%;
-  text-align: left;
-}
-@media only screen and (max-width: 629px) {
-  .column-left {
-    float: none ;
-    width: 100% ;
-  }
-  .column-main {
-    float: none ;
-    width: 100% ;
-  }
-}
-</style>
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  background-color:#B4C1BE;
-}
-</style>
-<p><br> <br></p>
-<div class="column-left">
-<div class="card">
-<p><img src="emily_square.jpg" alt="Emily Malcolm-White headshot" class="img-circle" align="middle" width="200" height="200" style=" margin: 20px 20px 20px 20px;"/></p>
-<div id="emily-malcolm-white-sheher" class="section level3">
-<h3><strong>Emily Malcolm-White</strong> (she/her)</h3>
-<p>
-Faculty <br> Middlebury College <br> Department of Mathematics &amp;
-Statistics
-</p>
-<p><i class="fa fa-envelope"></i><a href = "mailto: emalcolmwhite@middlebury.edu">
-emalcolmwhite@middlebury.edu </a> <br> <br></p>
-</div>
-</div>
-</div>
-<div class="column-main">
-
-<div id="hi" class="section level3">
-<h3><strong>Hi! 👋</strong></h3>
-<p>I am an educator and student support specialist with a love for
-developing and teaching mathematics, statistics, and data science
-courses.</p>
-<p>I believe that STEM education should be inclusive and accessible for
-all. I hope to minimize barriers for all students, including those with
-varying academic backgrounds, those with responsibilities outside of
-academics, and those with disabilities. I take the time to learn about
-innovative and effective teaching pedagogy and like to keep trying new
-things to maximize my effectiveness as an instructor.</p>
-<p><br></p>
-<div id="education" class="section level5">
-<h5>Education</h5>
-<ul class="fa-ul">
-<li>
-<span class="fa-li"><i class="fas fa-graduation-cap"></i></span>MSc in
-Statistics
-</li>
-<p>
-<i>University of Victoria</i>
-</p>
-<li>
-<span class="fa-li"><i class="fas fa-graduation-cap"></i></span>BSc in
-Applied Mathematics and Statistics
-</li>
-<p>
-<i>University of Guelph</i>
-</p>
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
 </div>
+
+
+
+<h1 class="title toc-ignore">STAT 118: Homework B</h1>
+<h3 class="subtitle">Wrangling data with dplyr: filter, select,
+arrange</h3>
+<h4 class="author"></h4>
+
 </div>
+
+
+<pre class="r"><code>#make sure the package is installed on your computer or this won&#39;t run! 
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ───────────────
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>#This assignment concerns the gapminder dataset
+# First, Download gapminder from the menu at the right ---&gt; 
+library(gapminder)
+data(gapminder) #this code loads the gapminder data so you can view it in your environment. Click on the word gapminder to be able see it </code></pre>
+<ol style="list-style-type: decimal">
+<li><p>How many rows and columns does this dataset have?</p></li>
+<li><p>What are the names of the 6 columns?</p></li>
+<li><p>Create a dataset called <code>gapminder2007</code> which only
+contains information for each of the countries in 2007.</p></li>
+<li><p>If you instead try to choose the subset with year equal to 2005,
+something will go wrong. Try it and explain what happens and
+why.</p></li>
+<li><p>Print out the row of data corresponding to the US in
+2007.</p></li>
+<li><p>In the above problem, you would have put quotes around
+<code>United States</code> but not around <code>2007</code>. Explain
+why.</p></li>
+<li><p>Which country had a higher life expectancy per capita in 1977:
+Ireland or Brazil?</p></li>
+<li><p>What is the lowest life expectancy in the gapminder dataset?
+Which country and year does it correspond to?</p></li>
+<li><p>For the year 2007, print out a list of the top 10 countries with
+the highest life expectancy. They should be ordered from highest life
+expectancy to 10th highest life expectancy. You should only display the
+countries name and life expectancy (and no other data).</p></li>
+</ol>
 
 
 
@@ -422,6 +391,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

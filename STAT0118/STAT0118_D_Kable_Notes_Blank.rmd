@@ -1,0 +1,107 @@
+---
+title: 'STAT 118: Notes D'
+author: ' '
+subtitle: pretty tables with xtable + a little ggplot
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+Let's consider our table from last class: 
+
+```{r message=FALSE, warning=FALSE}
+#LOAD DATA 
+library(palmerpenguins)
+data(penguins)
+
+#CLEAN UP DATA
+penguins <- penguins %>%
+  drop_na()
+#sometimes this is appropriate. It's questionable here... 
+```
+
+Recall from last class... constructing a table which displays the average bill length and average bill depth for each different species of penguin. 
+
+```{r}
+
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+```
+
+When we knit this up it looks like of ugly... 
+
+# Using `kable` to get pretty tables
+
+```{r message=FALSE, warning=FALSE}
+library(kableExtra)
+```
+
+Try using kable: 
+
+```{r}
+
+```
+
+Note that kable will work if you knit to .html (like we do in this class), but also if you choose to knit to Word or PDF (note you need to install some things to knit to PDF). 
+
+# Options in kable
+
+We customize the content so it's displaying the information more clearly. 
+
+```{r}
+
+```
+
+Better...  
+
+# pretty styling 
+
+```{r}
+
+```
+
+Many options for customizing the look of the tables -- more here: [https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+
+Let's try one... 
+
+Let's make each row's color correspond to 
+
+```{r}
+
+```
+
+
+RStudio hosts a table contest every year!
+
+- Here is a link to this year's contest [https://www.rstudio.com/blog/rstudio-table-contest-2022/](https://www.rstudio.com/blog/rstudio-table-contest-2022/)
+- Here is a link to previous year's entries and winners to explore what is possible! [https://community.rstudio.com/c/table-gallery/64](https://community.rstudio.com/c/table-gallery/64)
+
+# Introduction to ggplot
+
+```{r}
+ 
+```
+
+
+
+```{r}
+table1 %>% 
+ggplot(aes(x = species, y = average_bill_length)) +
+geom_bar(stat = "identity")
+```
+```{r}
+
+```
+
+```{r}
+penguins %>% 
+  ggplot(aes(x=flipper_length_mm, y=body_mass_g)) +
+  geom_point() 
+```

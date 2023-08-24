@@ -11,26 +11,40 @@
 
 
 
-<title>Data Science</title>
+<title> Introduction to Data Science (STAT 0118)</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -43,32 +57,8 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
+
 
 
 
@@ -78,10 +68,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -98,40 +84,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 45px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 50px;
-  margin-top: -50px;
-}
-.section h2 {
-  padding-top: 50px;
-  margin-top: -50px;
-}
-.section h3 {
-  padding-top: 50px;
-  margin-top: -50px;
-}
-.section h4 {
-  padding-top: 50px;
-  margin-top: -50px;
-}
-.section h5 {
-  padding-top: 50px;
-  margin-top: -50px;
-}
-.section h6 {
-  padding-top: 50px;
-  margin-top: -50px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -159,7 +121,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -171,7 +133,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -181,11 +143,28 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.parent().addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -197,13 +176,12 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -211,16 +189,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -261,49 +232,61 @@ $(document).ready(function () {
 
 
 
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Emily Malcolm-White</a>
+      <a class="navbar-brand" href="index.html">EMW</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">
-    <span class="fa fa-home"></span>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Course Materials
      
-    Home
+    <span class="caret"></span>
   </a>
-</li>
-<li>
-  <a href="datascience.html">Data Science</a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="statistics.html">Statistics</a>
+    </li>
+    <li>
+      <a href="datascience.html">Data Science</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="mailto:emilybmwhite@gmail.com">
-    <span class="fa fa-envelope-o"></span>
-     
-    Contact me
-  </a>
-</li>
-<li>
-  <a href="https://www.youtube.com/channel/UCGE_eugh_WGuQfb1T4Y35SA">
+  <a href="https://youtube.com/@emalcolmwhite">
     <span class="fa fa-youtube-play"></span>
      
     YouTube
   </a>
 </li>
 <li>
-  <a href="https://github.com/ebmwhite">
+  <a href="https://github.com/emalcolmwhite">
     <span class="fa fa-github"></span>
      
     GitHub
+  </a>
+</li>
+<li>
+  <a href="EMW_CV.pdf">
+    <span class="fa fa-file-pdf-o"></span>
+     
+    CV
+  </a>
+</li>
+<li>
+  <a href="mailto:emalcolmwhite@middlebury.edu">
+    <span class="fa fa-envelope-o"></span>
+     
+    Email
   </a>
 </li>
       </ul>
@@ -311,78 +294,294 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
-<h1 class="title toc-ignore">Data Science</h1>
+<h1 class="title toc-ignore"><p><img src="STAT0118_hex_sticker.png"
+style="width:2in" /><br />
+Introduction to Data Science (STAT 0118)</p></h1>
 
 </div>
 
 
-<p>These are my notes from “Introduction to Data Science” at Middlebury College (Spring 2020).</p>
-<div id="class-notes" class="section level2">
-<h2>Class Notes:</h2>
+<p>These are my materials from “Introduction to Data Science” at
+Middlebury College in Spring 2023.</p>
+<p>This course utilizes R and RStudio for computation. Free download
+available <a
+href="https://posit.co/download/rstudio-desktop/">here</a>.</p>
+<p>There is no official textbook for this course. Here are some
+resources that I utilize for inspiration/examples. They are great
+references.</p>
 <ul>
-<li><a href="notes/Notes_Basics_Instructor.html">Basics</a>
+<li><p>“Data Science: A First Introduction by Tiffany Timbers, Trevor
+Campbell, and Melissa Lee” available for free online here: <a
+href="https://datasciencebook.ca/"
+class="uri">https://datasciencebook.ca/</a></p></li>
+<li><p>“R for Data Science” by Hadley Wickham, Mine Çetinkaya-Rundel,
+and Garrett Grolemund available for free online here: <a
+href="https://r4ds.hadley.nz/"
+class="uri">https://r4ds.hadley.nz/</a></p></li>
+</ul>
+<div id="course-materials" class="section level2">
+<h2>Course Materials</h2>
+<table style="width:99%;">
+<colgroup>
+<col width="29%" />
+<col width="16%" />
+<col width="15%" />
+<col width="15%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Topic</th>
+<th align="left">Blank Notes (.Rmd)</th>
+<th align="left">Complete Notes (.pdf)</th>
+<th align="left">Homework (.Rmd)</th>
+<th align="left">Other Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Introduction to R, RStudio, and RMarkdown</td>
+<td align="left"></td>
+<td align="left"><a
+href="STAT0118_A_Intro.pdf"><i class="fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_A_Intro_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">wrangling with <code>dplyr</code></td>
+<td align="left"><a
+href="STAT0118_B_Wrangling_Notes_Blank.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_B_Notes.pdf"><i class = "fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_B_Wrangling_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">aggregating data with <code>summarize()</code> and
+<code>group_by()</code></td>
+<td align="left"><a
+href="STAT0118_C_Aggregating_Notes_Blank.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_C_Aggregating_Notes.pdf"><i class = "fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118_C_Aggregating_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">pretty tables with <a
+href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html"><code>kableExtra</code></a>
+&amp; intro to <code>ggplot2</code></td>
+<td align="left"><a
+href="STAT0118/STAT0118_D_Kable_Notes_Blank.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><a
+href="STAT0118/STAT0118_D_Kable_Notes.pdf"><i class = "fa fa-file-pdf-o"></i></a></td>
+<td align="left"><a
+href="STAT0118/STAT0118_D_Kable_Homework.Rmd"><i class="fa fa-file-code-o"></i></a></td>
+<td align="left"><ul>
+<li><a
+href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable
+Styling Guide</a></li>
+<li>Inspiration: <a
+href="https://community.rstudio.com/c/table-gallery/64">RStudio table
+gallery</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td align="left">creating plots with <a
+href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> (Part
+2)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="https://ggplot2-book.org/"
+class="uri">https://ggplot2-book.org/</a></td>
+</tr>
+<tr class="even">
+<td align="left">creating plots with <a
+href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> (Part
+3)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">working with categorical data using <a
+href="https://forcats.tidyverse.org/"><code>forcats</code></a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">working with numeric data using <a
+href="https://scales.r-lib.org/"><code>scales</code></a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">joining</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">reshaping</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">maps (cloropleth)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">maps (points)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Simple Linear Regression</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Multiple Regression</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Web Scraping with <a
+href="https://rvest.tidyverse.org/"><code>rvest</code></a> (tables)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Webscraping with <a
+href="https://rvest.tidyverse.org/"><code>rvest</code></a> (text)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Working with text using <a
+href="https://stringr.tidyverse.org/"><code>stringr</code></a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Working with dates and times using <a
+href="https://lubridate.tidyverse.org/"><code>lubridate</code></a></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Bonus Topic: Animation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><ul>
+<li><a href="notes/Notes_Animation.html">.html file</a></li>
+<li><a href="notes/Notes_Animation.Rmd">.Rmd file</a></li>
+<li><a href="https://youtu.be/kL7Ogq5MKh8">Animation - Intro (YouTube
+Video)</a></li>
+<li><a href="https://youtu.be/tCGW49nipQY">Animation - gganimate
+“Gapminder” data (YouTube Video)</a></li>
+<li><a href="https://youtu.be/m7MsjJZ_QpI">Animation - ease_aes()
+(YouTube Video)</a></li>
+<li><a href="https://youtu.be/X6J8jh-Gdbs">Animation - gganimate “Air
+Quality” data (YouTube Video)</a></li>
+<li><a href="https://youtu.be/ZQTK3A2xN2o">Animation - more examples
+(YouTube Video)</a></li>
+<li><a href="https://youtu.be/gk5VhST4h_Q">Animation - plotly (YouTube
+Video)</a></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="notes" class="section level2">
+<h2>Notes</h2>
 <ul>
-<li><a href="notes/Notes_Basics_Instructor.Rmd">raw .Rmd</a></li>
+<li><p>I will not post solution keys to the homework assignments above
+since I use similar assignments in my current courses.</p></li>
+<li><p>I am human and sometimes make mistakes. Don’t hesitate to email
+me if you have any suggestions or corrections.</p></li>
+</ul>
+</div>
+<div id="whats-next" class="section level2">
+<h2><strong>What’s Next?</strong></h2>
+<p>This course is meant to be an <em>Introduction</em> to Data Science
+and is only the tip of the iceberg! If you you interested in further
+reading or next steps, I would recommend the following:</p>
+<ul>
+<li><p>You may wish to <em>improve your programming skills</em>.</p>
+<ul>
+<li><p>I’d recommend an introduction to programming course (like CSCI
+0101 at Middlebury College).</p></li>
+<li><p>For more information about programming in R, you can check out
+Advanced R by Hadley Wickham. This book is available for free online
+here: <a href="https://adv-r.hadley.nz/"
+class="uri">https://adv-r.hadley.nz/</a></p></li>
+<li><p>You may wish to learn more about additional programming languages
+that are useful for data science: R, Python (popular libraries include
+NumPy, pandas), SQL, and Julia. <a href="www.datacamp.com">Data Camp</a>
+is a popular website for interactive courses and tutorials.</p></li>
 </ul></li>
-<li><a href="notes/Notes_Transformation_Instructor.html">Transformation</a>
+<li><p>You may wish to improve your understanding of statistics.
+Understanding statistical concepts and probability theory is crucial for
+data science.</p>
 <ul>
-<li><a href="notes/Notes_Transformation_Instructor.Rmd">raw .Rmd file</a></li>
+<li><p>I’d recommend an introduction to statistics course (like MATH
+0116 or MATH 0201 at Middlebury College).</p></li>
+<li><p>If you’ve already taken an intro level class, you will want to
+look for additional classes in regression (like MATH 0211 at
+Middlebury), probability theory (like MATH 0310 at Middlebury), and
+inference (like MATH 0311 at Middlebury).</p></li>
 </ul></li>
-<li><a href="notes/Notes_Visualization_Instructor.html">Visualization</a>
+<li><p>You may wish to <em>learn more about <a
+href="https://github.com/">GitHub</a></em> which is useful for version
+control, collaborative development, and creating open-source materials.
+Here is a link to some resources that may be helpful: <a
+href="https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources"
+class="uri">https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources</a></p></li>
+<li><p>You may wish to <em>read</em> insightful articles, tutorials, and
+resources related to data science in R:</p>
 <ul>
-<li><a href="notes/Notes_Visualization_Instructor.rmd">raw .Rmd file</a></li>
-</ul></li>
-<li><a href="notes/Notes_Maps.html">Maps</a>
-<ul>
-<li><a href="https://youtu.be/ZjZoYdQ9F5M">Maps - Introduction (YouTube Video)</a></li>
-<li><a href="https://youtu.be/k-ga1bWzakc">Maps - North Carolina (YouTube Video)</a></li>
-<li><a href="https://youtu.be/Fr7UQtvV010">Maps - Basics of library(rnaturalearth) (YouTube Video)</a></li>
-<li><a href="https://youtu.be/wHQYkEdUefQ">Maps - library(rnaturalearth) adding points (YouTube Video)</a></li>
-<li><a href="https://youtu.be/VjbWRR2JhN0">Maps - Basics of using library(maps) (YouTube Video)</a></li>
-<li><a href="https://youtu.be/zCaM6wan5hM">Maps - Using Data with library(maps) (YouTube Video)</a></li>
-<li><a href="notes/Notes_Maps.Rmd">raw .Rmd file</a></li>
-</ul></li>
-<li><a href="notes/Notes_WebScraping.html">Web Scraping</a>
-<ul>
-<li><a href="https://youtu.be/yZVreEX2EnA">Web Scraping - Using rvest to scrape data from html tables (YouTube Video)</a></li>
-<li><a href="https://youtu.be/bdWzPhNPIFw">Web Scraping - wprking with scraped data (YouTube Video)</a></li>
-<li><a href="https://youtu.be/NZnWF4nqblI">Web Scraping - another example / cleaning web scraped data (YouTube Video)</a></li>
-<li><a href="notes/Notes_WebScraping.Rmd">raw .Rmd file</a></li>
-</ul></li>
-<li><a href="notes/Notes_Joins.html">Joins</a>
-<ul>
-<li><a href="https://youtu.be/EJsBqgk2Py8">Joins - Intro (YouTube Video)</a></li>
-<li><a href="https://youtu.be/7C2Ka-LM6ww">Joins - Working with Joined Data (YouTube Video)</a></li>
-<li><a href="https://youtu.be/XNb0yjqaP5E">Joins - Types of Joins (YouTube Video)</a></li>
-<li><a href="notes/Notes_Joins.Rmd">raw .Rmd file</a></li>
-</ul></li>
-<li><a href="notes/Notes_Modeling.html">Modeling</a>
-<ul>
-<li><a href="https://youtu.be/6DFk4LXqTcA">Modeling - Intro to “house” dataset (YouTube Video)</a></li>
-<li><a href="https://youtu.be/9fRAiFzOMng">Modeling - Intro to Simple Linear Regression (YouTube Video)</a></li>
-<li><a href="https://youtu.be/HoUGtqTubfs">Modeling - Is this a good model? (YouTube Video)</a></li>
-<li><a href="https://youtu.be/7OkRsLME_Iw">Modeling - Making Predictions (YouTube Video)</a></li>
-<li><a href="https://youtu.be/9ppAxCadfkk">Modeling - Multiple Regression (YouTube Video)</a></li>
-<li><a href="https://youtu.be/BuhoxGJCE70">Modeling - AIC and R Squared (YouTube Video)</a></li>
-<li><a href="https://youtu.be/17G12TqRsdM">Modeling - Step Function (YouTube Video)</a></li>
-<li><a href="https://youtu.be/mAKLp0yLsFE">Modeling - Intro to “email” dataset (YouTube Video)</a></li>
-<li><a href="https://youtu.be/GHG-I5R1NAg">Modeling - Intro to Logistic Regression (YouTube Video)</a></li>
-<li><a href="https://youtu.be/yIH-zgZ1y-k">Modeling - Making Predictions with Logistic Regression (YouTube Video)</a></li>
-<li><a href="notes/Notes_Modeling.rmd">raw .Rmd file</a></li>
-</ul></li>
-<li><a href="notes/Notes_Animation.html">Animation</a>
-<ul>
-<li><a href="https://youtu.be/kL7Ogq5MKh8">Animation - Intro (YouTube Video)</a></li>
-<li><a href="https://youtu.be/tCGW49nipQY">Animation - gganimate “Gapminder” data (YouTube Video)</a></li>
-<li><a href="https://youtu.be/m7MsjJZ_QpI">Animation - ease_aes() (YouTube Video)</a></li>
-<li><a href="https://youtu.be/X6J8jh-Gdbs">Animation - gganimate “Air Quality” data (YouTube Video)</a></li>
-<li><a href="https://youtu.be/ZQTK3A2xN2o">Animation - more examples (YouTube Video)</a></li>
-<li><a href="https://youtu.be/gk5VhST4h_Q">Animation - plotly (YouTube Video)</a></li>
-<li><a href="notes/Notes_Animation.Rmd">raw .Rmd file</a></li>
+<li><p>R-bloggers (<a
+href="https://www.r-bloggers.com/"><strong>https://www.r-bloggers.com/</strong></a>)</p></li>
+<li><p>Towards Data Science (<a
+href="https://towardsdatascience.com/"><strong>https://towardsdatascience.com/</strong></a>)</p></li>
+<li><p>Simply Statistics (<a
+href="https://simplystatistics.org/"><strong>https://simplystatistics.org/</strong></a>)</p></li>
+<li><p>Data Science Central (<a
+href="https://www.datasciencecentral.com/"><strong>https://www.datasciencecentral.com/</strong></a>)</p></li>
 </ul></li>
 </ul>
 </div>
@@ -396,7 +595,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -414,7 +613,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

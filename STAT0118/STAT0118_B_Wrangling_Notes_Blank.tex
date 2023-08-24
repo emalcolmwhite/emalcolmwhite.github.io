@@ -1,0 +1,278 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={STAT 118: Notes B},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{STAT 118: Notes B}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Wrangling data with dplyr: filter, select, arrange}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{importing-data}{%
+\section{Importing Data}\label{importing-data}}
+
+In this class, we are going to be working with a dataset relating to the
+languages spoken at home by Canadian Residents. Many Indigenous peoples
+exist in Canada with their own languages and cultures. Sadly,
+colonization has led to the loss of many of these languages. This data
+is a subset of data collected during the 2016 census.
+
+What is a .csv file?
+
+How do we import it into R?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#can\_lang.csv needs to be saved in the same directory as this file. }
+\CommentTok{\#can\_lang \textless{}{-} read.csv("can\_lang.csv")}
+\end{Highlighting}
+\end{Shaded}
+
+Alternatively, you can download it directly from the internet. Github
+user \texttt{ttimbers} hosts this file to share with the public.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{can\_lang }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can\_lang.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Let's take a look at this data for a minute to see what information has
+been recorded.
+
+\hypertarget{installing-and-using-packages}{%
+\section{Installing and Using
+Packages}\label{installing-and-using-packages}}
+
+Sometimes everything we need (data, functions, etc) are not available in
+base R. In R, expert users will package up useful things like data and
+functions into packages that be download and used.
+
+First, you need to download the package from the right hand menu
+--\textgreater{} You only need to do this once.
+
+In each new .Rmd document, you need to call any packages you want to use
+but adding the code \texttt{library(packagename)} inside an R chunk.
+
+For example, in this class we will use the \texttt{tidyverse} package a
+lot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{dplyr}{%
+\section{\texorpdfstring{\texttt{dplyr}}{dplyr}}\label{dplyr}}
+
+There are actually many commonly used packages wrapped up inside one
+\texttt{tidyverse} package.
+
+Today we are specifically going to be talking about the package
+\texttt{dplyr} which is useful to manipulating data sets.
+
+\hypertarget{filter}{%
+\section{\texorpdfstring{\texttt{filter}}{filter}}\label{filter}}
+
+We can use the \texttt{filter} function to extract \textbf{\emph{rows}}
+from the data that have a particular characteristic.
+
+For example, we may be interested in only looking at only the languages
+in this dataset that are Aboriginal languages.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#start with the can\_lang dataset, the pipe "\%" means apply the action on the following line to the previous line. In this case, pick out only the rows were the category variable is "Aboriginal languages" }
+
+
+
+
+\DocumentationTok{\#\#note the aboriginal languages is text/categorical and so quotation marks are needed. }
+\DocumentationTok{\#\#R doesn\textquotesingle{}t care about whether they are double quotation marks (") or single (\textquotesingle{}). They work the same. }
+\CommentTok{\# If we don\textquotesingle{}t assign it to an object, then it just prints out for us to see! }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called \textasciigrave{}aboriginal\_lang\textasciigrave{}. }
+
+
+
+
+\CommentTok{\#Notice if you assign it to an object that it doesn\textquotesingle{}t print out the contents. }
+\CommentTok{\# You\textquotesingle{}ll see the new object in your environment on the top right {-}{-}{-}\textgreater{} }
+\CommentTok{\# If you click on the word \textasciigrave{}aboriginal languages\textasciigrave{} (not the blue play button) it will open the object so you can see what is saved inside. }
+\end{Highlighting}
+\end{Shaded}
+
+It can also be used with numeric criteria.
+
+Suppose we want a list of all the languages in Canada that are spoken by
+less than 100 people as their mother tongue.
+
+The logical operators are given below:
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{https://ehsanx.github.io/intro2R/images/logical.png}
+
+\hypertarget{select}{%
+\section{\texorpdfstring{\texttt{select}}{select}}\label{select}}
+
+select is used to extract only certain \textbf{\emph{columns}}. For
+example, perhaps we only want to print out a list names of the
+aboriginal languages (language column).
+
+We can combine criteria together as well in one command with multiple
+pipes:
+
+\hypertarget{arrange}{%
+\section{\texorpdfstring{\texttt{arrange}}{arrange}}\label{arrange}}
+
+The \texttt{arrange} function allows us to order the rows of the data
+frame by the values of a particular column.
+
+For example, arrange all the aboriginal languages in canada by from most
+to least spoken as mother tongue.
+
+\hypertarget{slice}{%
+\section{\texorpdfstring{\texttt{slice}}{slice}}\label{slice}}
+
+The slice function will allow us to pick only a subset of the rows based
+on their numeric order (1st through last).
+
+For example, if I want a list of the 10 most commonly spoken aboriginal
+languages.
+
+\hypertarget{badges-earned}{%
+\paragraph[Badges Earned ]{\texorpdfstring{Badges Earned
+\protect\includegraphics[width=1in,height=\textheight]{https://github.com/rstudio/hex-stickers/raw/main/thumbs/pipe.png}
+\protect\includegraphics[width=1in,height=\textheight]{https://github.com/rstudio/hex-stickers/raw/main/thumbs/dplyr.png}}{Badges Earned  }}\label{badges-earned}}
+
+\hypertarget{brain-break}{%
+\section{Brain Break}\label{brain-break}}
+
+\begin{itemize}
+\item
+  \href{https://www.youtube.com/watch?v=99-LoEkAA3w}{Students at Allison
+  Bernard Memorial High School in Eskasoni, Cape Breton recorded Paul
+  McCartney's Blackbird in their native Mi'kmaq language.}
+\item
+  \href{https://www.youtube.com/watch?v=wW0gpo2deKg}{The Jerry Cans are
+  a band from Iqaluit, Nunavut who combine traditional Inuit throat
+  singing with folk music and country rock. Their music is largely
+  written in Inuktitut (the indigineous language of the Inuit)}
+\end{itemize}
+
+\end{document}

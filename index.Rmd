@@ -1,11 +1,18 @@
 ---
-title: " "
+title: "EMW"
 output:
   html_document:
     fig_width: 1
 include: 
   - .img-circle {border-radius: 50%;}
 ---
+
+
+<style>
+  .title{
+    display: none;
+  }
+</style>
 
 <style>
 .column-left{
@@ -18,33 +25,65 @@ include:
   width: 60%;
   text-align: left;
 }
+@media only screen and (max-width: 629px) {
+  .column-left {
+    float: none ;
+    width: 100% ;
+  }
+  .column-main {
+    float: none ;
+    width: 100% ;
+  }
+}
 </style>
 
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  background-color:#B4C1BE;
+}
+</style>
 
+<br> <br>
+
+::: column-left
+::: card
+<img src="emily_square.jpg" alt="Emily Malcolm-White headshot" class="img-circle" align="middle" width="200" height="200" style=" margin: 20px 20px 20px 20px;"/>
+
+### **Emily Malcolm-White** (she/her)
+
+<p> Faculty <br>
+Middlebury College <br>
+Department of Mathematics & Statistics</p>
+
+<i class="fa fa-envelope"></i><a href = "mailto: emalcolmwhite@middlebury.edu"> emalcolmwhite\@middlebury.edu </a>
 <br>
 <br>
-
-<div class="column-left">
-
-<img src="emily_square.jpg" alt="Emily Malcolm-White headshot" align="middle" class="img-circle" width="200" height="200" style=" margin: 20px 20px 20px 20px;">
-
-Emily Malcolm-White\
-*Lecturer at Middlebury College*\
-*Lecturer at University of Vermont*\
-emilybmwhite@gmail.com
-</div>
+:::
+:::
 
 <div class="column-main">
 
-**Hi! I'm Emily Malcolm-White.**  I am an educator and student support specialist with a love for developing and teaching mathematics, statistics, and data science courses.
+### **Hi! 👋**
 
-I believe that STEM education should be inclusive and accessible for all. I hope to minimize barriers for all students, including those with varying academic backgrounds, those with responsibilities outside of academics, and those with disabilities. I take the time to learn about innovative and effective teaching pedagogy and like to keep trying new things to maximize my effectiveness as an instructor. 
+I am an educator and student support specialist with a love for developing and teaching mathematics, statistics, and data science courses.
 
-I currently work as a Lecturer in Mathematics and Statistics at Middlebury College and a Lecturer in Statistics at the University of Vermont. Prior, I was a Math and Statistics Specialist within the Academic Assistance and Tutoring Centers at UC Davis. I have a Bachelor of Science in Applied Mathematics and Statistics from the University of Guelph and a Masters of Science in Statistics from the University of Victoria. 
+I believe that STEM education should be inclusive and accessible for all. I hope to minimize barriers for all students, including those with varying academic backgrounds, those with responsibilities outside of academics, and those with disabilities. I take the time to learn about innovative and effective teaching pedagogy and like to keep trying new things to maximize my effectiveness as an instructor.
 
-<div class="btn-group" role="group" aria-label="Links">
-  <a role="button" class="btn btn-outline-primary btn-sm" href="EMW_CV.pdf">View CV</a>
-  <a role="button" class="btn btn-outline-primary btn-sm" href="https://www.ratemyprofessors.com/ShowRatings.jsp?tid=2068864">RateMyProfessor Reviews</a>
-</div>
+<br>
 
-</div>
+##### Education
+
+  <ul class="fa-ul">
+    <li><span class="fa-li"><i class="fas fa-graduation-cap"></i></span>MSc in Statistics</li>
+    <p><i>University of Victoria</i> </p>
+    <li><span class="fa-li"><i class="fas fa-graduation-cap"></i></span>BSc in Applied Mathematics and Statistics</li>
+    <p><i>University of Guelph</i> </p>
+  </ul>
+
+
+  
+

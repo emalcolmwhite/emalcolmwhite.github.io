@@ -1,25 +1,30 @@
-name: "Emily Malcolm-White"                                # CHANGE HERE 
+name: "EMW"                                 
 output_dir: "."
 navbar:
-  title: "Emily Malcolm-White"                             # CHANGE HERE 
-  type: inverse
+  title: "EMW"                             
+  href: index.html
   left:
-    - text: "Home"
-      icon: fa-home
-      href: index.html
-    - text: "Data Science"
-      icon: 
-      href: datascience.html
+    - text: "Course Materials"
+      menu: 
+        - text: "Statistics"
+          icon: 
+          href: statistics.html
+        - text: "Data Science"
+          icon: 
+          href: datascience.html
   right:
-    - text: "Contact me"
-      icon: fa-envelope-o
-      href: mailto:emilybmwhite@gmail.com  # CHANGE HERE
     - text: "YouTube"
       icon: fa-youtube-play
-      href: https://www.youtube.com/channel/UCGE_eugh_WGuQfb1T4Y35SA
+      href: https://youtube.com/@emalcolmwhite
     - text: "GitHub"
       icon: fa-github
-      href: https://github.com/ebmwhite       # CHANGE HERE 
+      href: https://github.com/emalcolmwhite
+    - text: "CV"
+      icon: fa-file-pdf-o
+      href: EMW_CV.pdf
+    - text: "Email"
+      icon: fa-envelope-o
+      href: mailto:emalcolmwhite@middlebury.edu  
 output:
   html_document:
     theme: yeti
