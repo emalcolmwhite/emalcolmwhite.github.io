@@ -33,21 +33,21 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1CqQHETFPSSGSnievVBhlz8p
 ```{r, echo = FALSE}
 d |>
   gt() |>
-  text_transform(cells_body(columns = c(notes_template)),
+  text_transform(cells_body(columns = c(notes_template_qmd)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("file", fill_opacity = 0.1),
         glue::glue("<a href = {x}>{fontawesome::fa('file')}</a>")
       )
     }
   ) |>
-  text_transform(cells_body(columns = c(notes)),
+  text_transform(cells_body(columns = c(notes_html)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("file", fill_opacity = 0.1),
         glue::glue("<a href = {x}>{fontawesome::fa('file')}</a>")
       )
     }
   ) |>
-  text_transform(cells_body(columns = c(homework)),
+  text_transform(cells_body(columns = c(homework_qmd)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("desktop", fill_opacity = 0.1),
         glue::glue("<a href = {x}>{fontawesome::fa('desktop')}</a>")
@@ -68,10 +68,10 @@ d |>
       )
     }
   ) |>
-  sub_missing(columns = c(what, topic, notes), missing_text = "") |>
+  sub_missing(columns = c(what, topic, notes_html), missing_text = "") |>
   cols_align(
     align = "center", 
-    columns = c(notes_template, notes, homework, project)
+    columns = c(notes_template_qmd, notes_html, homework_qmd, project)
     ) |>
   cols_align(
     align = "left", 
