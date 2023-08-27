@@ -19,7 +19,6 @@ There is no official textbook for this course. Here are some resources that I ut
 
 # Course Materials
 
-Coming soon!
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(googlesheets4)
