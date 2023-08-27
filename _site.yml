@@ -6,9 +6,6 @@ navbar:
   left:
     - text: "Course Materials"
       menu: 
-        - text: "Statistics"
-          icon: 
-          href: statistics.html
         - text: "Data Science"
           icon: 
           href: datascience.html
