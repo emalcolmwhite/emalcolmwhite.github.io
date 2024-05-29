@@ -2,12 +2,19 @@
 format: html
 ---
 
-# Logistic Notes for Enrolled Students
+# Logistics for Enrolled Students
 
 - We will meet virtually via Zoom during the first week (June 3 - June 8).  Check your email for the Zoom link.
 - We transition to Shoals Marine Lab on Appledore Island for the second week of the course (June 10 - 17). 
 - Communication for this class will primarily happen on [Slack](https://slack.com/). We recommend that you download the mobile app for ease of communication while we are on island. Check your email for the invite link.
 - You should submit your homework assignments via Canvas. If, for whatever reason, you don't have access to Canvas you should email your assignment submissions to Emily at [emily.malcolmwhite@unh.edu](mailto:emily.malcolmwhite@unh.edu). 
+
+# Install R and RStudio
+
+To access the course materials, you will need to have both R and RStudio installed on your computer. Follow the instructions available on the Posit website: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/). 
+
+- Note that there are *two* programs you need to download. R (or base R) is the brains or the calculator working behind the scenes - to work with this directly is possible but it's a bit messy. RStudio is an additional interface that makes it easier to organize your scripts, your plots, your objects, and your files in one window. Typically, we will open RStudio and work directly in that program but it's important to also have R installed in the background.  
+- We will walk through installation together on the first day of class. 
 
 # Course Materials
 

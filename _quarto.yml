@@ -12,7 +12,7 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Schedule & Resources 2024
+      - text: Schedule & Course Materials 2024
         href: schedule.qmd
       - text: Instructors
         href: instructors.qmd
