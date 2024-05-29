@@ -1,0 +1,98 @@
+---
+format: html
+---
+
+# Logistic Notes for Enrolled Students
+
+- We will meet virtually via Zoom during the first week (June 3 - June 8).  Check your email for the Zoom link.
+- We transition to Shoals Marine Lab on Appledore Island for the second week of the course (June 10 - 17). 
+- Communication for this class will primarily happen on [Slack](https://slack.com/). We recommend that you download the mobile app for ease of communication while we are on island. Check your email for the invite link.
+- You should submit your homework assignments via Canvas. If, for whatever reason, you don't have access to Canvas you should email your assignment submissions to Emily at [emily.malcolmwhite@unh.edu](mailto:emily.malcolmwhite@unh.edu). 
+
+# Course Materials
+
+```{r}
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/14u_VJSsrctmACH9mqCtYfqRrHW2v7I1COl6Atf9YPM4/edit?usp=sharing", sheet = "Sheet1")
+```
+
+
+```{r, echo = FALSE}
+d |>
+  gt() |>
+  sub_missing(
+    columns = 1:4,
+    missing_text = ""
+  ) |>
+  text_transform(cells_body(columns = c(Template)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("fas fa-file-code",fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('fas-fa-file-code')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Notes)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa('fas fa-file-lines', fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('fas fa-file-lines',}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Homework)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("file-pen", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('file-pen')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Links)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("link", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('link')}</a>")
+      )
+    }
+  ) |>
+  cols_align(
+    align = "center", 
+    columns = c(Template, Notes, Homework, Links)
+    ) |>
+  cols_align(
+    align = "left", 
+    columns = c(Date, Time, Letter, Topic)
+    ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "top",
+      color = "black", 
+      weight = px(2)
+    ),
+    locations = cells_body(rows = !is.na(Date)) 
+  ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "bottom",
+      color = "black",
+      weight = px(4) 
+    ),
+    locations = cells_body(rows = Date == "Mon, June 17") 
+  ) |>
+  tab_style(
+    style = cell_borders(
+      sides = c("top", "bottom"),
+      color = "black",
+      weight = px(4) 
+    ),
+    locations = cells_column_labels(columns = everything()) 
+  ) |>
+  cols_width(Date ~ px(150),
+             Time ~ px(80), 
+             Letter ~ px(30), 
+             Topic ~ px(250)) 
+```
+

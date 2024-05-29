@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+  
+website:
+  title: "R by the Sea"
+  favicon: images/ocean.png
+  navbar:
+    background: "#7595bc" 
+    foreground: "#000000"
+    search: false
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Schedule & Resources 2024
+        href: schedule.qmd
+      - text: Instructors
+        href: instructors.qmd
+    tools:
+      - icon: github
+        href:  https://github.com/QuantMarineEcoLab/r_by_the_sea
+  page-footer: 
+    left: "Made by EMW & ERW (2024)" 
+    right: "Powered by Quarto"
+        
+format:
+  html:
+    theme: lumen
+    css: custom.css
+    anchor-sections: false
+
