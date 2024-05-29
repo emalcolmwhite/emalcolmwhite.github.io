@@ -14,9 +14,9 @@ format: html
 To access the course materials, you will need to have both R and RStudio installed on your computer. Follow the instructions available on the Posit website: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/). 
 
 - Note that there are *two* programs you need to download. R (or base R) is the brains or the calculator working behind the scenes - to work with this directly is possible but it's a bit messy. RStudio is an additional interface that makes it easier to organize your scripts, your plots, your objects, and your files in one window. Typically, we will open RStudio and work directly in that program but it's important to also have R installed in the background.  
-- We will walk through installation together on the first day of class. 
+- You should install these two programs *before* our first class. There will be some time given during our first class to help troubleshoot any issues that might arise during installation.  
 
-# Course Materials
+# Schedule & Course Materials  
 
 ```{r}
 #| echo: FALSE
