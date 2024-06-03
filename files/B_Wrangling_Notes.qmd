@@ -1,6 +1,6 @@
 ---
 title: 'Notes B'
-subtitle: 'Wrangling data with dplyr: filter, select, arrange'
+subtitle: "Wrangling data with `dplyr`: `filter`, `select`, `arrange`"
 format:
   html:
     toc: true
@@ -25,7 +25,7 @@ How do we import it into R?
 
 ```{r}
 #possum.csv needs to be saved in the same directory as this file. 
-#possum <- read.csv("possum.csv")
+#possum <- read.csv("./possum.csv")
 ```
 
 Alternatively, you can download it directly from the `DAAD` package. 

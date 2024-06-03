@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="YOUR NAME HERE">
 
-<title>R by the Sea - Homework A</title>
+<title>R by the Sea - Notes C</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +18,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4534,8 +4567,13 @@ color: #000;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#in-lab-examples" id="toc-in-lab-examples" class="nav-link active" data-scroll-target="#in-lab-examples">In-lab Examples</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#clean-up-the-data-to-remove-rows-with-missing-data" id="toc-clean-up-the-data-to-remove-rows-with-missing-data" class="nav-link active" data-scroll-target="#clean-up-the-data-to-remove-rows-with-missing-data">Clean up the data to remove rows with missing data</a></li>
+  <li><a href="#summarize-function-or-summarise-function-either-works" id="toc-summarize-function-or-summarise-function-either-works" class="nav-link" data-scroll-target="#summarize-function-or-summarise-function-either-works"><code>summarize</code> Function or <code>summarise</code> Function (either works)</a></li>
+  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><code>group_by</code></a>
+  <ul class="collapse">
+  <li><a href="#multiple-groups" id="toc-multiple-groups" class="nav-link" data-scroll-target="#multiple-groups">Multiple Groups</a></li>
+  </ul></li>
+  <li><a href="#more-practice" id="toc-more-practice" class="nav-link" data-scroll-target="#more-practice">More Practice</a></li>
   </ul>
 </nav>
     </div>
@@ -4544,20 +4582,14 @@ color: #000;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework A</h1>
-<p class="subtitle lead">Intro to R and RStudio</p>
+<h1 class="title">Notes C</h1>
+<p class="subtitle lead">Aggregating data with <code>summarize()</code>, <code>group_by()</code></p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>YOUR NAME HERE </p>
-          </div>
-  </div>
     
   
     
@@ -4566,40 +4598,53 @@ color: #000;
 
 </header>
 
-<section id="in-lab-examples" class="level1">
-<h1>In-lab Examples</h1>
-<p>bold</p>
-<p>italics</p>
-<p>bold and italics</p>
-<p>a list</p>
-<p>link</p>
-<p>image</p>
-<hr>
-<p>R chunks</p>
-<p>create an object</p>
-<p>inline code</p>
-<p>commenting code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Today’s Dataset: <code>palmerpenguins</code> Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD DATA </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="clean-up-the-data-to-remove-rows-with-missing-data" class="level1">
+<h1>Clean up the data to remove rows with missing data</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#sometimes this is appropriate...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="questions" class="level1">
-<h1>Questions</h1>
-<ol type="1">
-<li><p>Tell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)</p></li>
-<li><p>Tell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)</p></li>
-<li><p>Make a list of a few of your interests</p></li>
-<li><p>Include a link to something interesting or funny</p></li>
-<li><p>Include a picture. This could be a picture of you or a picture of something you find funny or interesting.</p></li>
-<li><p>Create an object called <code>c</code>. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to <code>c</code>. ::: {.cell}</p></li>
-</ol>
-<p>:::</p>
-<ol start="7" type="1">
-<li><p>Write a few sentences about why you choose this number. Be sure to print out this value of <code>c</code> somewhere in your paragraph as inline code.</p></li>
-<li><p>Create an object called <code>height</code>. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.</p></li>
-</ol>
-<ol start="9" type="1">
-<li><p>Have you ever taken a class that used R before?</p></li>
-<li><p>Tell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?</p></li>
-<li><p>(Optional) Use this space below to tell me anything about yourself that you think Easton and Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns.</p></li>
-</ol>
+<section id="summarize-function-or-summarise-function-either-works" class="level1">
+<h1><code>summarize</code> Function or <code>summarise</code> Function (either works)</h1>
+<p>Suppose we are interested in the average bill length of all Adelie penguins:</p>
+<p>Suppose we are interested in the average bill length AND average bill depth of all Adelie penguins:</p>
+<p>There are lots of other functions available:</p>
+<ul>
+<li><code>min</code>: minimum value</li>
+<li><code>max</code>: maximum value</li>
+<li><code>mean</code>: average or mean value</li>
+<li><code>median</code>: median value</li>
+<li><code>var</code>: variance</li>
+<li><code>sd</code>: standard deviation</li>
+<li><code>n</code>: count or number of values</li>
+<li><code>n_distinct</code>: counts number of distinct values</li>
+</ul>
+<p>Suppose we are interested in the average bill length AND the median bill length of all Adelie penguins:</p>
+</section>
+<section id="group_by" class="level1">
+<h1><code>group_by</code></h1>
+<p>Let’s say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.</p>
+<section id="multiple-groups" class="level2">
+<h2 data-anchor-id="multiple-groups">Multiple Groups</h2>
+<p>Suppose we want the average bill length and average bill depth broken down by both species and sex:</p>
+</section>
+</section>
+<section id="more-practice" class="level1">
+<h1>More Practice</h1>
+<p>Suppose we want to calculate the number of distinct islands each species is found on:</p>
+<p>Suppose we are interested in how many penguins of each species are on each island in the year 2007:</p>
 
 
 </section>

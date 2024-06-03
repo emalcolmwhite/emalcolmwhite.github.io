@@ -1,6 +1,6 @@
 ---
 title: 'Notes B'
-subtitle: 'Wrangling data with dplyr: filter, select, arrange'
+subtitle: "Wrangling data with `dplyr`: `filter`, `select`, `arrange`"
 format:
   html:
     toc: true

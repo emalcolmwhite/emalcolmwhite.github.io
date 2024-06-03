@@ -1,6 +1,6 @@
 ---
-title: "R by the Sea: Homework B"
-subtitle: "Wrangling data with `dplyr: filter, select, arrange`"
+title: "Homework B"
+subtitle: "Wrangling data with `dplyr`: `filter`, `select`, `arrange`"
 author: "YOUR NAME HERE"
 format:
   html:
