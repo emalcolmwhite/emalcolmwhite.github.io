@@ -8,6 +8,9 @@ format:
     code-overflow: wrap
     code-fold: true
     embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
 ---
 
 # In-lab Examples 
@@ -56,11 +59,13 @@ commenting code
 
 
 6. Create an object called `c`. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to `c`. 
+
 ```{r}
 
 ```
 
 7.  Write a few sentences about why you choose this number. Be sure to print out this value of `c` somewhere in your paragraph as inline code.
+
 
 
 8.  Create an object called `height`. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing. 
