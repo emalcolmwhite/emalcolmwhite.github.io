@@ -2,6 +2,10 @@
 format: html
 ---
 
+```{r, echo = FALSE}
+fontawesome::fa_html_dependency()
+```
+
 # Logistics for Enrolled Students
 
 - We will meet virtually via Zoom during the first week (June 3 - June 8).  Check your email for the Zoom link.
@@ -25,6 +29,7 @@ To access the course materials, you will need to have both R and RStudio install
 library(googlesheets4)
 library(gt)
 library(tidyverse)
+library(fontawesome)
 gs4_deauth()
 d <- read_sheet("https://docs.google.com/spreadsheets/d/14u_VJSsrctmACH9mqCtYfqRrHW2v7I1COl6Atf9YPM4/edit?usp=sharing", sheet = "Sheet1")
 ```
@@ -37,24 +42,25 @@ d |>
     columns = 1:4,
     missing_text = ""
   ) |>
+  #fas-fa-file-code
   text_transform(cells_body(columns = c(Template)),
     fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("fas fa-file-code",fill_opacity = 0.1),
-        glue::glue("<a href = {x} download>{fontawesome::fa('fas-fa-file-code')}</a>")
+      ifelse(is.na(x), fontawesome::fa("file-code",fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('file-code')}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Notes)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa('fas fa-file-lines', fill_opacity = 0.1),
-        glue::glue("<a href = {x} download >{fontawesome::fa('fas fa-file-lines',}</a>")
+        glue::glue("<a href = {x}>{fontawesome::fa('fas fa-file-lines',}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Homework)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("file-pen", fill_opacity = 0.1),
-        glue::glue("<a href = {x} download>{fontawesome::fa('file-pen')}</a>")
+        glue::glue("<a href = {x}>{fontawesome::fa('file-pen')}</a>")
       )
     }
   ) |>
