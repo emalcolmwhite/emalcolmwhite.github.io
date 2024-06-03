@@ -40,31 +40,32 @@ d |>
   text_transform(cells_body(columns = c(Template)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("fas fa-file-code",fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('fas-fa-file-code')}</a>")
+        glue::glue("<a href = {x} download>{fontawesome::fa('fas-fa-file-code')}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Notes)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa('fas fa-file-lines', fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('fas fa-file-lines',}</a>")
+        glue::glue("<a href = {x} download >{fontawesome::fa('fas fa-file-lines',}</a>")
       )
     }
   ) |>
   text_transform(cells_body(columns = c(Homework)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("file-pen", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('file-pen')}</a>")
+        glue::glue("<a href = {x} download>{fontawesome::fa('file-pen')}</a>")
       )
     }
   ) |>
-  text_transform(cells_body(columns = c(Links)),
-    fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("link", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('link')}</a>")
-      )
-    }
-  ) |>
+  # text_transform(cells_body(columns = c(Links)),
+  #   fn = function(x) {
+  #     ifelse(is.na(x), fontawesome::fa("link", fill_opacity = 0.1),
+  #       glue::glue("<a href = {x}>{fontawesome::fa('link')}</a>")
+  #     )
+  #  }
+  #) |>
+  # aligning columns
   cols_align(
     align = "center", 
     columns = c(Template, Notes, Homework, Links)
@@ -72,6 +73,7 @@ d |>
   cols_align(
     align = "left", 
     columns = c(Date, Time, Letter, Topic)
+    # thin borders between all items
     ) |>
   tab_style(
     style = cell_borders(
@@ -81,6 +83,7 @@ d |>
     ),
     locations = cells_body(rows = !is.na(Date)) 
   ) |>
+  # dark borders between days
   tab_style(
     style = cell_borders(
       sides = "bottom",
@@ -97,6 +100,7 @@ d |>
     ),
     locations = cells_column_labels(columns = everything()) 
   ) |>
+  # fixing column widths
   cols_width(Date ~ px(150),
              Time ~ px(80), 
              Letter ~ px(30), 
