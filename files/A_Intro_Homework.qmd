@@ -62,7 +62,6 @@ commenting code
 
 7.  Write a few sentences about why you choose this number. Be sure to print out this value of `c` somewhere in your paragraph as inline code.
 
-I chose the number `r c` because.... 
 
 8.  Create an object called `height`. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing. 
 
