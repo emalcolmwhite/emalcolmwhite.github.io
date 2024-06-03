@@ -2,9 +2,6 @@
 format: html
 ---
 
-```{r, echo = FALSE}
-fontawesome::fa_html_dependency()
-```
 
 # Logistics for Enrolled Students
 
@@ -63,18 +60,18 @@ d |>
         glue::glue("<a href = {x}>{fontawesome::fa('file-pen')}</a>")
       )
     }
+   ) |>
+  text_transform(cells_body(columns = c(Videos)),
+    fn = function(x) {
+       ifelse(is.na(x), fontawesome::fa("link", fill_opacity = 0.1),
+         glue::glue("<a href = {x}>{fontawesome::fa('link')}</a>")
+       )
+    }
   ) |>
-  # text_transform(cells_body(columns = c(Links)),
-  #   fn = function(x) {
-  #     ifelse(is.na(x), fontawesome::fa("link", fill_opacity = 0.1),
-  #       glue::glue("<a href = {x}>{fontawesome::fa('link')}</a>")
-  #     )
-  #  }
-  #) |>
   # aligning columns
   cols_align(
     align = "center", 
-    columns = c(Template, Notes, Homework, Links)
+    columns = c(Template, Notes, Homework, Videos)
     ) |>
   cols_align(
     align = "left", 
