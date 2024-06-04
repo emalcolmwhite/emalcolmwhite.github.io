@@ -1,9 +1,6 @@
 project:
   type: website
   output-dir: docs
-  render: 
-    - "*.qmd"
-    - "!qmdfiles/"
   
 website:
   title: "R by the Sea"
