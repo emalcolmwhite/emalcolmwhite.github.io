@@ -50,13 +50,13 @@ d |>
       )
     }
   ) |>
-  # text_transform(cells_body(columns = c(Data)),
-  #   fn = function(x) {
-  #      ifelse(is.na(x), fontawesome::fa("table", fill_opacity = 0.1),
-  #        glue::glue("<a href = {x}>{fontawesome::fa('table')}</a>")
-  #      )
-  #   }
-  # ) |>
+   text_transform(cells_body(columns = c(Data)),
+     fn = function(x) {
+        ifelse(is.na(x), fontawesome::fa("table", fill_opacity = 0.1),
+          glue::glue("<a href = {x}>{fontawesome::fa('table')}</a>")
+        )
+     }
+   ) |>
   
   text_transform(cells_body(columns = c(Notes)),
     fn = function(x) {
