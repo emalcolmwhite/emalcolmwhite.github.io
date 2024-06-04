@@ -28,6 +28,3 @@ format:
     theme: lumen
     css: custom.css
     anchor-sections: false
-
-execute: 
-  cache: TRUE
