@@ -108,7 +108,7 @@ d |>
   ) |>
   # fixing column widths
   cols_width(Date ~ px(150),
-             Time ~ px(80), 
+             Time ~ px(90), 
              Letter ~ px(30), 
              Topic ~ px(250)) 
 ```
