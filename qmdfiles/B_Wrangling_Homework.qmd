@@ -37,7 +37,7 @@ data(gapminder) #this code loads the gapminder data so you can view it in your e
 
 ```
 
-4. If you instead try to choose the subset with year equal to 2005, something will go wrong. Try it and
+4. If you instead try to choose the subset with year equal to 2005, something will be weird. Try it and
 explain what happens and why.
 
 ```{r}
