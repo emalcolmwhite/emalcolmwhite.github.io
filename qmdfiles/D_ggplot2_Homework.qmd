@@ -1,0 +1,69 @@
+---
+title: "Homework D"
+subtitle: "Making plots  with `ggplot2`: barplots and scatterplots"
+author: "YOUR NAME HERE"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+execute: 
+  warning: FALSE
+  message: FALSE
+---
+
+```{r}
+#make sure the package is installed on your computer or this won't run! 
+library(tidyverse)
+```
+
+```{r}
+#load the gapminder data for this lab
+library(gapminder)
+```
+
+
+1. Pick a year. Create a dataset which only contains that data for that year and is appropriately labeled. For example, if you choose the year `2007`, you might choose to call this new dataset `gapminder2007`. You will use this dataset for the rest of the assignment. 
+
+```{r}
+
+```
+
+2. Using your dataset you created in 1, create a barplot which displays the GDP per capita of the ten countries with the highest GDP per capita that year. Be sure your axes are appropriately labeled. 
+
+```{r}
+
+```
+
+3.  Pick a continent. Using your dataset you created in 1, create a barplot which displays the life expectancy of all the countries in that continent in that year. You should sort the countries from highest life expectancy to lowest life expectancy. Be sure your axes are appropriately labeled. 
+
+```{r}
+
+```
+
+4a.  Using your dataset you created in 1, create a scatterplot of GDP per capita vs. life expectancy. All the points should be the same size and color. Be sure your axes are appropriately labeled. 
+
+```{r}
+
+```
+
+4b. You may notice that the points look a little hard to read. Try out different log transformations on the data to see what might help make it more visually appealing. You may choose to log the x axis variable, the y axis variable, or both. Be sure your axes are appropriately labeled.
+
+```{r}
+
+
+```
+
+4c. Using your scatterplot from 4b as a starting place, add the additional aesthetic commands `aes(size=pop, color=continent)` inside of your `geom_point()` layer. Whats the `size=pop` command do? What does the `color=continent` do?
+
+```{r}
+
+```
+
+4d. Using your scatterplot from 4c, add a theme that you like. 
+
+```{r}
+
+```
+

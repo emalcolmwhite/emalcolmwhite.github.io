@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render: 
+    - "*.qmd"
+    - "!qmdfiles/"
   
 website:
   title: "R by the Sea"
@@ -29,3 +32,5 @@ format:
     css: custom.css
     anchor-sections: false
 
+execute: 
+  cache: TRUE

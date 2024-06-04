@@ -1,0 +1,77 @@
+---
+title: 'Notes D'
+subtitle: 'Making plots  with ggplot2: barplots and scatterplots`'
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+#Import the possum data again
+library(DAAG)
+data("possum")
+```
+
+# Recall our work from the other days
+
+```{r}
+possum_large <- possum %>% 
+  select(site,sex,totlngth) %>%
+  filter(sex=='f') %>%
+  group_by(site) %>%
+  summarize(mean_totlngth = mean(totlngth))
+```
+
+# ggplot: barplots with `geom_bar`
+
+![](https://datasciencebook.ca/_main_files/figure-html/img-ggplot-1.png)
+
+```{r}
+ggplot(possum_large, aes(x=site, y = mean_totlngth)) +
+  geom_bar(stat = "identity")
+```
+
+Is there any improvements we could make to this graph? 
+
+# To better view text
+
+```{r}
+
+
+#OR
+
+```
+
+
+# Labels, Colors, and Themes
+
+
+```{r}
+
+```
+
+# ggplot: scatterplot with `geom_point`
+
+```{r}
+
+```
+# With labels
+
+```{r}
+
+
+```
+
+
+
