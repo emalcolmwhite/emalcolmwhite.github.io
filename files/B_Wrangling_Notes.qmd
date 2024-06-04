@@ -1,6 +1,8 @@
 ---
 title: 'Notes B'
 subtitle: "Wrangling data with `dplyr`: `filter`, `select`, `arrange`"
+author: "EMW" 
+date: "Tues, June 4, 2024"
 format:
   html:
     toc: true
@@ -11,7 +13,6 @@ execute:
   message: FALSE
   warning: FALSE
 ---
-
 
 # Importing Data
 
@@ -25,7 +26,7 @@ How do we import it into R?
 
 ```{r}
 #possum.csv needs to be saved in the same directory as this file. 
-#possum <- read.csv("./possum.csv")
+#possum <- read.csv("possum.csv")
 ```
 
 Alternatively, you can download it directly from the `DAAD` package. 
@@ -98,9 +99,12 @@ For example, we may be interested in only looking at female possums.
 
 ```{r}
 #start with the possums dataset, the pipe "%" means apply the action on the following line to the previous line. In this case, pick out only the rows were the sex variable is "f" 
-possum  %>%              
-  filter(sex == "f")   
 
+ # %>% == and then do this
+
+possum %>%
+  filter(sex == "f")
+  
 ##note the sex is text/categorical and so quotation marks are needed. 
 ##R doesn't care about whether they are double quotation marks (") or single ('). They work the same. 
 # If we don't assign it to an object, then it just prints out for us to see! 
@@ -108,8 +112,9 @@ possum  %>%
 
 ```{r}
 #oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called `possum_f`. 
-possum_f <- possum  %>%              
-  filter(sex == "f")     
+
+possum_f <- possum %>%
+  filter(sex == "f")
 
 #Notice if you assign it to an object that it doesn't print out the contents. 
 # You'll see the new object in your environment on the top right ---> 
@@ -121,8 +126,8 @@ It can also be used with numeric criteria.
 Suppose we want a list of all the possums whose total length is less than 80cm. 
 
 ```{r}
-possum_short <- possum  %>%              
-  filter(totlngth < 80) 
+possum %>% 
+  filter(totlngth < 80)
 ```
 
 The logical operators are given below: 
@@ -134,6 +139,10 @@ The logical operators are given below:
 select is used to extract only certain ***columns***. For example, perhaps we only want to print out a dataset with only the population, the sex, and the total length of each possum. 
 
 ```{r}
+# %>% 
+#MAC (CMD + Shift + M)
+#PC (Ctrl + Shift + M)
+
 possum %>% 
   select(Pop, sex, totlngth)
 ```
@@ -143,7 +152,8 @@ We can combine criteria together as well in one command with multiple pipes:
 ```{r}
 possum %>% 
   filter(sex == "f") %>% 
-  select(!sex) #the ! means don't include that column
+  filter(totlngth < 80) %>% 
+  select(Pop, sex, age, totlngth)
 ```
 
 # `arrange`
@@ -154,7 +164,7 @@ For example, arrange all the female possums by the longest length to the shortes
 
 ```{r}
 possum_f %>% 
-  arrange(desc(totlngth)) 
+  arrange(-totlngth)
 
 #use arrange(variable) to go from least to most
 #use arrange(desc(variable)) to go from most to least, arrange(-variable) also works
@@ -168,7 +178,7 @@ For example, if I want a list the 5 female possums with longest total lengths.
 
 ```{r}
 possum_f %>% 
-  arrange(desc(totlngth)) %>% 
+  arrange(-totlngth) %>% 
   slice(1:5)
 ```
 
