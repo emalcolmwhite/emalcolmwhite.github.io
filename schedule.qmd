@@ -39,7 +39,7 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/14u_VJSsrctmACH9mqCtYfqR
 d |>
   gt() |>
   sub_missing(
-    columns = 1:4,
+    columns = c(1:4,8),
     missing_text = ""
   ) |>
   #fas-fa-file-code
@@ -86,7 +86,12 @@ d |>
     ) |>
   cols_align(
     align = "left", 
-    columns = c(Date, Time, Letter, Topic)
+    columns = c(Date, Time, Letter, Topic, Desc)
+    # thin borders between all items
+    ) |>
+  cols_align(
+    align = "right", 
+    columns = c(Data)
     # thin borders between all items
     ) |>
   tab_style(
