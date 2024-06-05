@@ -2,7 +2,7 @@
 title: 'Notes D'
 subtitle: 'Making plots  with ggplot2: barplots and scatterplots`'
 author: 'EMW'
-date: '2023 -- may not be exactly what was covered in 2024'
+date: '2023'
 format:
   html:
     toc: true
