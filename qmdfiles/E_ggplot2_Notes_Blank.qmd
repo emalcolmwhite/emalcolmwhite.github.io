@@ -12,16 +12,17 @@ execute:
   warning: FALSE
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
-```
-
-
 
 ```{r}
 #Import the possum data again
 library(DAAG)
 data("possum")
+```
+
+# Line graphs
+
+```{r}
+# ????
 ```
 
 
@@ -83,5 +84,5 @@ library(ggrepel)
 ```
 
 
-# Line Graphs
+
 
