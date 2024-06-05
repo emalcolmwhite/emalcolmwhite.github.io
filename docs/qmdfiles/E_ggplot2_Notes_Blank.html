@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="YOUR NAME HERE">
 
-<title>R by the Sea - Homework A</title>
+<title>R by the Sea - Notes E</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +18,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4534,8 +4567,12 @@ color: #000;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#in-lab-examples" id="toc-in-lab-examples" class="nav-link active" data-scroll-target="#in-lab-examples">In-lab Examples</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#line-graphs" id="toc-line-graphs" class="nav-link active" data-scroll-target="#line-graphs">Line graphs</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
+  <li><a href="#jitter" id="toc-jitter" class="nav-link" data-scroll-target="#jitter">Jitter</a></li>
+  <li><a href="#facet-wrap" id="toc-facet-wrap" class="nav-link" data-scroll-target="#facet-wrap">Facet Wrap</a></li>
+  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels">Labels</a></li>
   </ul>
 </nav>
     </div>
@@ -4544,20 +4581,14 @@ color: #000;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework A</h1>
-<p class="subtitle lead">Intro to R and RStudio</p>
+<h1 class="title">Notes E</h1>
+<p class="subtitle lead">More making plots with ggplot2</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>YOUR NAME HERE </p>
-          </div>
-  </div>
     
   
     
@@ -4566,40 +4597,39 @@ color: #000;
 
 </header>
 
-<section id="in-lab-examples" class="level1">
-<h1>In-lab Examples</h1>
-<p>bold</p>
-<p>italics</p>
-<p>bold and italics</p>
-<p>a list</p>
-<p>link</p>
-<p>image</p>
-<hr>
-<p>R chunks</p>
-<p>create an object</p>
-<p>inline code</p>
-<p>commenting code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import the possum data again</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DAAG)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;possum&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="line-graphs" class="level1">
+<h1>Line graphs</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ????</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="questions" class="level1">
-<h1>Questions</h1>
-<ol type="1">
-<li><p>Tell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)</p></li>
-<li><p>Tell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)</p></li>
-<li><p>Make a list of a few of your interests</p></li>
-<li><p>Include a link to something interesting or funny</p></li>
-<li><p>Include a picture. This could be a picture of you or a picture of something you find funny or interesting.</p></li>
-<li><p>Create an object called <code>c</code>. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to <code>c</code>. ::: {.cell}</p></li>
-</ol>
-<p>:::</p>
-<ol start="7" type="1">
-<li><p>Write a few sentences about why you choose this number. Be sure to print out this value of <code>c</code> somewhere in your paragraph as inline code.</p></li>
-<li><p>Create an object called <code>height</code>. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.</p></li>
-</ol>
-<ol start="9" type="1">
-<li><p>Have you ever taken a class that used R before?</p></li>
-<li><p>Tell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?</p></li>
-<li><p>(Optional) Use this space below to tell me anything about yourself that you think Easton and Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns.</p></li>
-</ol>
+<section id="histograms" class="level1">
+<h1>Histograms</h1>
+
+</section>
+<section id="boxplots" class="level1">
+<h1>Boxplots</h1>
+
+</section>
+<section id="jitter" class="level1">
+<h1>Jitter</h1>
+<p>Jittering is a technique for adding random noise to data points that have identical values in a plot. It is a useful method for avoiding overplotting and making it easier to visualize the density of data points that are otherwise hidden behind each other.</p>
+</section>
+<section id="facet-wrap" class="level1">
+<h1>Facet Wrap</h1>
+<p><code>facet_wrap()</code> is a function in the <code>ggplot2</code> package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable.</p>
+</section>
+<section id="labels" class="level1">
+<h1>Labels</h1>
+<p>Adding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labelling outliers and other important points is very useful.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

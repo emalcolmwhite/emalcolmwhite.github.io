@@ -4599,19 +4599,19 @@ color: #000;
 
 </header>
 
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-1_5ea86053686919395883c62409b9ee38">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Today’s Dataset: <code>palmerpenguins</code> Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-2_67c820fc966264e199baa421fae9511f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD DATA </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="clean-up-the-data-to-remove-rows-with-missing-data" class="level1">
 <h1>Clean up the data to remove rows with missing data</h1>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-3_9199dae1c09e7d5fd7f722fbc6341ff8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#sometimes this is appropriate...</span></span>
@@ -4621,7 +4621,7 @@ color: #000;
 <section id="summarize-function-or-summarise-function-either-works" class="level1">
 <h1><code>summarize</code> Function or <code>summarise</code> Function (either works)</h1>
 <p>Suppose we are interested in the average bill length of all Adelie penguins:</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-4_c5478939890e0a5f583320702f466e1f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_bill_lenth =</span> <span class="fu">mean</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4633,7 +4633,7 @@ color: #000;
 </div>
 </div>
 <p>Suppose we are interested in the average bill length AND average bill depth of all Adelie penguins:</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-5_5790cbcaf0d7833cd18610e3daa481c1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_bill_lenth =</span> <span class="fu">mean</span>(bill_length_mm), </span>
@@ -4657,7 +4657,7 @@ color: #000;
 <li><code>n_distinct</code>: counts number of distinct values</li>
 </ul>
 <p>Suppose we are interested in the average bill length AND the median bill length of all Adelie penguins:</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-6_dee18a582fd2e9b04b2650eabc82eb96">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_bill_lenth =</span> <span class="fu">mean</span>(bill_length_mm), </span>
@@ -4673,7 +4673,7 @@ color: #000;
 <section id="group_by" class="level1">
 <h1><code>group_by</code></h1>
 <p>Let’s say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-7_77930df54b676953e12feca0176c6a61">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_bill_lenth =</span> <span class="fu">mean</span>(bill_length_mm), </span>
@@ -4689,7 +4689,7 @@ color: #000;
 </div>
 <section id="multiple-groups" class="level2">
 <h2 data-anchor-id="multiple-groups">Multiple Groups</h2>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-8_23c8d7a16439edc7079f748a3e22cb6a">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average_bill_lenth =</span> <span class="fu">mean</span>(bill_length_mm), </span>
@@ -4712,7 +4712,7 @@ color: #000;
 <section id="more-practice" class="level1">
 <h1>More Practice</h1>
 <p>Suppose we want to calculate the number of distinct islands each species is found on:</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-9_72621aaf5e4dc0f9ca87ce27748ec340">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">number_islands =</span> <span class="fu">n_distinct</span>(island))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4726,7 +4726,7 @@ color: #000;
 </div>
 </div>
 <p>Suppose we are interested in how many penguins of each species are on each island in the year 2007:</p>
-<div class="cell" data-hash="C_Aggregating_Notes_cache/html/unnamed-chunk-10_0122976a630792210ebb961b0782df1f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">&quot;2007&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, island) <span class="sc">%&gt;%</span></span>

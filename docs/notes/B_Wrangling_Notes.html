@@ -4618,12 +4618,12 @@ color: #000;
 <p>Source: Lindenmayer, D. B., Viggers, K. L., Cunningham, R. B., and Donnelly, C. F. 1995. Morphological variation among columns of the mountain brushtail possum, Trichosurus caninus Ogilby (Phalangeridae: Marsupiala). Australian Journal of Zoology 43: 449-458.</p>
 <p>What is a .csv file?</p>
 <p>How do we import it into R?</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-1_1875444330af452df434848169bc0ffe">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#possum.csv needs to be saved in the same directory as this file. </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#possum &lt;- read.csv(&quot;possum.csv&quot;)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, you can download it directly from the <code>DAAD</code> package.</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-2_c1affe688bf07536774aa131ce988fb3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You need to install the DAAG package first. Then you can call it using the code below. </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DAAG)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(possum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4638,7 +4638,7 @@ color: #000;
 <p>First, you need to download the package from the right hand menu –&gt; You only need to do this once.</p>
 <p>In each new .Rmd document, you need to call any packages you want to use but adding the code <code>library(packagename)</code> inside an R chunk.</p>
 <p>For example, in this class we will use the <code>tidyverse</code> package a lot.</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-3_4e9a59ebbf952bd46c19ab85cb8b690d">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -4651,7 +4651,7 @@ color: #000;
 <h1><code>filter</code></h1>
 <p>We can use the <code>filter</code> function to extract <strong><em>rows</em></strong> from the data that have a particular characteristic.</p>
 <p>For example, we may be interested in only looking at female possums.</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-4_54ce9f1cf4d39cddf51239ef369dd357">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#start with the possums dataset, the pipe &quot;%&quot; means apply the action on the following line to the previous line. In this case, pick out only the rows were the sex variable is &quot;f&quot; </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># %&gt;% == and then do this</span></span>
@@ -4752,7 +4752,7 @@ BTP21 14.8  28.5  33.5</code></pre>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">##R doesn&#39;t care about whether they are double quotation marks (&quot;) or single (&#39;). They work the same. </span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If we don&#39;t assign it to an object, then it just prints out for us to see! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-5_efae4e8175d433d577002d41ac6aec99">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called `possum_f`. </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>possum_f <span class="ot">&lt;-</span> possum <span class="sc">%&gt;%</span></span>
@@ -4764,7 +4764,7 @@ BTP21 14.8  28.5  33.5</code></pre>
 </div>
 <p>It can also be used with numeric criteria.</p>
 <p>Suppose we want a list of all the possums whose total length is less than 80cm.</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-6_5dc9b970ce5258c85934379aaad870a4">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>possum <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(totlngth <span class="sc">&lt;</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -4784,7 +4784,7 @@ BB41  23.0    27</code></pre>
 <section id="select" class="level1">
 <h1><code>select</code></h1>
 <p>select is used to extract only certain <strong><em>columns</em></strong>. For example, perhaps we only want to print out a dataset with only the population, the sex, and the total length of each possum.</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-7_5cd7a9c38e2eb82d5b74ddcb3bee50bb">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %&gt;% </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#MAC (CMD + Shift + M)</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PC (Ctrl + Shift + M)</span></span>
@@ -4900,7 +4900,7 @@ BTP21 other   f     89.0</code></pre>
 </div>
 </div>
 <p>We can combine criteria together as well in one command with multiple pipes:</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-8_3f64c0ce1d81ca8b931750b9731c7bd3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>possum <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;f&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(totlngth <span class="sc">&lt;</span> <span class="dv">80</span>) <span class="sc">%&gt;%</span> </span>
@@ -4915,7 +4915,7 @@ BB31 Vic   f   1       75</code></pre>
 <h1><code>arrange</code></h1>
 <p>The <code>arrange</code> function allows us to order the rows of the data frame by the values of a particular column.</p>
 <p>For example, arrange all the female possums by the longest length to the shortest total length</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-9_794b5be179f7472fc325cbe3d6d15058">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>possum_f <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>totlngth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -5016,7 +5016,7 @@ BB31  13.0  25.0  25.0</code></pre>
 <h1><code>slice</code></h1>
 <p>The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).</p>
 <p>For example, if I want a list the 5 female possums with longest total lengths.</p>
-<div class="cell" data-hash="B_Wrangling_Notes_cache/html/unnamed-chunk-10_23bc76f5981dfb85c979e0292245781e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>possum_f <span class="sc">%&gt;%</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>totlngth) <span class="sc">%&gt;%</span> </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

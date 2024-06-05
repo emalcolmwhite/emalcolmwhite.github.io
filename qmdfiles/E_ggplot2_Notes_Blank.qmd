@@ -1,0 +1,93 @@
+---
+title: 'Notes E'
+subtitle: 'More making plots  with ggplot2'
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+
+
+```{r}
+#Import the possum data again
+library(DAAG)
+data("possum")
+```
+
+# Line graphs
+
+```{r}
+# ????
+```
+
+
+# Histograms
+
+```{r}
+
+```
+
+\clearpage
+# Boxplots
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+\clearpage
+# Jitter
+
+Jittering is a technique for adding random noise to data points that have identical values in a plot. It is a useful method for avoiding overplotting and making it easier to visualize the density of data points that are otherwise hidden behind each other.
+
+```{r}
+
+```
+
+\clearpage
+# Facet Wrap
+
+`facet_wrap()` is a function in the `ggplot2` package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable. 
+
+```{r}
+
+```
+
+
+
+
+\clearpage
+
+
+```{r}
+
+```
+
+
+
+\clearpage
+# Labels
+
+Adding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labelling outliers and other important points is very useful. 
+
+```{r}
+library(ggrepel)
+```
+
+
+
+
