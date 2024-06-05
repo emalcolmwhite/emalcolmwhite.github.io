@@ -24,12 +24,6 @@ library(DAAG)
 data("possum")
 ```
 
-# Line graphs
-
-```{r}
-# ????
-```
-
 
 # Histograms
 
