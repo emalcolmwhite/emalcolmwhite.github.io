@@ -1,0 +1,102 @@
+---
+title: 'Notes E'
+subtitle: 'More making plots  with ggplot2'
+author: 'EMW'
+date: 'Wed, June 5, 2024'
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+
+
+```{r}
+#Import the possum data again
+library(DAAG)
+data("possum")
+
+# load packages
+library(tidyverse) 
+```
+
+
+# Histograms
+
+```{r}
+ggplot(possum, aes(x=footlgth, fill=Pop)) + 
+  geom_histogram(binwidth=1) + 
+  theme_minimal()
+```
+
+\clearpage
+
+# Boxplots
+
+
+```{r}
+# if only one boxplot, it puts weird numbers on the x axis, you may want to use the theme to hide these numbers. 
+
+# side-by-side boxplots are good to looking at the spread of a numeric variables (footlgth) broken down for each level of a categorical  variable (Pop) 
+
+# same color for both boxplots
+ggplot(possum, aes(y=footlgth, x=Pop)) +
+  geom_boxplot(color="red", fill="pink")
+
+# different color for both boxplots
+ggplot(possum, aes(y=footlgth, x=Pop, color=Pop)) +
+  geom_boxplot()
+```
+
+
+
+# Jitter
+
+Jittering is a technique for adding random noise to data points that have identical values in a plot. It is a useful method for avoiding overplotting and making it easier to visualize the density of data points that are otherwise hidden behind each other.
+
+```{r}
+ggplot(possum, aes(x=jitter(age), y=totlngth)) + 
+  geom_point(aes(color=Pop), alpha=0.8) 
+
+# jitter adds a little random noise to the variable so that you don't have alot of points overlapping in a vertical line
+
+# alpha adjusts the transparency or opacity of the points -- 0 is invisible, 1 is solid/opaque, 0.3 is very see-through, 0.8 is a little bit see-through, etc. 
+```
+
+\clearpage
+# Facet Wrap
+
+`facet_wrap()` is a function in the `ggplot2` package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable. 
+
+```{r}
+ggplot(possum, aes(x=jitter(age), y=totlngth)) +
+  facet_wrap(~Pop) + 
+  geom_point(aes(color=Pop), alpha=0.8) 
+```
+
+# Labels
+
+Adding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labelling outliers and other important points is very useful. 
+
+```{r}
+library(ggrepel)
+
+ggplot(possum, aes(x=jitter(age), y=totlngth)) + 
+  geom_point(aes(color=Pop), alpha=0.8) + 
+  #geom_text(aes(label=case), nudge_x = 0.5, nudge_y = 0.5, size=2)
+  geom_text_repel(aes(label=case), size=2)
+```
+
+
+# Line Graphs
+
+`geom_line()`
