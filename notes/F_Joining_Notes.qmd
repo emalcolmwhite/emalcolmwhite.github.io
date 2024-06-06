@@ -2,7 +2,7 @@
 title: 'Notes F'
 subtitle: 'Joining tables with `dplyr`'
 author: 'EMW'
-date: '2023 -- may not be exactly what was covered in 2024'
+date: 'Thurs, June 6, 2024'
 format:
   html:
     toc: true
@@ -14,9 +14,6 @@ execute:
   warning: FALSE
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
-```
 
 # `portal` dataset 
 
@@ -38,21 +35,23 @@ Use `group_by()` and `summarize()` to find the mean, min, and max hindfoot lengt
 
 ```{r}
 portal_rodent %>% 
-  drop_na(hfl) %>% 
-  group_by(species) %>% 
-  summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())
+    group_by(species) %>% 
+      summarize(mean(hfl, na.rm=T),min(hfl, na.rm=T),max(hfl, na.rm=T),n())
+# NA means that at least one is missing, we can exclude it using the arguments na.rm=T
+# NaN means that ALL the numbers are missing, so no value can be calculated
+
+portal_rodent %>% 
+    drop_na(hfl) %>% 
+    group_by(species) %>% 
+      summarize(mean(hfl),min(hfl),max(hfl),count = n())
+
 ```
 
 
 What was the heaviest animal measured in each year? Return the columns `year`, `species`. Create line graph. 
 
 ```{r}
-portal_rodent %>% 
-  drop_na(wgt) %>% 
-  group_by(year) %>% 
-  summarize(max_wgt = max(wgt)) %>% 
-  ggplot(aes(x=year, y = max_wgt)) + 
-  geom_line()
+
 ```
 
 # Join dataframes
@@ -72,13 +71,23 @@ We want to have all this information in one data frame instead of two separate d
 The variable `species` in `portal_rodents` match the variable `speciescode` in the `portal_species` dataset -- this is our *key variable*. In this case, they actually have different names, but this doesn't necessarily have to be true. 
 
 ```{r}
-portal_joined <- portal_rodent %>% 
-  left_join(portal_species, by=c("species" = "speciescode"))
+table <- portal_rodent %>% 
+    drop_na(hfl) %>% 
+    group_by(species) %>% 
+      summarize(mean_hfl = mean(hfl),min_hfl= min(hfl),max_hfl = max(hfl),count = n())
+```
+
+
+```{r}
+portal_joined <- table %>% 
+  left_join(portal_species, by = c("species" = "speciescode"))
+
+portal_joined %>% 
+  select(species, scientificname, commonname, mean_hfl, min_hfl, max_hfl, count)
 ```
 
 ```{r}
-portal_joined_inner <- portal_rodent %>% 
-  inner_join(portal_species, by=c("species" = "speciescode"))
+
 ```
 
 
@@ -90,44 +99,36 @@ In order to join the rotents sampling data and weather data frames, we need more
 ```{r}
 portal_weather <- read.csv("https://github.com/weecology/PortalData/raw/main/Weather/Portal_weather.csv")
 
+#mean daily temperature
 portal_weather_daily <- portal_weather %>% 
   group_by(year, month, day) %>% 
   summarize(mean_airtemp = mean(airtemp, na.rm=T))
+
 ```
 
 
 ```{r}
-portal_weather_joined <- portal_joined %>%
+#join
+portal_rodent_weather <- portal_rodent %>% 
   left_join(portal_weather_daily, by = c("year", "month", "day"))
+
+portal_rodent_weather
 ```
 
 ## Why is this useful? 
 
 Updating labels: 
 
-```{r}
-portal_rodent %>% 
-  drop_na(hfl) %>% 
-  group_by(species) %>% 
-  summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())
-
-#VS
-
-portal_joined %>% 
-  drop_na(hfl) %>% 
-  group_by(commonname, scientificname) %>% 
-  summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())
-```
 
 Exploring relationships between variables in separate tables: 
 
 ```{r}
-portal_weather_joined %>% 
-  group_by(year, month, day) %>% 
-  summarize(count_caught = n(), mean_airtemp = mean_airtemp) %>% 
-  ggplot(aes(x=mean_airtemp, y=count_caught)) +
-  geom_point() + 
-  geom_smooth(method='lm')
+portal_rodent_weather %>% 
+   group_by(year, month, day) %>% 
+   summarize(count_caught = n(), mean_airtemp = mean_airtemp) %>% 
+   ggplot(aes(x=mean_airtemp, y=count_caught)) +
+   geom_point() + 
+   geom_smooth(method='lm')
 ```
 
 
