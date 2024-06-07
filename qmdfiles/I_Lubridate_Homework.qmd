@@ -1,0 +1,71 @@
+---
+title: "Homework I"
+subtitle: "`lubridate`: for working with dates"
+author: "YOUR NAME HERE"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+execute: 
+  warning: FALSE
+  message: FALSE
+---
+
+```{r}
+#LOAD PACKAGES 
+library(tidyverse)
+library(lubridate)
+
+#LOAD DATA
+library(nycflights13)
+data("flights")
+```
+
+
+1. Create a new column in the flights dataset called `departure_datetime` which displays the departure datetime (for example, 2013-01-01 05:15:00)
+
+```{r}
+
+```
+
+
+2. Create a new column in the flights dataset called  `sched_departure_datetime` which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)
+
+```{r}
+
+```
+
+3. Use an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called `calc_dep_delay`. Note that your new column `calc_dep_delay` should have the same values as `dep_delay`.  
+
+```{r}
+
+```
+
+
+4. Create a new column called `overnight` which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time. 
+
+```{r}
+
+```
+
+
+5. Block time is defined as the time between departure and arrival time. Fun fact: pilots and flight attendents are only paid for block time, and that doesn't include boarding. Block time includes:
+
+- some time spent on the ground at the origin (doing safety checks, taxiing from the gate to the runway, waiting to get cleared to takeoff, etc.) 
+- the amount of time in the air 
+- some time spent on the ground at the destination (taxiing from the runway to the gate, etc.)
+
+Calculate a new column called `block_time` which is calculated by taking the `arrival_datetime` and subtracting the `departure_daterime`. 
+
+```{r}
+
+```
+
+6. Calculate a new column called `ground_time` which is calculated by taking the `block_time` and subtracting the `airtime`. Note that `airtime` is given in minutes. 
+
+```{r}
+
+```
+

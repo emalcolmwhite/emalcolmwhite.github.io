@@ -1,0 +1,153 @@
+---
+title: "Notes I"
+subtitle: "`lubridate`: for working with dates"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r}
+#LOAD PACKAGES 
+library(tidyverse)
+library(lubridate)
+```
+
+# Date Formats
+
+Think of how many different formats you know of to list today's date: 
+
+
+Yikes! 
+
+# Date, Time, and Datetime
+
+Date/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:
+
+1. Date - only has the date (e.g. 2020-05-15) 
+2. Time - only has the time (e.g. 20:45:00) 
+3. Datetime - has both the date and time (e.g. 2020-05-15 20:45:00)
+
+# Standard Date Format
+
+The `ymd()` function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day. 
+
+```{r}
+ymd("06 02 04")
+ymd("06/02/04")
+ymd("20060204")  # works as well
+ymd("2006 2 4")
+ymd(060204)  # works with numbers
+```
+
+`mdy()` (month day year) and `dmy()` (day month year) formats also exist. 
+
+```{r}
+ymd_hms("2020-04-01 10:30:13")
+ymd_hm("2020/04/01 10.30")
+```
+
+# Making Dates From Values
+
+```{r}
+#make_date
+
+
+#make_datetime
+
+```
+
+# Portal Data
+
+```{r}
+#LOAD DATA
+#Recall the Portal Dataset
+portal_rodent <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv")
+```
+
+Unfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function `make_datetime()`
+
+```{r}
+
+```
+
+So far we have been working with surveys data from 1977 to 1989, and our data have been pretty neat and tidy. There are some NA values, but for the most part, the data have been formatted nicely.
+
+Well, it turns out we have just that situation! We have received a newer batch of surveys data, from 1990 to 2002, and we want to add it to our older dataset so we can work with them together.
+
+```{r}
+#portal_rodent_new <- read.csv("surveys_new.csv")
+
+#portal_rodent_new  <- portal_rodent_new  %>% 
+#  rename(date = date..mm.dd.yyyy.) %>% 
+#  mutate(hindfoot_length = ifelse(record_id == 16896, 19, hindfoot_length)) %>% 
+#  mutate(weight = ifelse(weight == 9999, NA, weight))
+```
+
+```{r}
+#portal_rodent_new  <- portal_rodent_new %>% 
+#  mutate(date = mdy(date))
+```
+We got a warning message about 6 dates failing to parse. This means that the mdy() function encountered 6 dates that it wasn’t able to identify correctly.
+
+## Challenge 
+
+We have now located the rows with NA dates, but we probably want to know what the original date character strings looked like. Figure out what those dates were and why they might have been wrong.
+
+```{r}
+
+```
+
+# Solar Data
+
+```{r}
+#power <- read.csv("power.csv")
+```
+
+What format is this in? 
+
+# Picking out information
+
+```{r}
+# need to put it in standardized date format first
+
+
+#pick out year, month, date so we can filter and sort
+
+```
+
+# Rounding Times
+
+```{r}
+t <- ymd_hms("2022-11-15 00:08:30")
+```
+
+```{r}
+#Round
+round_date(t, unit = "second") #no change
+round_date(t, unit = "minute")
+round_date(t, unit = "hour")
+round_date(t, unit = "day")
+```
+
+
+```{r}
+#Force Round UP
+ceiling_date(t, unit = "minute")
+ceiling_date(t, unit = "hour")
+```
+
+```{r}
+#Force Round DOWN
+floor_date(t, unit = "minute")
+floor_date(t, unit = "hour")
+```
+
+
+
+
