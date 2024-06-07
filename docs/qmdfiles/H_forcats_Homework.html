@@ -4600,37 +4600,32 @@ color: #000;
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD DATASET</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This diamonds dataset is built into the tidyverse package</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;gss_cat&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD DATA</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>portal_rodent <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>portal_species <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Today’s dataset, <code>gss_cat</code>, is a sample of data from the General Social Survey, a long-running US survey conducted by the independent research organization NORC at the University of Chicago. The survey has thousands of questions, but <code>gss_cat</code> only contains the 9 variables.</p>
-<p>Begin by reading more about each variable in the dataset by typing <code>?gss_cat</code> into the console.</p>
 <ol type="1">
-<li>For each categorical/factor variable in <code>gss_cat</code> identify whether the order of the levels is ordinal or nominal.</li>
+<li>Choose 3 different species of rodents. You may want to choose 3 from the same genus or from 3 different genera for comparison. Create a dataset called <code>my_rodents</code> which has all the data on any rodents of your species of choice caught in Portal, AZ. You should display the time the rodents were captured (year, month, day), the species scientific and common name, and the sex and pregnancy status.</li>
 </ol>
-<p>marital - race - rincome - partyid - relig - denom -</p>
 <ol start="2" type="1">
-<li>What are the levels of the variable <code>partyid</code>? Create a table which displays how many people are in each category of <code>partyid</code>.</li>
+<li>Create a table which displays how many rodents are of each species (or commonname) were recorded over the period of study. Be sure that it’s broken down by sex.</li>
 </ol>
 <ol start="3" type="1">
-<li>Construct a barplot which displays <code>partyid</code> on the x-axis and the the height of the bars represents the count of how many people fall in each category. What makes the default bar chart hard to understand?</li>
+<li>Construct an appropriate plot to display the data above. Be sure information about species (or commonname), sex, and count is all displayed in your plot &amp; that your plot is pretty and nicely labeled.</li>
 </ol>
 <ol start="4" type="1">
-<li>Regroup <code>partyid</code> variable to only contain four groups: “rep”, “ind”, “dem”, and “other”. Recreate the barchart above with your improved groupings.</li>
-</ol>
-<ol start="5" type="1">
-<li>What are the levels of the <code>relig</code> variable? Create a table which counts how many people belong to each religion. Be sure to print out your table is a pretty way using the <code>kableExtra</code> package.</li>
+<li><p>What is the order of the levels of species (or commonname) displayed in your chart?</p></li>
+<li><p>Reorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work seperate to figure out what this order is.</p></li>
 </ol>
 <ol start="6" type="1">
-<li>Create a new variable in the dataset called <code>top_relig</code> which only contains the 5 most popular religions and all other categories are grouped into an “other category”. Create table which counts the number of people in each <code>top_relig</code> category. Be sure to print out your table is a pretty way using the <code>xtable</code> package.</li>
+<li>Sex is ordered in alphabertically. Reorder sex so that it displays males first and then females.</li>
 </ol>
 <ol start="7" type="1">
-<li>Explore the relationship between marital status and the number of TV hours watched. Your results should include an appropriate plot that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way.</li>
+<li>Reconstruct your appropriate plot from 3. Be sure the ordering you created in 5 and 6 carries through into your plot.</li>
 </ol>
-<ol start="8" type="1">
-<li>Explore the relationship between one of the categorical variables in this dataset over time. Your results should include an appropriate plot that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way.</li>
+<ol start="7" type="1">
+<li>Of the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregant? Make a nice well-labelled table that is well-labelled including “not pregnant” or something similar.</li>
 </ol>
 
 

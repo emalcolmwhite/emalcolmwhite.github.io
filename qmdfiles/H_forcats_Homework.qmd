@@ -18,66 +18,61 @@ execute:
 library(tidyverse)
 library(forcats)
 
-#LOAD DATASET
-# This diamonds dataset is built into the tidyverse package
-data("gss_cat")
+#LOAD DATA
+portal_rodent <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv")
+portal_species <- read.csv("https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv")
 ```
 
-Today's dataset, `gss_cat`, is a sample of data from the General Social Survey, a long-running US survey conducted by the independent research organization NORC at the University of Chicago. The survey has thousands of questions, but `gss_cat` only contains the 9 variables.   
-
-Begin by reading more about each variable in the dataset by typing `?gss_cat` into the console. 
-
-1.  For each categorical/factor variable in `gss_cat` identify whether the order of the levels is ordinal or nominal. 
-
-marital - 
-race - 
-rincome - 
-partyid - 
-relig - 
-denom - 
-
-
-2. What are the levels of the variable `partyid`? Create a table which displays how many people are in each category of `partyid`. 
-
-```{r}
-
-```
-
-3. Construct a barplot which displays `partyid` on the x-axis and the the height of the bars represents the count of how many people fall in each category. What makes the default bar chart hard to understand? 
-
-```{r}
-
-```
-
-4. Regroup `partyid` variable to only contain four groups: "rep", "ind", "dem", and "other". Recreate the barchart above with your improved groupings. 
-
-```{r}
-
-```
-
-5. What are the levels of the `relig` variable? Create a table which counts how many people belong to each religion. Be sure to print out your table is a pretty way using the `kableExtra` package. 
-
-```{r}
-
-```
-
-6. Create a new variable in the dataset called `top_relig` which only contains the 5 most popular religions and all other categories are grouped into an "other category". Create table which counts the number of people in each `top_relig` category. Be sure to print out your table is a pretty way using the `xtable` package.  
-
-```{r}
-
-```
-
-7. Explore the relationship between marital status and the number of TV hours watched. Your results should include an appropriate plot that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way. 
+1.  Choose 3 different species of rodents. You may want to choose 3 from the same genus or from 3 different genera for comparison. Create a dataset called `my_rodents` which has all the data on any rodents of your species of choice caught in Portal, AZ. You should display the time the rodents were captured (year, month, day), the species scientific and common name, and the sex and pregnancy status. 
 
 ```{r}
 
 ```
 
 
-8. Explore the relationship between one of the categorical variables in this dataset over time. Your results should include an appropriate plot  that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way. 
+2. Create a table which displays how many rodents are of each species (or commonname) were recorded over the period of study. Be sure that it's broken down by sex. 
 
 ```{r}
 
 ```
+
+3. Construct an appropriate plot to display the data above. Be sure information about species (or commonname), sex, and count is all displayed in your plot & that your plot is pretty and nicely labeled. 
+
+```{r}
+
+```
+
+4. What is the order of the levels of species (or commonname) displayed in your chart?  
+
+
+
+5. Reorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work seperate to figure out what this order is. 
+
+```{r}
+
+```
+
+6. Sex is ordered in alphabertically. Reorder sex so that it displays males first and then females. 
+
+```{r}
+
+```
+
+
+7. Reconstruct your appropriate plot from 3. Be sure the ordering you created in 5 and 6 carries through into your plot. 
+
+```{r}
+
+```
+
+7. Of the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregant? Make a nice well-labelled table that is well-labelled including "not pregnant" or something similar. 
+
+```{r}
+
+```
+
+
+
+
 
 
