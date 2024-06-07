@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R by the Sea - Notes I</title>
+<title>R by the Sea - Notes D</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4571,12 +4571,7 @@ color: #000;
   <li><a href="#date-time-and-datetime" id="toc-date-time-and-datetime" class="nav-link" data-scroll-target="#date-time-and-datetime">Date, Time, and Datetime</a></li>
   <li><a href="#standard-date-format" id="toc-standard-date-format" class="nav-link" data-scroll-target="#standard-date-format">Standard Date Format</a></li>
   <li><a href="#making-dates-from-values" id="toc-making-dates-from-values" class="nav-link" data-scroll-target="#making-dates-from-values">Making Dates From Values</a></li>
-  <li><a href="#portal-data" id="toc-portal-data" class="nav-link" data-scroll-target="#portal-data">Portal Data</a>
-  <ul class="collapse">
-  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
-  </ul></li>
-  <li><a href="#solar-data" id="toc-solar-data" class="nav-link" data-scroll-target="#solar-data">Solar Data</a></li>
-  <li><a href="#picking-out-information" id="toc-picking-out-information" class="nav-link" data-scroll-target="#picking-out-information">Picking out information</a></li>
+  <li><a href="#portal-data" id="toc-portal-data" class="nav-link" data-scroll-target="#portal-data">Portal Data</a></li>
   <li><a href="#rounding-times" id="toc-rounding-times" class="nav-link" data-scroll-target="#rounding-times">Rounding Times</a></li>
   </ul>
 </nav>
@@ -4586,8 +4581,8 @@ color: #000;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notes I</h1>
-<p class="subtitle lead"><code>lubridate</code>: for working with dates</p>
+<h1 class="title">Notes D</h1>
+<p class="subtitle lead">lubridate: Working with dates in R`</p>
 </div>
 
 
@@ -4675,84 +4670,49 @@ color: #000;
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>portal_rodent <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Unfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function <code>make_datetime()</code></p>
-<p>So far we have been working with surveys data from 1977 to 1989, and our data have been pretty neat and tidy. There are some NA values, but for the most part, the data have been formatted nicely.</p>
-<p>Well, it turns out we have just that situation! We have received a newer batch of surveys data, from 1990 to 2002, and we want to add it to our older dataset so we can work with them together.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#portal_rodent_new &lt;- read.csv(&quot;surveys_new.csv&quot;)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#portal_rodent_new  &lt;- portal_rodent_new  %&gt;% </span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  rename(date = date..mm.dd.yyyy.) %&gt;% </span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(hindfoot_length = ifelse(record_id == 16896, 19, hindfoot_length)) %&gt;% </span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(weight = ifelse(weight == 9999, NA, weight))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#portal_rodent_new  &lt;- portal_rodent_new %&gt;% </span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(date = mdy(date))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We got a warning message about 6 dates failing to parse. This means that the mdy() function encountered 6 dates that it wasn’t able to identify correctly.</p>
-<section id="challenge" class="level2">
-<h2 data-anchor-id="challenge">Challenge</h2>
-<p>We have now located the rows with NA dates, but we probably want to know what the original date character strings looked like. Figure out what those dates were and why they might have been wrong.</p>
-</section>
-</section>
-<section id="solar-data" class="level1">
-<h1>Solar Data</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#power &lt;- read.csv(&quot;power.csv&quot;)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>What format is this in?</p>
-</section>
-<section id="picking-out-information" class="level1">
-<h1>Picking out information</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># need to put it in standardized date format first</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#pick out year, month, date so we can filter and sort</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="rounding-times" class="level1">
 <h1>Rounding Times</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;2022-11-15 00:08:30&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;2022-11-15 00:08:30&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Round</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;second&quot;</span>) <span class="co">#no change</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Round</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;second&quot;</span>) <span class="co">#no change</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 00:08:30 UTC&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;minute&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;minute&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 00:09:00 UTC&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;hour&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;hour&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 UTC&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;day&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;day&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 UTC&quot;</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Force Round UP</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;minute&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Force Round UP</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;minute&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 00:09:00 UTC&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;hour&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;hour&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 01:00:00 UTC&quot;</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Force Round DOWN</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;minute&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Force Round DOWN</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;minute&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 00:08:00 UTC&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;hour&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor_date</span>(t, <span class="at">unit =</span> <span class="st">&quot;hour&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2022-11-15 UTC&quot;</code></pre>
 </div>

@@ -1,6 +1,6 @@
 ---
 title: "Homework I"
-subtitle: "`lubridate`: for working with dates"
+subtitle: "`lubridate"
 author: "YOUR NAME HERE"
 format:
   html:
@@ -13,59 +13,68 @@ execute:
   message: FALSE
 ---
 
-```{r}
+There is a lubridate cheatsheet here: https://lubridate.tidyverse.org/
+
+
+```{r message=FALSE, warning=FALSE}
 #LOAD PACKAGES 
 library(tidyverse)
 library(lubridate)
 
-#LOAD DATA
-library(nycflights13)
-data("flights")
+# LOAD DATA. You can  read about the descriptions of the columns here: https://www.ndbc.noaa.gov/station_realtime.php?station=bgxn3
+# Data from National Estuarine Research Reserve System (43.059 N 70.830 W 43°3'32" N 70°49'49" W)
+
+download.file(url='https://www.ndbc.noaa.gov/data/realtime2/BGXN3.txt',
+              destfile = 'greatbay.txt')
+
+write.csv(x = read.csv(file = 'greatbay.txt', header = TRUE, sep='')[-1,],file = 'greatbay.txt', quote=FALSE, row.names = FALSE)
+
+greatbay <- read.csv(file = 'greatbay.txt', header = TRUE)
+
 ```
 
 
-1. Create a new column in the flights dataset called `departure_datetime` which displays the departure datetime (for example, 2013-01-01 05:15:00)
+1. Use `lubridate` to make a new column a datetime object (for example, 2013-01-01 05:15). 
+
+```{r}
+
+
+```
+
+
+2. The above datetime object is in GMT. Convert the datetime object from GMT to EST to be on the right time zone. Hint: You can use the `with_tz()` function 
+
+```{r}
+
+```
+
+3. Use an appropriate function to calculate the difference, in minutes, between the current time and the datetime (EST) in the dataset. Build a new column and save this calculated difference. Hint: You can use `Sys.time()` to get the current time on your computer.
 
 ```{r}
 
 ```
 
 
-2. Create a new column in the flights dataset called  `sched_departure_datetime` which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)
+4. Build a plot of Air temperature (Celsius) (ATMP) over time. Make it both a scatter plot with lines connecting the points.
 
 ```{r}
 
-```
 
-3. Use an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called `calc_dep_delay`. Note that your new column `calc_dep_delay` should have the same values as `dep_delay`.  
-
-```{r}
 
 ```
 
 
-4. Create a new column called `overnight` which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time. 
+5. Now rebuild the above plot, but take the mean ATMP per day before plotting. There are multiple ways to accomplish this task.
 
 ```{r}
 
+
+
 ```
 
-
-5. Block time is defined as the time between departure and arrival time. Fun fact: pilots and flight attendents are only paid for block time, and that doesn't include boarding. Block time includes:
-
-- some time spent on the ground at the origin (doing safety checks, taxiing from the gate to the runway, waiting to get cleared to takeoff, etc.) 
-- the amount of time in the air 
-- some time spent on the ground at the destination (taxiing from the runway to the gate, etc.)
-
-Calculate a new column called `block_time` which is calculated by taking the `arrival_datetime` and subtracting the `departure_daterime`. 
+6. Build a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find. 
 
 ```{r}
 
-```
-
-6. Calculate a new column called `ground_time` which is calculated by taking the `block_time` and subtracting the `airtime`. Note that `airtime` is given in minutes. 
-
-```{r}
 
 ```
-

@@ -1,6 +1,6 @@
 ---
-title: "Notes I"
-subtitle: "`lubridate`: for working with dates"
+title: 'Notes D'
+subtitle: 'lubridate: Working with dates in R`'
 format:
   html:
     toc: true
@@ -76,50 +76,7 @@ Unfortunately, because the information about datetime is divided up into differe
 
 ```
 
-So far we have been working with surveys data from 1977 to 1989, and our data have been pretty neat and tidy. There are some NA values, but for the most part, the data have been formatted nicely.
 
-Well, it turns out we have just that situation! We have received a newer batch of surveys data, from 1990 to 2002, and we want to add it to our older dataset so we can work with them together.
-
-```{r}
-#portal_rodent_new <- read.csv("surveys_new.csv")
-
-#portal_rodent_new  <- portal_rodent_new  %>% 
-#  rename(date = date..mm.dd.yyyy.) %>% 
-#  mutate(hindfoot_length = ifelse(record_id == 16896, 19, hindfoot_length)) %>% 
-#  mutate(weight = ifelse(weight == 9999, NA, weight))
-```
-
-```{r}
-#portal_rodent_new  <- portal_rodent_new %>% 
-#  mutate(date = mdy(date))
-```
-We got a warning message about 6 dates failing to parse. This means that the mdy() function encountered 6 dates that it wasn’t able to identify correctly.
-
-## Challenge 
-
-We have now located the rows with NA dates, but we probably want to know what the original date character strings looked like. Figure out what those dates were and why they might have been wrong.
-
-```{r}
-
-```
-
-# Solar Data
-
-```{r}
-#power <- read.csv("power.csv")
-```
-
-What format is this in? 
-
-# Picking out information
-
-```{r}
-# need to put it in standardized date format first
-
-
-#pick out year, month, date so we can filter and sort
-
-```
 
 # Rounding Times
 
