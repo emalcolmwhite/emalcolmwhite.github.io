@@ -1,8 +1,6 @@
 ---
 title: "Notes H"
 subtitle: "`forcats`: for working with categorical variables"
-author: 'EMW'
-date: 'Friday, June 7, 2024'
 format:
   html:
     toc: true
