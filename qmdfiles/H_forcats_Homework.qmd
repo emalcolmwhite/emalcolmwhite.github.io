@@ -46,13 +46,13 @@ portal_species <- read.csv("https://raw.githubusercontent.com/weecology/PortalDa
 
 
 
-5. Reorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work seperate to figure out what this order is. 
+5. Reorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work separate to figure out what this order is. 
 
 ```{r}
 
 ```
 
-6. Sex is ordered in alphabertically. Reorder sex so that it displays males first and then females. 
+6. Sex is ordered in alphabetically. Reorder sex so that it displays males first and then females. 
 
 ```{r}
 
@@ -65,7 +65,7 @@ portal_species <- read.csv("https://raw.githubusercontent.com/weecology/PortalDa
 
 ```
 
-7. Of the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregant? Make a nice well-labelled table that is well-labelled including "not pregnant" or something similar. 
+7. Of the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregnant? Make a nice well-labelled table that is well-labelled including "not pregnant" or something similar. 
 
 ```{r}
 
