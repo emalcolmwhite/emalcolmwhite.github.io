@@ -1,0 +1,64 @@
+---
+title: "Homework J"
+subtitle: "Seal data project"
+author: "YOUR NAME HERE"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+execute: 
+  warning: FALSE
+  message: FALSE
+---
+
+
+Welcome to Seal Team Six. Your goal is to use long-term Shoals data to understand trends in the seal populations at Duck Island. You will use lots of the skills you learned last week in class. This is also your first opportunity to dig into some real Shoals data. Use the opportunity to experiment and explore all the data and R have to offer. This is your chance to play with different ways to visualize data and play with plot aesthetics. 
+
+
+```{r message=FALSE, warning=FALSE}
+#| eval: FALSE
+
+#LOAD PACKAGES 
+library(tidyverse)
+library(lubridate)
+
+# LOAD DATA
+seals <- read.csv(file = 'sml_seal_count.csv', header = TRUE)
+
+```
+
+
+1. Use `lubridate` the date column a date data type. 
+
+```{r}
+
+
+```
+
+2. Use tables and/or text to provide some background on the data. How many data points are there? Over what time frame? What are the means and ranges of some key parameters?
+
+```{r}
+
+```
+
+3. Select only the date, Total.PV (harbour seals), Total.HG (gray seals), air temp, water temp, and low tide columns. Make the dataset a long dataset by combining the seal columns (i.e., there should be a column for seal species and one for seal counts). Show a preview of the dataset in your output.
+
+```{r}
+
+```
+
+4. Build a plot of seal abundance over time. Do you notice any trends?
+
+```{r}
+
+```
+
+
+5. Build a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find. 
+
+```{r}
+
+
+```
