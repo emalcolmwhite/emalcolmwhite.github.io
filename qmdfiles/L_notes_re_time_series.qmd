@@ -1,0 +1,107 @@
+---
+title: 'Some Notes about Time Series'
+author: "EMW" 
+date: "Wed, June 12, 2024"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+
+#load packages
+library(tidyverse)
+library(lubridate)
+```
+
+```{r}
+#load data
+power <- read.csv("../data/power.csv")
+```
+
+\clearpage
+
+# Date Formats are IMPORTANT
+
+```{r}
+#| layout-ncol: 2
+ggplot(power, aes(x=Date, y=power_kW)) + 
+  geom_line() + 
+  ggtitle("Date not in date format")
+
+power <- power %>% 
+  mutate(Date = mdy_hm(Date))
+
+ggplot(power, aes(x=Date, y=power_kW)) + 
+  geom_line() + 
+  ggtitle("Date in Date Format")
+```
+
+\clearpage
+
+# Should we summarize the data? How? 
+
+```{r}
+#| layout-ncol: 3
+
+power %>% 
+  ggplot(aes(x=Date, y=power_kW)) + 
+  geom_line() + 
+  ggtitle("By minute")
+  
+power %>% 
+  mutate(Date_round = floor_date(Date, unit="day")) %>% 
+  ggplot(aes(x=Date_round, y=power_kW)) +
+  geom_line() + 
+  ggtitle("By date: all minute data kept (lines) :(")
+
+power %>% 
+  mutate(Date_round = floor_date(Date, unit="day")) %>% 
+  ggplot(aes(x=Date_round, y=power_kW)) +
+  geom_point() + 
+  ggtitle("By date: all minute data kept (points) :(")
+
+
+```
+
+\clearpage
+
+# Over what time period should we summarize? 
+
+```{r}
+#| layout-ncol: 3
+
+power %>% 
+  ggplot(aes(x=Date, y=power_kW)) + 
+  geom_line() + 
+  ggtitle("By minute")
+
+power %>% 
+  mutate(Year = year(Date), Month = month(Date), Day = day(Date)) %>% 
+  group_by(Year, Month, Day) %>% 
+  summarize(Total_power_kw = sum(power_kW)) %>% 
+  mutate(Date_round = make_date(year=Year, month=Month, day =Day)) %>% 
+  ggplot(aes(x=Date_round, y=Total_power_kw)) +
+  geom_line() + 
+  ggtitle("By date: summarize by adding")
+
+power %>% 
+  mutate(Year = year(Date), Month = month(Date), Day = day(Date), Hour=hour(Date)) %>% 
+  group_by(Year, Month, Day, Hour) %>% 
+  summarize(Total_power_kw = sum(power_kW)) %>% 
+  mutate(Date_round = make_datetime(year=Year, month=Month, day=Day, hour=Hour)) %>% 
+  ggplot(aes(x=Date_round, y=Total_power_kw)) +
+  geom_line() + 
+  ggtitle("By hour: summarize by adding")
+
+
+```
+

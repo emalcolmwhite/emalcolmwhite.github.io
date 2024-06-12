@@ -320,5 +320,19 @@
     "title": "Notes C",
     "section": "Multiple Groups",
     "text": "Multiple Groups\n\npenguins %&gt;%\n  group_by(species, sex) %&gt;%\n  summarise(average_bill_lenth = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    average_bill_lenth average_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;               &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie    female               37.3               17.6\n2 Adelie    male                 40.4               19.1\n3 Chinstrap female               46.6               17.6\n4 Chinstrap male                 51.1               19.3\n5 Gentoo    female               45.6               14.2\n6 Gentoo    male                 49.5               15.7"
+  },
+  {
+    "objectID": "qmdfiles/L_notes_re_time_series.html",
+    "href": "qmdfiles/L_notes_re_time_series.html",
+    "title": "Some Notes about Time Series",
+    "section": "",
+    "text": "#load packages\nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n#load data\npower &lt;- read.csv(\"../data/power.csv\")\n\n\nDate Formats are IMPORTANT\n\nggplot(power, aes(x=Date, y=power_kW)) + \n  geom_line() + \n  ggtitle(\"Date not in date format\")\npower &lt;- power %&gt;% \n  mutate(Date = mdy_hm(Date))\n\nggplot(power, aes(x=Date, y=power_kW)) + \n  geom_line() + \n  ggtitle(\"Date in Date Format\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nShould we summarize the data? How?\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) + \n  geom_line() + \n  ggtitle(\"By minute\")\npower %&gt;% \n  mutate(Date_round = floor_date(Date, unit=\"day\")) %&gt;% \n  ggplot(aes(x=Date_round, y=power_kW)) +\n  geom_line() + \n  ggtitle(\"By date: all minute data kept (lines) :(\")\npower %&gt;% \n  mutate(Date_round = floor_date(Date, unit=\"day\")) %&gt;% \n  ggplot(aes(x=Date_round, y=power_kW)) +\n  geom_point() + \n  ggtitle(\"By date: all minute data kept (points) :(\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOver what time period should we summarize?\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) + \n  geom_line() + \n  ggtitle(\"By minute\")\npower %&gt;% \n  mutate(Year = year(Date), Month = month(Date), Day = day(Date)) %&gt;% \n  group_by(Year, Month, Day) %&gt;% \n  summarize(Total_power_kw = sum(power_kW)) %&gt;% \n  mutate(Date_round = make_date(year=Year, month=Month, day =Day)) %&gt;% \n  ggplot(aes(x=Date_round, y=Total_power_kw)) +\n  geom_line() + \n  ggtitle(\"By date: summarize by adding\")\npower %&gt;% \n  mutate(Year = year(Date), Month = month(Date), Day = day(Date), Hour=hour(Date)) %&gt;% \n  group_by(Year, Month, Day, Hour) %&gt;% \n  summarize(Total_power_kw = sum(power_kW)) %&gt;% \n  mutate(Date_round = make_datetime(year=Year, month=Month, day=Day, hour=Hour)) %&gt;% \n  ggplot(aes(x=Date_round, y=Total_power_kw)) +\n  geom_line() + \n  ggtitle(\"By hour: summarize by adding\")"
+  },
+  {
+    "objectID": "qmdfiles/K_sustainability_data.html",
+    "href": "qmdfiles/K_sustainability_data.html",
+    "title": "Homework K",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n# LOAD DATA\npower &lt;- read.csv(\"../data/power.csv\")\n\n\n\nuse the SML Data Dashboard to recreate a dataset for 2024. (Wind Power and Wind Speed)\nUse lubridate the date column a date data type.\n\n\nUse tables and/or text to provide some background on the data. How many data points are there? Over what time frame? What are the means and ranges of some key parameters?\n\n\nBuild a plot of daily power generation of solar and wind over the 2024 season so far. Comment on the trends.\n\n\nBuild a plot of power generated so far in 2024 over time? How does the amount compare to the amount produced in the first part of 2023? Comment on the trends.\n\n\nBuild a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find."
   }
 ]
