@@ -16,7 +16,8 @@ execute:
 #LOAD PACKAGES
 library(tidyverse)
 library(infer)
-library(janitor)
+library(broom)
+set.seed(999)
 ```
 
 Let's this about some ways we can summarize and explore relationships between two variables: 
