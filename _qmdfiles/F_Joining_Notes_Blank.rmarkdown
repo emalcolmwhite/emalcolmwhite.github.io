@@ -1,0 +1,144 @@
+---
+title: 'Notes F'
+subtitle: 'Joining tables with `dplyr`'
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+
+# `portal` dataset 
+
+The Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate. To study the interactions among organisms, we experimentally manipulate access to 24 study plots. This study has produced over 100 scientific papers and is one of the longest running ecological studies in the U.S [(Pulled directly from the Portal Project Website)](https://portal.weecology.org/)
+
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+
+#LOAD DATA
+
+## Portal_rodent contains the rodent trapping data. Each individual of a target species is PIT tagged and data on species, location caught (plot and stake), sex, reproductive condition, weight, and hindfoot length are recorded. 
+portal_rodent <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv")
+```
+
+
+# Warmup: 
+
+Use `group_by()` and `summarize()` to find the mean, min, and max hindfoot length for each species (using `species`). Also add the number of observations.
+
+
+```{r}
+
+```
+
+
+
+What was the heaviest animal measured in each year? Return the columns `year`, `species`. Create line graph. 
+
+
+```{r}
+
+```
+
+
+# Join dataframes
+
+## Matching key variable names
+
+What do the two letter `species_id`s really mean? Data on `species_id`s are provided in a dataset called `portal_species`. 
+
+
+```{r}
+## Portal_rodent_species contains the species codes used in Portal_rodent.
+portal_species <- read.csv("https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv")
+```
+
+
+
+We want to have all this information in one data frame instead of two separate data frames. 
+
+The variable `species` in `portal_rodents` match the variable `speciescode` in the `portal_species` dataset -- this is our *key variable*. In this case, they actually have different names, but this doesn't necessarily have to be true. 
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+
+
+## Multiple Key variables
+
+In order to join the rotents sampling data and weather data frames, we need more than one key variable: `year`, `month` and `day`. This is because the combination of these 3 variables act to uniquely identify each observational unit in the weather data frame: hourly weather recordings in Portal, AZ.
+
+
+```{r}
+portal_weather <- read.csv("https://github.com/weecology/PortalData/raw/main/Weather/Portal_weather.csv")
+
+#mean daily temperature
+
+
+```
+
+```{r}
+#join
+
+```
+
+
+## Why is this useful? 
+
+Updating labels: 
+
+
+```{r}
+# portal_rodent %>% 
+#   drop_na(hfl) %>% 
+#   group_by(species) %>% 
+#   summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())
+
+#VS
+
+# portal_joined %>% 
+#   drop_na(hfl) %>% 
+#   group_by(commonname, scientificname) %>% 
+#   summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())
+```
+
+
+Exploring relationships between variables in separate tables: 
+
+
+```{r}
+# portal_weather_joined %>% 
+#   group_by(year, month, day) %>% 
+#   summarize(count_caught = n(), mean_airtemp = mean_airtemp) %>% 
+#   ggplot(aes(x=mean_airtemp, y=count_caught)) +
+#   geom_point() + 
+#   geom_smooth(method='lm')
+```
+
+
+
+# Common Issues with Joining
+
+- duplicate keys
+- lowercase/uppercase
+- symbols or whitespace
+- Make sure the join fields are the same format.
+
+
+
+
