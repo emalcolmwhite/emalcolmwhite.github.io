@@ -1,0 +1,245 @@
+---
+title: "Notes L"
+subtitle: "Exploratory Data Analysis & Simple Linear Regression"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+library(infer)
+library(janitor)
+```
+
+
+Let's this about some ways we can summarize and explore relationships between two variables: 
+
+::: {#fig-plots layout-ncol=3}
+
+![Two Categorical](https://forum.posit.co/uploads/default/original/3X/3/e/3e5e010f63ffeb5e555d1e202e4b637525d43b48.jpeg){#fig-two-cat}
+
+![One Numeric, One Categorical](https://allisonhorst.github.io/palmerpenguins/articles/examples_files/figure-html/unnamed-chunk-6-1.png){#fig-one-num-one-cat}
+
+![Two Numeric Variables](https://allisonhorst.github.io/palmerpenguins/articles/examples_files/figure-html/mass-flipper-1.png){#fig-two-num}
+
+
+
+Types of Plots with Two Variables
+:::
+
+Today, we are going to dive into the "two numeric variables" case. 
+
+# Motivation using data we have seen before
+
+## Sustainability Data
+
+
+```{r}
+#LOAD DATA
+power <- read.csv("../data/power.csv")
+```
+
+```{r}
+ power %>% 
+   drop_na() %>% 
+   ggplot(aes(x=windSpeedRadarTower_m_per_sec, y=power_kW)) + 
+   geom_point(pch=16, alpha=0.5, position="jitter") + 
+   geom_smooth(method=lm, se=FALSE) +
+   labs(x = "Wind Speed (m/s)", y = "Power (kW)") + 
+   theme_minimal()
+```
+
+
+## Banner-tailed Kangaroo Rats in Portal, AZ
+
+
+```{r}
+#load kangaroo rat data
+kangaroo_rats <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv") %>% 
+  filter(species %in% c("DS")) %>% 
+  select(year, month, day, species, sex, hfl, wgt)
+```
+
+```{r}
+kangaroo_rats %>% 
+   drop_na() %>% 
+   ggplot(aes(x=hfl, y=wgt)) + 
+   geom_point(pch=16, alpha=0.5, position="jitter") + 
+   geom_smooth(method=lm, se=FALSE) +
+   labs(x = "Hindfoot Length", y = "Weight") + 
+   theme_minimal()
+```
+
+
+
+# Correlation
+
+Correlation always takes on values between -1 and 1, describes the strength of the linear relationship between two variables. 
+
+![](https://www.mathsisfun.com/data/images/correlation-examples.svg)
+
+
+```{r}
+kangaroo_rats <- kangaroo_rats %>% 
+  drop_na(hfl) %>% 
+  drop_na(wgt)
+
+#cor(x, y)
+cor(kangaroo_rats$hfl, kangaroo_rats$wgt)
+```
+
+
+
+# Correlation Does Not Imply Causation
+
+![](https://www.simplypsychology.org/wp-content/uploads/causation-correlation.jpg)
+
+![](https://streamlined.co.nz/wp-content/uploads/2016/11/Blog-item_correlation-and-cause_buzzfeed-image.png)
+![](https://lh4.googleusercontent.com/aah2iNgrOSrrgbf_ff2LDYrFdbiYju7P6gvuTLneQ6Rf0ShcwChgUF-Qd8z3ycZVYT1MUMe90Uk2yeLMYdvmbCYoKd321XYyF3C4Det0ouBZvvA-_Lqhp43Nx1B0iVaEZim8DoOH)
+
+
+# Equations and Interpretation of Coefficients
+
+Want to fit a linear model: 
+
+$$
+\hat{y} = b_0 + b_1x
+$$
+
+To fit a linear regression model we need the `lm()` function. 
+
+
+```{r}
+#modelname <- lm(y ~ x, data = dataset)
+
+power_model <- lm(power_kW ~ windSpeedRadarTower_m_per_sec,data=power)
+
+# calling the name of the model spits out the coefficients (slope and y-intercept)
+power_model
+```
+
+
+To interpret the y-intercept coefficient ($b_0$): 
+
+- If the wind speed is 0, this model predicts that the power generated will be -2.5 kW on average. 
+
+To interpret the slope coefficient ($b_1$): 
+
+- For every additional m per sec of wind speed, this model predicts that the power generated will increase by 0.8558 kW. 
+
+
+# Variability of the Slope Estimates
+
+- we are usually using a sample to try to estimate was is going on with the population
+- statistics which summarize sample data (like slope) vary from sample to sample
+
+Consider the Banner-tailed kangaroo rats. The full dataset is 2575 kangaroo rats, but this is only a subset of all kangaroo rats in the world.
+
+Suppose we only had a sample of 500. 
+
+
+```{r}
+kangaroo_rats_sample1 <- kangaroo_rats %>%
+  sample_n(500)
+
+kangaroo_rats_sample1 %>% 
+  ggplot(aes(x=hfl, y=wgt)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+kangaroo_model1 <- lm(wgt ~ hfl, data=kangaroo_rats_sample1 )
+
+kangaroo_model1
+```
+
+
+If we repeat this, we will get a slightly different slope. 
+
+
+```{r}
+kangaroo_rats_sample2 <- kangaroo_rats %>%
+  sample_n(500)
+
+kangaroo_rats_sample2 %>% 
+  ggplot(aes(x=hfl, y=wgt)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+kangaroo_model2 <- lm(wgt ~ hfl, data=kangaroo_rats_sample2 )
+
+kangaroo_model2
+```
+
+
+Let's use some fancy R things to repeat this sampling process many times: 
+
+
+```{r}
+kangaroo_rats_many <- kangaroo_rats %>% 
+  rep_sample_n(size = 20, replace = FALSE, reps = 500)
+```
+
+```{r}
+ggplot() +
+  # plot the slopes of all the replicates
+  geom_smooth(
+    data = kangaroo_rats_many, aes(x = hfl, y = wgt, group = replicate),
+    method = "lm", se = FALSE, fullrange = TRUE, 
+    color = "grey", linewidth = 0.1
+  ) +
+  # plot the slope of all kangaroo rats in Portal, AZ
+  geom_smooth(
+    data = kangaroo_rats, aes(x = hfl, y = wgt), method = "lm", se = FALSE,
+    fullrange = TRUE, color = "blue"
+  ) + 
+  ggtitle("Repeated Samples of size n=500") + 
+  theme_minimal()
+```
+
+- You might notice in the above figure that the $\hat{y}$ values given by the lines are much more consistent in the middle of the dataset than at the ends. The reason is that the data itself anchors the lines in such a way that the line must pass through the center of the data cloud.
+
+
+
+```{r}
+kangaroo_rats_many_lm <- kangaroo_rats_many %>% 
+  group_by(replicate) %>% 
+  do(tidy(lm(wgt ~ hfl, data = .))) %>% 
+  filter(term == "hfl")
+
+ggplot(kangaroo_rats_many_lm, aes(x = estimate)) +
+  geom_histogram(binwidth=0.5) +
+  labs(
+    x = "Slope estimate",
+    y = "Count",
+    title = "Banner-tailed Kangaroo Rats",
+    subtitle = "Many random samples of 500 rats"
+  ) + 
+  theme_minimal()
+```
+
+Understanding how much the slope varies from sample to sample helps us better understand a range of likely values for the true slope!
+
+(Take a stats class to learn more!)
+
+# Assumptions, Residuals, and  Residual Plots 
+
+There are some! 
+
+## Interpolation vs. Extrapolation
+
+**Interpolation** is a method of estimating a hypothetical value that exists within a data set.
+
+**Extrapolation** is a method of estimation for hypothetical values that fall outside a data set.
+
+![](https://i.ytimg.com/vi/gbND5b0F8zc/maxresdefault.jpg)
+
+
+
