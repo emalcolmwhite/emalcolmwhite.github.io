@@ -1,0 +1,14 @@
+{
+  "hash": "f506c71a1cc824f42b54f7dbf34a76b2",
+  "result": {
+    "markdown": "---\ntitle: \"Homework D\"\nsubtitle: \"Making plots  with `ggplot2`: barplots and scatterplots\"\nauthor: \"YOUR NAME HERE\"\nformat:\n  html:\n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\nexecute: \n  warning: FALSE\n  message: FALSE\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#load the gapminder data for this lab\nlibrary(gapminder)\n```\n:::\n\n\n\n1. Pick a year. Create a dataset which only contains that data for that year and is appropriately labeled. For example, if you choose the year `2007`, you might choose to call this new dataset `gapminder2007`. You will use this dataset for the rest of the assignment. \n\n\n::: {.cell}\n\n:::\n\n\n2. Using your dataset you created in 1, create a barplot which displays the GDP per capita of the ten countries with the highest GDP per capita that year. Be sure your axes are appropriately labeled. \n\n\n::: {.cell}\n\n:::\n\n\n3.  Pick a continent. Using your dataset you created in 1, create a barplot which displays the life expectancy of all the countries in that continent in that year. You should sort the countries from highest life expectancy to lowest life expectancy. Be sure your axes are appropriately labeled. \n\n\n::: {.cell}\n\n:::\n\n\n4a.  Using your dataset you created in 1, create a scatterplot of GDP per capita vs. life expectancy. All the points should be the same size and color. Be sure your axes are appropriately labeled. \n\n\n::: {.cell}\n\n:::\n\n\n4b. You may notice that the points look a little hard to read. Try out different log transformations on the data to see what might help make it more visually appealing. You may choose to log the x axis variable, the y axis variable, or both. Be sure your axes are appropriately labeled.\n\n\n::: {.cell}\n\n:::\n\n\n4c. Using your scatterplot from 4b as a starting place, add the additional aesthetic commands `aes(size=pop, color=continent)` inside of your `geom_point()` layer. Whats the `size=pop` command do? What does the `color=continent` do?\n\n\n::: {.cell}\n\n:::\n\n\n4d. Using your scatterplot from 4c, add a theme that you like. \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

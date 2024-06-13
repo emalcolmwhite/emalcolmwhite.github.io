@@ -1,0 +1,217 @@
+---
+title: "Notes L"
+subtitle: "Exploratory Data Analysis & Simple Linear Regression"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+```
+
+::: {#fig-plots layout-ncol=3}
+
+![Two Categorical](https://forum.posit.co/uploads/default/original/3X/3/e/3e5e010f63ffeb5e555d1e202e4b637525d43b48.jpeg)
+
+![One Numeric, One Categorical](https://allisonhorst.github.io/palmerpenguins/articles/examples_files/figure-html/unnamed-chunk-6-1.png){#fig-one-num-one-cat}
+
+![Two Numeric Variables](https://allisonhorst.github.io/palmerpenguins/articles/examples_files/figure-html/mass-flipper-1.png){#fig-two-num}
+
+
+
+Types of Plots with Two Variables
+:::
+
+
+# Motivation using data we have seen before
+
+```{r}
+#LOAD DATA
+power <- read.csv("../data/power.csv")
+```
+
+```{r}
+ power %>% 
+   drop_na() %>% 
+   ggplot(aes(x=windSpeedRadarTower_m_per_sec, y=power_kW)) + 
+   geom_point(pch=16, alpha=0.5, position="jitter") + 
+   geom_smooth(method=lm, se=FALSE) +
+   labs(x = "Wind Speed (m/s)", y = "Power (kW)") + 
+   theme_minimal()
+```
+
+```{r}
+#load kangaroo rat data
+kangaroo_rats <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv") %>% 
+  filter(species %in% c("DS")) %>% 
+  select(year, month, day, species, sex, hfl, wgt)
+```
+
+```{r}
+kangaroo_rats %>% 
+   drop_na() %>% 
+   ggplot(aes(x=hfl, y=wgt)) + 
+   geom_point(pch=16, alpha=0.5, position="jitter") + 
+   geom_smooth(method=lm, se=FALSE) +
+   labs(x = "Hindfoot Length", y = "Weight") + 
+   theme_minimal()
+```
+
+
+# Correlation
+
+Correlation always takes on values between -1 and 1, describes the strength of the linear relationship between two variables. 
+
+![](https://www.mathsisfun.com/data/images/correlation-examples.svg)
+
+```{r}
+kangaroo_rats <- kangaroo_rats %>% 
+  drop_na(hfl) %>% 
+  drop_na(wgt)
+
+#cor(x, y)
+cor(kangaroo_rats$hfl, kangaroo_rats$wgt)
+```
+
+
+
+# Correlation Does Not Imply Causation
+
+![](https://www.simplypsychology.org/wp-content/uploads/causation-correlation.jpg)
+
+![](https://streamlined.co.nz/wp-content/uploads/2016/11/Blog-item_correlation-and-cause_buzzfeed-image.png)
+![](https://lh4.googleusercontent.com/aah2iNgrOSrrgbf_ff2LDYrFdbiYju7P6gvuTLneQ6Rf0ShcwChgUF-Qd8z3ycZVYT1MUMe90Uk2yeLMYdvmbCYoKd321XYyF3C4Det0ouBZvvA-_Lqhp43Nx1B0iVaEZim8DoOH)
+
+
+# Equations and Interpretation of Coefficients
+
+Want to fit a linear model: 
+
+$$
+\hat{y} = b_0 + b_1x
+$$
+
+To fit a linear regression model we need the `lm()` function. 
+
+```{r}
+#modelname <- lm(y ~ x, data = dataset)
+
+power_model <- lm(power_kW ~ windSpeedRadarTower_m_per_sec,data=power)
+
+power_model
+```
+
+To interpret the y-intercept coefficient ($b_0$): 
+
+If the wind speed is 0, this model predicts that the power generated will be -2.5 kW on average. 
+
+To interpret the slope coefficient ($b_1$): 
+
+For every additional m per sec of wind speed, this model predicts that the power generated will increase by 0.8558 kW. 
+
+
+# Variability of the Slope Estimates
+
+- a linear model varies from sample to sample
+
+Consider the Banner-tailed kangaroo rats. The full dataset is 2575 kangaroo rats, but this is only a subset of all kangaroo rats in the world.
+
+Suppose we only had a sample of 500. 
+
+```{r}
+kangaroo_rats_sample <- kangaroo_rats %>% 
+  sample_n(500)
+
+kangaroo_rats_sample %>% 
+  ggplot(aes(x=hfl, y=wgt)) + 
+  geom_point()
+
+kangaroo_model <- lm(wgt ~ hfl, data=kangaroo_rats_sample )
+
+summary(kangaroo_model)
+```
+
+
+
+
+# Assumptions, Residuals, and  Residual Plots 
+
+## Assumptions of Linear Regression: 
+
+- **Linearity:** The relationship between X and the mean of Y is linear -- look at scatterplot
+- **Homoscedasticity:** The variance of residual is the same for any value of X -- look at fitted vs. residuals plot
+- **Independence:** Observations are independent of each other -- think about context
+- **Normality:** For any fixed value of X, Y is normally distributed. -- check the QQ plot
+
+
+## Check the scatterplot
+
+```{r}
+# power %>% 
+#   drop_na() %>% 
+#   ggplot(aes(x=windSpeedRadarTower_m_per_sec, y=power_kW)) + 
+#   geom_point(pch=16, alpha=0.5, position="jitter") + 
+#   geom_smooth(method=lm, se=FALSE) +
+#   labs(x = "Wind Speed (m/s)", y = "Power (kW)") + 
+#   theme_minimal()
+```
+
+Some examples of nonlinear plots: 
+
+
+
+## fitted vs. residuals plot and QQplots
+
+```{r}
+#library(ggResidpanel)
+#resid_panel(power_model)
+```
+
+The default panel includes the following four plots.
+
+- *Residual Plot* (upper left): This is a plot of the residuals versus predictive values from the model to assess the linearity and constant variance assumptions. 
+
+- *Normal Quantile Plot* (upper right): Also known as a qq-plot, this plot allows us to assess the normality assumption. 
+
+- *Histogram* (lower right): This is a histogram of the residuals with a overlaid normal density curve with mean and standard deviation computed from the residuals. It provides an additional way to check the normality assumption. This plot makes it clear that there is a slight right skew in the residuals from the penguin_model.
+
+- *Index Plot* (lower left): This is a plot of the residuals versus the observation numbers. It can help to find patterns related to the way that the data has been ordered, which may provide insights into additional trends in the data that have not been accounted for in the model.
+
+
+
+Some other examples: 
+
+![](https://i.stack.imgur.com/RU17l.png)
+
+![](https://i.ytimg.com/vi/-KXy4i8awOg/maxresdefault.jpg)
+
+# Prediction 
+
+Suppose the radar wind speed is 15 m/s. Use the model above to make a prediction for the amount of power produced. 
+
+
+```{r}
+#predict(power_model, 15)
+```
+
+
+## Interpolation vs. Extrapolation
+
+**Interpolation** is a method of estimating a hypothetical value that exists within a data set.
+
+**Extrapolation** is a method of estimation for hypothetical values that fall outside a data set.
+
+![](https://i.ytimg.com/vi/gbND5b0F8zc/maxresdefault.jpg)
+
+

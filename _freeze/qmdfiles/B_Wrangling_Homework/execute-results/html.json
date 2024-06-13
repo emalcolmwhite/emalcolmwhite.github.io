@@ -1,0 +1,14 @@
+{
+  "hash": "716bcba609345ba90e5521be5457e14b",
+  "result": {
+    "markdown": "---\ntitle: \"Homework B\"\nsubtitle: \"Wrangling data with `dplyr`: `filter`, `select`, `arrange`\"\nauthor: \"YOUR NAME HERE\"\nformat:\n  html:\n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\nexecute: \n  warning: FALSE\n  message: FALSE\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#This assignment concerns the gapminder dataset\n# First, Download gapminder from the menu at the right ---> \nlibrary(gapminder)\ndata(gapminder) #this code loads the gapminder data so you can view it in your environment. Click on the word gapminder to be able see it \n```\n:::\n\n\n1. How many rows and columns does this dataset have? \n\n2. What are the names of the 6 columns? \n\n3. Create a dataset called `gapminder2007` which only contains information for each of the countries in 2007. \n\n\n::: {.cell}\n\n:::\n\n\n4. If you instead try to choose the subset with year equal to 2005, something will be weird. Try it and\nexplain what happens and why.\n\n\n::: {.cell}\n\n:::\n\n\n5. Print out the rows of data corresponding to the US in 2007. \n\n\n::: {.cell}\n\n:::\n\n\n6. In the above problem, you would have put quotes around `United States` but not around `2007`. Explain why. \n\n7. Which country had a higher life expectancy per capita in 1977: Ireland or Brazil? \n\n\n::: {.cell}\n\n:::\n\n\n8. What is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to? \n\n\n::: {.cell}\n\n:::\n\n\n9. For the year 2007, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data). \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
