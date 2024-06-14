@@ -154,81 +154,60 @@
     "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(forcats)\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\n\n\nChoose 3 different species of rodents. You may want to choose 3 from the same genus or from 3 different genera for comparison. Create a dataset called my_rodents which has all the data on any rodents of your species of choice caught in Portal, AZ. You should display the time the rodents were captured (year, month, day), the species scientific and common name, and the sex and pregnancy status.\n\n\nCreate a table which displays how many rodents are of each species (or commonname) were recorded over the period of study. Be sure that it’s broken down by sex.\n\n\nConstruct an appropriate plot to display the data above. Be sure information about species (or commonname), sex, and count is all displayed in your plot & that your plot is pretty and nicely labeled.\n\n\nWhat is the order of the levels of species (or commonname) displayed in your chart?\nReorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work separate to figure out what this order is.\n\n\nSex is ordered in alphabetically. Reorder sex so that it displays males first and then females.\n\n\nReconstruct your appropriate plot from 3. Be sure the ordering you created in 5 and 6 carries through into your plot.\n\n\nOf the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregnant? Make a nice well-labelled table that is well-labelled including “not pregnant” or something similar."
   },
   {
-    "objectID": "qmdfiles/A_Intro_Homework.html",
-    "href": "qmdfiles/A_Intro_Homework.html",
-    "title": "Homework A",
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html",
+    "title": "Notes O",
     "section": "",
-    "text": "In-lab Examples\nbold\nitalics\nbold and italics\na list\nlink\nimage\n\nR chunks\ncreate an object\ninline code\ncommenting code\n\n\nQuestions\n\nTell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)\nTell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)\nMake a list of a few of your interests\nInclude a link to something interesting or funny\nInclude a picture. This could be a picture of you or a picture of something you find funny or interesting.\nCreate an object called c. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to c. ::: {.cell}\n\n:::\n\nWrite a few sentences about why you choose this number. Be sure to print out this value of c somewhere in your paragraph as inline code.\nCreate an object called height. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.\n\n\nHave you ever taken a class that used R before?\nTell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?\n(Optional) Use this space below to tell me anything about yourself that you think Easton and Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns."
+    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
   },
   {
-    "objectID": "qmdfiles/C_Aggregating_Notes_Blank.html",
-    "href": "qmdfiles/C_Aggregating_Notes_Blank.html",
-    "title": "Notes C",
-    "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nToday’s Dataset: palmerpenguins Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)"
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#what-about-subsetting-the-data",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#what-about-subsetting-the-data",
+    "title": "Notes O",
+    "section": "What about subsetting the data?",
+    "text": "What about subsetting the data?\n\n#Subset to get Italy\n\n\n#Subset to get USA"
   },
   {
-    "objectID": "qmdfiles/C_Aggregating_Notes_Blank.html#multiple-groups",
-    "href": "qmdfiles/C_Aggregating_Notes_Blank.html#multiple-groups",
-    "title": "Notes C",
-    "section": "Multiple Groups",
-    "text": "Multiple Groups\nSuppose we want the average bill length and average bill depth broken down by both species and sex:\n\npenguins %&gt;% \n  group_by(species, sex) %&gt;%  \n  summarize(Mean_bill_length = mean(bill_length_mm),\n            Mean_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    Mean_bill_length Mean_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;             &lt;dbl&gt;           &lt;dbl&gt;\n1 Adelie    female             37.3            17.6\n2 Adelie    male               40.4            19.1\n3 Chinstrap female             46.6            17.6\n4 Chinstrap male               51.1            19.3\n5 Gentoo    female             45.6            14.2\n6 Gentoo    male               49.5            15.7\n\npenguins %&gt;% \n  group_by(sex, species) %&gt;%  \n  summarize(Mean_bill_length = mean(bill_length_mm),\n            Mean_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   sex [2]\n  sex    species   Mean_bill_length Mean_bill_depth\n  &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt;           &lt;dbl&gt;\n1 female Adelie                37.3            17.6\n2 female Chinstrap             46.6            17.6\n3 female Gentoo                45.6            14.2\n4 male   Adelie                40.4            19.1\n5 male   Chinstrap             51.1            19.3\n6 male   Gentoo                49.5            15.7"
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
+    "title": "Notes O",
+    "section": "What if aspect ratio is not maintained?",
+    "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\n\n\n# ASPECT RATIO MAINTAINED"
   },
   {
-    "objectID": "qmdfiles/I_Lubridate_Homework.html",
-    "href": "qmdfiles/I_Lubridate_Homework.html",
-    "title": "Homework I",
-    "section": "",
-    "text": "There is a lubridate cheatsheet here: https://lubridate.tidyverse.org/\n\n\nCode\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n# LOAD DATA. You can  read about the descriptions of the columns here: https://www.ndbc.noaa.gov/station_realtime.php?station=bgxn3\n# Data from National Estuarine Research Reserve System (43.059 N 70.830 W 43°3'32\" N 70°49'49\" W)\n\ndownload.file(url='https://www.ndbc.noaa.gov/data/realtime2/BGXN3.txt',\n              destfile = 'greatbay.txt')\n\nwrite.csv(x = read.csv(file = 'greatbay.txt', header = TRUE, sep='')[-1,],file = 'greatbay.txt', quote=FALSE, row.names = FALSE)\n\ngreatbay &lt;- read.csv(file = 'greatbay.txt', header = TRUE)\n\n\n\nUse lubridate to make a new column a datetime object (for example, 2013-01-01 05:15).\n\n\nThe above datetime object is in GMT. Convert the datetime object from GMT to EST to be on the right time zone. Hint: You can use the with_tz() function\n\n\nUse an appropriate function to calculate the difference, in minutes, between the current time and the datetime (EST) in the dataset. Build a new column and save this calculated difference. Hint: You can use Sys.time() to get the current time on your computer.\n\n\nBuild a plot of Air temperature (Celsius) (ATMP) over time. Make it both a scatter plot with lines connecting the points.\n\n\nNow rebuild the above plot, but take the mean ATMP per day before plotting. There are multiple ways to accomplish this task.\n\n\nBuild a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find."
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#usa-with-states",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#usa-with-states",
+    "title": "Notes O",
+    "section": "USA with states",
+    "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n\n#Plot of USA with state borders"
   },
   {
-    "objectID": "qmdfiles/C_Aggregating_Homework.html",
-    "href": "qmdfiles/C_Aggregating_Homework.html",
-    "title": "Homework C",
-    "section": "",
-    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\n\nCode\n#LOAD DATASET\n# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. \ndata(\"iris\")\n\n\nThis famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\nVerify using group_by and summarize that there are indeed 50 different flowers from each of the different species of iris.\n\n\nCreate a table which displays the average sepal length and average sepal width for the setosa species of iris. No other data should be in this table.\n\n\nCreate a table which displays the average sepal length and the median sepal length for the setosa species of iris. No other data should be in this table.\n\n\nCreate a table which displays the minimum sepal length and the maximum sepal length for each of the three different species of iris.\n\n\nCreate one table which displays the minimum sepal length and the maximum sepal length for the species setosa and versicolor. Note that this table should not include any information about the virginica species. (This might be a challenge, but you can do it!)"
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#how-to-customize-colors",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#how-to-customize-colors",
+    "title": "Notes O",
+    "section": "How to customize colors?",
+    "text": "How to customize colors?\n\n#Load Data from maps and plot colors by latitude\nusa_states &lt;- map_data(\"state\")\n\n\n#LOAD PACKAGES\nlibrary(tidyverse)\nlibrary(leaflet)"
   },
   {
-    "objectID": "qmdfiles/B_Wrangling_Homework.html",
-    "href": "qmdfiles/B_Wrangling_Homework.html",
-    "title": "Homework B",
-    "section": "",
-    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n\n\n\n\nCode\n#This assignment concerns the gapminder dataset\n# First, Download gapminder from the menu at the right ---&gt; \nlibrary(gapminder)\ndata(gapminder) #this code loads the gapminder data so you can view it in your environment. Click on the word gapminder to be able see it \n\n\n\nHow many rows and columns does this dataset have?\nWhat are the names of the 6 columns?\nCreate a dataset called gapminder2007 which only contains information for each of the countries in 2007.\n\n\nIf you instead try to choose the subset with year equal to 2005, something will be weird. Try it and explain what happens and why.\n\n\nPrint out the rows of data corresponding to the US in 2007.\n\n\nIn the above problem, you would have put quotes around United States but not around 2007. Explain why.\nWhich country had a higher life expectancy per capita in 1977: Ireland or Brazil?\n\n\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\nFor the year 2007, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data)."
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#adding-points",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#adding-points",
+    "title": "Notes O",
+    "section": "Adding points",
+    "text": "Adding points\n\n# use addCircleMarkers to add data"
   },
   {
-    "objectID": "qmdfiles/F_Joining_Notes_Blank.html",
-    "href": "qmdfiles/F_Joining_Notes_Blank.html",
-    "title": "Notes F",
-    "section": "",
-    "text": "The Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate. To study the interactions among organisms, we experimentally manipulate access to 24 study plots. This study has produced over 100 scientific papers and is one of the longest running ecological studies in the U.S (Pulled directly from the Portal Project Website)\n\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\n\n## Portal_rodent contains the rodent trapping data. Each individual of a target species is PIT tagged and data on species, location caught (plot and stake), sex, reproductive condition, weight, and hindfoot length are recorded. \nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")"
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#different-backgrounds",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#different-backgrounds",
+    "title": "Notes O",
+    "section": "Different backgrounds",
+    "text": "Different backgrounds\n\n# Use addProviderTiles(providers$Esri.WorldImagery)"
   },
   {
-    "objectID": "qmdfiles/F_Joining_Notes_Blank.html#matching-key-variable-names",
-    "href": "qmdfiles/F_Joining_Notes_Blank.html#matching-key-variable-names",
-    "title": "Notes F",
-    "section": "Matching key variable names",
-    "text": "Matching key variable names\nWhat do the two letter species_ids really mean? Data on species_ids are provided in a dataset called portal_species.\n\n## Portal_rodent_species contains the species codes used in Portal_rodent.\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\nWe want to have all this information in one data frame instead of two separate data frames.\nThe variable species in portal_rodents match the variable speciescode in the portal_species dataset – this is our key variable. In this case, they actually have different names, but this doesn’t necessarily have to be true."
-  },
-  {
-    "objectID": "qmdfiles/F_Joining_Notes_Blank.html#multiple-key-variables",
-    "href": "qmdfiles/F_Joining_Notes_Blank.html#multiple-key-variables",
-    "title": "Notes F",
-    "section": "Multiple Key variables",
-    "text": "Multiple Key variables\nIn order to join the rotents sampling data and weather data frames, we need more than one key variable: year, month and day. This is because the combination of these 3 variables act to uniquely identify each observational unit in the weather data frame: hourly weather recordings in Portal, AZ.\n\nportal_weather &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Weather/Portal_weather.csv\")\n\n#mean daily temperature\n\n\n#join"
-  },
-  {
-    "objectID": "qmdfiles/F_Joining_Notes_Blank.html#why-is-this-useful",
-    "href": "qmdfiles/F_Joining_Notes_Blank.html#why-is-this-useful",
-    "title": "Notes F",
-    "section": "Why is this useful?",
-    "text": "Why is this useful?\nUpdating labels:\n\n# portal_rodent %&gt;% \n#   drop_na(hfl) %&gt;% \n#   group_by(species) %&gt;% \n#   summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())\n\n#VS\n\n# portal_joined %&gt;% \n#   drop_na(hfl) %&gt;% \n#   group_by(commonname, scientificname) %&gt;% \n#   summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())\n\nExploring relationships between variables in separate tables:\n\n# portal_weather_joined %&gt;% \n#   group_by(year, month, day) %&gt;% \n#   summarize(count_caught = n(), mean_airtemp = mean_airtemp) %&gt;% \n#   ggplot(aes(x=mean_airtemp, y=count_caught)) +\n#   geom_point() + \n#   geom_smooth(method='lm')"
-  },
-  {
-    "objectID": "qmdfiles/D_ggplot1_Homework.html",
-    "href": "qmdfiles/D_ggplot1_Homework.html",
-    "title": "Homework D",
-    "section": "",
-    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n\n\n\n\nCode\n#load the gapminder data for this lab\nlibrary(gapminder)\n\n\n\nPick a year. Create a dataset which only contains that data for that year and is appropriately labeled. For example, if you choose the year 2007, you might choose to call this new dataset gapminder2007. You will use this dataset for the rest of the assignment.\n\n\nUsing your dataset you created in 1, create a barplot which displays the GDP per capita of the ten countries with the highest GDP per capita that year. Be sure your axes are appropriately labeled.\n\n\nPick a continent. Using your dataset you created in 1, create a barplot which displays the life expectancy of all the countries in that continent in that year. You should sort the countries from highest life expectancy to lowest life expectancy. Be sure your axes are appropriately labeled.\n\n4a. Using your dataset you created in 1, create a scatterplot of GDP per capita vs. life expectancy. All the points should be the same size and color. Be sure your axes are appropriately labeled.\n4b. You may notice that the points look a little hard to read. Try out different log transformations on the data to see what might help make it more visually appealing. You may choose to log the x axis variable, the y axis variable, or both. Be sure your axes are appropriately labeled.\n4c. Using your scatterplot from 4b as a starting place, add the additional aesthetic commands aes(size=pop, color=continent) inside of your geom_point() layer. Whats the size=pop command do? What does the color=continent do?\n4d. Using your scatterplot from 4c, add a theme that you like."
+    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#different-colors",
+    "href": "qmdfiles/O_Mappling_Notes_Blank.html#different-colors",
+    "title": "Notes O",
+    "section": "Different colors",
+    "text": "Different colors\n\ntransect_info$color = ifelse(transect_info$Position=='sheltered', 'blue', 'red')"
   },
   {
     "objectID": "qmdfiles/M_SLR_Blank.html",
@@ -264,6 +243,83 @@
     "title": "Notes L",
     "section": "Interpolation vs. Extrapolation",
     "text": "Interpolation vs. Extrapolation\nInterpolation is a method of estimating a hypothetical value that exists within a data set.\nExtrapolation is a method of estimation for hypothetical values that fall outside a data set."
+  },
+  {
+    "objectID": "qmdfiles/D_ggplot1_Homework.html",
+    "href": "qmdfiles/D_ggplot1_Homework.html",
+    "title": "Homework D",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n\n\n\n\nCode\n#load the gapminder data for this lab\nlibrary(gapminder)\n\n\n\nPick a year. Create a dataset which only contains that data for that year and is appropriately labeled. For example, if you choose the year 2007, you might choose to call this new dataset gapminder2007. You will use this dataset for the rest of the assignment.\n\n\nUsing your dataset you created in 1, create a barplot which displays the GDP per capita of the ten countries with the highest GDP per capita that year. Be sure your axes are appropriately labeled.\n\n\nPick a continent. Using your dataset you created in 1, create a barplot which displays the life expectancy of all the countries in that continent in that year. You should sort the countries from highest life expectancy to lowest life expectancy. Be sure your axes are appropriately labeled.\n\n4a. Using your dataset you created in 1, create a scatterplot of GDP per capita vs. life expectancy. All the points should be the same size and color. Be sure your axes are appropriately labeled.\n4b. You may notice that the points look a little hard to read. Try out different log transformations on the data to see what might help make it more visually appealing. You may choose to log the x axis variable, the y axis variable, or both. Be sure your axes are appropriately labeled.\n4c. Using your scatterplot from 4b as a starting place, add the additional aesthetic commands aes(size=pop, color=continent) inside of your geom_point() layer. Whats the size=pop command do? What does the color=continent do?\n4d. Using your scatterplot from 4c, add a theme that you like."
+  },
+  {
+    "objectID": "qmdfiles/F_Joining_Notes_Blank.html",
+    "href": "qmdfiles/F_Joining_Notes_Blank.html",
+    "title": "Notes F",
+    "section": "",
+    "text": "The Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate. To study the interactions among organisms, we experimentally manipulate access to 24 study plots. This study has produced over 100 scientific papers and is one of the longest running ecological studies in the U.S (Pulled directly from the Portal Project Website)\n\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\n\n## Portal_rodent contains the rodent trapping data. Each individual of a target species is PIT tagged and data on species, location caught (plot and stake), sex, reproductive condition, weight, and hindfoot length are recorded. \nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")"
+  },
+  {
+    "objectID": "qmdfiles/F_Joining_Notes_Blank.html#matching-key-variable-names",
+    "href": "qmdfiles/F_Joining_Notes_Blank.html#matching-key-variable-names",
+    "title": "Notes F",
+    "section": "Matching key variable names",
+    "text": "Matching key variable names\nWhat do the two letter species_ids really mean? Data on species_ids are provided in a dataset called portal_species.\n\n## Portal_rodent_species contains the species codes used in Portal_rodent.\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\nWe want to have all this information in one data frame instead of two separate data frames.\nThe variable species in portal_rodents match the variable speciescode in the portal_species dataset – this is our key variable. In this case, they actually have different names, but this doesn’t necessarily have to be true."
+  },
+  {
+    "objectID": "qmdfiles/F_Joining_Notes_Blank.html#multiple-key-variables",
+    "href": "qmdfiles/F_Joining_Notes_Blank.html#multiple-key-variables",
+    "title": "Notes F",
+    "section": "Multiple Key variables",
+    "text": "Multiple Key variables\nIn order to join the rotents sampling data and weather data frames, we need more than one key variable: year, month and day. This is because the combination of these 3 variables act to uniquely identify each observational unit in the weather data frame: hourly weather recordings in Portal, AZ.\n\nportal_weather &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Weather/Portal_weather.csv\")\n\n#mean daily temperature\n\n\n#join"
+  },
+  {
+    "objectID": "qmdfiles/F_Joining_Notes_Blank.html#why-is-this-useful",
+    "href": "qmdfiles/F_Joining_Notes_Blank.html#why-is-this-useful",
+    "title": "Notes F",
+    "section": "Why is this useful?",
+    "text": "Why is this useful?\nUpdating labels:\n\n# portal_rodent %&gt;% \n#   drop_na(hfl) %&gt;% \n#   group_by(species) %&gt;% \n#   summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())\n\n#VS\n\n# portal_joined %&gt;% \n#   drop_na(hfl) %&gt;% \n#   group_by(commonname, scientificname) %&gt;% \n#   summarize(mean_hf = mean(hfl), min_hf = min(hfl), max_hf = max(hfl), count = n())\n\nExploring relationships between variables in separate tables:\n\n# portal_weather_joined %&gt;% \n#   group_by(year, month, day) %&gt;% \n#   summarize(count_caught = n(), mean_airtemp = mean_airtemp) %&gt;% \n#   ggplot(aes(x=mean_airtemp, y=count_caught)) +\n#   geom_point() + \n#   geom_smooth(method='lm')"
+  },
+  {
+    "objectID": "qmdfiles/B_Wrangling_Homework.html",
+    "href": "qmdfiles/B_Wrangling_Homework.html",
+    "title": "Homework B",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n\n\n\n\nCode\n#This assignment concerns the gapminder dataset\n# First, Download gapminder from the menu at the right ---&gt; \nlibrary(gapminder)\ndata(gapminder) #this code loads the gapminder data so you can view it in your environment. Click on the word gapminder to be able see it \n\n\n\nHow many rows and columns does this dataset have?\nWhat are the names of the 6 columns?\nCreate a dataset called gapminder2007 which only contains information for each of the countries in 2007.\n\n\nIf you instead try to choose the subset with year equal to 2005, something will be weird. Try it and explain what happens and why.\n\n\nPrint out the rows of data corresponding to the US in 2007.\n\n\nIn the above problem, you would have put quotes around United States but not around 2007. Explain why.\nWhich country had a higher life expectancy per capita in 1977: Ireland or Brazil?\n\n\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\nFor the year 2007, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data)."
+  },
+  {
+    "objectID": "qmdfiles/C_Aggregating_Homework.html",
+    "href": "qmdfiles/C_Aggregating_Homework.html",
+    "title": "Homework C",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\n\nCode\n#LOAD DATASET\n# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. \ndata(\"iris\")\n\n\nThis famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\nVerify using group_by and summarize that there are indeed 50 different flowers from each of the different species of iris.\n\n\nCreate a table which displays the average sepal length and average sepal width for the setosa species of iris. No other data should be in this table.\n\n\nCreate a table which displays the average sepal length and the median sepal length for the setosa species of iris. No other data should be in this table.\n\n\nCreate a table which displays the minimum sepal length and the maximum sepal length for each of the three different species of iris.\n\n\nCreate one table which displays the minimum sepal length and the maximum sepal length for the species setosa and versicolor. Note that this table should not include any information about the virginica species. (This might be a challenge, but you can do it!)"
+  },
+  {
+    "objectID": "qmdfiles/I_Lubridate_Homework.html",
+    "href": "qmdfiles/I_Lubridate_Homework.html",
+    "title": "Homework I",
+    "section": "",
+    "text": "There is a lubridate cheatsheet here: https://lubridate.tidyverse.org/\n\n\nCode\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n# LOAD DATA. You can  read about the descriptions of the columns here: https://www.ndbc.noaa.gov/station_realtime.php?station=bgxn3\n# Data from National Estuarine Research Reserve System (43.059 N 70.830 W 43°3'32\" N 70°49'49\" W)\n\ndownload.file(url='https://www.ndbc.noaa.gov/data/realtime2/BGXN3.txt',\n              destfile = 'greatbay.txt')\n\nwrite.csv(x = read.csv(file = 'greatbay.txt', header = TRUE, sep='')[-1,],file = 'greatbay.txt', quote=FALSE, row.names = FALSE)\n\ngreatbay &lt;- read.csv(file = 'greatbay.txt', header = TRUE)\n\n\n\nUse lubridate to make a new column a datetime object (for example, 2013-01-01 05:15).\n\n\nThe above datetime object is in GMT. Convert the datetime object from GMT to EST to be on the right time zone. Hint: You can use the with_tz() function\n\n\nUse an appropriate function to calculate the difference, in minutes, between the current time and the datetime (EST) in the dataset. Build a new column and save this calculated difference. Hint: You can use Sys.time() to get the current time on your computer.\n\n\nBuild a plot of Air temperature (Celsius) (ATMP) over time. Make it both a scatter plot with lines connecting the points.\n\n\nNow rebuild the above plot, but take the mean ATMP per day before plotting. There are multiple ways to accomplish this task.\n\n\nBuild a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find."
+  },
+  {
+    "objectID": "qmdfiles/C_Aggregating_Notes_Blank.html",
+    "href": "qmdfiles/C_Aggregating_Notes_Blank.html",
+    "title": "Notes C",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nToday’s Dataset: palmerpenguins Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)"
+  },
+  {
+    "objectID": "qmdfiles/C_Aggregating_Notes_Blank.html#multiple-groups",
+    "href": "qmdfiles/C_Aggregating_Notes_Blank.html#multiple-groups",
+    "title": "Notes C",
+    "section": "Multiple Groups",
+    "text": "Multiple Groups\nSuppose we want the average bill length and average bill depth broken down by both species and sex:\n\npenguins %&gt;% \n  group_by(species, sex) %&gt;%  \n  summarize(Mean_bill_length = mean(bill_length_mm),\n            Mean_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    Mean_bill_length Mean_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;             &lt;dbl&gt;           &lt;dbl&gt;\n1 Adelie    female             37.3            17.6\n2 Adelie    male               40.4            19.1\n3 Chinstrap female             46.6            17.6\n4 Chinstrap male               51.1            19.3\n5 Gentoo    female             45.6            14.2\n6 Gentoo    male               49.5            15.7\n\npenguins %&gt;% \n  group_by(sex, species) %&gt;%  \n  summarize(Mean_bill_length = mean(bill_length_mm),\n            Mean_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   sex [2]\n  sex    species   Mean_bill_length Mean_bill_depth\n  &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt;           &lt;dbl&gt;\n1 female Adelie                37.3            17.6\n2 female Chinstrap             46.6            17.6\n3 female Gentoo                45.6            14.2\n4 male   Adelie                40.4            19.1\n5 male   Chinstrap             51.1            19.3\n6 male   Gentoo                49.5            15.7"
+  },
+  {
+    "objectID": "qmdfiles/A_Intro_Homework.html",
+    "href": "qmdfiles/A_Intro_Homework.html",
+    "title": "Homework A",
+    "section": "",
+    "text": "In-lab Examples\nbold\nitalics\nbold and italics\na list\nlink\nimage\n\nR chunks\ncreate an object\ninline code\ncommenting code\n\n\nQuestions\n\nTell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)\nTell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)\nMake a list of a few of your interests\nInclude a link to something interesting or funny\nInclude a picture. This could be a picture of you or a picture of something you find funny or interesting.\nCreate an object called c. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to c. ::: {.cell}\n\n:::\n\nWrite a few sentences about why you choose this number. Be sure to print out this value of c somewhere in your paragraph as inline code.\nCreate an object called height. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.\n\n\nHave you ever taken a class that used R before?\nTell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?\n(Optional) Use this space below to tell me anything about yourself that you think Easton and Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns."
   },
   {
     "objectID": "qmdfiles/K_sustainability_data.html",
