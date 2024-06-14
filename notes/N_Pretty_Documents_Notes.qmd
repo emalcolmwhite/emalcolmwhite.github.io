@@ -57,7 +57,7 @@ There are many different options for `kable_styling()`. Below are a few:
 cars %>% 
   head() %>% 
   kbl() %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "float_right")
+  kable_styling(font_size=7)
 ```
 
 A great guide for many different customizations of tables is available at [https://haozhu233.github.io/kableExtra/awesome_table_in_html.html](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
@@ -121,8 +121,48 @@ The first few rows of the `cars` dataset can be seen in @tbl-cars (referenced us
 
 # Bibliography using `.bib` files
 
+1. **Create a `bibliography.bib.bib` file
 
+We begin by creating a.bib-file called `bibliography.bib` which is then filled with BibTeX entries. BibTeX entries are built in the following format and contain enough information for citation and bibliography inclusion for each literature source (book, essay, etc.).
 
+```
+@book{Hemingway1952,
+  title={The Old Man and the Sea},
+  author={Hemingway, Ernest},
+  year={1952},
+  publisher={Charles Scribner's Sons}
+}
+```
+
+- You can usually download .bib information directly from the source (the journal or article). For example: At (https://academic.oup.com/bioscience/article/69/1/40/5195956)[https://academic.oup.com/bioscience/article/69/1/40/5195956] click on "Cite"
+
+- You can use a .bib citation generator like (Bibcitation)[https://www.bibcitation.com/] to create the reference for you
+
+- You can use a citation manager (like Zotero, MyBiB, etc.) and download a bibliography.bib file for all your sources at once. 
+
+2. **Add the bibliography to your Quarto document** 
+
+Add `bibliography: bibliography.bib` to your YAML header
+
+```
+---
+title: "Blah Blah"
+author: "EMW"
+bibliography: bibliography.bib
+output: html_document
+---
+```
+ 
+
+3. **Reference within your document**
+
+For example: 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Praesent enim urna, dapibus et bibendum vel, consectetur et turpis.
+Cras a molestie nulla. `[@Hemingway1952]` 
+
+This will create an inline citation to that source AND include that source in a bibliography at the end of your document. 
 
 # Other general reminders
 
