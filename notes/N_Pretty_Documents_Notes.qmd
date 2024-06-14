@@ -57,7 +57,7 @@ There are many different options for `kable_styling()`. Below are a few:
 cars %>% 
   head() %>% 
   kbl() %>% 
-  kable_styling(font_size=7)
+  kable_styling(font_size=2)
 ```
 
 A great guide for many different customizations of tables is available at [https://haozhu233.github.io/kableExtra/awesome_table_in_html.html](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
@@ -121,7 +121,7 @@ The first few rows of the `cars` dataset can be seen in @tbl-cars (referenced us
 
 # Bibliography using `.bib` files
 
-1. **Create a `bibliography.bib.bib` file
+1. **Create a `bibliography.bib.bib` file**
 
 We begin by creating a.bib-file called `bibliography.bib` which is then filled with BibTeX entries. BibTeX entries are built in the following format and contain enough information for citation and bibliography inclusion for each literature source (book, essay, etc.).
 
@@ -134,9 +134,9 @@ We begin by creating a.bib-file called `bibliography.bib` which is then filled w
 }
 ```
 
-- You can usually download .bib information directly from the source (the journal or article). For example: At (https://academic.oup.com/bioscience/article/69/1/40/5195956)[https://academic.oup.com/bioscience/article/69/1/40/5195956] click on "Cite"
+- You can usually download .bib information directly from the source (the journal or article). For example: At [https://academic.oup.com/bioscience/article/69/1/40/5195956](https://academic.oup.com/bioscience/article/69/1/40/5195956) click on "Cite"
 
-- You can use a .bib citation generator like (Bibcitation)[https://www.bibcitation.com/] to create the reference for you
+- You can use a .bib citation generator like [Bibcitation](https://www.bibcitation.com/) to create the reference for you
 
 - You can use a citation manager (like Zotero, MyBiB, etc.) and download a bibliography.bib file for all your sources at once. 
 
@@ -164,6 +164,8 @@ Cras a molestie nulla. `[@Hemingway1952]`
 
 This will create an inline citation to that source AND include that source in a bibliography at the end of your document. 
 
+Note that any references that are not referenced within your document (but are in your bibliography) will NOT be displayed in your bibliography by default. 
+
 # Other general reminders
 
 - make sure that all warnings and messages are hidden. This should be done by default globally if you already have the following in your YAML header (see below). Otherwise, you can add these as chunk options. 
@@ -173,7 +175,6 @@ execute:
   message: FALSE
   warning: FALSE
 ```
-
 
 
 - Run spellcheck on your project (see the little ABC with the green check?)
