@@ -1,0 +1,146 @@
+---
+title: "Notes N"
+subtitle: "Pretty Documents"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: false
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+  echo: fenced
+---
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+```
+
+# `kableExtra` for pretty tables
+
+By default, Quarto displays data frames and matrices as you’d see them in the console and it's kind of ugly.  
+
+```{r}
+cars %>% 
+  head()
+```
+
+There are many different packages for making tables prettier including `kableExtra`, `gt`, `longtable`, `huxtable`, `stargazer` and others. 
+
+In this class, we are going to focus on `kableExtra` since it's relatively simple and easy to use and it works well in many output formats (.html, .pdf, etc.)
+
+```{r}
+library(kableExtra)
+```
+
+A basic pretty looking table can be accessing by applying the `kbl()` function:
+
+```{r}
+cars %>% 
+  head() %>% 
+  kbl()
+```
+We can customize this even further with the `kable_styling()` function: 
+
+```{r}
+cars %>% 
+  head() %>% 
+  kbl() %>% 
+  kable_styling()
+```
+
+There are many different options for `kable_styling()`. Below are a few:  
+
+```{r}
+cars %>% 
+  head() %>% 
+  kbl() %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "float_right")
+```
+
+A great guide for many different customizations of tables is available at [https://haozhu233.github.io/kableExtra/awesome_table_in_html.html](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+
+# Captions and Cross Referencing
+
+## Figure Captions
+
+When we include figures: 
+- we should have a figure caption (some text describing the figure)
+- we should have a label for the figure. Typically, we give a figure a descriptive figure label.
+    -  The chunk label is used to generate the file name of the graphic on disk, so naming your chunks makes it much easier to pick out plots and reuse in other circumstances (e.g., if you want to quickly drop a single plot into an email).
+    - When we render Quarto will automatically go through and number the figures in order. 
+
+```{r}
+#| label: fig-one-chart
+#| fig-cap: "One Chart - Cars"
+
+plot(cars)
+```
+
+You can cross-reference a figure in the text by typing referencing `@fig-label`. You can type `@fig-one-chart` for it to replace with @fig-one-chart. 
+
+Ex: There is a positive linear relationship between speed and distance shown in @fig-one-chart. 
+
+You can also customize figure sizing with `fig-width`, `fig-height`, `fig-asp`, `out-width` and `out-height`. 
+
+## Two graphs side-by-side?
+
+```{r}
+#| label: fig-charts
+#| fig-cap: "Two Charts"
+#| fig-subcap: 
+#|   - "Cars"
+#|   - "Pressure"
+#| layout-ncol: 2
+
+plot(cars)
+plot(pressure)
+```
+
+## Referencing Tables in Quarto 
+
+Make tables referenceable within the text, including computational tables, by using a `tbl-` prefix in labels.
+
+```{r}
+#| label: tbl-cars
+#| tbl-cap: "Cars"
+
+cars %>% 
+  head() %>% 
+  kbl()
+```
+
+
+# Caption Locations
+
+- Default location is *above* the table and *below* a figure. 
+- Use `tbl-cap-location` option to change the location to `top`, `bottom`, or `margin`.
+
+# Bibliography using `.bib` files
+
+# Other general reminders
+
+- make sure that all warnings and messages are hidden. This should be done by default if you already have the following in your YAML header:
+
+```
+execute: 
+  message: FALSE
+  warning: FALSE
+```
+
+- Run spellcheck on your project (see the little ABC with the green check?)
+
+
+
+
+
+
+
+
+
+
+
+
+
