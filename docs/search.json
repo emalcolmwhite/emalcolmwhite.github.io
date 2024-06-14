@@ -481,5 +481,61 @@
     "title": "Notes N",
     "section": "Referencing Tables in Quarto",
     "text": "Referencing Tables in Quarto\nMake tables referenceable within the text, including computational tables, by using a tbl- prefix in labels.\n\n```{r}\n#| label: tbl-cars\n#| tbl-cap: \"Cars\"\n\ncars %&gt;% \n  head() %&gt;% \n  kbl()\n```\n\n\n\nTable 1: Cars\n\n\nspeed\ndist\n\n\n\n\n4\n2\n\n\n4\n10\n\n\n7\n4\n\n\n7\n22\n\n\n8\n16\n\n\n9\n10\n\n\n\n\n\n\n\n\nThe first few rows of the cars dataset can be seen in Table 1 (referenced using @tbl-cars)"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html",
+    "title": "Notes O",
+    "section": "",
+    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#what-about-subsetting-the-data",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#what-about-subsetting-the-data",
+    "title": "Notes O",
+    "section": "What about subsetting the data?",
+    "text": "What about subsetting the data?\n\n#Subset to get Italy\n\n\n#Subset to get USA"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
+    "title": "Notes O",
+    "section": "What if aspect ratio is not maintained?",
+    "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\n\n\n# ASPECT RATIO MAINTAINED"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#usa-with-states",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#usa-with-states",
+    "title": "Notes O",
+    "section": "USA with states",
+    "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n\n#Plot of USA with state borders"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#how-to-customize-colors",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#how-to-customize-colors",
+    "title": "Notes O",
+    "section": "How to customize colors?",
+    "text": "How to customize colors?\n\n#Load Data from maps and plot colors by latitude\nusa_states &lt;- map_data(\"state\")\n\n\n#LOAD PACKAGES\nlibrary(tidyverse)\nlibrary(leaflet)"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#adding-points",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#adding-points",
+    "title": "Notes O",
+    "section": "Adding points",
+    "text": "Adding points\n\n# use addCircleMarkers to add data"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#different-backgrounds",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#different-backgrounds",
+    "title": "Notes O",
+    "section": "Different backgrounds",
+    "text": "Different backgrounds\n\n# Use addProviderTiles(providers$Esri.WorldImagery)"
+  },
+  {
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#different-colors",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#different-colors",
+    "title": "Notes O",
+    "section": "Different colors",
+    "text": "Different colors\n\ntransect_info$color = ifelse(transect_info$Position=='sheltered', 'blue', 'red')"
   }
 ]
