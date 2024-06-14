@@ -99,6 +99,7 @@ plot(cars)
 plot(pressure)
 ```
 
+
 ## Referencing Tables in Quarto 
 
 Make tables referenceable within the text, including computational tables, by using a `tbl-` prefix in labels.
@@ -111,14 +112,17 @@ cars %>%
   head() %>% 
   kbl()
 ```
-
+The first few rows of the `cars` dataset can be seen in @tbl-cars (referenced using `@tbl-cars`)
 
 # Caption Locations
 
-- Default location is *above* the table and *below* a figure. 
+- Default location is *above* the table and *below* a figure. This is pretty standard in most scientific publications and for this class, you don't need to make any changes to the default caption locations. 
 - Use `tbl-cap-location` option to change the location to `top`, `bottom`, or `margin`.
 
 # Bibliography using `.bib` files
+
+
+
 
 # Other general reminders
 
