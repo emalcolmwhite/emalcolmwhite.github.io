@@ -1,5 +1,5 @@
 ---
-title: "Notes O"
+title: "Notes O "
 subtitle: "Mapping in R"
 format:
   html:
