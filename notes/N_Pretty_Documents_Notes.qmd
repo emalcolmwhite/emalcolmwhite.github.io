@@ -166,13 +166,15 @@ This will create an inline citation to that source AND include that source in a 
 
 # Other general reminders
 
-- make sure that all warnings and messages are hidden. This should be done by default if you already have the following in your YAML header:
+- make sure that all warnings and messages are hidden. This should be done by default globally if you already have the following in your YAML header (see below). Otherwise, you can add these as chunk options. 
 
 ```
 execute: 
   message: FALSE
   warning: FALSE
 ```
+
+
 
 - Run spellcheck on your project (see the little ABC with the green check?)
 
