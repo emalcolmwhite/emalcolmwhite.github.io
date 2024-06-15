@@ -1,6 +1,6 @@
 ---
 title: "Notes N"
-subtitle: "Pretty Documents"
+subtitle: "Pretty Documents: Tables with `kableExtra`, Figure Captions, Cross-referencing, and Bibliographies"
 format:
   html:
     toc: true
