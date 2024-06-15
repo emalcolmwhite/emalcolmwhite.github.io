@@ -40,6 +40,7 @@ theme_set(theme_minimal())
 #|   - "Boxplot Plot -- discrete colors"
 #|   - "Scatterplot -- continuous colors"
 #| fig-cap-location: top
+
 bp <- ggplot(iris, aes(Species, Sepal.Length)) + 
   geom_boxplot(aes(fill = Species)) +
   theme_minimal() +
