@@ -25,6 +25,10 @@ If you want to set your ggplot theme globally (for the whole document) you can u
 theme_set(theme_minimal())
 ```
 
+# Digits
+
+
+
 # Colors
 
 ## Default Colors
