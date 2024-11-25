@@ -43,7 +43,7 @@ include:
   max-width: 300px;
   margin: auto;
   text-align: center;
-  background-color:#B4C1BE;
+  background-color:#b0b8b9;
 }
 </style>
 
@@ -51,7 +51,7 @@ include:
 
 ::: column-left
 ::: card
-<img src="emily_square.jpg" alt="Emily Malcolm-White headshot" class="img-circle" align="middle" width="200" height="200" style=" margin: 20px 20px 20px 20px;"/>
+<img src="EMW_square.jpg" alt="Emily Malcolm-White headshot" class="img-circle" align="middle" width="200" height="200" style=" margin: 20px 20px 20px 20px;"/>
 
 ### **Emily Malcolm-White** (she/her)
 
