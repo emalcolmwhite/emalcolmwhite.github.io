@@ -1,10 +1,59 @@
 [
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Logistics for Enrolled Students",
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html",
+    "title": "Notes P",
     "section": "",
-    "text": "Logistics for Enrolled Students\n\nWe will meet virtually via Zoom during the first week (June 3 - June 8). Check your email for the Zoom link.\nWe transition to Shoals Marine Lab on Appledore Island for the second week of the course (June 10 - 17).\nCommunication for this class will primarily happen on Slack. We recommend that you download the mobile app for ease of communication while we are on island. Check your email for the invite link.\nYou should submit your homework assignments via Canvas. If, for whatever reason, you don’t have access to Canvas you should email your assignment submissions to Emily at emily.malcolmwhite@unh.edu.\n\n\n\nInstall R and RStudio\nTo access the course materials, you will need to have both R and RStudio installed on your computer. Follow the instructions available on the Posit website: https://posit.co/download/rstudio-desktop/.\n\nNote that there are two programs you need to download. R (or base R) is the brains or the calculator working behind the scenes - to work with this directly is possible but it’s a bit messy. RStudio is an additional interface that makes it easier to organize your scripts, your plots, your objects, and your files in one window. Typically, we will open RStudio and work directly in that program but it’s important to also have R installed in the background.\n\nYou should install these two programs before our first class. There will be some time given during our first class to help troubleshoot any issues that might arise during installation.\n\n\n\nSchedule & Course Materials\n\nto download the .qmd files (Template, Homework) you should right click and “Save Link As…”\nto view the Notes, just left-click in the usual way\n\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Date\n      Time\n      Letter\n      Topic\n      Notes\n      Template\n      Data\n      Desc\n      Homework\n      Videos\n    \n  \n  \n    Mon, June 3\n9:00 AM\n\nIntroduction and Welcome\n\n\n\n\n\n\n    \n10:45 AM\nA\nInstallation, Intro R, RMarkdown, File Paths\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nSlack Discussion\n\n\n\n\n\n\n    Tue, June 4\n9:00 AM\nB\nNaming Objects, Wrangling data with `dplyr`:: `filter`, `select`, `arrange`\n\n\n\npossum.csv\n\n\n    \n10:45 AM\nC\nAggregating data with `summarize`, `group_by()`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \n8:00PM\n\nRock Talk\n\n\n\n\n\n\n    Wed, June 5\n9:00 AM\nD\nMaking plots with `ggplot2`\n\n\n\n\n\n\n    \n10:45 AM\nE\nMore making plots with `ggplot2`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nSlack Discussion\n\n\n\n\n\n\n    Thu, June 6\n9:00 AM\nF\nJoining\n\n\n\nco2.csv\n\n\n    \n10:45 AM\nG\nReshaping/Pivoting\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    Fri, June 7\n9:00 AM\nH\nWorking with categorical data using `forcats`\n\n\n\n\n\n\n    \n10:45 AM\nI\nWorking with dates using `lubridate`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nDiscussion\n\n\n\n\n\n\n    Sat, June 8\n\n\nNo Class\n\n\n\n\n\n\n    Sun, June 9\n\n\nNo Class\n\n\n\n\n\n\n    Mon, June 10\n1:45 PM\n\nArrive at Market St Dock in Portsmouth, NH\n\n\n\n\n\n\n    \n2:45 PM\n\nBoat Departure to Shoals\n\n\n\n\n\n\n    Tue, June 11\n\nJ\nSeal Data\n\n\n\n\n\n\n    \n\nK\nSustainability Data\n\n\n\n\n\n\n    Wed, June 12\n\nL\nLobsters / Time Series\n\n\n\n\n\n\n    Thu, June 13\n\nM\nIntertidal / Regression\n\n\n\n\n\n\n    Fri, June 14\n\nN\nPretty Documents: tables, figures, cross-references, and bibliography\n\n\n\n\n\n\n    \n\nO\nMaps\n\n\n\n\n\n\n    Sat, June 15\n\nP\nPretty Documents: colors, themes, and scales\n\n\n\n\n\n\n    Sun, June 16\n\n\nFinal Presentations\n\n\n\n\n\n\n    Mon, June 17\n10:30 AM\n\nBoat Departure back to Market St Dock in Portsmouth, NH"
+    "text": "#LOAD PACKAGES\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#default-colors",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#default-colors",
+    "title": "Notes P",
+    "section": "Default Colors",
+    "text": "Default Colors\n\nbp &lt;- ggplot(iris, aes(Species, Sepal.Length)) + \n  geom_boxplot(aes(fill = Species)) +\n  theme_minimal() +\n  theme(legend.position = \"top\")\nbp\n\n# Scatter plot\nsp &lt;- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + \n  geom_point(aes(color = Petal.Length)) +\n  theme_minimal()+\n  theme(legend.position = \"top\")\nsp\n\n\n\n\n\n\nBoxplot Plot – discrete colors\n\n\n\n\n\n\n\nScatterplot – continuous colors\n\n\n\n\n\n\nDefault Colors"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#on-a-plot",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#on-a-plot",
+    "title": "Notes P",
+    "section": "On a plot",
+    "text": "On a plot\nFor a plot you can create a custom color palette:\n\n\n\n\n\n\n\n\n\ncolor\nfill\n\n\n\n\n\nThis will be applied to points, lines and texts\nThis will change the fill color of areas, such as in box plot, bar plot, histogram, density plots, etc.\n\n\ndiscrete\nscale_color_manual\nscale_fill_manual\n\n\ncontinuous\nscale_color_gradient\nscale_fill_gradient\n\n\nwant continuous from discrete scale\nscale_color_distill\nscale_fill_distill\n\n\n\n\nbp\nbp + \n  scale_fill_manual(values=c(\"#9966cc\", \"#005bac\", \"#d50032\"))\nsp \nsp +\n  scale_colour_gradient(low = \"yellow\", high = \"red\")"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#color-palettes-colorbrewer",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#color-palettes-colorbrewer",
+    "title": "Notes P",
+    "section": "Color Palettes: colorBrewer",
+    "text": "Color Palettes: colorBrewer\nThe RColorBrewer package creates a nice looking color palettes.\n\nlibrary(RColorBrewer)\ndisplay.brewer.all()\n\n\n\n\n\nSequential palettes (first list of colors), which are suited to ordered data that progress from low to high (gradient). The palettes names are : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu YlOrBr, YlOrRd.\nQualitative palettes (second list of colors), which are best suited to represent nominal or categorical data. They not imply magnitude differences between groups. The palettes names are : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.\nDiverging palettes (third list of colors), which put equal emphasis on mid-range critical values and extremes at both ends of the data range. The diverging palettes are : BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral\n\n\nbp\nbp + \n  scale_fill_brewer(palette = \"Dark2\")\nsp \nsp +\n  scale_color_distiller(palette = \"BuPu\")"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#other-cool-palettes",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#other-cool-palettes",
+    "title": "Notes P",
+    "section": "Other Cool Palettes",
+    "text": "Other Cool Palettes\n\nggsci\nwesanderson\ntayloRswift"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#hide-the-legend",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#hide-the-legend",
+    "title": "Notes P",
+    "section": "hide the legend",
+    "text": "hide the legend\n\nbp\nbp + \n  guides(fill=\"none\")"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#customizing-title-of-legend",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#customizing-title-of-legend",
+    "title": "Notes P",
+    "section": "customizing title of legend",
+    "text": "customizing title of legend\n\nsp\nsp + \n  scale_color_continuous(name=\"Petal Length\")"
+  },
+  {
+    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#customizing-axes-breaks",
+    "href": "notes/P_Colors_Themes_Scales_Notes.html#customizing-axes-breaks",
+    "title": "Notes P",
+    "section": "customizing axes breaks",
+    "text": "customizing axes breaks\n\nsp\nsp + \n  scale_y_continuous(breaks=c(2,3,4,5))"
   },
   {
     "objectID": "notes/C_Aggregating_Notes.html",
@@ -91,25 +140,18 @@
     "text": "Why is this useful?\nUpdating labels:\nExploring relationships between variables in separate tables:\n\nportal_rodent_weather %&gt;% \n   group_by(year, month, day) %&gt;% \n   summarize(count_caught = n(), mean_airtemp = mean_airtemp) %&gt;% \n   ggplot(aes(x=mean_airtemp, y=count_caught)) +\n   geom_point() + \n   geom_smooth(method='lm')"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R by the Sea",
+    "objectID": "stat116.html",
+    "href": "stat116.html",
+    "title": "Logistics for Enrolled Students",
     "section": "",
-    "text": "Welcome to “R by the Sea: Data Analysis in the Marine Sciences” – a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Typically, we meet virtually for the first week and then we transition to the Shoals Marine Lab on Appledore Island for the second week of the course. This course provides a unique opportunity to enhance your skills in R programming working hands-on with real-life data surrounded by the natural beauty and biodiversity of the Gulf of Maine.\n\n\n\n\n\n\nFor resources to learn R, check out the Schedule & Resources 2024. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website"
+    "text": "Logistics for Enrolled Students\n\nWe will meet virtually via Zoom during the first week (June 3 - June 8). Check your email for the Zoom link.\nWe transition to Shoals Marine Lab on Appledore Island for the second week of the course (June 10 - 17).\nCommunication for this class will primarily happen on Slack. We recommend that you download the mobile app for ease of communication while we are on island. Check your email for the invite link.\nYou should submit your homework assignments via Canvas. If, for whatever reason, you don’t have access to Canvas you should email your assignment submissions to Emily at emily.malcolmwhite@unh.edu.\n\n\n\nInstall R and RStudio\nTo access the course materials, you will need to have both R and RStudio installed on your computer. Follow the instructions available on the Posit website: https://posit.co/download/rstudio-desktop/.\n\nNote that there are two programs you need to download. R (or base R) is the brains or the calculator working behind the scenes - to work with this directly is possible but it’s a bit messy. RStudio is an additional interface that makes it easier to organize your scripts, your plots, your objects, and your files in one window. Typically, we will open RStudio and work directly in that program but it’s important to also have R installed in the background.\n\nYou should install these two programs before our first class. There will be some time given during our first class to help troubleshoot any issues that might arise during installation.\n\n\n\nSchedule & Course Materials\n\nto download the .qmd files (Template, Homework) you should right click and “Save Link As…”\nto view the Notes, just left-click in the usual way\n\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n      Date\n      Time\n      Letter\n      Topic\n      Notes\n      Template\n      Data\n      Desc\n      Homework\n      Videos\n    \n  \n  \n    Mon, June 3\n9:00 AM\n\nIntroduction and Welcome\n\n\n\n\n\n\n    \n10:45 AM\nA\nInstallation, Intro R, RMarkdown, File Paths\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nSlack Discussion\n\n\n\n\n\n\n    Tue, June 4\n9:00 AM\nB\nNaming Objects, Wrangling data with `dplyr`:: `filter`, `select`, `arrange`\n\n\n\npossum.csv\n\n\n    \n10:45 AM\nC\nAggregating data with `summarize`, `group_by()`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \n8:00PM\n\nRock Talk\n\n\n\n\n\n\n    Wed, June 5\n9:00 AM\nD\nMaking plots with `ggplot2`\n\n\n\n\n\n\n    \n10:45 AM\nE\nMore making plots with `ggplot2`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nSlack Discussion\n\n\n\n\n\n\n    Thu, June 6\n9:00 AM\nF\nJoining\n\n\n\nco2.csv\n\n\n    \n10:45 AM\nG\nReshaping/Pivoting\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    Fri, June 7\n9:00 AM\nH\nWorking with categorical data using `forcats`\n\n\n\n\n\n\n    \n10:45 AM\nI\nWorking with dates using `lubridate`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nDiscussion\n\n\n\n\n\n\n    Sat, June 8\n\n\nNo Class\n\n\n\n\n\n\n    Sun, June 9\n\n\nNo Class\n\n\n\n\n\n\n    Mon, June 10\n1:45 PM\n\nArrive at Market St Dock in Portsmouth, NH\n\n\n\n\n\n\n    \n2:45 PM\n\nBoat Departure to Shoals\n\n\n\n\n\n\n    Tue, June 11\n\nJ\nSeal Data\n\n\n\n\n\n\n    \n\nK\nSustainability Data\n\n\n\n\n\n\n    Wed, June 12\n\nL\nLobsters / Time Series\n\n\n\n\n\n\n    Thu, June 13\n\nM\nIntertidal / Regression\n\n\n\n\n\n\n    Fri, June 14\n\nN\nPretty Documents: tables, figures, cross-references, and bibliography\n\n\n\n\n\n\n    \n\nO\nMaps\n\n\n\n\n\n\n    Sat, June 15\n\nP\nPretty Documents: colors, themes, and scales\n\n\n\n\n\n\n    Sun, June 16\n\n\nFinal Presentations\n\n\n\n\n\n\n    Mon, June 17\n10:30 AM\n\nBoat Departure back to Market St Dock in Portsmouth, NH"
   },
   {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "R by the Sea",
+    "objectID": "stat118.html",
+    "href": "stat118.html",
+    "title": "Logistics for Enrolled Students",
     "section": "",
-    "text": "Welcome to “R by the Sea: Data Analysis in the Marine Sciences” – a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Typically, we meet virtually for the first week and then we transition to the Shoals Marine Lab on Appledore Island for the second week of the course. This course provides a unique opportunity to enhance your skills in R programming working hands-on with real-life data surrounded by the natural beauty and biodiversity of the Gulf of Maine.\n\n\n\n\n\n\nFor resources to learn R, check out the Schedule & Resources 2024. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website"
-  },
-  {
-    "objectID": "instructors.html",
-    "href": "instructors.html",
-    "title": "R by the Sea",
-    "section": "",
-    "text": "Easton White\n\n\n (he/him)\n\n\nAssistant Professor Department of Biology University of New Hampshire (UNH)\n\n\nDr. Easton White is a quantitative marine ecologist who uses mathematical and statistical tools, coupled with experiments and field observations, to answer questions in ecology, conservation science, sustainability, and ecosystem management. Most of his work is focused on marine systems, especially fisheries and spatial planning. Easton currently conducts research on assessing the effectiveness of protected area networks, improving species monitoring programs, and modeling socio-ecological systems in the context of fisheries. His work centers on how environmental variability, in particular rare events (e.g., hurricanes, COVID-19 pandemic), affects ecosystems and those that depend on them.\n\n\n\n\n\n\n\nEmily Malcolm-White\n\n\n(she/her)\n\n\nLecturer Department of Mathematics and Statistics Middlebury College\n\n\nEmily Malcolm-White is an educator and student support specialist with a love for developing and teaching quantitative skills to students from a wide variety of backgrounds. She is committed to fostering an inclusive and equitable learning environment for all students. At Middlebury College, Emily teaches a variety of courses including statistics, data science, and mathematics courses."
+    "text": "Logistics for Enrolled Students\n\nWe will meet virtually via Zoom during the first week (June 3 - June 8). Check your email for the Zoom link.\nWe transition to Shoals Marine Lab on Appledore Island for the second week of the course (June 10 - 17).\nCommunication for this class will primarily happen on Slack. We recommend that you download the mobile app for ease of communication while we are on island. Check your email for the invite link.\nYou should submit your homework assignments via Canvas. If, for whatever reason, you don’t have access to Canvas you should email your assignment submissions to Emily at emily.malcolmwhite@unh.edu.\n\n\n\nInstall R and RStudio\nTo access the course materials, you will need to have both R and RStudio installed on your computer. Follow the instructions available on the Posit website: https://posit.co/download/rstudio-desktop/.\n\nNote that there are two programs you need to download. R (or base R) is the brains or the calculator working behind the scenes - to work with this directly is possible but it’s a bit messy. RStudio is an additional interface that makes it easier to organize your scripts, your plots, your objects, and your files in one window. Typically, we will open RStudio and work directly in that program but it’s important to also have R installed in the background.\n\nYou should install these two programs before our first class. There will be some time given during our first class to help troubleshoot any issues that might arise during installation.\n\n\n\nSchedule & Course Materials\n\nto download the .qmd files (Template, Homework) you should right click and “Save Link As…”\nto view the Notes, just left-click in the usual way\n\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n      Date\n      Time\n      Letter\n      Topic\n      Notes\n      Template\n      Data\n      Desc\n      Homework\n      Videos\n    \n  \n  \n    Mon, June 3\n9:00 AM\n\nIntroduction and Welcome\n\n\n\n\n\n\n    \n10:45 AM\nA\nInstallation, Intro R, RMarkdown, File Paths\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nSlack Discussion\n\n\n\n\n\n\n    Tue, June 4\n9:00 AM\nB\nNaming Objects, Wrangling data with `dplyr`:: `filter`, `select`, `arrange`\n\n\n\npossum.csv\n\n\n    \n10:45 AM\nC\nAggregating data with `summarize`, `group_by()`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \n8:00PM\n\nRock Talk\n\n\n\n\n\n\n    Wed, June 5\n9:00 AM\nD\nMaking plots with `ggplot2`\n\n\n\n\n\n\n    \n10:45 AM\nE\nMore making plots with `ggplot2`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nSlack Discussion\n\n\n\n\n\n\n    Thu, June 6\n9:00 AM\nF\nJoining\n\n\n\nco2.csv\n\n\n    \n10:45 AM\nG\nReshaping/Pivoting\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    Fri, June 7\n9:00 AM\nH\nWorking with categorical data using `forcats`\n\n\n\n\n\n\n    \n10:45 AM\nI\nWorking with dates using `lubridate`\n\n\n\n\n\n\n    \n1:00 PM\n\nOffice Hours\n\n\n\n\n\n\n    \nasynch\n\nDiscussion\n\n\n\n\n\n\n    Sat, June 8\n\n\nNo Class\n\n\n\n\n\n\n    Sun, June 9\n\n\nNo Class\n\n\n\n\n\n\n    Mon, June 10\n1:45 PM\n\nArrive at Market St Dock in Portsmouth, NH\n\n\n\n\n\n\n    \n2:45 PM\n\nBoat Departure to Shoals\n\n\n\n\n\n\n    Tue, June 11\n\nJ\nSeal Data\n\n\n\n\n\n\n    \n\nK\nSustainability Data\n\n\n\n\n\n\n    Wed, June 12\n\nL\nLobsters / Time Series\n\n\n\n\n\n\n    Thu, June 13\n\nM\nIntertidal / Regression\n\n\n\n\n\n\n    Fri, June 14\n\nN\nPretty Documents: tables, figures, cross-references, and bibliography\n\n\n\n\n\n\n    \n\nO\nMaps\n\n\n\n\n\n\n    Sat, June 15\n\nP\nPretty Documents: colors, themes, and scales\n\n\n\n\n\n\n    Sun, June 16\n\n\nFinal Presentations\n\n\n\n\n\n\n    Mon, June 17\n10:30 AM\n\nBoat Departure back to Market St Dock in Portsmouth, NH"
   },
   {
     "objectID": "qmdfiles/B_Wrangling_Notes_Blank.html",
@@ -140,74 +182,102 @@
     "text": "#Import the possum data again\nlibrary(DAAG)\ndata(\"possum\")\n\n\nLine graphs\n\n# ????\n\n\n\nHistograms\n\n\n\nBoxplots\n\n\n\nJitter\nJittering is a technique for adding random noise to data points that have identical values in a plot. It is a useful method for avoiding overplotting and making it easier to visualize the density of data points that are otherwise hidden behind each other.\n\n\nFacet Wrap\nfacet_wrap() is a function in the ggplot2 package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable.\n\n\nLabels\nAdding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labelling outliers and other important points is very useful.\n\nlibrary(ggrepel)"
   },
   {
-    "objectID": "qmdfiles/I_Lubridate_Notes_Blank.html",
-    "href": "qmdfiles/I_Lubridate_Notes_Blank.html",
-    "title": "Notes D",
-    "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\nDate Formats\nThink of how many different formats you know of to list today’s date:\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nMaking Dates From Values\n\n#make_date\n\n\n#make_datetime\n\n\n\nPortal Data\n\n#LOAD DATA\n#Recall the Portal Dataset\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\n\nRounding Times\n\nt &lt;- ymd_hms(\"2022-11-15 00:08:30\")\n\n\n#Round\nround_date(t, unit = \"second\") #no change\n\n[1] \"2022-11-15 00:08:30 UTC\"\n\nround_date(t, unit = \"minute\")\n\n[1] \"2022-11-15 00:09:00 UTC\"\n\nround_date(t, unit = \"hour\")\n\n[1] \"2022-11-15 UTC\"\n\nround_date(t, unit = \"day\")\n\n[1] \"2022-11-15 UTC\"\n\n\n\n#Force Round UP\nceiling_date(t, unit = \"minute\")\n\n[1] \"2022-11-15 00:09:00 UTC\"\n\nceiling_date(t, unit = \"hour\")\n\n[1] \"2022-11-15 01:00:00 UTC\"\n\n\n\n#Force Round DOWN\nfloor_date(t, unit = \"minute\")\n\n[1] \"2022-11-15 00:08:00 UTC\"\n\nfloor_date(t, unit = \"hour\")\n\n[1] \"2022-11-15 UTC\""
-  },
-  {
-    "objectID": "qmdfiles/H_forcats_Homework.html",
-    "href": "qmdfiles/H_forcats_Homework.html",
-    "title": "Homework H",
-    "section": "",
-    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(forcats)\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\n\n\nChoose 3 different species of rodents. You may want to choose 3 from the same genus or from 3 different genera for comparison. Create a dataset called my_rodents which has all the data on any rodents of your species of choice caught in Portal, AZ. You should display the time the rodents were captured (year, month, day), the species scientific and common name, and the sex and pregnancy status.\n\n\nCreate a table which displays how many rodents are of each species (or commonname) were recorded over the period of study. Be sure that it’s broken down by sex.\n\n\nConstruct an appropriate plot to display the data above. Be sure information about species (or commonname), sex, and count is all displayed in your plot & that your plot is pretty and nicely labeled.\n\n\nWhat is the order of the levels of species (or commonname) displayed in your chart?\nReorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work separate to figure out what this order is.\n\n\nSex is ordered in alphabetically. Reorder sex so that it displays males first and then females.\n\n\nReconstruct your appropriate plot from 3. Be sure the ordering you created in 5 and 6 carries through into your plot.\n\n\nOf the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregnant? Make a nice well-labelled table that is well-labelled including “not pregnant” or something similar."
-  },
-  {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html",
     "title": "Notes O",
     "section": "",
     "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#what-about-subsetting-the-data",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#what-about-subsetting-the-data",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#what-about-subsetting-the-data",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#what-about-subsetting-the-data",
     "title": "Notes O",
     "section": "What about subsetting the data?",
     "text": "What about subsetting the data?\n\n#Subset to get Italy\n\n\n#Subset to get USA"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
     "title": "Notes O",
     "section": "What if aspect ratio is not maintained?",
     "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\n\n\n# ASPECT RATIO MAINTAINED"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#usa-with-states",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#usa-with-states",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#usa-with-states",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#usa-with-states",
     "title": "Notes O",
     "section": "USA with states",
     "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n\n#Plot of USA with state borders"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#how-to-customize-colors",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#how-to-customize-colors",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#how-to-customize-colors",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#how-to-customize-colors",
     "title": "Notes O",
     "section": "How to customize colors?",
     "text": "How to customize colors?\n\n#Load Data from maps and plot colors by latitude\nusa_states &lt;- map_data(\"state\")\n\n\n#LOAD PACKAGES\nlibrary(tidyverse)\nlibrary(leaflet)"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#adding-points",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#adding-points",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#adding-points",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#adding-points",
     "title": "Notes O",
     "section": "Adding points",
     "text": "Adding points\n\n# use addCircleMarkers to add data"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#different-backgrounds",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#different-backgrounds",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#different-backgrounds",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#different-backgrounds",
     "title": "Notes O",
     "section": "Different backgrounds",
     "text": "Different backgrounds\n\n# Use addProviderTiles(providers$Esri.WorldImagery)"
   },
   {
-    "objectID": "qmdfiles/O_Mappling_Notes_Blank.html#different-colors",
-    "href": "qmdfiles/O_Mappling_Notes_Blank.html#different-colors",
+    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#different-colors",
+    "href": "qmdfiles/O_Mapping_Notes_Blank.html#different-colors",
     "title": "Notes O",
     "section": "Different colors",
     "text": "Different colors\n\ntransect_info$color = ifelse(transect_info$Position=='sheltered', 'blue', 'red')"
+  },
+  {
+    "objectID": "qmdfiles/H_forcats_Notes_Blank.html",
+    "href": "qmdfiles/H_forcats_Notes_Blank.html",
+    "title": "Notes H",
+    "section": "",
+    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
+  },
+  {
+    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#categorical-variables",
+    "href": "qmdfiles/H_forcats_Notes_Blank.html#categorical-variables",
+    "title": "Notes H",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced.\n\n# load packages\nlibrary(tidyverse)\nlibrary(forcats)"
+  },
+  {
+    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#recall-portal-rodent-data",
+    "href": "qmdfiles/H_forcats_Notes_Blank.html#recall-portal-rodent-data",
+    "title": "Notes H",
+    "section": "Recall: portal Rodent Data",
+    "text": "Recall: portal Rodent Data\n\n# load data\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\nCheck out Kangaroo Rats!\n\n\nThere are 4 different kids of kangaroo rats in this dataset:\n\nMerriam’s kangaroo rat (DM)\nOrd’s kangaroo rat (DO)\nKangaroo rat (DX)\nBanner-tailed kangaroo rat (DS)\n\nCreate a dataset called kangaroo_rat which has all the data on any kangaroo rats caught in Portal, AZ. You should display the time the rat was captured (year, month, day), the species scientific and common name, and the sex and hindfoot length.\nCreate a line graph showing the number of each species caught in each year. Don’t worry about how pretty the labeling is.\nCreate a side-by-side boxplot showing the distribution of hindfoot length between the 4 different species of Kangaroo Rat. Don’t worry about how pretty the labeling is.\nNotice that:\n\nspecies, commonname, and sex are all categorical variables or factors\nwe notice the factors always display alphabetically."
+  },
+  {
+    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#reordering-factor-levels",
+    "href": "qmdfiles/H_forcats_Notes_Blank.html#reordering-factor-levels",
+    "title": "Notes H",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs commonname a factor? First we need the variables in a very specific factor format (not chr)\nLet’s make it a factor!\nLet’s check the levels and their current ordering!\nTo reorder the levels:\nLet’s recreate our boxplot now:\n\nkangaroo_rat %&gt;% \n  ggplot(aes(x=commonname, y=hfl)) + \n  geom_boxplot() + \n  #OPTIONAL + \n  theme_minimal()\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:"
+  },
+  {
+    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#renaming-factor-levels",
+    "href": "qmdfiles/H_forcats_Notes_Blank.html#renaming-factor-levels",
+    "title": "Notes H",
+    "section": "Renaming Factor levels",
+    "text": "Renaming Factor levels\nSometimes you might not like the way the levels are named. For example, maybe you feel it’s bit redundant to have “kangaroo rat” written all the time.\n\n# \"newname\" = \"oldname\"\n\n#kangaroo_rat &lt;- kangaroo_rat %&gt;% \n#  mutate(commonname = fct_recode(commonname, \"Merriam's\"= \"Merriam's kangaroo rat\", \"Ord's\" = \"Ord's kangaroo rat\" , \"Banner-tailed\" = \"Banner-tailed kangaroo rat\", \"Not specified\" = \"Kangaroo rat\" ))"
+  },
+  {
+    "objectID": "qmdfiles/K_sustainability_data.html",
+    "href": "qmdfiles/K_sustainability_data.html",
+    "title": "Homework K",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n# LOAD DATA\npower &lt;- read.csv(\"../data/power.csv\")\n\n\n\nuse the SML Data Dashboard to recreate a dataset for 2024. (Wind Power and Wind Speed)\nUse lubridate the date column a date data type.\n\n\nUse tables and/or text to provide some background on the data. How many data points are there? Over what time frame? What are the means and ranges of some key parameters?\n\n\nBuild a plot of daily power generation of solar and wind over the 2024 season so far. Comment on the trends.\n\n\nBuild a plot of power generated so far in 2024 over time? How does the amount compare to the amount produced in the first part of 2023? Comment on the trends.\n\n\nBuild a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find."
   },
   {
     "objectID": "qmdfiles/M_SLR_Blank.html",
@@ -322,46 +392,18 @@
     "text": "In-lab Examples\nbold\nitalics\nbold and italics\na list\nlink\nimage\n\nR chunks\ncreate an object\ninline code\ncommenting code\n\n\nQuestions\n\nTell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)\nTell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)\nMake a list of a few of your interests\nInclude a link to something interesting or funny\nInclude a picture. This could be a picture of you or a picture of something you find funny or interesting.\nCreate an object called c. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to c. ::: {.cell}\n\n:::\n\nWrite a few sentences about why you choose this number. Be sure to print out this value of c somewhere in your paragraph as inline code.\nCreate an object called height. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.\n\n\nHave you ever taken a class that used R before?\nTell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?\n(Optional) Use this space below to tell me anything about yourself that you think Easton and Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns."
   },
   {
-    "objectID": "qmdfiles/K_sustainability_data.html",
-    "href": "qmdfiles/K_sustainability_data.html",
-    "title": "Homework K",
+    "objectID": "qmdfiles/H_forcats_Homework.html",
+    "href": "qmdfiles/H_forcats_Homework.html",
+    "title": "Homework H",
     "section": "",
-    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n# LOAD DATA\npower &lt;- read.csv(\"../data/power.csv\")\n\n\n\nuse the SML Data Dashboard to recreate a dataset for 2024. (Wind Power and Wind Speed)\nUse lubridate the date column a date data type.\n\n\nUse tables and/or text to provide some background on the data. How many data points are there? Over what time frame? What are the means and ranges of some key parameters?\n\n\nBuild a plot of daily power generation of solar and wind over the 2024 season so far. Comment on the trends.\n\n\nBuild a plot of power generated so far in 2024 over time? How does the amount compare to the amount produced in the first part of 2023? Comment on the trends.\n\n\nBuild a plot of any two variables (or more!) that you find interesting. Write a few sentences of what you find."
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(forcats)\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\n\n\nChoose 3 different species of rodents. You may want to choose 3 from the same genus or from 3 different genera for comparison. Create a dataset called my_rodents which has all the data on any rodents of your species of choice caught in Portal, AZ. You should display the time the rodents were captured (year, month, day), the species scientific and common name, and the sex and pregnancy status.\n\n\nCreate a table which displays how many rodents are of each species (or commonname) were recorded over the period of study. Be sure that it’s broken down by sex.\n\n\nConstruct an appropriate plot to display the data above. Be sure information about species (or commonname), sex, and count is all displayed in your plot & that your plot is pretty and nicely labeled.\n\n\nWhat is the order of the levels of species (or commonname) displayed in your chart?\nReorder your the factor for species (or commonname) from highest total number caught (regardless of sex) to lowest total number caught. You might need to do some extra work separate to figure out what this order is.\n\n\nSex is ordered in alphabetically. Reorder sex so that it displays males first and then females.\n\n\nReconstruct your appropriate plot from 3. Be sure the ordering you created in 5 and 6 carries through into your plot.\n\n\nOf the female rodents of each species, what number were captured pregnant? What number were captured when they were not pregnant? Make a nice well-labelled table that is well-labelled including “not pregnant” or something similar."
   },
   {
-    "objectID": "qmdfiles/H_forcats_Notes_Blank.html",
-    "href": "qmdfiles/H_forcats_Notes_Blank.html",
-    "title": "Notes H",
+    "objectID": "qmdfiles/I_Lubridate_Notes_Blank.html",
+    "href": "qmdfiles/I_Lubridate_Notes_Blank.html",
+    "title": "Notes D",
     "section": "",
-    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
-  },
-  {
-    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#categorical-variables",
-    "href": "qmdfiles/H_forcats_Notes_Blank.html#categorical-variables",
-    "title": "Notes H",
-    "section": "Categorical Variables",
-    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced.\n\n# load packages\nlibrary(tidyverse)\nlibrary(forcats)"
-  },
-  {
-    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#recall-portal-rodent-data",
-    "href": "qmdfiles/H_forcats_Notes_Blank.html#recall-portal-rodent-data",
-    "title": "Notes H",
-    "section": "Recall: portal Rodent Data",
-    "text": "Recall: portal Rodent Data\n\n# load data\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\nportal_species &lt;- read.csv(\"https://raw.githubusercontent.com/weecology/PortalData/main/Rodents/Portal_rodent_species.csv\")\n\nCheck out Kangaroo Rats!\n\n\nThere are 4 different kids of kangaroo rats in this dataset:\n\nMerriam’s kangaroo rat (DM)\nOrd’s kangaroo rat (DO)\nKangaroo rat (DX)\nBanner-tailed kangaroo rat (DS)\n\nCreate a dataset called kangaroo_rat which has all the data on any kangaroo rats caught in Portal, AZ. You should display the time the rat was captured (year, month, day), the species scientific and common name, and the sex and hindfoot length.\nCreate a line graph showing the number of each species caught in each year. Don’t worry about how pretty the labeling is.\nCreate a side-by-side boxplot showing the distribution of hindfoot length between the 4 different species of Kangaroo Rat. Don’t worry about how pretty the labeling is.\nNotice that:\n\nspecies, commonname, and sex are all categorical variables or factors\nwe notice the factors always display alphabetically."
-  },
-  {
-    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#reordering-factor-levels",
-    "href": "qmdfiles/H_forcats_Notes_Blank.html#reordering-factor-levels",
-    "title": "Notes H",
-    "section": "Reordering Factor Levels",
-    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs commonname a factor? First we need the variables in a very specific factor format (not chr)\nLet’s make it a factor!\nLet’s check the levels and their current ordering!\nTo reorder the levels:\nLet’s recreate our boxplot now:\n\nkangaroo_rat %&gt;% \n  ggplot(aes(x=commonname, y=hfl)) + \n  geom_boxplot() + \n  #OPTIONAL + \n  theme_minimal()\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:"
-  },
-  {
-    "objectID": "qmdfiles/H_forcats_Notes_Blank.html#renaming-factor-levels",
-    "href": "qmdfiles/H_forcats_Notes_Blank.html#renaming-factor-levels",
-    "title": "Notes H",
-    "section": "Renaming Factor levels",
-    "text": "Renaming Factor levels\nSometimes you might not like the way the levels are named. For example, maybe you feel it’s bit redundant to have “kangaroo rat” written all the time.\n\n# \"newname\" = \"oldname\"\n\n#kangaroo_rat &lt;- kangaroo_rat %&gt;% \n#  mutate(commonname = fct_recode(commonname, \"Merriam's\"= \"Merriam's kangaroo rat\", \"Ord's\" = \"Ord's kangaroo rat\" , \"Banner-tailed\" = \"Banner-tailed kangaroo rat\", \"Not specified\" = \"Kangaroo rat\" ))"
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\nDate Formats\nThink of how many different formats you know of to list today’s date:\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nMaking Dates From Values\n\n#make_date\n\n\n#make_datetime\n\n\n\nPortal Data\n\n#LOAD DATA\n#Recall the Portal Dataset\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\n\nRounding Times\n\nt &lt;- ymd_hms(\"2022-11-15 00:08:30\")\n\n\n#Round\nround_date(t, unit = \"second\") #no change\n\n[1] \"2022-11-15 00:08:30 UTC\"\n\nround_date(t, unit = \"minute\")\n\n[1] \"2022-11-15 00:09:00 UTC\"\n\nround_date(t, unit = \"hour\")\n\n[1] \"2022-11-15 UTC\"\n\nround_date(t, unit = \"day\")\n\n[1] \"2022-11-15 UTC\"\n\n\n\n#Force Round UP\nceiling_date(t, unit = \"minute\")\n\n[1] \"2022-11-15 00:09:00 UTC\"\n\nceiling_date(t, unit = \"hour\")\n\n[1] \"2022-11-15 01:00:00 UTC\"\n\n\n\n#Force Round DOWN\nfloor_date(t, unit = \"minute\")\n\n[1] \"2022-11-15 00:08:00 UTC\"\n\nfloor_date(t, unit = \"hour\")\n\n[1] \"2022-11-15 UTC\""
   },
   {
     "objectID": "qmdfiles/E_ggplot2_Homework.html",
@@ -392,18 +434,25 @@
     "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n#Load gapminder data\nlibrary(gapminder)\ndata(gapminder)\n\n\n\nDownload the co2.csv file from the website. Import the dataset into this assignment in a dataframe called co2.\n\n\n\nCode\n#co2 &lt;- read.csv(\"co2.csv\")\n\n\n\nUse your brain and skills to figure out what the code below is doing. Add a sentence describing what this does.\n\n\n\nCode\ncountry_continent &lt;- gapminder %&gt;% \n  select(country, continent) %&gt;% \n  distinct()\n\n\n\nWhat columns do country_continent and co2 have in common? (This is your key)\nWhat columns does country_continent have that co2 doesn’t?\nWhat columns does co2 have that country_continent doesn’t?\nCreate a new table called co2_joined, which includes all columns from co2 in addition to the column continent. To start, use inner_join(). Make a note of how many rows you have in the new table, and compare it with the original tables.\n\n\nCreate a new table called co2_joined_left, which includes all columns from co2 in addition to the column continent but this time use left_join() instead of inner_join(). Make a note of how many rows you have in the new table, and compare it with the original tables.\n\n\nWhat columns do gapminder and co2 have in common?\nWhat columns does gapminder have that co2 doesn’t?\nWhat columns does co2 have that gapminder doesn’t?\nCreate a new table called gapminder_joined, which includes all rows from both tables joined together by their common variable keys (use inner_join()). Make a note of how many rows you have in the new table, and compare it with the original tables.\n\n\nUse the anti_join() function to identify which rows (if anyt) in the gapminder dataset do NOT have a match in out co2 dataset.\n\n\nUse the anti_join() function to identify which rows (if anyt) in the co2 dataset do NOT have a match in out gapminder dataset.\n\n\nUse gapminder_joined to create a scatterplot of gdpPercap vs. co2_emissions_pc."
   },
   {
-    "objectID": "rbythesea.html",
-    "href": "rbythesea.html",
-    "title": "rbythesea",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Emily Malcolm-White (she/her)",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Hi! 👋 I am an educator and student support specialist with a love for developing and teaching mathematics, statistics, and data science courses.\nI believe that STEM education should be inclusive and accessible for all. I hope to minimize barriers for all students, including those with varying academic backgrounds, those with responsibilities outside of academics, and those with disabilities. I take the time to learn about innovative and effective teaching pedagogy and like to keep trying new things to maximize my effectiveness as an instructor.\n\n\n University of Victoria | Victoria, BC, Canada MSc in Statistics | 2014\n University of Guelph | Guelph, ON, Canada BSc in Applied Mathematics and Statistics | 2012\n\n\n\nMiddlebury College | Faculty | 2019 - present\nUC Davis | Math Specialist | 2015 - 2019\n\n \n  \n   \n  \n    \n     GitHub\n  \n  \n    \n     YouTube"
   },
   {
-    "objectID": "rbythesea.html#quarto",
-    "href": "rbythesea.html#quarto",
-    "title": "rbythesea",
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Emily Malcolm-White (she/her)",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "University of Victoria | Victoria, BC, Canada MSc in Statistics | 2014\n University of Guelph | Guelph, ON, Canada BSc in Applied Mathematics and Statistics | 2012"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Emily Malcolm-White (she/her)",
+    "section": "",
+    "text": "Middlebury College | Faculty | 2019 - present\nUC Davis | Math Specialist | 2015 - 2019"
   },
   {
     "objectID": "notes/M_SLR_Notes.html",
@@ -481,117 +530,5 @@
     "title": "Notes N",
     "section": "Referencing Tables in Quarto",
     "text": "Referencing Tables in Quarto\nMake tables referenceable within the text, including computational tables, by using a tbl- prefix in labels.\n\n```{r}\n#| label: tbl-cars\n#| tbl-cap: \"Cars\"\n\ncars %&gt;% \n  head() %&gt;% \n  kbl()\n```\n\n\n\nTable 1: Cars\n\n\nspeed\ndist\n\n\n\n\n4\n2\n\n\n4\n10\n\n\n7\n4\n\n\n7\n22\n\n\n8\n16\n\n\n9\n10\n\n\n\n\n\n\n\n\nThe first few rows of the cars dataset can be seen in Table 1 (referenced using @tbl-cars)"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html",
-    "title": "Notes O",
-    "section": "",
-    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#what-about-subsetting-the-data",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#what-about-subsetting-the-data",
-    "title": "Notes O",
-    "section": "What about subsetting the data?",
-    "text": "What about subsetting the data?\n\n#Subset to get Italy\n\n\n#Subset to get USA"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#what-if-aspect-ratio-is-not-maintained",
-    "title": "Notes O",
-    "section": "What if aspect ratio is not maintained?",
-    "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\n\n\n# ASPECT RATIO MAINTAINED"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#usa-with-states",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#usa-with-states",
-    "title": "Notes O",
-    "section": "USA with states",
-    "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n\n#Plot of USA with state borders"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#how-to-customize-colors",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#how-to-customize-colors",
-    "title": "Notes O",
-    "section": "How to customize colors?",
-    "text": "How to customize colors?\n\n#Load Data from maps and plot colors by latitude\nusa_states &lt;- map_data(\"state\")\n\n\n#LOAD PACKAGES\nlibrary(tidyverse)\nlibrary(leaflet)"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#adding-points",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#adding-points",
-    "title": "Notes O",
-    "section": "Adding points",
-    "text": "Adding points\n\n# use addCircleMarkers to add data"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#different-backgrounds",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#different-backgrounds",
-    "title": "Notes O",
-    "section": "Different backgrounds",
-    "text": "Different backgrounds\n\n# Use addProviderTiles(providers$Esri.WorldImagery)"
-  },
-  {
-    "objectID": "qmdfiles/O_Mapping_Notes_Blank.html#different-colors",
-    "href": "qmdfiles/O_Mapping_Notes_Blank.html#different-colors",
-    "title": "Notes O",
-    "section": "Different colors",
-    "text": "Different colors\n\ntransect_info$color = ifelse(transect_info$Position=='sheltered', 'blue', 'red')"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html",
-    "title": "Notes P",
-    "section": "",
-    "text": "#LOAD PACKAGES\nlibrary(tidyverse)"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#default-colors",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#default-colors",
-    "title": "Notes P",
-    "section": "Default Colors",
-    "text": "Default Colors\n\nbp &lt;- ggplot(iris, aes(Species, Sepal.Length)) + \n  geom_boxplot(aes(fill = Species)) +\n  theme_minimal() +\n  theme(legend.position = \"top\")\nbp\n\n# Scatter plot\nsp &lt;- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + \n  geom_point(aes(color = Petal.Length)) +\n  theme_minimal()+\n  theme(legend.position = \"top\")\nsp\n\n\n\n\n\n\nBoxplot Plot – discrete colors\n\n\n\n\n\n\n\nScatterplot – continuous colors\n\n\n\n\n\n\nDefault Colors"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#on-a-plot",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#on-a-plot",
-    "title": "Notes P",
-    "section": "On a plot",
-    "text": "On a plot\nFor a plot you can create a custom color palette:\n\n\n\n\n\n\n\n\n\ncolor\nfill\n\n\n\n\n\nThis will be applied to points, lines and texts\nThis will change the fill color of areas, such as in box plot, bar plot, histogram, density plots, etc.\n\n\ndiscrete\nscale_color_manual\nscale_fill_manual\n\n\ncontinuous\nscale_color_gradient\nscale_fill_gradient\n\n\nwant continuous from discrete scale\nscale_color_distill\nscale_fill_distill\n\n\n\n\nbp\nbp + \n  scale_fill_manual(values=c(\"#9966cc\", \"#005bac\", \"#d50032\"))\nsp \nsp +\n  scale_colour_gradient(low = \"yellow\", high = \"red\")"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#color-palettes-colorbrewer",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#color-palettes-colorbrewer",
-    "title": "Notes P",
-    "section": "Color Palettes: colorBrewer",
-    "text": "Color Palettes: colorBrewer\nThe RColorBrewer package creates a nice looking color palettes.\n\nlibrary(RColorBrewer)\ndisplay.brewer.all()\n\n\n\n\n\nSequential palettes (first list of colors), which are suited to ordered data that progress from low to high (gradient). The palettes names are : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu YlOrBr, YlOrRd.\nQualitative palettes (second list of colors), which are best suited to represent nominal or categorical data. They not imply magnitude differences between groups. The palettes names are : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.\nDiverging palettes (third list of colors), which put equal emphasis on mid-range critical values and extremes at both ends of the data range. The diverging palettes are : BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral\n\n\nbp\nbp + \n  scale_fill_brewer(palette = \"Dark2\")\nsp \nsp +\n  scale_color_distiller(palette = \"BuPu\")"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#other-cool-palettes",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#other-cool-palettes",
-    "title": "Notes P",
-    "section": "Other Cool Palettes",
-    "text": "Other Cool Palettes\n\nggsci\nwesanderson\ntayloRswift"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#hide-the-legend",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#hide-the-legend",
-    "title": "Notes P",
-    "section": "hide the legend",
-    "text": "hide the legend\n\nbp\nbp + \n  guides(fill=\"none\")"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#customizing-title-of-legend",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#customizing-title-of-legend",
-    "title": "Notes P",
-    "section": "customizing title of legend",
-    "text": "customizing title of legend\n\nsp\nsp + \n  scale_color_continuous(name=\"Petal Length\")"
-  },
-  {
-    "objectID": "notes/P_Colors_Themes_Scales_Notes.html#customizing-axes-breaks",
-    "href": "notes/P_Colors_Themes_Scales_Notes.html#customizing-axes-breaks",
-    "title": "Notes P",
-    "section": "customizing axes breaks",
-    "text": "customizing axes breaks\n\nsp\nsp + \n  scale_y_continuous(breaks=c(2,3,4,5))"
   }
 ]

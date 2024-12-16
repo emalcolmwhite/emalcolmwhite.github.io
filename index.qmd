@@ -1,25 +1,38 @@
 ---
-format: html
+title: "Emily Malcolm-White (she/her)"
+about:
+  id: hero-heading
+  template: jolla
+  image: images/EMW.jpg
+  image-shape: round
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/emalcolmwhite
+    - icon: youtube
+      text: YouTube
+      href: https://www.youtube.com/@emalcolmwhite
 ---
 
-## Course Overview
+:::{#hero-heading}
 
-::: {.grid}
+Hi! 👋 I am an educator and student support specialist with a love for developing and teaching mathematics, statistics, and data science courses.
 
-::: {.g-col-7}
+I believe that STEM education should be inclusive and accessible for all. I hope to minimize barriers for all students, including those with varying academic backgrounds, those with responsibilities outside of academics, and those with disabilities. I take the time to learn about innovative and effective teaching pedagogy and like to keep trying new things to maximize my effectiveness as an instructor.
 
-Welcome to **"R by the Sea: Data Analysis in the Marine Sciences"** -- a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Typically, we meet virtually for the first week and then we transition to the [Shoals Marine Lab on Appledore Island](https://www.shoalsmarinelaboratory.org/) for the second week of the course. This course provides a unique opportunity to enhance your skills in R programming working hands-on with real-life data surrounded by the natural beauty and biodiversity of the Gulf of Maine.
+## Education
+
+<i class="fas fa-graduation-cap"></i> University of Victoria | Victoria, BC, Canada
+MSc in Statistics | 2014
+
+<i class="fas fa-graduation-cap"></i> University of Guelph | Guelph, ON, Canada
+BSc in Applied Mathematics and Statistics | 2012
+
+## Experience
+
+Middlebury College | Faculty | 2019 - present
+
+UC Davis | Math Specialist | 2015 - 2019
+
 
 :::
-
-::: {.g-col-4}
-
-![](images/r_by_the_sea_hex_sticker_nobg.png)
-
-:::
-
-:::
-
--   For resources to learn R, check out the [Schedule & Resources 2024](schedule.qmd). It contains resources for the most recent iteration of this course.
-
--   For more information on upcoming offerings and enrolling in the course, check out the [Shoals Marine Lab "R by the Sea" website](https://www.shoalsmarinelaboratory.org/r-sea-data-analysis-marine-sciences)

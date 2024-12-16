@@ -1,0 +1,128 @@
+---
+format: html
+---
+
+
+# Logistics for Enrolled Students
+
+- We will meet virtually via Zoom during the first week (June 3 - June 8).  Check your email for the Zoom link.
+- We transition to Shoals Marine Lab on Appledore Island for the second week of the course (June 10 - 17). 
+- Communication for this class will primarily happen on [Slack](https://slack.com/). We recommend that you download the mobile app for ease of communication while we are on island. Check your email for the invite link.
+- You should submit your homework assignments via Canvas. If, for whatever reason, you don't have access to Canvas you should email your assignment submissions to Emily at [emily.malcolmwhite@unh.edu](mailto:emily.malcolmwhite@unh.edu). 
+
+# Install R and RStudio
+
+To access the course materials, you will need to have both R and RStudio installed on your computer. Follow the instructions available on the Posit website: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/). 
+
+- Note that there are *two* programs you need to download. R (or base R) is the brains or the calculator working behind the scenes - to work with this directly is possible but it's a bit messy. RStudio is an additional interface that makes it easier to organize your scripts, your plots, your objects, and your files in one window. Typically, we will open RStudio and work directly in that program but it's important to also have R installed in the background.  
+- You should install these two programs *before* our first class. There will be some time given during our first class to help troubleshoot any issues that might arise during installation.  
+
+# Schedule & Course Materials 
+
+- to download the .qmd files (Template, Homework) you should right click and "Save Link As..."
+- to view the Notes, just left-click in the usual way
+
+```{r}
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+library(fontawesome)
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/14u_VJSsrctmACH9mqCtYfqRrHW2v7I1COl6Atf9YPM4/edit?usp=sharing", sheet = "Sheet1")
+```
+
+
+```{r, echo = FALSE}
+d |>
+  gt() |>
+  sub_missing(
+    columns = c(1:4,8),
+    missing_text = ""
+  ) |>
+  #fas-fa-file-code
+  text_transform(cells_body(columns = c(Template)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("file-code",fill_opacity = 0.1),
+        glue::glue("<a href = {x} >{fontawesome::fa('file-code')}</a>")
+      )
+    }
+  ) |>
+   text_transform(cells_body(columns = c(Data)),
+     fn = function(x) {
+        ifelse(is.na(x), fontawesome::fa("table", fill_opacity = 0.1),
+          glue::glue("<a href = {x}>{fontawesome::fa('table')}</a>")
+        )
+     }
+   ) |>
+  
+  text_transform(cells_body(columns = c(Notes)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa('file-lines', fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('file-lines')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(Homework)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("file-pen", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('file-pen')}</a>")
+      )
+    }
+   ) |>
+  text_transform(cells_body(columns = c(Videos)),
+    fn = function(x) {
+       ifelse(is.na(x), fontawesome::fa("link", fill_opacity = 0.1),
+         glue::glue("<a href = {x}>{fontawesome::fa('link')}</a>")
+       )
+    }
+  ) |>
+  # aligning columns
+  cols_align(
+    align = "center", 
+    columns = c(Template, Notes, Homework, Videos)
+    ) |>
+  cols_align(
+    align = "left", 
+    columns = c(Date, Time, Letter, Topic, Desc)
+    # thin borders between all items
+    ) |>
+  cols_align(
+    align = "right", 
+    columns = c(Data)
+    # thin borders between all items
+    ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "top",
+      color = "black", 
+      weight = px(2)
+    ),
+    locations = cells_body(rows = !is.na(Date)) 
+  ) |>
+  # dark borders between days
+  tab_style(
+    style = cell_borders(
+      sides = "bottom",
+      color = "black",
+      weight = px(4) 
+    ),
+    locations = cells_body(rows = Date == "Mon, June 17") 
+  ) |>
+  tab_style(
+    style = cell_borders(
+      sides = c("top", "bottom"),
+      color = "black",
+      weight = px(4) 
+    ),
+    locations = cells_column_labels(columns = everything()) 
+  ) |>
+  # fixing column widths
+  cols_width(Date ~ px(150),
+             Time ~ px(90), 
+             Letter ~ px(30), 
+             Topic ~ px(250)) 
+```
+
