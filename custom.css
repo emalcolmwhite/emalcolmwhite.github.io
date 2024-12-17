@@ -5,15 +5,16 @@
 }
 
 .bio-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
   background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
 }
 
 .bio-card img {
-  float: left;
+  float: right;
   margin-right: 10px;
   border-radius: 50%;
   width: 150px;
@@ -22,22 +23,28 @@
 }
 
 .bio-card h3 {
+  margin: 0;
   clear: both;
-  text-transform: capitalize;
-  margin-top: 20px;
-  border-top: hidden;
-  border-bottom: hidden;
+  margin-bottom: 0px;
+}
+
+.bio-card h4 {
+  margin: 0;
+  clear: both;
   margin-bottom: 0px;
 }
 
 .bio-card h6 {
-  margin-top: 10px;
+  margin-top: 0px;
   clear: both;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .bio-card p {
-  clear: both;
+  margin: 3px 0;
+  font-size: 1em;
+  color: #555;
+  line-height: 1.4;
 }
 
 .bio-card::after {
