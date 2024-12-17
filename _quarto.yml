@@ -12,10 +12,14 @@ website:
     left:
       - text: "Course Materials"
         menu: 
-        - text: "STAT 116"
+        - text: "STAT 116: Intro to Statistical Science"
           href: stat116.html
-        - text: "STAT 118"
+        - text: "STAT 118: Intro to Data Science"
           href: stat118.html
+        - text: "MATH 102: Logs, Exponentials, and their Applications"
+          href: math102.html
+        - text: "MATH 103: Functions"
+          href: math103.html
     right:
       - icon: github
         href:  https://github.com/emalcolmwhite

@@ -2,13 +2,12 @@
 format: html
 ---
 
-
-## STAT 118: Intro to Data Science
+## MATH 105: Functions
 
 ::: {.grid}
 
 ::: {.g-col-4}
-![](images/STAT0118_hex_sticker.png)
+![](images/MATH0105_hex_sticker.png)
 :::
 
 ::: {.g-col-8}
@@ -16,5 +15,6 @@ format: html
 :::
 
 :::
+
 
 More Coming Soon!

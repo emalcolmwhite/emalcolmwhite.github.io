@@ -3,4 +3,19 @@ format: html
 ---
 
 
-# Coming Soon!
+## STAT 116: Introduction to Statistical Science
+
+::: {.grid}
+
+::: {.g-col-4}
+![](images/STAT0116_hex_sticker.png)
+:::
+
+::: {.g-col-8}
+
+:::
+
+:::
+
+
+More Coming Soon!

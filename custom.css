@@ -5,45 +5,22 @@
 }
 
 .bio-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
+  display: flex;
+  align-items: center;
   background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
 }
 
 .bio-card img {
-  float: left;
-  margin-right: 10px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin-bottom: 20px;
-}
-
-.bio-card h4 {
-  clear: both;
-  text-transform: capitalize;
-  margin-top: 20px;
-  border-top: hidden;
-  border-bottom: hidden;
-  margin-bottom: 0px;
-}
-
-.bio-card h6 {
-  margin-top: 10px;
-  clear: both;
-  margin-bottom: 20px;
-}
-
-.bio-card p {
-  clear: both;
-}
-
-.bio-card::after {
-  content: "";
-  display: table;
-  clear: both;
+  margin-right: 20px;
 }
 
 .social-icons {

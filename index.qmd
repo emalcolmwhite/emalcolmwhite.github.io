@@ -1,31 +1,31 @@
 ---
-title: "Emily Malcolm-White (she/her)"
-about:
-  id: hero-heading
-  template: jolla
-  image: images/EMW.jpg
-  image-shape: round
 ---
 
-:::{#hero-heading}
+::: {.grid}
 
-Hi! 👋 I am an educator and student support specialist with a love for developing and teaching mathematics, statistics, and data science courses.
+::: {.g-col-6}
 
-I believe that STEM education should be inclusive and accessible for all. I hope to minimize barriers for all students, including those with varying academic backgrounds, those with responsibilities outside of academics, and those with disabilities. I take the time to learn about innovative and effective teaching pedagogy and like to keep trying new things to maximize my effectiveness as an instructor.
+<div class="bio-card">
+  <img src="images/EMW.jpg" alt="Emily Malcolm-White">
+    <h3>Emily Malcolm-White</h3>
+    <p class="pronouns"><i>(she/her)</i></p>
+    <p>Interim Director of Q-Center</p>
+    <p>Faculty, Department of Mathematics and Statistics</p>
+    <p>Middlebury College, Middlebury, VT, USA</p>
+</div>
 
-## Education
+:::
 
-<i class="fas fa-graduation-cap"></i> University of Victoria | Victoria, BC, Canada
-MSc in Statistics | 2014
+::: {.g-col-6}
 
-<i class="fas fa-graduation-cap"></i> University of Guelph | Guelph, ON, Canada
-BSc in Applied Mathematics and Statistics | 2012
+**Hi there!** 👋
 
-## Experience
+I’m an educator and student support specialist with a passion for teaching and developing quantitative skills for students from a wide variety of backgrounds. I’m deeply committed to creating an inclusive and equitable learning environment where all students can thrive.
 
-Middlebury College | Faculty | 2019 - present
+At Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a new initiative dedicated to supporting students in developing their quantitative skills.
 
-UC Davis | Math Specialist | 2015 - 2019
+Every year, I co-teach [“R by the Sea”](https://quantmarineecolab.github.io/r-by-the-sea/), a hands-on data science workshop for marine ecologists, at Shoals Marine Lab. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology. 
 
+:::
 
 :::
