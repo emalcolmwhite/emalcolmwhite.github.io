@@ -10,13 +10,13 @@ website:
     foreground: "#ffffff"
     search: false
     left:
-      - text: Home
-        href: index.qmd
-      - text: STAT 118 Intro to Data Science
-        href: stat116.qmd
-      - text: STAT 116 Intro to Stats
-        href: stat116.qmd
-    tools:
+      - text: "Course Materials"
+        menu: 
+        - text: "STAT 116"
+          href: stat116.html
+        - text: "STAT 118"
+          href: stat118.html
+    right:
       - icon: github
         href:  https://github.com/emalcolmwhite
       - icon: youtube

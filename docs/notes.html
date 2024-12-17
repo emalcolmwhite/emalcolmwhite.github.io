@@ -81,24 +81,45 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-course-materials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Course Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-course-materials">    
+        <li>
+    <a class="dropdown-item" href="./stat116.html" rel="" target="">
+ <span class="dropdown-text">STAT 116</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./stat118.html" rel="" target="">
+ <span class="dropdown-text">STAT 118</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/emalcolmwhite" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@emalcolmwhite" rel="" target=""><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./stat116.html" rel="" target="">
- <span class="menu-text">STAT 118 Intro to Data Science</span></a>
+    <a class="nav-link" href="./files/EMW_CV.pdf" rel="" target=""><i class="bi bi-fa-file-pdf-o" role="img">
+</i> 
+ <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./stat116.html" rel="" target="">
- <span class="menu-text">STAT 116 Intro to Stats</span></a>
+    <a class="nav-link" href="mailto:emalcolmwhite@middlebury.edu" rel="" target=""><i class="bi bi-fa-envelope-o" role="img">
+</i> 
+ <span class="menu-text">Email</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="https://github.com/emalcolmwhite" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://www.youtube.com/@emalcolmwhite" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <a href="./files/EMW_CV.pdf" rel="" title="CV" class="quarto-navigation-tool px-1" aria-label="CV"><i class="bi bi-fa-file-pdf-o"></i></a>
-    <a href="mailto:emalcolmwhite@middlebury.edu" rel="" title="Email" class="quarto-navigation-tool px-1" aria-label="Email"><i class="bi bi-fa-envelope-o"></i></a>
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->

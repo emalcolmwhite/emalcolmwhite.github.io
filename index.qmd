@@ -5,13 +5,6 @@ about:
   template: jolla
   image: images/EMW.jpg
   image-shape: round
-  links:
-    - icon: github
-      text: GitHub
-      href: https://github.com/emalcolmwhite
-    - icon: youtube
-      text: YouTube
-      href: https://www.youtube.com/@emalcolmwhite
 ---
 
 :::{#hero-heading}
