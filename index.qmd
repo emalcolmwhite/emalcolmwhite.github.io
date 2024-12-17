@@ -1,22 +1,20 @@
 ---
 ---
 
-::: {.grid}
 
-::: {.g-col-6}
 
 <div class="bio-card">
   <img src="images/EMW.jpg" alt="Emily Malcolm-White">
-    <h3>Emily Malcolm-White</h3>
-    <p class="pronouns"><i>(she/her)</i></p>
-    <p>Interim Director of Q-Center</p>
-    <p>Faculty, Department of Mathematics and Statistics</p>
-    <p>Middlebury College, Middlebury, VT, USA</p>
+
+<h4>Emily Malcolm-White </h4> 
+<h5>(she/her)</h5>
+
+<h6>Interim Director of Q-Center</br>
+Faculty, Department of Mathematics and Statistics</br>
+<h6>Middlebury College, Middlebury, VT, USA</br>
 </div>
 
-:::
 
-::: {.g-col-6}
 
 **Hi there!** 👋
 
@@ -26,6 +24,3 @@ At Middlebury College, I teach a range of courses, including statistics, data sc
 
 Every year, I co-teach [“R by the Sea”](https://quantmarineecolab.github.io/r-by-the-sea/), a hands-on data science workshop for marine ecologists, at Shoals Marine Lab. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology. 
 
-:::
-
-:::
