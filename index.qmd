@@ -1,6 +1,7 @@
 ---
 title: "Emily Malcolm-White (she/her)"
 subtitle: "Faculty, Department of Mathematics and Statistics, Middlebury College"
+page-layout: full
 image: images/EMW.jpg
 about: 
   template: solana

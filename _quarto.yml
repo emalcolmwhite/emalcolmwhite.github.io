@@ -20,6 +20,8 @@ website:
           href: math102.html
         - text: "MATH 103: Functions"
           href: math103.html
+        - text: "R by the Sea"
+          href: r-by-the-sea.html
     right:
       - text: "Email"
         icon: envelope
