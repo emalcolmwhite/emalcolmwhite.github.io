@@ -2,7 +2,9 @@
 format: html
 ---
 
-## MATH 105: Functions
+
+## MATH 102: Logs, Exponentials, and their Applications
+
 
 ::: {.grid}
 

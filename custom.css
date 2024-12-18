@@ -4,6 +4,17 @@
     font-weight: bold;
 }
 
+
+/* Container for side-by-side layout */
+.content-wrapper {
+  display: flex; /* Enables side-by-side layout */
+  align-items: flex-start; /* Aligns items at the top */
+  gap: 40px; /* Adds space between columns */
+  margin: 20px auto;
+  max-width: 1200px; /* Restricts maximum width */
+  padding: 20px;
+}
+
 .bio-card {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -20,6 +31,15 @@
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
+}
+
+/* Styling for the text content */
+.text-content {
+  flex: 1; /* Allows the text content to expand */
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #333;
 }
 
 .bio-card h3 {

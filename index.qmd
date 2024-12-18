@@ -4,8 +4,7 @@
 
 
 <div class="bio-card">
-  <img src="images/EMW.jpg" alt="Emily Malcolm-White">
-
+<img src="images/EMW.jpg" alt="Emily Malcolm-White">
 <h3>Emily Malcolm-White </h3> 
 <h4>(she/her)</h4>
 <h6>Interim Director of Q-Center</br>

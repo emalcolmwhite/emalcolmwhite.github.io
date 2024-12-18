@@ -26,10 +26,9 @@ website:
       - icon: youtube
         href: https://www.youtube.com/@emalcolmwhite
       - text: "CV"
-        icon: fa-file-pdf-o
-        href: files/EMW_CV.pdf
+        href: CV/index.qmd
       - text: "Email"
-        icon: fa-envelope-o
+        icon: envelope
         href: mailto:emalcolmwhite@middlebury.edu  
   page-footer: 
     left: "Made by EMW (2024)" 
