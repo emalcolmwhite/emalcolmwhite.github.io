@@ -1,16 +1,24 @@
 ---
+title: "Emily Malcolm-White (she/her)"
+subtitle: "Faculty, Department of Mathematics and Statistics, Middlebury College"
+image: images/EMW.jpg
+about: 
+  template: solana
+  image-shape: round
+  links:
+      - text: GitHub
+        icon: github
+        href: https://github.com/emalcolmwhite
+      - text: YouTube
+        icon: youtube
+        href: https://www.youtube.com/@emalcolmwhite
+      - text: "CV"
+        icon: file-earmark-fill
+        href: CV/index.qmd
+      - text: "Email"
+        icon: envelope-fill
+        href: mailto:emalcolmwhite@middlebury.edu  https://github.com/emalcolmwhite
 ---
-
-
-
-<div class="bio-card">
-<img src="images/EMW.jpg" alt="Emily Malcolm-White">
-<h3>Emily Malcolm-White </h3> 
-<h4>(she/her)</h4>
-<h6>Interim Director of Q-Center</br>
-Faculty, Department of Mathematics and Statistics</br>
-<h6>Middlebury College, Middlebury, VT, USA</br>
-</div>
 
 
 **Hi there!** 👋

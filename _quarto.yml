@@ -21,12 +21,6 @@ website:
         - text: "MATH 103: Functions"
           href: math103.html
     right:
-      - icon: github
-        href:  https://github.com/emalcolmwhite
-      - icon: youtube
-        href: https://www.youtube.com/@emalcolmwhite
-      - text: "CV"
-        href: CV/index.qmd
       - text: "Email"
         icon: envelope
         href: mailto:emalcolmwhite@middlebury.edu  
