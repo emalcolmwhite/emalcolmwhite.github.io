@@ -32,7 +32,7 @@ website:
         
 format:
   html:
-    theme: lumen
+    theme: lux
     css: custom.css
     anchor-sections: false
 
