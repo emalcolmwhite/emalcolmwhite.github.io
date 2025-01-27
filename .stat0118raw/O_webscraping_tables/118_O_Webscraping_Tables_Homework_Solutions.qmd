@@ -1,0 +1,92 @@
+---
+title: "STAT 118: Homework O"
+subtitle: 'Webscraping Tables'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r, warning=FALSE, message=FALSE}
+#make sure the package is installed on your computer or this won't run! 
+library(tidyverse)
+library(rvest)
+```
+
+# 1. 
+Use `read_html` to read in all the HTML code from [Middlebury Colleges's wikipedia page](https://en.wikipedia.org/wiki/Middlebury_College). Save this HTML code as `Midd_html`
+
+```{r}
+Midd_html <- read_html("https://en.wikipedia.org/wiki/Middlebury_College")
+```
+
+
+# 2. 
+Use the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name `Midd_Table1`. Don't worry about cleaning it up. 
+
+```{r}
+Midd_Table_1 <- Midd_html %>% 
+  html_element("table") %>% 
+  html_table()
+```
+
+
+# 3. 
+Use the appropriate code to save the ALL the tables on this wikipedia page as `Midd_Tables`. Don't worry about cleaning it up. 
+
+```{r}
+
+```
+
+# 4. 
+Use the appropriate code to scrape the [Admission Statistics table in the Admissions section](https://en.wikipedia.org/wiki/Middlebury_College#Admissions). Save this table as tibble named `Midd_Admissions`
+
+
+
+```{r}
+Midd_Admissions <- Midd_html %>% 
+  html_element(".wikitable") %>% 
+  html_table()
+```
+
+# 5. 
+
+Use `Midd_Admissions` you create above to recreate the following table below which shows the number of Applicants, Admits, and Enrolled in each year. *Hint: You may need to revisit our lesson on pivoting!* 
+
+	year	Applicants	Admits	Enrolled
+	2023	13,297	1,462	630
+	2022	13,028	1,955	640
+	2021	11,906	1,601	680
+	2020	9,174	2,022	602
+	2019	9,754	1,498	605
+	2018	9,227	1,542	628
+	2017	8,909	1,523	635
+	2016	8,819	1,423	606
+	2015	8,891	1,551	589
+	2014	8,195	1,407	580
+	2013	9,109	1,595	625
+	
+It is totally okay if your years are not displaying properly. For example, `2023` may display as `2023_74` or `x2023_74` or something similar. You don't need to fix this in order to get full marks. If you are feeling up for a challenge, you could check out `stringr::str_sub` as a way to fix this.  
+	
+
+```{r}
+# library(janitor)
+# Midd_Admissions %>% 
+#   clean_names() %>% 
+#   pivot_longer(2:12, names_to = "year", values_to="number") %>% 
+#   filter(x %in% c("Applicants", "Admits", "Enrolled")) %>% 
+#   pivot_wider(names_from=x, values_from=number) %>% 
+#   mutate(year = str_sub(year, start=2, end=5))
+```
+
+# 6.
+
+Scrape a table of your choice from Wikipedia. Try to pick a simple table with one header, unless you are feeling up for a challenge.  Be sure to print out the table for the grader to see. 
+
+```{r}
+
+```
+

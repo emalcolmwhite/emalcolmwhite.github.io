@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "EMW"
+  favicon: images/bar_chart.png
+  navbar:
+    background: "#496677" 
+    foreground: "#ffffff"
+    left:
+      - text: "Course Materials"
+        menu: 
+        - text: "STAT 116: Intro to Statistical Science"
+          href: stat0116.html
+        - text: "R by the Sea"
+          href: r-by-the-sea.html
+
+    right:
+      - text: "Email"
+        icon: envelope
+        href: mailto:emalcolmwhite@middlebury.edu
+  
+  back-to-top-navigation: true
+  
+  page-footer: 
+    left: "Made by EMW (2025)" 
+    right: "Powered by Quarto"
+        
+format:
+  html:
+    theme: lumen
+    css: custom.css
+    anchor-sections: false
