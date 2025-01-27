@@ -29,6 +29,6 @@ website:
         
 format:
   html:
-    theme: default
-    css: /custom.css
+    theme: lumen
+    css: custom.css
     anchor-sections: false
