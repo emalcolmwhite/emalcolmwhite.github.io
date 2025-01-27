@@ -36,6 +36,6 @@ website:
         
 format:
   html:
-    theme: lux
+    theme: default
     css: custom.css
     anchor-sections: false
