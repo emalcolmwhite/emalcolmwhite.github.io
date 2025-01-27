@@ -1,24 +1,332 @@
 [
   {
-    "objectID": "stat0118.html",
-    "href": "stat0118.html",
-    "title": "EMW",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Emily Malcolm-White (she/her)",
     "section": "",
-    "text": "Back to top"
+    "text": "Hi there! 👋\nI’m an educator and student support specialist with a passion for teaching and developing quantitative skills for students from a wide variety of backgrounds. I’m deeply committed to creating an inclusive and equitable learning environment where all students can thrive.\nAt Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a new initiative dedicated to supporting Middlebury students in developing quantitative skills.\nEvery year, I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, at Shoals Marine Lab. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n Back to top"
   },
   {
-    "objectID": "r-by-the-sea.html",
-    "href": "r-by-the-sea.html",
-    "title": "EMW",
+    "objectID": "CV/index.html",
+    "href": "CV/index.html",
+    "title": "Curriculum vitae",
     "section": "",
-    "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
+    "text": "Download current CV\n  \n\n\n  \n\n\n\n\n Back to top"
   },
   {
-    "objectID": "r-by-the-sea.html#r-by-the-sea",
-    "href": "r-by-the-sea.html#r-by-the-sea",
-    "title": "EMW",
+    "objectID": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html",
+    "href": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html",
+    "title": "STAT 118: Notes G",
     "section": "",
-    "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
+    "text": "library(tidyverse)\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")"
+  },
+  {
+    "objectID": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#mutate-to-create-new-columns",
+    "href": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#mutate-to-create-new-columns",
+    "title": "STAT 118: Notes G",
+    "section": "mutate to create new columns",
+    "text": "mutate to create new columns\n\ncan_lang &lt;- can_lang %&gt;%\n  mutate(\n    mother_tongue_percent = (mother_tongue / 35151728) * 100,\n    most_at_home_percent = (most_at_home / 35151728) * 100\n  )"
+  },
+  {
+    "objectID": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#scatterplot-with-percents-and-colors",
+    "href": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#scatterplot-with-percents-and-colors",
+    "title": "STAT 118: Notes G",
+    "section": "Scatterplot with Percents and Colors",
+    "text": "Scatterplot with Percents and Colors\n\n# ggplot(can_lang, aes(x = ???, y = ???)) +\n#   geom_point() +\n#   xlab(\"???\") +\n#   ylab(\"???\") +\n#   theme(text = element_text(size = 12)) +\n#   scale_x_log10(labels = label_comma()) +\n#   scale_y_log10(labels = label_comma())"
+  },
+  {
+    "objectID": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#size-of-labels",
+    "href": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#size-of-labels",
+    "title": "STAT 118: Notes G",
+    "section": "Size of labels",
+    "text": "Size of labels\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma) + \n  geom_text(aes(label=language), \n              nudge_x = 0.25, \n              nudge_y=0.25)"
+  },
+  {
+    "objectID": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#subset-the-labels",
+    "href": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#subset-the-labels",
+    "title": "STAT 118: Notes G",
+    "section": "Subset the labels",
+    "text": "Subset the labels\nCreate a new column for the labels. Use case_when (or ifelse) to only use the official language names and not to put a label for other language categories.\n\ncan_lang &lt;- can_lang %&gt;% \n  mutate(official_languages = case_when(category == \"Official languages\" ~ language, TRUE ~ NA ))\n\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma) + \n  geom_text(aes(label=languages), \n              nudge_x = 0.25, \n              nudge_y=0.25, size = 3)"
+  },
+  {
+    "objectID": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#using-ggrepel",
+    "href": "stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html#using-ggrepel",
+    "title": "STAT 118: Notes G",
+    "section": "Using ggrepel",
+    "text": "Using ggrepel\n\nlibrary(ggrepel)\n\n\n\n\nArtwork by @allisonhorst\n\n\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma) + \n  geom_text_repel(aes(label=official_languages), min.segment.length=0, box.padding=1)"
+  },
+  {
+    "objectID": "stat0118/Q_stringr/118_Q_stringr_Homework.html",
+    "href": "stat0118/Q_stringr/118_Q_stringr_Homework.html",
+    "title": "MATH 118: Homework Q",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n#LOAD DATA\n# courses &lt;- read_csv(\"data/courses.csv\")\n# courses &lt;- courses %&gt;%\n#   mutate(isCW = str_extract(distros, \"CW\")) %&gt;%\n#   mutate(distros = str_remove(distros, \"CW\"))\n\n\n\n1.\nCreate new column called isDED which indicates courses which have “DED” listed inside the distros column.\n\n\n2.\nHow many classes will be offered in Fall 2023 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).\n\n\n3.\nCreate a new column(s) called courseDEPT and courseCODE and courseSECT which seperate the the department course identifier (ie. MATH0118B-S23) into three separate pieces (ie. MATH, 0118, and B).\n\n\n4.\nHow many unique classes will be offered in Fall 2023 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).\n\n\n5.\nSuppose you really love taking classes in our classroom (WNS 101). Which classes will be offered in Fall 2023 in this classroom?\n\n\n6.\nSuppose you really love taking classes with an instructor with the first name “Emily”. Which classes will be offered in Fall 2023 by someone with the first name “Emily”?\n\n\n7.\nSuppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc.\n\n\n8.\nCreate a visualization from the information you gathered in the previous problem.\n\n\n9.\nWhich class(es) offer(s) the most number of sections?\n\n\n10.\n“The” is the most popular word in the english language. Count the number of times the word “the” appears in the description of each course. Which course uses the word “the” the most?\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/J_pivoting/118_J_pivoting_Notes_Template.html",
+    "href": "stat0118/J_pivoting/118_J_pivoting_Notes_Template.html",
+    "title": "STAT 118: Notes J",
+    "section": "",
+    "text": "Reshaping with Pivoting – Why?\nData frames are often described as wide or long.\nWide when a row has more than one observation, and the units of observation are on one row each\nLong when a row has only one observation, but the units of observation are repeated down the column\n\n\n\nCredit: datasciencebook.ca\n\n\n\n\ncanlang dataset\n\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\nlang_wide &lt;- read.csv(\"https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_wide.csv\")\n\n\n\nPivot Longer\n \nThe data above is now tidy because all three criteria for tidy data have now been met:\n\nAll the variables (category, language, region and mother_tongue) are now their own columns in the data frame.\nEach observation, (i.e., each language in a region) is in a single row.\nEach value is a single cell, i.e., its row, column position in the data frame is not shared with another value.\n\n\n\nPivot Wider\n\nlang_long &lt;- read.csv(\"https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_long.csv\")\n\n \n\n\nGapminder\n\nlibrary(gapminder)\ndata(\"gapminder\")\n\nLet’s say we’d like to look at LifeExp over time for all the countries in Asia in our dataset.\n\n# Create a dataset called asia with the data we need\n\nWe can create a wide version of our table, where each row is a country and each column a year, with values of lifeExp in each cell of the table.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/D_kable/118_D_kable_Notes.html",
+    "href": "stat0118/D_kable/118_D_kable_Notes.html",
+    "title": "STAT 118: Notes D",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)\n\n#CLEAN UP DATA\npenguins &lt;- penguins %&gt;%\n  drop_na()\n#sometimes this is appropriate. It's questionable here... \n\n\nmutate\nThe mutate function allows you create a new column which is a function of other columns. This can be useful to converting units.\n\n\n\nArtwork by @allisonhorst\n\n\nFor example, let’s calculate create a new column which displays the body length weight in pounds (lbs) instead of grams. Recall: to convert from grams to pounds we need to multiply by 0.00220462\n\npenguins &lt;- penguins %&gt;% \n  mutate(body_mass_lbs = body_mass_g*0.00220462)\n\nThis can also be useful for making new calculations based on existing data (for example, price and number of square feet could be used to calculate price per square foot).\n\n\ncase_when\nCase when can be used in combination with mutate to create a new column with a categorical variable conditional on the values in another column.\n\n\n\nArtwork by @allisonhorst\n\n\nFor example:\n\npenguins &lt;- penguins %&gt;% \n  mutate(penguin_length_cat = case_when(bill_length_mm &gt; 50 ~ 'whoa! huge bill!', TRUE ~ '--' ))\n\n\n\n\n\n\n\nTip\n\n\n\nFor those of you who have taken a computer science class before, you may notice that case_when is similar to using an ifelse statement. You can also use ifelse in R if you’d prefer!\n\npenguins &lt;- penguins %&gt;% \n  mutate(penguin_length_cat = ifelse(bill_length_mm &gt; 50, 'whoa! huge bill!', '--' ))\n\n\n\n\n\ndefault printing style of a table\nLet’s consider our table from last class:\n\npenguins %&gt;%\n  group_by(species) %&gt;%\n  summarise(average_bill_lenth = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 3 × 3\n  species   average_bill_lenth average_bill_depth\n  &lt;fct&gt;                  &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie                  38.8               18.3\n2 Chinstrap               48.8               18.4\n3 Gentoo                  47.6               15.0\n\n\nWhen we knit this up it looks like of ugly…\n\n\nUsing kable to get pretty tables\n\nlibrary(kableExtra)\n\n\npenguins %&gt;%\n  group_by(species) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm)) %&gt;% \n  kbl()\n\n\n\n\nspecies\naverage_bill_length\naverage_bill_depth\n\n\n\n\nAdelie\n38.82397\n18.34726\n\n\nChinstrap\n48.83382\n18.42059\n\n\nGentoo\n47.56807\n14.99664\n\n\n\n\n\n\n#OR \n\ntable1 &lt;- penguins %&gt;%\n  group_by(species) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\nkbl(table1)\n\n\n\n\nspecies\naverage_bill_length\naverage_bill_depth\n\n\n\n\nAdelie\n38.82397\n18.34726\n\n\nChinstrap\n48.83382\n18.42059\n\n\nGentoo\n47.56807\n14.99664\n\n\n\n\n\n\n\n\n\nOptions in kable\nWe customize the content so it’s displaying the information more clearly.\n\ntable1 %&gt;%\n  kbl(col.names = c(\"Species\", \"Average Bill Length\", \"Average Bill Depth\"), \n    caption = \"Average Bill Characteristics by Species\", \n    digits = 2)\n\n\nAverage Bill Characteristics by Species\n\n\nSpecies\nAverage Bill Length\nAverage Bill Depth\n\n\n\n\nAdelie\n38.82\n18.35\n\n\nChinstrap\n48.83\n18.42\n\n\nGentoo\n47.57\n15.00\n\n\n\n\n\n\n\nBetter…\n\n\npretty styling\n\ntable1 %&gt;%\n  kbl(col.names = c(\"Species\", \"Average Bill Length\", \"Average Bill Depth\"), \n    caption = \"Average Bill Characteristics by Species\", \n    digits = 2) %&gt;%\n  kable_styling()\n\n\nAverage Bill Characteristics by Species\n\n\nSpecies\nAverage Bill Length\nAverage Bill Depth\n\n\n\n\nAdelie\n38.82\n18.35\n\n\nChinstrap\n48.83\n18.42\n\n\nGentoo\n47.57\n15.00\n\n\n\n\n\n\n\nMany options for customizing the look of the tables – more here: https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html\nLet’s try one…\nLet’s make each row’s color correspond to\n\ntable1 %&gt;%\n  kbl(col.names = c(\"Species\", \"Average Bill Length\", \"Average Bill Depth\"), \n    caption = \"Average Bill Characteristics by Species\", \n    digits = 2) %&gt;%\n  kable_paper() %&gt;%\n  column_spec(1, bold=T) %&gt;%\n  row_spec(2, color = \"#c85bcc\") %&gt;%\n  row_spec(3, color = \"#067176\") %&gt;%\n  row_spec(1, color = \"#ff7501\")\n\n\nAverage Bill Characteristics by Species\n\n\nSpecies\nAverage Bill Length\nAverage Bill Depth\n\n\n\n\nAdelie\n38.82\n18.35\n\n\nChinstrap\n48.83\n18.42\n\n\nGentoo\n47.57\n15.00\n\n\n\n\n\n\n\nRStudio hosts a table contest every year!\n\nHere is a link to this year’s contest https://www.rstudio.com/blog/rstudio-table-contest-2022/\nHere is a link to previous year’s entries and winners to explore what is possible! https://community.rstudio.com/c/table-gallery/64\n\n\n\n\n\n\n\nTip\n\n\n\nAs a general rule, you should have the content of the table as you’d like it (the exact columns and rows you want) first and then you can make it pretty using the kableExtra package.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework_Solutions.html",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework_Solutions.html",
+    "title": "STAT 118: Homework O",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\nlibrary(rvest)\n\n\n\n1.\nUse read_html to read in all the HTML code from Middlebury Colleges’s wikipedia page. Save this HTML code as Midd_html\n\n\nCode\nMidd_html &lt;- read_html(\"https://en.wikipedia.org/wiki/Middlebury_College\")\n\n\n\n\n2.\nUse the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name Midd_Table1. Don’t worry about cleaning it up.\n\n\nCode\nMidd_Table_1 &lt;- Midd_html %&gt;% \n  html_element(\"table\") %&gt;% \n  html_table()\n\n\n\n\n3.\nUse the appropriate code to save the ALL the tables on this wikipedia page as Midd_Tables. Don’t worry about cleaning it up.\n\n\n4.\nUse the appropriate code to scrape the Admission Statistics table in the Admissions section. Save this table as tibble named Midd_Admissions\n\n\nCode\nMidd_Admissions &lt;- Midd_html %&gt;% \n  html_element(\".wikitable\") %&gt;% \n  html_table()\n\n\n\n\n5.\nUse Midd_Admissions you create above to recreate the following table below which shows the number of Applicants, Admits, and Enrolled in each year. Hint: You may need to revisit our lesson on pivoting!\nyear    Applicants  Admits  Enrolled\n2023    13,297  1,462   630\n2022    13,028  1,955   640\n2021    11,906  1,601   680\n2020    9,174   2,022   602\n2019    9,754   1,498   605\n2018    9,227   1,542   628\n2017    8,909   1,523   635\n2016    8,819   1,423   606\n2015    8,891   1,551   589\n2014    8,195   1,407   580\n2013    9,109   1,595   625\nIt is totally okay if your years are not displaying properly. For example, 2023 may display as 2023_74 or x2023_74 or something similar. You don’t need to fix this in order to get full marks. If you are feeling up for a challenge, you could check out stringr::str_sub as a way to fix this.\n\n\nCode\n# library(janitor)\n# Midd_Admissions %&gt;% \n#   clean_names() %&gt;% \n#   pivot_longer(2:12, names_to = \"year\", values_to=\"number\") %&gt;% \n#   filter(x %in% c(\"Applicants\", \"Admits\", \"Enrolled\")) %&gt;% \n#   pivot_wider(names_from=x, values_from=number) %&gt;% \n#   mutate(year = str_sub(year, start=2, end=5))\n\n\n\n\n6.\nScrape a table of your choice from Wikipedia. Try to pick a simple table with one header, unless you are feeling up for a challenge. Be sure to print out the table for the grader to see.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/F_ggplot2/118_F_ggplot2_Homework.html",
+    "href": "stat0118/F_ggplot2/118_F_ggplot2_Homework.html",
+    "title": "STAT 118: Homework F",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n#Load Penguins Data\nlibrary(palmerpenguins)\ndata(\"penguins\")\n\n\nTo the best of your ability, recreate the following plots from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.\nThis image will also be available on the Canvas assignment (in case this link/preview don’t work for you).\n\n1. Iris Side-by-side Boxplot\n\n\nCode\n#load the iris dataset\ndata(\"iris\")\n\n\n\n\n\n2. Gapminder Histogram\n\n\nCode\n#load the gapminder dataset\nlibrary(gapminder)\ndata(\"gapminder\")\n\n\n\n\n\nCode\ngapminder %&gt;% \n  filter(continent == \"Europe\" & year == \"1952\") %&gt;% \n  ggplot(aes(x=lifeExp)) +\n  geom_histogram(fill = \"cornflowerblue\", col=\"black\", binwidth=3) +\n  ggtitle(\"Distribution of Life Expectancy of \\n European Countries in 1952\") + \n  xlab(\"Life Expectancy\") +\n  theme_void() +\n  theme(axis.title.x = element_text(),\n        axis.text.x = element_text(),\n        panel.grid.major.y = element_line(\"grey\"),\n        panel.grid.minor.y = element_line(\"grey\")) \n\n\n\n\n\n\n\n3. Gapminder Line Graph\n\n\n\n4. Penguins Scatterplot\n\n\nCode\n#Load Penguins Data\nlibrary(palmerpenguins)\ndata(\"penguins\")\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/R_lubridate/118_R_lubridate_Notes.html",
+    "href": "stat0118/R_lubridate/118_R_lubridate_Notes.html",
+    "title": "STAT 118: Notes R",
+    "section": "",
+    "text": "Date Formats\nThink of how many different formats you know of to format a date:\n\n2023 07 06\nWed, Jun 7, 2023\n07-06-23\n06-07-23 14:55 ET\n06/07/2023 2:55pm\n\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nLubridate\n\n\n\nArtwork by @allisonhorst\n\n\n\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nSolar Data\nShoal Marine Lab (SML) is a remote field station located on Appledore Island, Maine jointly operated by Cornell University and the University of New Hampshire. The island is powered primarily by solar power.\n\n#read in Data\npower &lt;- read.csv(\"power.csv\")\n\nWhat format is the date in?\n\n\n\n\n\n\nWarning\n\n\n\nWhat happens if we try to make a line plot with the date in this format?\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?\n\n\n\n\n\nYikes!\n\n\nWe need to put it in standardized date format first:\n\npower &lt;- power %&gt;% \n  mutate(Date = mdy_hm(Date))  \n\nStandardized Format helps us to create time series plots very easily!\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\n\n\nPicking out information\n\n\n\nArtwork by @allisonhorst\n\n\nSometimes we need to pick out year, month, date so we can filter, sort, etc.\n\npower &lt;- power %&gt;% \n  mutate(Year = year(Date)) %&gt;%   \n  mutate(Month = month(Date)) %&gt;% \n  mutate(Day = day(Date))\n\nSuppose we only want the time series plot for June 1:\n\npower %&gt;% \n  filter(Month == \"6\") %&gt;%\n  filter(Day == \"1\") %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\n\n\nPortal Data\nThe Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\nportal_rodent &lt;- portal_rodent %&gt;% \n  mutate(datetime = make_datetime(year, month, day))\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Notes.html",
+    "href": "stat0118/K_maps1/118_K_Maps1_Notes.html",
+    "title": "STAT 118: Notes K",
+    "section": "",
+    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Notes.html#what-about-subsetting-the-data",
+    "href": "stat0118/K_maps1/118_K_Maps1_Notes.html#what-about-subsetting-the-data",
+    "title": "STAT 118: Notes K",
+    "section": "What about subsetting the data?",
+    "text": "What about subsetting the data?\n\n#Subset to get Italy\nitaly &lt;- map_data(\"world\", region =\"Italy\")\n\n#Subset to get USA\nusa &lt;- map_data(\"world\", region =\"USA\")"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Notes.html#what-if-aspect-ratio-is-not-maintained",
+    "href": "stat0118/K_maps1/118_K_Maps1_Notes.html#what-if-aspect-ratio-is-not-maintained",
+    "title": "STAT 118: Notes K",
+    "section": "What if aspect ratio is not maintained?",
+    "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\nggplot(italy, aes(long, lat)) + \n  geom_polygon(aes(group=group)) + \n  theme_light() +\n  ggtitle(\"Italy - Aspect Ratio Not Maintained (not good)\")\n\n\n\n\n\n# ASPECT RATIO MAINTAINED\nggplot(italy, aes(long, lat)) + \n  geom_polygon(aes(group=group)) + \n  coord_quickmap()  +\n  theme_light() +\n  ggtitle(\"Italy - Aspect Ratio Maintained (better)\")"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Notes.html#usa-with-states",
+    "href": "stat0118/K_maps1/118_K_Maps1_Notes.html#usa-with-states",
+    "title": "STAT 118: Notes K",
+    "section": "USA with states",
+    "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n#Plot of USA with state borders\nggplot(usa_states, aes(long, lat)) +\ngeom_polygon(aes(group=group)) +\ncoord_quickmap()"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Notes.html#how-to-customize-colors",
+    "href": "stat0118/K_maps1/118_K_Maps1_Notes.html#how-to-customize-colors",
+    "title": "STAT 118: Notes K",
+    "section": "How to customize colors?",
+    "text": "How to customize colors?\n\nggplot(usa_states, aes(long, lat)) +\ngeom_polygon(aes(group=group), fill =\"#75816b\", color =\"#292c26\") +\ncoord_quickmap() +\ntheme_light()"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Notes.html#adding-labels",
+    "href": "stat0118/K_maps1/118_K_Maps1_Notes.html#adding-labels",
+    "title": "STAT 118: Notes K",
+    "section": "Adding labels",
+    "text": "Adding labels\n\nggplot(nc) + \n  geom_sf() + \n  aes(fill = BIR74) +\n  ggtitle(\"North Carolina, Birth Rates in 1974\") +\n  scale_fill_gradientn(colors = brewer.pal(8, \"Spectral\") ) +  #customize colors\n  theme_light() +\n  geom_sf_text(data = nc[nc$BIR74 &gt;15000,], aes(label = NAME), fontface=\"bold\")"
+  },
+  {
+    "objectID": "stat0118/B_wrangling/118_B_wrangling_Homework.html",
+    "href": "stat0118/B_wrangling/118_B_wrangling_Homework.html",
+    "title": "STAT 118: Homework B",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nThis assignment concerns the gapminder dataset which is available in the gapminder package.\nFirst, Download gapminder from the menu at the right. You only need to do this once. Once it has been download, you need to call it using the code below.\n\n\nCode\n# LOAD DATA SET\nlibrary(gapminder)\ndata(gapminder) \n\n\nIf you want to view this data, click on the word gapminder in your environment and it should open up\n\n\n\n\n\n\nTip\n\n\n\nThere are often many different ways to get to the right answer on this assignment! I don’t care how you get the answer. I care that you are clearly explaining how you got your answer – either by showing any code you used or explaining in words how you got to the answer you did.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn the problems below, I have not given you any blank R chunks. If you wish to use some R code to answer the problem, you can add your own R chunk – either by typing it directly OR going to Code –&gt; Insert Chunk in the top menu.\n\n\n\n1.\nHow many rows and columns does this dataset have?\n\n\n2.\nWhat are the names of the 6 columns?\n\n\n3.\nCreate a dataset called gapminder2007 which only contains information for each of the countries in 2007.\n\n\n4.\nIf you instead try to choose the subset with year equal to 2005, something will go wrong. Try it and explain what happens and why.\n\n\n5.\nPrint out the row of data corresponding to the US in 2007.\n\n\n6.\nIn the above problem, you would have put quotes around United States but not around 2007. Explain why.\n\n\n7.\nWhich country had a higher life expectancy in 1977: Ireland or Brazil?\n\n\n8.\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\n9.\nFor the year 2007, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data).\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html",
+    "title": "STAT 118: Notes H",
+    "section": "",
+    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html#categorical-variables",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html#categorical-variables",
+    "title": "STAT 118: Notes H",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced."
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html#mpg-data",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html#mpg-data",
+    "title": "STAT 118: Notes H",
+    "section": "mpg Data",
+    "text": "mpg Data\nWe will play with different functions in the forcats packages using the mpg dataset from earlier in the semester.\n\nlibrary(forcats)\nlibrary(tidyverse)\ndata(\"mpg\")\n\nRecall our side-by-side boxplot:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html#reordering-factor-levels",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html#reordering-factor-levels",
+    "title": "STAT 118: Notes H",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs class a factor?\n\nmpg$class %&gt;% \n  is.factor()\n\n[1] FALSE\n\n\nLet’s make it a factor!\n\nmpg$class &lt;- mpg$class %&gt;% \n  as.factor()\n\nmpg$class %&gt;% \n  is.factor()\n\n[1] TRUE\n\n\nLet’s check the levels and their current ordering!\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"2seater\"    \"compact\"    \"midsize\"    \"minivan\"    \"pickup\"    \n[6] \"subcompact\" \"suv\"       \n\n\nTo reorder the levels:\n\nmpg$class &lt;- mpg$class  %&gt;% \n  fct_relevel(\"compact\",\"subcompact\",\"midsize\",\"2seater\",\"minivan\",\"suv\",\"pickup\")\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"compact\"    \"subcompact\" \"midsize\"    \"2seater\"    \"minivan\"   \n[6] \"suv\"        \"pickup\"    \n\n\nLet’s recreate our side-by-side boxplot now:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()\n\n\n\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:\n\nmpg$class &lt;- mpg$class %&gt;% \n  fct_reorder(mpg$cty, median)\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"suv\"        \"pickup\"     \"2seater\"    \"minivan\"    \"midsize\"   \n[6] \"subcompact\" \"compact\""
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html#renaming-factor-levels",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html#renaming-factor-levels",
+    "title": "STAT 118: Notes H",
+    "section": "Renaming Factor levels",
+    "text": "Renaming Factor levels\nSometimes you might not like the way the levels are named.\n\nmpg$class &lt;- mpg$class  %&gt;% \n  fct_recode(\"two-seater\" = \"2seater\")\n\n## NEW NAME = OLD NAME\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"suv\"        \"pickup\"     \"two-seater\" \"minivan\"    \"midsize\"   \n[6] \"subcompact\" \"compact\"   \n\n#Check out the change in the mpg dataset"
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html#factor-collapsing",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html#factor-collapsing",
+    "title": "STAT 118: Notes H",
+    "section": "Factor Collapsing",
+    "text": "Factor Collapsing\nLet’s say we wanted to create only two categories – cars and larger vehicles.\n\nmpg$class_two &lt;- mpg$class %&gt;% \n  fct_collapse(cars = c(\"compact\", \"subcompact\", \"midsize\", \"two-seater\"),\n               big = c(\"pickup\", \"suv\", \"minivan\"))\n\nmpg$class_two %&gt;% \n  levels()\n\n[1] \"big\"  \"cars\""
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes.html#lumping-into-an-other-category",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes.html#lumping-into-an-other-category",
+    "title": "STAT 118: Notes H",
+    "section": "Lumping into an other category",
+    "text": "Lumping into an other category\n\nfct_lump_min(): lumps levels that appear fewer than min times.\nfct_lump_prop(): lumps levels that appear in fewer than (or equal to) prop * n times.\nfct_lump_n() lumps all levels except for the n most frequent (or least frequent if n &lt; 0)\n\n\ntable(mpg$manufacturer)\n\n\n      audi  chevrolet      dodge       ford      honda    hyundai       jeep \n        18         19         37         25          9         14          8 \nland rover    lincoln    mercury     nissan    pontiac     subaru     toyota \n         4          3          4         13          5         14         34 \nvolkswagen \n        27 \n\n\nLet’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:\n\nmpg$manufacturer &lt;- mpg$manufacturer %&gt;%   fct_lump_min(15)\n\nmpg$manufacturer %&gt;% \n  levels()\n\n[1] \"audi\"       \"chevrolet\"  \"dodge\"      \"ford\"       \"toyota\"    \n[6] \"volkswagen\" \"Other\""
+  },
+  {
+    "objectID": "stat0118/C_aggregating/118_C_aggregating_Homework.html",
+    "href": "stat0118/C_aggregating/118_C_aggregating_Homework.html",
+    "title": "STAT 118: Homework C",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\n\nCode\n#LOAD DATASET\n# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. \ndata(\"iris\")\n\n\nThis famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\n1.\nVerify using group_by and summarize that there are indeed 50 different flowers from each of the different species of iris.\n\n\n2.\nCreate a table which displays the average sepal length and average sepal width for the setosa species of iris. No other data should be in this table.\n\n\n3.\nCreate a table which displays the average sepal length and the median sepal length for the setosa species of iris. No other data should be in this table.\n\n\n4.\nCreate a table which displays the minimum sepal length and the maximum sepal length for each of the three different species of iris.\n\n\n5.\nCreate one table which displays the minimum sepal length and the maximum sepal length for the species setosa and versicolor. Note that this table should not include any information about the virginica species. (This might be a challenge, but you can do it!)\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html",
+    "title": "STAT 118: Notes H",
+    "section": "",
+    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#categorical-variables",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#categorical-variables",
+    "title": "STAT 118: Notes H",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced."
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#mpg-data",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#mpg-data",
+    "title": "STAT 118: Notes H",
+    "section": "mpg Data",
+    "text": "mpg Data\nWe will play with different functions in the forcats packages using the mpg dataset from earlier in the semester.\n\nlibrary(forcats)\nlibrary(tidyverse)\ndata(\"mpg\")\n\nRecall our side-by-side boxplot:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#reordering-factor-levels",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#reordering-factor-levels",
+    "title": "STAT 118: Notes H",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs class a factor?\nLet’s make it a factor!\nLet’s check the levels and their current ordering!\nTo reorder the levels:\nLet’s recreate our side-by-side boxplot now:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()\n\n\n\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:"
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#renaming-factor-levels",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#renaming-factor-levels",
+    "title": "STAT 118: Notes H",
+    "section": "Renaming Factor levels",
+    "text": "Renaming Factor levels\nSometimes you might not like the way the levels are named."
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#factor-collapsing",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#factor-collapsing",
+    "title": "STAT 118: Notes H",
+    "section": "Factor Collapsing",
+    "text": "Factor Collapsing\nLet’s say we wanted to create only two categories – cars and larger vehicles."
+  },
+  {
+    "objectID": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#lumping-into-an-other-category",
+    "href": "stat0118/H_forcats/118_H_forcats_Notes_Template.html#lumping-into-an-other-category",
+    "title": "STAT 118: Notes H",
+    "section": "Lumping into an other category",
+    "text": "Lumping into an other category\n\nfct_lump_min(): lumps levels that appear fewer than min times.\nfct_lump_prop(): lumps levels that appear in fewer than (or equal to) prop * n times.\nfct_lump_n() lumps all levels except for the n most frequent (or least frequent if n &lt; 0)\n\n\ntable(mpg$manufacturer)\n\n\n      audi  chevrolet      dodge       ford      honda    hyundai       jeep \n        18         19         37         25          9         14          8 \nland rover    lincoln    mercury     nissan    pontiac     subaru     toyota \n         4          3          4         13          5         14         34 \nvolkswagen \n        27 \n\n\nLet’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:"
+  },
+  {
+    "objectID": "stat0118/L_maps2/118_L_Maps2_Homework.html",
+    "href": "stat0118/L_maps2/118_L_Maps2_Homework.html",
+    "title": "STAT 118: Homework L",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) \nlibrary(leaflet)\nlibrary(spData)\n\n\nChoose one of the datasets provided which displays the latitude and longitude of many locations. Your job will be to create a map which displays the locations of the items on an appropriate map.\n\n1.\nUse the space below to import in your dataset of choice (choices are on the Canvas Assignment page).\nKeep in mind that you may want to work with ALL locations in the dataset OR you may wish to work with a subset of the locations – totally your choice.\n\n\n2.\nFind an appropriate sf dataset for the locations of your data. Recall the spData package contains many different sf objects, so you might be able to find an appropriate map there.\n\n\n3.\nCreate an ggplot map (using sf objects) which displays the locations from your dataset as points on the map. All points should be the same size (choose an appropriate size and color). Your plot should include a title and appropriate colors.\n\n\n4.\nCreate an ggplot map (using sf objects) which displays the locations from your dataset as points on the map. Your points should vary in size depending on a quantitative variable in your data OR vary in color depending on a categorical variable in your data. Your plot should include a title and appropriate colors.\n\n\n5.\nCreate a leaflet map which displays the locations from your dataset as well-labeled markers on a map.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/K_maps1/118_K_Maps1_Homework_Solutions.html",
+    "href": "stat0118/K_maps1/118_K_Maps1_Homework_Solutions.html",
+    "title": "STAT 118: Homework K",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) #this is a package needed so R can work with sf objects\nlibrary(maps)\n\n\n\nUsing the maps package\n\n\n1.\nUse the maps package to create a map of New Zealand. To access map data for New Zealand use the code: nz_maps &lt;- map_data(\"world\", region = \"New Zealand\"). You may need to subset the latitude and longitude coordinates to get a great map of New Zealand. The land should be some shade of orange.\n\n\nCode\nnz_maps &lt;- map_data(\"world\", region = \"New Zealand\")\n\nggplot(nz_maps, aes(long, lat))+\n  geom_polygon(aes(group=group), color =\"black\", fill = \"orange\")+\n  xlim(c(160,190))+\n  ylim(c(-55,-30))+\n  coord_quickmap()+\n  xlab(\"Longitude\")+\n  ylab(\"Latitude\")+\n  ggtitle(\"Map of New Zeland\")\n\n\n\n\n\n\n\nUse the sf package\n\n\nCode\n#LOAD DATA\nlibrary(spData) #this packages contains the dataset (with sf objects) that we will be using today\n\n\nThe legacy packages maptools, rgdal, and rgeos, underpinning the sp package,\nwhich was just loaded, will retire in October 2023.\nPlease refer to R-spatial evolution reports for details, especially\nhttps://r-spatial.org/r/2023/05/15/evolution4.html.\nIt may be desirable to make the sf package available;\npackage maintainers should consider adding sf to Suggests:.\nThe sp package is now running under evolution status 2\n     (status 2 uses the sf package in place of rgdal)\n\n\nTo access larger datasets in this package, install the spDataLarge\npackage with: `install.packages('spDataLarge',\nrepos='https://nowosad.github.io/drat/', type='source')`\n\n\nCode\ndata(\"nz\")\ndata(\"us_states\")\ndata(\"us_counties\")\n\n\nWarning in data(\"us_counties\"): data set 'us_counties' not found\n\n\n\n\n2.\nUse the sf package to create a map of New Zealand. To access sf geometries for New Zealand use the “nz” dataset loaded above. The land should be some shade of orange.\n\n\nCode\nggplot(nz)+\n  geom_sf(fill = \"orange\")+\n   xlab(\"Longitude\")+\n  ylab(\"Latitude\")+\n  ggtitle(\"Map of New Zeland\")\n\n\n\n\n\n\n\n3.\nName two differences between the two New Zealand maps you created above.\n\nThe sf map has lines distinguishing the subregions.\nThe sf map has slightly curved latitude lines.\n\n\n\n4.\nUse the us_states dataset from above to create a map of the US States. All the land map should be some shade of red.\n\n\nCode\nggplot(us_states)+\n  geom_sf(fill = \"red\")+\n   xlab(\"Longitude\")+\n  ylab(\"Latitude\")+\n  ggtitle(\"Map of United States\")\n\n\n\n\n\n\n\n5.\nThe us_states dataset has a column REGION which indicates whether the state is “Northeast”, “Midwest”, “South”, or “West”. Create a map which shades each state depending on the REGION it is located in.\n\n\nCode\n ggplot(us_states)+\n  geom_sf(aes(fill = REGION))+\n  xlab(\"Longitude\")+\n  ylab(\"Latitude\")+\n  ggtitle(\"Regions of United States\")\n\n\n\n\n\n\n\n6.\nCreate a cloropleth map which colors each state depending on the total population of that state in 2015 (total_pop_15 column in the us_states dataset).\n\n\nCode\nlibrary(RColorBrewer)\n\nggplot(us_states)+\n  geom_sf(aes(fill = total_pop_15))+\n    scale_fill_gradientn(colors = brewer.pal(8, \"PuRd\")[4:8]) + \n  theme_minimal()+\n   xlab(\"Longitude\")+\n  ylab(\"Latitude\")+\n  ggtitle(\"Population in the United States\")\n\n\n\n\n\nSuppose we wish to incorporate data from another source on each state. This will require us to join the sf data with another dataset (remember joins from before?).\n\n\nCode\n#dataset which contains information about each state\ndata(state) \nstate_data &lt;- data.frame(state.x77)\n#weirdly, the state names are listed as row names instead of in their own column. The below code fixes this. \nstate_data$NAME &lt;- rownames(state_data)\n\n\n\n\n7.\nJoin together the state_data dataset with the sf data housed in us_states into a new dataset called states_map_data. The key variable is the state name.\n\n\nCode\nstates_map_data &lt;- us_states %&gt;% \n  inner_join(state_data, by = \"NAME\")\n\n\n\n\n8.\nNote that in the previous step we lost one data row. What was it?\n\nThere are 49 rows in us_states contain all the information about the continential US (49 states excluding Alaksa and Hawaii + District of Columbia).\nThere are 50 rows in state_data (All 50 states including Alaska and Hawaii and not the District of Columbia)\n\nstates_map_data will contain all the contential US states, but not the District of Columbia.\n\n\n9.\nIgnoring the fact that we lost one row, use your new dataset states_map_data (from 7) to create a cloropleth map which colors each state depending on the illiteracy rate in 1970 as a percent of the population (Illiteracy). Use any color palette you like.\n\n\nCode\nggplot(states_map_data)+\n  geom_sf(aes(fill = Illiteracy))+\n    scale_fill_gradientn(colors = brewer.pal(8, \"YlOrRd\")[3:8]) + \n  theme_minimal()+\n   xlab(\"Longitude\")+\n  ylab(\"Latitude\")+\n  ggtitle(\"Illiteracy in the United States\")\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/R_lubridate/118_R_lubridate_Notes_Template.html",
+    "href": "stat0118/R_lubridate/118_R_lubridate_Notes_Template.html",
+    "title": "STAT 118: Notes R",
+    "section": "",
+    "text": "Date Formats\nThink of how many different formats you know of to format today’s date:\n\n\n\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nLubridate\n\n\n\nArtwork by @allisonhorst\n\n\n\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nSolar Data\nShoal Marine Lab (SML) is a remote field station located on Appledore Island, Maine jointly operated by Cornell University and the University of New Hampshire. The island is powered primarily by solar power.\n\n#read in Data\npower &lt;- read.csv(\"power.csv\")\n\nWhat format is the date in?\n\n\n\n\n\n\nWarning\n\n\n\nWhat happens if we try to make a line plot with the date in this format?\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?\n\n\n\n\n\nYikes!\n\n\nWe need to put it in standardized date format first:\nStandardized Format helps us to create time series plots very easily!\n\n\nPicking out information\n\n\n\nArtwork by @allisonhorst\n\n\nSometimes we need to pick out year, month, date so we can filter, sort, etc.\nSuppose we only want the time series plot for June 1:\n\n\nPortal Data\nThe Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/I_joining/118_I_joining_Notes_Template.html",
+    "href": "stat0118/I_joining/118_I_joining_Notes_Template.html",
+    "title": "STAT 118: Notes I",
+    "section": "",
+    "text": "#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\nlibrary(nycflights23)\ndata(\"flights\")\n\nnycflights23 contains information about all 435352 flights departing NYC in 2023."
+  },
+  {
+    "objectID": "stat0118/I_joining/118_I_joining_Notes_Template.html#matching-key-variable-names",
+    "href": "stat0118/I_joining/118_I_joining_Notes_Template.html#matching-key-variable-names",
+    "title": "STAT 118: Notes I",
+    "section": "Matching key variable names",
+    "text": "Matching key variable names\nSome airline names might be easy to guess (ie. “UA” is United Airlines), but what airlines have the code “VX”, “HA”, and “B6”? Data on airline codes is provided in a dataset called airlines.\n\ndata(\"airlines\")\n\nWe want to have all this information in one data frame instead of two separate data frames.\nThe variable carrier in flights match the variable carrier in the airlines dataset – this is our key variable. In this case, they have the same name, but this doesn’t necessarily have to be true."
+  },
+  {
+    "objectID": "stat0118/I_joining/118_I_joining_Notes_Template.html#different-key-variable-names",
+    "href": "stat0118/I_joining/118_I_joining_Notes_Template.html#different-key-variable-names",
+    "title": "STAT 118: Notes I",
+    "section": "Different key variable names",
+    "text": "Different key variable names\nSay instead you are interested in the destinations of all domestic flights departing NYC in 2013, and you ask yourself questions like: “What cities are these airports in?”, or “Is”ORD” Orlando?”\n\ndata(\"airports\")\n\nIn airports the airport code is in faa, whereas in flights the airport codes are in origin and dest.\nLet’s construct the chain of pipe operators %&gt;% that computes the number of flights from NYC to each destination, but also includes information about each destination airport:"
+  },
+  {
+    "objectID": "stat0118/I_joining/118_I_joining_Notes_Template.html#multiple-key-variables",
+    "href": "stat0118/I_joining/118_I_joining_Notes_Template.html#multiple-key-variables",
+    "title": "STAT 118: Notes I",
+    "section": "Multiple Key variables",
+    "text": "Multiple Key variables\nIn order to join the flights and weather data frames, we need more than one key variable: year, month, day, hour, and origin. This is because the combination of these 5 variables act to uniquely identify each observational unit in the weather data frame: hourly weather recordings at each of the 3 NYC airports.\n\ndata(\"weather\")"
+  },
+  {
+    "objectID": "stat0118/I_joining/118_I_joining_Notes_Template.html#why-is-this-useful",
+    "href": "stat0118/I_joining/118_I_joining_Notes_Template.html#why-is-this-useful",
+    "title": "STAT 118: Notes I",
+    "section": "Why is this useful?",
+    "text": "Why is this useful?\nUpdating labels:\n\nflights %&gt;% \nggplot(aes(x = carrier, fill = origin)) +\n  geom_bar() + \n  coord_flip()\n\n#VS\n\nflights %&gt;% \n  inner_join(airports, by = c(\"origin\" = \"faa\")) %&gt;% \n  rename(origin_airport = name) %&gt;% \n  inner_join(airlines, by = c(\"carrier\")) %&gt;%  \n  rename(carrier_name= name) %&gt;% \nggplot(mapping = aes(x = carrier_name, fill = origin_airport)) +\n  geom_bar() + \n  coord_flip()\n\nExploring relationships between variables in separate tables:\n\nflights_weather_joined %&gt;% \n  filter(dep_delay &gt;0) %&gt;% \n  ggplot(aes(x=temp, y=dep_delay)) +\n  geom_point()"
+  },
+  {
+    "objectID": "stat0118/F_ggplot2/118_F_ggplot2_Notes.html",
+    "href": "stat0118/F_ggplot2/118_F_ggplot2_Notes.html",
+    "title": "STAT 118: Notes F",
+    "section": "",
+    "text": "library(tidyverse)\n\nRecall: The mtcars dataset was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It’s available inside the ggplot package which is already installed.\n\n#load the data\ndata(mtcars)\n\n\n#code to update `mtcars` dataset so that `am` is treated as a factor rather than a continuous numeric variable\nmtcars &lt;- mtcars %&gt;% \n  mutate(am = as.factor(am))\n\n\nHistograms\n\n\n\n\n\n\nTip\n\n\n\nHistograms are great for looking at the distributions of numeric variables\n\n\n\nmtcars %&gt;% \n  ggplot(aes(x=mpg)) +\n  geom_histogram()\n\n\n\n\nYou can control the bin size with binwidth\n\nmtcars %&gt;% \n  ggplot(aes(x=mpg)) +\n  geom_histogram(binwidth=3)\n\n\n\n\n\n\nBoxplots\n\n\n\n\n\n\nTip\n\n\n\nBoxplots are good for displaying the spread, central tendency, and distribution of one numeric variable.\n\n\n\n\n\nCredit: Michael Galarnyk\n\n\n\nmtcars %&gt;% \n  ggplot(aes(y=mpg)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nSide-by-side boxplots are good for displaying one categorical variable and one numeric variable. One advantage of boxplots over barplots is that they are able to show a bit about the spread and distribution of the numeric variable!\n\n\n\nmtcars %&gt;% \n  ggplot(aes(x=am, y=mpg)) +\n  geom_boxplot()\n\n\n\n\n\n\nLine Graphs\n\n\n\n\n\n\nTip\n\n\n\nLine graphs are great for showing trends with respect to ordinal (ordered variables). Time is used quite commonly.\n\n\nWe consider data on river flow rates collected by volunteers of the Pierce Conservation District in WA.\n\nflow_rates &lt;- read.csv(\"https://www.openintro.org/data/csv/flow_rates.csv\")\n\n\nflow_rates %&gt;% \n  ggplot(aes(x=date, y=flow, group=site, color=site)) + \n  geom_line() + \n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, size=7)) +\n  labs(x=\"Date\", y=\"Flow Rate\")\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nWhat happens if we didn’t have the group= command?\n\nflow_rates %&gt;% \n  ggplot(aes(x=date, y=flow)) + \n  geom_line() + \n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, size=7))\n\n\n\n\nYikes!\nIf there is grouping in the data, you need to either: - seperate by group by using the group= command - Merge together (add? average?) the groups using summarize() first before trying to graph\n\n\n\n\nFacet Wrap\nfacet_wrap() is a function in the ggplot2 package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable.\n\n# Example of Facet Wrap with `flow_rates` dataset\nflow_rates %&gt;% \n  ggplot(aes(x=date, y=flow, group=site, color=site)) + \n  geom_line() + \n  facet_wrap(~site) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, size=4))\n\n\n\n\nYou can create facets over any categorical variable in the dataset!\n\n#Example of Facet Wrap with `mtcars` dataset\nmtcars %&gt;% \n  mutate(vs=as.factor(vs)) %&gt;% #engine shape 0=v-shaped, 1=manual\n  ggplot(aes(x=vs, y=mpg, fill=am)) +\n  geom_boxplot() + \n  facet_wrap(~am) + \n  theme(legend.position=\"none\") \n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework.html",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework.html",
+    "title": "STAT 118: Homework O",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\nlibrary(rvest)\n\n\n\n1.\nUse read_html to read in all the HTML code from Middlebury Colleges’s wikipedia page. Save this HTML code as Midd_html\n\n\n2.\nUse the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name Midd_Table1. Don’t worry about cleaning it up.\n\n\n3.\nUse the appropriate code to save the ALL the tables on this wikipedia page as Midd_Tables. Don’t worry about cleaning it up.\n\n\n4.\nUse the appropriate code to scrape the Admission Statistics table in the Admissions section. Save this table as tibble named Midd_Admissions\n\n\n5.\nUse Midd_Admissions you create above to recreate the following table below which shows the number of Applicants, Admits, and Enrolled in each year. Hint: You may need to revisit our lesson on pivoting!\nyear    Applicants  Admits  Enrolled\n2023    13,297  1,462   630\n2022    13,028  1,955   640\n2021    11,906  1,601   680\n2020    9,174   2,022   602\n2019    9,754   1,498   605\n2018    9,227   1,542   628\n2017    8,909   1,523   635\n2016    8,819   1,423   606\n2015    8,891   1,551   589\n2014    8,195   1,407   580\n2013    9,109   1,595   625\nIt is totally okay if your years are not displaying properly. For example, 2023 may display as 2023_74 or x2023_74 or something similar. You don’t need to fix this in order to get full marks. If you are feeling up for a challenge, you could check out stringr::str_sub as a way to fix this.\n\n\n6.\nScrape a table of your choice from Wikipedia. Try to pick a simple table with one header, unless you are feeling up for a challenge. Be sure to print out the table for the grader to see. Use the kableExtra package to make sure your table looks pretty.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "stat0118/J_pivoting/118_J_pivoting_Notes.html",
+    "href": "stat0118/J_pivoting/118_J_pivoting_Notes.html",
+    "title": "STAT 118: Notes J",
+    "section": "",
+    "text": "Reshaping with Pivoting – Why?\nData frames are often described as wide or long.\nWide when a row has more than one observation, and the units of observation are on one row each\nLong when a row has only one observation, but the units of observation are repeated down the column\n\n\n\nCredit: datasciencebook.ca\n\n\n\n\ncanlang dataset\n\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\nlang_wide &lt;- read.csv(\"https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_wide.csv\")\n\n\n\nPivot Longer\n \n\nlang_mother_tidy &lt;- pivot_longer(lang_wide,\n  cols = Toronto:Edmonton,\n  names_to = \"region\",\n  values_to = \"mother_tongue\"\n)\n\nlang_mother_tidy\n\n# A tibble: 1,070 × 4\n   category                                language         region mother_tongue\n   &lt;chr&gt;                                   &lt;chr&gt;            &lt;chr&gt;          &lt;int&gt;\n 1 Aboriginal languages                    Aboriginal lang… Toron…            80\n 2 Aboriginal languages                    Aboriginal lang… Montr…            30\n 3 Aboriginal languages                    Aboriginal lang… Vanco…            70\n 4 Aboriginal languages                    Aboriginal lang… Calga…            20\n 5 Aboriginal languages                    Aboriginal lang… Edmon…            25\n 6 Non-Official & Non-Aboriginal languages Afrikaans        Toron…           985\n 7 Non-Official & Non-Aboriginal languages Afrikaans        Montr…            90\n 8 Non-Official & Non-Aboriginal languages Afrikaans        Vanco…          1435\n 9 Non-Official & Non-Aboriginal languages Afrikaans        Calga…           960\n10 Non-Official & Non-Aboriginal languages Afrikaans        Edmon…           575\n# ℹ 1,060 more rows\n\n\nThe data above is now tidy because all three criteria for tidy data have now been met:\n\nAll the variables (category, language, region and mother_tongue) are now their own columns in the data frame.\nEach observation, (i.e., each language in a region) is in a single row.\nEach value is a single cell, i.e., its row, column position in the data frame is not shared with another value.\n\n\n\nPivot Wider\n\nlang_long &lt;- read.csv(\"https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_long.csv\")\n\n \n\nlang_home_tidy &lt;- pivot_wider(lang_long,\n  names_from = type,\n  values_from = count\n)\nlang_home_tidy\n\n# A tibble: 1,070 × 5\n   region    category                         language most_at_home most_at_work\n   &lt;chr&gt;     &lt;chr&gt;                            &lt;chr&gt;           &lt;int&gt;        &lt;int&gt;\n 1 Montréal  Aboriginal languages             Aborigi…           15            0\n 2 Toronto   Aboriginal languages             Aborigi…           50            0\n 3 Calgary   Aboriginal languages             Aborigi…            5            0\n 4 Edmonton  Aboriginal languages             Aborigi…           10            0\n 5 Vancouver Aboriginal languages             Aborigi…           15            0\n 6 Montréal  Non-Official & Non-Aboriginal l… Afrikaa…           10            0\n 7 Toronto   Non-Official & Non-Aboriginal l… Afrikaa…          265            0\n 8 Calgary   Non-Official & Non-Aboriginal l… Afrikaa…          505           15\n 9 Edmonton  Non-Official & Non-Aboriginal l… Afrikaa…          300            0\n10 Vancouver Non-Official & Non-Aboriginal l… Afrikaa…          520           10\n# ℹ 1,060 more rows\n\n\n\n\nGapminder\n\nlibrary(gapminder)\ndata(\"gapminder\")\n\nLet’s say we’d like to look at LifeExp over time for all the countries in Asia in our dataset.\n\n# Create a dataset called asia with the data we need\nasia &lt;- gapminder %&gt;% \n  filter(continent == \"Asia\") %&gt;% \n  select(country, year, lifeExp)\n\nWe can create a wide version of our table, where each row is a country and each column a year, with values of lifeExp in each cell of the table.\n\nlifeExp_wide &lt;- asia %&gt;% \n  # use pivot_wider to go from long to wide format\n  pivot_wider(names_from = \"year\", \n              names_prefix = \"yr\", #it’s a good idea to avoid column names that start with a number\n              values_from = \"lifeExp\")\nlifeExp_wide\n\n# A tibble: 33 × 13\n   country yr1952 yr1957 yr1962 yr1967 yr1972 yr1977 yr1982 yr1987 yr1992 yr1997\n   &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n 1 Afghan…   28.8   30.3   32.0   34.0   36.1   38.4   39.9   40.8   41.7   41.8\n 2 Bahrain   50.9   53.8   56.9   59.9   63.3   65.6   69.1   70.8   72.6   73.9\n 3 Bangla…   37.5   39.3   41.2   43.5   45.3   46.9   50.0   52.8   56.0   59.4\n 4 Cambod…   39.4   41.4   43.4   45.4   40.3   31.2   51.0   53.9   55.8   56.5\n 5 China     44     50.5   44.5   58.4   63.1   64.0   65.5   67.3   68.7   70.4\n 6 Hong K…   61.0   64.8   67.6   70     72     73.6   75.4   76.2   77.6   80  \n 7 India     37.4   40.2   43.6   47.2   50.7   54.2   56.6   58.6   60.2   61.8\n 8 Indone…   37.5   39.9   42.5   46.0   49.2   52.7   56.2   60.1   62.7   66.0\n 9 Iran      44.9   47.2   49.3   52.5   55.2   57.7   59.6   63.0   65.7   68.0\n10 Iraq      45.3   48.4   51.5   54.5   57.0   60.4   62.0   65.0   59.5   58.8\n# ℹ 23 more rows\n# ℹ 2 more variables: yr2002 &lt;dbl&gt;, yr2007 &lt;dbl&gt;\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html",
@@ -77,53 +385,130 @@
     "text": "Academic Integrity\n\n\nUnless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must or explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.\nOn individual assignments, you may discuss the assignment with one another; however, you may not directly share code or write up with other students."
   },
   {
-    "objectID": "stat0118/B_wrangling/118_B_wrangling_Notes.html",
-    "href": "stat0118/B_wrangling/118_B_wrangling_Notes.html",
-    "title": "Wrangling data with dplyr:: filter, select, arrange\n",
+    "objectID": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html",
+    "href": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html",
+    "title": "STAT 118: Notes Q",
     "section": "",
-    "text": "Importing Data\nIn this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census.\nWhat is a .csv file?\nHow do we import it into R?\nUse read.csv()! Note that your data file (.csv) needs to be saved in the same folder as your notes template document (.qmd).\n\ncan_lang &lt;- read.csv(\"can_lang.csv\")\n\nAlternatively, you can download it directly from the internet. Github user ttimbers hosts this file to share with the public at the link: https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\n\ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\nLet’s take a look at this data for a minute to see what information has been recorded.\n\nhead(can_lang)\n\n\n\nInstalling and Using Packages\nSometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.\nFirst, you need to download the package from the right hand menu –&gt; You only need to do this once.\nIn each new .Rmd document, you need to call any packages you want to use but adding the code library(packagename) inside an R chunk.\nFor example, in this class we will use the tidyverse package a lot.\n\nlibrary(tidyverse)\n\n\n\ndplyr\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets.\n\n\nfilter\nWe can use the filter function to extract rows from the data that have a particular characteristic.\n\n\n\nArtwork by @allisonhorst\n\n\nFor example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.\nStart with the can_lang dataset, the pipe “%&gt;%” means apply the action on the following line to the previous line. In this case, pick out only the rows were the category variable is “Aboriginal languages”\n\ncan_lang  %&gt;%              \n  filter(category == \"Aboriginal languages\")   \n\nSome notes:\n\nthe aboriginal languages is text/categorical and so quotation marks are needed.\nR doesn’t care about whether they are double quotation marks (“) or single (’). They work the same.\nIf we don’t assign it to an object, then it just prints out for us to see!\n\nOftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called aboriginal_lang.\n\naboriginal_lang &lt;- can_lang  %&gt;%              \n  filter(category == \"Aboriginal languages\")  \n\nNotes:\n\nNotice if you assign it to an object that it doesn’t print out the contents.\nYou’ll see the new object in your environment on the top right —&gt;\nIf you click on the word aboriginal languages (not the blue play button) it will open the object so you can see what is saved inside.\n\nIt can also be used with numeric criteria.\nSuppose we want a list of all the languages in Canada that are spoken by less than 100 people as their mother tongue.\n\nrare_lang &lt;- can_lang  %&gt;%              \n  filter(mother_tongue &lt; 100) \n\nThe logical operators are given below:\n\n\n\nselect\nselect is used to extract only certain columns. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).\n\naboriginal_lang %&gt;% \n  select(language)\n\nWe can combine criteria together as well in one command with multiple pipes:\n\ncan_lang %&gt;% \n  filter(category == \"Aboriginal languages\") %&gt;% \n  select(language)\n\n\n\narrange\nThe arrange function allows us to order the rows of the data frame by the values of a particular column.\nFor example, arrange all the aboriginal languages in canada by from most to least spoken as mother tongue.\n\naboriginal_lang %&gt;% \n  arrange(desc(mother_tongue)) \n\nNote:\n\nuse arrange(variable) to go from least to most\nuse arrange(desc(variable)) to go from most to least, arrange(-variable) also works\n\n\n\nslice\nThe slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).\nFor example, if I want a list of the 10 most commonly spoken aboriginal languages.\n\naboriginal_lang %&gt;% \n  arrange(desc(mother_tongue)) %&gt;% \n  slice(1:10) %&gt;% \n  select(language, mother_tongue) #optional\n\n\n\nBrain Break\nStudents at Allison Bernard Memorial High School in Eskasoni, Cape Breton recorded Paul McCartney’s Blackbird in their native Mi’kmaq language. https://www.youtube.com/watch?v=99-LoEkAA3w\n\n\n\n\n\n\n Back to top"
+    "text": "artwork by @allisonhorst"
   },
   {
-    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html",
-    "href": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html",
-    "title": "STAT 118: Notes C",
+    "objectID": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_detect",
+    "href": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_detect",
+    "title": "STAT 118: Notes Q",
+    "section": "str_detect",
+    "text": "str_detect\n\n\n\nartwork by @allisonhorst\n\n\ninputs: - string - pattern\noutput: - TRUE/FALSE\nlittle example:\nI only want to take classes in Warner!\nSuppose I don’t want any classes on Friday. Let’s use str_detect to find our options.\nPerhaps I’m interested in immigration.\nThe regex function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.\nFor now, we will only use regex to ignore capitalization.\nIf you’re interested in using regular expressions at some point, this regex cheat sheet will be super helpful."
+  },
+  {
+    "objectID": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_extract-and-str_remove",
+    "href": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_extract-and-str_remove",
+    "title": "STAT 118: Notes Q",
+    "section": "str_extract and str_remove",
+    "text": "str_extract and str_remove\nstr_extract inputs: - string - pattern str_extract output: - the extracted pattern, if it appears in the the string\nstr_remove inputs: - string - pattern\nstr_extract output: - the string without the pattern, if it appears in the string\nlittle example:\nCW is part of the distribution requirement column. I want CW to be its own column."
+  },
+  {
+    "objectID": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_sub",
+    "href": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_sub",
+    "title": "STAT 118: Notes Q",
+    "section": "str_sub",
+    "text": "str_sub\nstr_sub inputs: - string\n- starting character - ending character\nstr_sub output: - string with only the characters between the start and the end\nlittle example:\n\nBounds are inclusive!\n\nMaybe I only want 200 level math classes.\n\nFirst we filter for just math classes.\nThen we can create a new column called level that contains only the sixth character from the courses column.\n\nWe call this a substring, hence the function str_sub."
+  },
+  {
+    "objectID": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_count",
+    "href": "stat0118/Q_stringr/118_Q_stringr_Notes_Template.html#str_count",
+    "title": "STAT 118: Notes Q",
+    "section": "str_count",
+    "text": "str_count\nstr_count inputs: - string\n- pattern str_count output: - a count of the number of times the pattern appears in the string\nlittle example:\nMaybe I only want my classes to meet twice a week.\nLet’s visualize this data."
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html",
+    "title": "STAT 118: Homework P",
     "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nToday’s Dataset: palmerpenguins Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)"
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
-    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html#multiple-groups",
-    "href": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html#multiple-groups",
-    "title": "STAT 118: Notes C",
-    "section": "Multiple Groups",
-    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:"
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#a",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#a",
+    "title": "STAT 118: Homework P",
+    "section": "a)",
+    "text": "a)\nscrape the names of all the countries Hint: use .country-name"
   },
   {
-    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes.html",
-    "href": "stat0118/C_aggregating/118_C_aggregating_Notes.html",
-    "title": "STAT 118: Notes C",
-    "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nToday’s Dataset: palmerpenguins Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)"
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#b",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#b",
+    "title": "STAT 118: Homework P",
+    "section": "b)",
+    "text": "b)\nScrape the names of each country’s capital. Hint: use .country-capital"
   },
   {
-    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes.html#multiple-groups",
-    "href": "stat0118/C_aggregating/118_C_aggregating_Notes.html#multiple-groups",
-    "title": "STAT 118: Notes C",
-    "section": "Multiple Groups",
-    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:\n\npenguins %&gt;%\n  group_by(species, sex) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    average_bill_length average_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;                &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie    female                37.3               17.6\n2 Adelie    male                  40.4               19.1\n3 Chinstrap female                46.6               17.6\n4 Chinstrap male                  51.1               19.3\n5 Gentoo    female                45.6               14.2\n6 Gentoo    male                  49.5               15.7"
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#c",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#c",
+    "title": "STAT 118: Homework P",
+    "section": "c)",
+    "text": "c)\nScrape the population of each country. No hints this time."
   },
   {
-    "objectID": "stat0118/C_aggregating/118_C_aggregating_Homework.html",
-    "href": "stat0118/C_aggregating/118_C_aggregating_Homework.html",
-    "title": "STAT 118: Homework C",
-    "section": "",
-    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\n\nCode\n#LOAD DATASET\n# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. \ndata(\"iris\")\n\n\nThis famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\n1.\nVerify using group_by and summarize that there are indeed 50 different flowers from each of the different species of iris.\n\n\n2.\nCreate a table which displays the average sepal length and average sepal width for the setosa species of iris. No other data should be in this table.\n\n\n3.\nCreate a table which displays the average sepal length and the median sepal length for the setosa species of iris. No other data should be in this table.\n\n\n4.\nCreate a table which displays the minimum sepal length and the maximum sepal length for each of the three different species of iris.\n\n\n5.\nCreate one table which displays the minimum sepal length and the maximum sepal length for the species setosa and versicolor. Note that this table should not include any information about the virginica species. (This might be a challenge, but you can do it!)"
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#d",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#d",
+    "title": "STAT 118: Homework P",
+    "section": "d)",
+    "text": "d)\nScrape the area of each country. No hints this time."
   },
   {
-    "objectID": "stat0118/B_wrangling/118_B_wrangling_Homework.html",
-    "href": "stat0118/B_wrangling/118_B_wrangling_Homework.html",
-    "title": "STAT 118: Homework B",
-    "section": "",
-    "text": "Code\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nThis assignment concerns the gapminder dataset which is available in the gapminder package.\nFirst, Download gapminder from the menu at the right. You only need to do this once. Once it has been download, you need to call it using the code below.\n\n\nCode\n# LOAD DATA SET\nlibrary(gapminder)\ndata(gapminder) \n\n\nIf you want to view this data, click on the word gapminder in your environment and it should open up\n\n\n\n\n\n\nTip\n\n\n\nThere are often many different ways to get to the right answer on this assignment! I don’t care how you get the answer. I care that you are clearly explaining how you got your answer – either by showing any code you used or explaining in words how you got to the answer you did.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn the problems below, I have not given you any blank R chunks. If you wish to use some R code to answer the problem, you can add your own R chunk – either by typing it directly OR going to Code –&gt; Insert Chunk in the top menu.\n\n\n\n1.\nHow many rows and columns does this dataset have?\n\n\n2.\nWhat are the names of the 6 columns?\n\n\n3.\nCreate a dataset called gapminder2007 which only contains information for each of the countries in 2007.\n\n\n4.\nIf you instead try to choose the subset with year equal to 2005, something will go wrong. Try it and explain what happens and why.\n\n\n5.\nPrint out the row of data corresponding to the US in 2007.\n\n\n6.\nIn the above problem, you would have put quotes around United States but not around 2007. Explain why.\n\n\n7.\nWhich country had a higher life expectancy in 1977: Ireland or Brazil?\n\n\n8.\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\n9.\nFor the year 2007, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data)."
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#e",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#e",
+    "title": "STAT 118: Homework P",
+    "section": "e)",
+    "text": "e)\nCombine the information you’ve scraped in a) - d) and combine it together into one dataframe called countries. Give each of the columns appropriate names."
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#f",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#f",
+    "title": "STAT 118: Homework P",
+    "section": "f)",
+    "text": "f)\nCreate a new column called Density in the dataframe countries which contains the population density of each country. Hint: Population Density is calculated as Population divided by area"
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#g",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#g",
+    "title": "STAT 118: Homework P",
+    "section": "g)",
+    "text": "g)\nCreate a barplot which displays the top 10 countries with the highest population density. Be sure you axes are appropriately labeled."
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#a-1",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#a-1",
+    "title": "STAT 118: Homework P",
+    "section": "a)",
+    "text": "a)\nWho is the plantiff (The party that brought the legal action)?"
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#b-1",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#b-1",
+    "title": "STAT 118: Homework P",
+    "section": "b)",
+    "text": "b)\nWho is the defendent (The party that is being sued)?"
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#c-1",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#c-1",
+    "title": "STAT 118: Homework P",
+    "section": "c)",
+    "text": "c)\nThe defendent was webscraping. Briefly describe what data they were webscraping and what they did with that data (1-4 sentences or bullet points)."
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#d-1",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#d-1",
+    "title": "STAT 118: Homework P",
+    "section": "d)",
+    "text": "d)\nIn your personal opinion, was the webscraping harmful to the business of the plantiff? (1-4 sentences or bullet points) There is no right answer here. Your opinion may be different than the official ruling. Keep in mind that any harm you allege may or may not rise to the level harm which requires financial compensation – I’m not asking you to make that determination"
+  },
+  {
+    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#e-1",
+    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html#e-1",
+    "title": "STAT 118: Homework P",
+    "section": "e)",
+    "text": "e)\nIf some of your public information had been webscraped (ie. your public profile, your public sale, etc), how would you feel about that information being webscraped and being used for the purpose that the defendant used it for? (1-4 sentences or bullet points) There is no right answer here. This is your personal opinion."
   },
   {
     "objectID": "stat0118/A_Intro/118_A_Intro_Homework.html",
@@ -133,101 +518,66 @@
     "text": "In-lab Examples\nbold\nitalics\nbold and italics\na list\nlink\nimage\n\nR chunks\ncreate an object\ninline code\ncommenting code\n\n\n1.\nTell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)\n\n\n2.\nTell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)\n\n\n3.\nMake a list of a few of your interests\n\n\n4.\nWhat is the name of someone sitting near you in class? Include a link to something you both find funny or interesting.\n\n\n5.\nInclude a picture. This could be a picture of you or a picture of something you find funny or interesting.\n\n\n6.\nCreate an object called c. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to c.\n\n\n7.\nWrite a few sentences about why you choose this number. Be sure to print out this value of c somewhere in your paragraph as inline code.\n\n\n8.\nCreate an object called height. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.\n\n\n9.\nHave you ever taken a class that used R before? If so, which class?\n\n\n10.\nTell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?\n\n\n11.(Optional)\nUse this space below to tell me anything about yourself that you think Professor Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns.\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "stat0116.html",
-    "href": "stat0116.html",
-    "title": "EMW",
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html",
+    "title": "MATH 118: Notes O",
     "section": "",
-    "text": "More Coming Soon!"
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nData doesn’t just magically appear on your computer you need to get it from somewhere.\nOften times, we download data (.csv files or other) and save it locally on our computer.\nOther times, we download it from R packages (like we did with the gapminder dataset)."
   },
   {
-    "objectID": "stat0116.html#stat-116-introduction-to-statistical-science",
-    "href": "stat0116.html#stat-116-introduction-to-statistical-science",
-    "title": "EMW",
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#basics-of-html",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#basics-of-html",
+    "title": "MATH 118: Notes O",
+    "section": "Basics of HTML",
+    "text": "Basics of HTML\n\nHTML stands for Hyper Text Markup Language and is the standard markup language for creating webpages\nHTML code consists of a series of elements\n\n\n\n\n\n\n\nTip\n\n\n\nTypically, an HTML element is defined by a start tag, some content, and an end tag\n&lt;tagname&gt; ...some content here... &lt;/tagname&gt;\n\n\nFor example:\n&lt;html&gt;\n&lt;head&gt;\n&lt;title&gt;Page Title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n\n&lt;h1&gt;My First Heading&lt;/h1&gt;\n&lt;p&gt;My first paragraph.&lt;/p&gt;\n\n&lt;/body&gt;\n&lt;/html&gt;\nThere are many, many different possible tag elements. In this class, it’s not important that you know the specifics of what each element is. It’s useful for you to understand the basic structure."
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#html-tables",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#html-tables",
+    "title": "MATH 118: Notes O",
+    "section": "HTML Tables",
+    "text": "HTML Tables\nAn HTML table is used to represent data in a structured way\n\n&lt;table&gt; Defines a table\n&lt;th&gt; Defines a header cell in a table\n&lt;tr&gt; Defines a row in a table\n&lt;td&gt; Defines a cell in a table\n\nHere is the HTML code:\n&lt;table&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Name&lt;/th&gt;\n    &lt;th&gt;Birth Year&lt;/th&gt;  \n    &lt;th&gt;Country&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Harry Styles&lt;/td&gt;\n    &lt;td&gt;Feb 1, 1994&lt;/td&gt;\n    &lt;td&gt;Britain&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Taylor Swift&lt;/td&gt;\n    &lt;td&gt;Dec 13, 1989&lt;/td&gt;\n    &lt;td&gt;USA&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Justin Bieber&lt;/td&gt;\n    &lt;td&gt;Mar 1, 1994&lt;/td&gt;\n    &lt;td&gt;Canada&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\nHere is how the HTML displays in a web browser:\n\n\n\n\nName\n\n\nBirth Year\n\n\nCountry\n\n\n\n\nHarry Styles\n\n\nFeb 1, 1994\n\n\nBritain\n\n\n\n\nTaylor Swift\n\n\nDec 13, 1989\n\n\nUSA\n\n\n\n\nJustin Bieber\n\n\nMar 1, 1994\n\n\nCanada\n\n\n\n\nToday’s class will focus on scraping data from HTML tables!"
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#html-class",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#html-class",
+    "title": "MATH 118: Notes O",
+    "section": "HTML class",
+    "text": "HTML class\nThe class attribute can be added to any HTML element. Often it is used to help customize the styling of the element (among other things).\n&lt;h2 class=\"city\"&gt;Middlebury&lt;/h2&gt;\n&lt;p class=\"city\"&gt;Middlebury is a town in Vermont&lt;/p&gt;\nThis can be particularly useful in web scraping – we can ask to scrape particular elements, particular classes, or both!"
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#viewing-raw-html-from-a-website",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#viewing-raw-html-from-a-website",
+    "title": "MATH 118: Notes O",
+    "section": "Viewing Raw HTML from a website",
+    "text": "Viewing Raw HTML from a website\nYou can inspect the source code of any webpage by using a web browser like Firefox or Chrome.\n\nOn Firefox, navigate to the “Tools” menu item in the top menu and click on “Web Developer/Page Source”. You can also use the shortcut Command + U\nOn Chrome, navigate to the top menu item “View” and click on “Developer/View Source.” You can also use the keyboard shortcut Option-Command-U. It also can be useful to use the SelectorGadget Extension."
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#webscraping-tables-from-wikipedia",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#webscraping-tables-from-wikipedia",
+    "title": "MATH 118: Notes O",
+    "section": "Webscraping Tables from Wikipedia",
+    "text": "Webscraping Tables from Wikipedia\nCheck out the information on the (List of the Most Viewed YouTube Videos on Wikipedia)[https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos]. Suppose we want to scrape this data to use in R.\n\nread_html scrapes the raw html from the webpage as text\nhtml_element (and html_elements) selects particular elements from the HTML code\nhtml_table formats a scraped html table as a tibble (R table)\n\n\nyoutube_videos &lt;- read_html(\"https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos\") %&gt;%\n  html_element(\".wikitable\") %&gt;%\n  html_table() \n\nyoutube_videos\n\n# A tibble: 31 × 6\n   `Video name`             Uploader `Views (billions)` Date  `Link (URL)` Notes\n   &lt;chr&gt;                    &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;\n 1 Baby Shark Dance[7]      Pinkfon… 15.52              June… YouTube      \"[A]\"\n 2 Despacito[10]            Luis Fo… 8.63               Janu… YouTube      \"[B]\"\n 3 Johny Johny Yes Papa[18] LooLoo … 7.00               Octo… YouTube      \"\"   \n 4 Wheels on the Bus[19]    Cocomel… 7.00               May … YouTube      \"\"   \n 5 Bath Song[20]            Cocomel… 6.97               May … YouTube      \"\"   \n 6 See You Again[21]        Wiz Kha… 6.54               Apri… YouTube      \"[C]\"\n 7 Shape of You[26]         Ed Shee… 6.40               Janu… YouTube      \"[D]\"\n 8 Phonics Song with Two W… ChuChu … 6.23               Marc… YouTube      \"\"   \n 9 Uptown Funk[30]          Mark Ro… 5.45               Nove… YouTube      \"\"   \n10 Gangnam Style[31]        Psy      5.43               July… YouTube      \"[E]\"\n# ℹ 21 more rows\n\n\n\nWe could have used html_element(\"table\") If we did this, it would have pulled the first &lt;table&gt; from the page.\nWe could have used html_elements(\"table\") If we did this, it would have pulled all the &lt;table&gt; elements from the page.\nIf you want a specific table that isn’t the first table, scrape all the tables and apply html_table(). Then take that new object of the tables and add [[n]] to get the \\(n^{th}\\) table. For example to call the \\(2^{nd}\\) table,\n\ntables &lt;- html %&gt;% \n  html_elements(\"table\") %&gt;%\n  html_table() \n  \ntables[[2]]\n\nIn this case, we used html_elements(\".wikitable\") I choose to use this because the &lt;table&gt; was also defined with a unique class: &lt;table class=\"wikitable sortable\"&gt;\n\n\n\n\n\n\n\nWarning\n\n\n\nNote that if we are using html_element to call a class, it is important to add a “.” before the class element name. You do not need to do this is you are calling an HTML element (like “table”)"
+  },
+  {
+    "objectID": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#cleaning-up-with-janitor",
+    "href": "stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html#cleaning-up-with-janitor",
+    "title": "MATH 118: Notes O",
+    "section": "Cleaning up with janitor",
+    "text": "Cleaning up with janitor\nWeb scraping doesn’t always format perfectly. Let’s clean it up!\n\nlibrary(janitor)\n\n\n\n\nArtwork by @allisonhorst\n\n\nClean up the names of the header:\n\nyoutube_videos &lt;- clean_names(youtube_videos)\n\nRemove the last row:\n\n# youtube_videos &lt;- youtube_videos %&gt;% \n#   filter(no != \"As of August 8, 2023\")\n\nFormat the views as a number using as.numeric:\n\nyoutube_videos &lt;- youtube_videos %&gt;% \n  mutate(views_billions = as.numeric(views_billions))\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `views_billions = as.numeric(views_billions)`.\nCaused by warning:\n! NAs introduced by coercion\n\n\nWhat are the top 10 most viewed YouTube Videos?\n\ntop10 &lt;- youtube_videos %&gt;%\n  arrange(desc(views_billions)) %&gt;%\n  slice(1:10)\n\ntop10\n\n# A tibble: 10 × 6\n   video_name                      uploader  views_billions date  link_url notes\n   &lt;chr&gt;                           &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;\n 1 Baby Shark Dance[7]             Pinkfong…          15.5  June… YouTube  \"[A]\"\n 2 Despacito[10]                   Luis Fon…           8.63 Janu… YouTube  \"[B]\"\n 3 Johny Johny Yes Papa[18]        LooLoo K…           7    Octo… YouTube  \"\"   \n 4 Wheels on the Bus[19]           Cocomelo…           7    May … YouTube  \"\"   \n 5 Bath Song[20]                   Cocomelo…           6.97 May … YouTube  \"\"   \n 6 See You Again[21]               Wiz Khal…           6.54 Apri… YouTube  \"[C]\"\n 7 Shape of You[26]                Ed Sheer…           6.4  Janu… YouTube  \"[D]\"\n 8 Phonics Song with Two Words[29] ChuChu T…           6.23 Marc… YouTube  \"\"   \n 9 Uptown Funk[30]                 Mark Ron…           5.45 Nove… YouTube  \"\"   \n10 Gangnam Style[31]               Psy                 5.43 July… YouTube  \"[E]\"\n\n\nOnce we have this data, we can make cool plots!\n\ntop10 %&gt;% \n  ggplot( aes(x=views_billions, y=reorder(video_name, views_billions))) +\n    geom_bar(stat=\"identity\") +\n    xlab(\"Views (in billions)\") +\n    ylab(\"Videos\") +\n    ggtitle(\"Top 10 Most Watched YouTube Videos of All Time\") +\n    theme_minimal()\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn this case, the list of the names is still not displaying very neatly. For example, rather than \"Baby Shark Dance\"[6] I might want it to just say Baby Shark Dance.\nWe can use the stringr package to remove symbols and numbers from the video names. We will be talking more about stringr later this semester and it’s not something I expect you to be able to do at this point in the semester.\n\nlibrary(stringr)\n\ntop10 %&gt;% \n  mutate(video_name=str_replace_all(video_name, \"[^[:alpha:]]\", \" \")) %&gt;% \n  ggplot(aes(x=views_billions, y=reorder(video_name, views_billions))) +\n    geom_bar(stat=\"identity\") +\n    xlab(\"Views (in billions)\") +\n    ylab(\"Videos\") +\n    ggtitle(\"Top 10 Most Watched YouTube Videos of All Time\") +\n    theme_minimal()"
+  },
+  {
+    "objectID": "stat0118/B_wrangling/118_B_wrangling_Notes.html",
+    "href": "stat0118/B_wrangling/118_B_wrangling_Notes.html",
+    "title": "Wrangling data with dplyr:: filter, select, arrange",
     "section": "",
-    "text": "More Coming Soon!"
+    "text": "Importing Data\nIn this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census.\nWhat is a .csv file?\nHow do we import it into R?\nUse read.csv()! Note that your data file (.csv) needs to be saved in the same folder as your notes template document (.qmd).\n\ncan_lang &lt;- read.csv(\"can_lang.csv\")\n\nAlternatively, you can download it directly from the internet. Github user ttimbers hosts this file to share with the public at the link: https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\n\ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\nLet’s take a look at this data for a minute to see what information has been recorded.\n\nhead(can_lang)\n\n\n\nInstalling and Using Packages\nSometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.\nFirst, you need to download the package from the right hand menu –&gt; You only need to do this once.\nIn each new .Rmd document, you need to call any packages you want to use but adding the code library(packagename) inside an R chunk.\nFor example, in this class we will use the tidyverse package a lot.\n\nlibrary(tidyverse)\n\n\n\ndplyr\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets.\n\n\nfilter\nWe can use the filter function to extract rows from the data that have a particular characteristic.\n\n\n\nArtwork by @allisonhorst\n\n\nFor example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.\nStart with the can_lang dataset, the pipe “%&gt;%” means apply the action on the following line to the previous line. In this case, pick out only the rows were the category variable is “Aboriginal languages”\n\ncan_lang  %&gt;%              \n  filter(category == \"Aboriginal languages\")   \n\nSome notes:\n\nthe aboriginal languages is text/categorical and so quotation marks are needed.\nR doesn’t care about whether they are double quotation marks (“) or single (’). They work the same.\nIf we don’t assign it to an object, then it just prints out for us to see!\n\nOftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called aboriginal_lang.\n\naboriginal_lang &lt;- can_lang  %&gt;%              \n  filter(category == \"Aboriginal languages\")  \n\nNotes:\n\nNotice if you assign it to an object that it doesn’t print out the contents.\nYou’ll see the new object in your environment on the top right —&gt;\nIf you click on the word aboriginal languages (not the blue play button) it will open the object so you can see what is saved inside.\n\nIt can also be used with numeric criteria.\nSuppose we want a list of all the languages in Canada that are spoken by less than 100 people as their mother tongue.\n\nrare_lang &lt;- can_lang  %&gt;%              \n  filter(mother_tongue &lt; 100) \n\nThe logical operators are given below:\n\n\n\nselect\nselect is used to extract only certain columns. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).\n\naboriginal_lang %&gt;% \n  select(language)\n\nWe can combine criteria together as well in one command with multiple pipes:\n\ncan_lang %&gt;% \n  filter(category == \"Aboriginal languages\") %&gt;% \n  select(language)\n\n\n\narrange\nThe arrange function allows us to order the rows of the data frame by the values of a particular column.\nFor example, arrange all the aboriginal languages in canada by from most to least spoken as mother tongue.\n\naboriginal_lang %&gt;% \n  arrange(desc(mother_tongue)) \n\nNote:\n\nuse arrange(variable) to go from least to most\nuse arrange(desc(variable)) to go from most to least, arrange(-variable) also works\n\n\n\nslice\nThe slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).\nFor example, if I want a list of the 10 most commonly spoken aboriginal languages.\n\naboriginal_lang %&gt;% \n  arrange(desc(mother_tongue)) %&gt;% \n  slice(1:10) %&gt;% \n  select(language, mother_tongue) #optional\n\n\n\nBrain Break\nStudents at Allison Bernard Memorial High School in Eskasoni, Cape Breton recorded Paul McCartney’s Blackbird in their native Mi’kmaq language. https://www.youtube.com/watch?v=99-LoEkAA3w\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "CV/index.html",
-    "href": "CV/index.html",
-    "title": "Curriculum vitae",
+    "objectID": "stat0118/118_R_lubridate_Notes.html",
+    "href": "stat0118/118_R_lubridate_Notes.html",
+    "title": "Working with dates using lubridate\n",
     "section": "",
-    "text": "Download current CV"
-  },
-  {
-    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html",
-    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html",
-    "title": "STAT 118: Notes P",
-    "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(rvest)"
-  },
-  {
-    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#titles",
-    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#titles",
-    "title": "STAT 118: Notes P",
-    "section": "Titles",
-    "text": "Titles\nFor example, check out the first few lines of html code for Oppenheimer:\n&lt;h3 class=\"lister-item-header\"&gt;\n        &lt;span class=\"lister-item-index unbold text-primary\"&gt;1.&lt;/span&gt;\n    &lt;a href=\"/title/tt15398776/?ref_=adv_li_tt\"\n&gt;Oppenheimer&lt;/a&gt;\n    &lt;span class=\"lister-item-year text-muted unbold\"&gt;(2023)&lt;/span&gt;\n&lt;/h3&gt;\nIn this case, we want to look for the class lister-item-header AND then pull the text inside the &lt;a&gt; (link) tag.\nhtml_elements(\".lister-item-header a\")\n\n\n\n\n\n\nTip\n\n\n\nIn this case, we want ALL titles so we used html_elements(). If we had only wanted the first title we would have used html_element()\n\n\nScrape IMBD for the titles of the 50 most popular feature films in the first 7 months of 2023.\n\ntitle_data &lt;- URL %&gt;%\n  html_elements(\".lister-item-header a\") %&gt;%\n  html_text()\n\ntitle_data"
-  },
-  {
-    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#runtime",
-    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#runtime",
-    "title": "STAT 118: Notes P",
-    "section": "Runtime",
-    "text": "Runtime\nScrape IMBD for the runtime of the 50 most popular feature films so far in 2023.\nCheck out the relevant HTML code for Oppenheimer:\n    &lt;p class=\"text-muted \"&gt;\n            &lt;span class=\"certificate\"&gt;R&lt;/span&gt;\n                 &lt;span class=\"ghost\"&gt;|&lt;/span&gt; \n                 &lt;span class=\"runtime\"&gt;180 min&lt;/span&gt;\n                 &lt;span class=\"ghost\"&gt;|&lt;/span&gt; \n            &lt;span class=\"genre\"&gt;\nBiography, Drama, History            &lt;/span&gt;\n    &lt;/p&gt;\nIn this case, we need to reference the class text-muted AND the class runtime.\n\nURL %&gt;%\n  html_nodes(\".text-muted .runtime\") %&gt;%\n  html_text() \n\nAlternatively, we could have called class text-muted AND the 3rd span, but it’s easier and likely more accurate to ask for the class runtime in case runtime is missing for some reason.\nMaybe we want to keep the min on the end, but it forces it into being a stringr rather than a number which makes it difficult to sort or filter.\n\nlibrary(readr)\n# need this package for parse_number()\n\n\n\n\nArtwork by @allisonhorst\n\n\n\nruntime_data &lt;- URL %&gt;%\n  html_nodes(\".text-muted .runtime\") %&gt;%\n  html_text() %&gt;%\n  parse_number() %&gt;% #this picks out only the numbers (and drops characters, in this case, \"mins\")\n  as.numeric()\n\nruntime_data"
-  },
-  {
-    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#ratings",
-    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#ratings",
-    "title": "STAT 118: Notes P",
-    "section": "Ratings",
-    "text": "Ratings\nScrape IMBD for the ratings of the 50 most popular feature films in the first 7 months of 2023.\nCheck out the relevant HTML code for Oppenheimer:\n    &lt;div class=\"inline-block ratings-imdb-rating\" name=\"ir\" data-value=\"8.6\"&gt;\n        &lt;span class=\"global-sprite rating-star imdb-rating\"&gt;&lt;/span&gt;\n        &lt;strong&gt;8.6&lt;/strong&gt;\n    &lt;/div&gt;\nLet’s scrape it!\n\nrating_data &lt;- URL %&gt;%\n  html_elements(\".ratings-imdb-rating strong\") %&gt;%\n  html_text() %&gt;%\n  as.numeric()\n\nrating_data\n\n\n\n\n\n\n\nWarning\n\n\n\nNotice that there are only 49 ratings listed, not 50! There is no way to figure out which one is missing besides doing it by hand…\nWhich one is it?\nOnce we figure out which one is it is, we should should add a blank element for the rating for that movie using the append function.\nrating_data &lt;- append(rating_data, values=FALSE, after=11)\n\n\nIt’s Killers of the Flower Moon (#32)!\n\nrating_data &lt;- append(rating_data, values=NA, after=31)\n\nNotice how it is the correct length (50) now!"
-  },
-  {
-    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#number-of-votes",
-    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#number-of-votes",
-    "title": "STAT 118: Notes P",
-    "section": "Number of Votes",
-    "text": "Number of Votes\nScrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023.\nRelevant code for Oppenheimer:\n        &lt;p class=\"sort-num_votes-visible\"&gt;\n                &lt;span class=\"text-muted\"&gt;Votes:&lt;/span&gt;\n                &lt;span name=\"nv\" data-value=\"391689\"&gt;391,689&lt;/span&gt;\n        &lt;/p&gt;\nLet’s scrape it!\n\nvotes_data &lt;- URL %&gt;%\n  html_elements(\".sort-num_votes-visible span:nth-child(2)\") %&gt;%\n  html_text() %&gt;%\n  parse_number() %&gt;%\n  as.numeric()\n\nvotes_data\n\n\n\n\n\n\n\nWarning\n\n\n\nSame issue as before! We were supposed to have 50 but only got 49. It’s Killers of the Flower Moon (#32), again!\n\nvotes_data &lt;- append(votes_data, values=NA, after=31)"
-  },
-  {
-    "objectID": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#metascore",
-    "href": "stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html#metascore",
-    "title": "STAT 118: Notes P",
-    "section": "Metascore",
-    "text": "Metascore\nScrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023.\nRelevant code for Oppenheimer:\n            &lt;div class=\"inline-block ratings-metascore\"&gt;\n&lt;span class=\"metascore  favorable\"&gt;88        &lt;/span&gt;\n        Metascore\n            &lt;/div&gt;\nLet’s scrape it!\n\nmetascore_data &lt;- URL %&gt;%\n  html_elements(\".metascore\") %&gt;%\n  html_text() %&gt;%\n  parse_number() %&gt;%\n  as.numeric()\n\nmetascore_data\n\n\n\n\n\n\n\nWarning\n\n\n\nYikes! Now we only have 41 when we should have 50.\nWe could manually go through and figure out which 9 are missing or we could reassess how important the metascore data is to us…"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Emily Malcolm-White (she/her)",
-    "section": "",
-    "text": "Hi there! 👋\nI’m an educator and student support specialist with a passion for teaching and developing quantitative skills for students from a wide variety of backgrounds. I’m deeply committed to creating an inclusive and equitable learning environment where all students can thrive.\nAt Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a new initiative dedicated to supporting Middlebury students in developing quantitative skills.\nEvery year, I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, at Shoals Marine Lab. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n Back to top"
-  },
-  {
-    "objectID": "math0102.html",
-    "href": "math0102.html",
-    "title": "EMW",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "math0102.html#math-102-logs-exponentials-and-their-applications",
-    "href": "math0102.html#math-102-logs-exponentials-and-their-applications",
-    "title": "EMW",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "math0103.html",
-    "href": "math0103.html",
-    "title": "EMW",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "math0103.html#math-103-functions",
-    "href": "math0103.html#math-103-functions",
-    "title": "EMW",
-    "section": "",
-    "text": "More Coming Soon!"
+    "text": "Date Formats\nThink of how many different formats you know of to format a date:\n\n2023 07 06\nWed, Jun 7, 2023\n07-06-23\n06-07-23 14:55 ET\n06/07/2023 2:55pm\n\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nLubridate\n\n\n\nArtwork by @allisonhorst\n\n\n\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nSolar Data\nShoal Marine Lab (SML) is a remote field station located on Appledore Island, Maine jointly operated by Cornell University and the University of New Hampshire. The island is powered primarily by solar power.\n\n#read in Data\npower &lt;- read.csv(\"data/power.csv\")\n\nWhat format is the date in?\n\n\n\n\n\n\nWarning\n\n\n\nWhat happens if we try to make a line plot with the date in this format?\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n`geom_line()`: Each group consists of only one observation.\nℹ Do you need to adjust the group aesthetic?\n\n\n\n\n\nYikes!\n\n\nWe need to put it in standardized date format first:\n\npower &lt;- power %&gt;% \n  mutate(Date = mdy_hm(Date))  \n\nStandardized Format helps us to create time series plots very easily!\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\n\n\nPicking out information\n\n\n\nArtwork by @allisonhorst\n\n\nSometimes we need to pick out year, month, date so we can filter, sort, etc.\n\npower &lt;- power %&gt;% \n  mutate(Year = year(Date)) %&gt;%   \n  mutate(Month = month(Date)) %&gt;% \n  mutate(Day = day(Date))\n\nSuppose we only want the time series plot for June 1:\n\npower %&gt;% \n  filter(Month == \"6\") %&gt;%\n  filter(Day == \"1\") %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\n\n\nPortal Data\nThe Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\nportal_rodent &lt;- portal_rodent %&gt;% \n  mutate(datetime = make_datetime(year, month, day))\n\n\n\n\n\n Back to top"
   }
 ]
