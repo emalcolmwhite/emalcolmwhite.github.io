@@ -14,10 +14,6 @@ website:
         menu: 
         - text: "STAT 116: Intro to Statistical Science"
           href: stat0116.html
-        - text: "MATH 102: Logs, Exponentials, and their Applications"
-          href: math0102.html
-        - text: "MATH 103: Functions"
-          href: math0103.html
         - text: "R by the Sea"
           href: r-by-the-sea.html
         - sidebar:stat0118
