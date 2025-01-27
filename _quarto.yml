@@ -14,21 +14,25 @@ website:
         menu: 
         - text: "STAT 116: Intro to Statistical Science"
           href: stat0116.html
-        - text: "STAT 118: Intro to Data Science"
-          href: stat0118.html
         - text: "MATH 102: Logs, Exponentials, and their Applications"
           href: math0102.html
         - text: "MATH 103: Functions"
           href: math0103.html
         - text: "R by the Sea"
           href: r-by-the-sea.html
+        - sidebar:stat0118
     right:
       - text: "Email"
         icon: envelope
-        href: mailto:emalcolmwhite@middlebury.edu 
+        href: mailto:emalcolmwhite@middlebury.edu
+        
   sidebar: 
-    - title: "STAT 118"
+    - id: stat0118 
+      title: "STAT 118"
+      style: "docked"
       contents: stat0118
+      
+  
   page-footer: 
     left: "Made by EMW (2024)" 
     right: "Powered by Quarto"
