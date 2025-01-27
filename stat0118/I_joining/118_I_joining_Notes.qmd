@@ -24,7 +24,7 @@ library(tidyverse)
 
 #LOAD DATA
 library(nycflights23)
-data("flights")
+#data("flights")
 ```
 
 
@@ -41,7 +41,7 @@ data("flights")
 Some airline names might be easy to guess (ie. "UA" is United Airlines), but what airlines have the code "VX", "HA", and "B6"? Data on airline codes is provided in a dataset called `airlines`. 
 
 ```{r}
-data("airlines")
+#data("airlines")
 ```
 
 We want to have all this information in one data frame instead of two separate data frames. 
@@ -49,10 +49,9 @@ We want to have all this information in one data frame instead of two separate d
 The variable `carrier` in `flights` match the variable `carrier` in the `airlines` dataset -- this is our *key variable*. In this case, they have the same name, but this doesn't necessarily have to be true. 
 
 ```{r}
-flights_joined <- flights %>% 
-  inner_join(airlines, by="carrier")
+# flights_joined <- flights %>% 
+#   inner_join(airlines, by="carrier")
 
-flights _joined <- flights_joined %>% 
   
 ```
 
@@ -62,27 +61,27 @@ flights _joined <- flights_joined %>%
 Say instead you are interested in the destinations of all domestic flights departing NYC in 2013, and you ask yourself questions like: “What cities are these airports in?”, or “Is "ORD" Orlando?”
 
 ```{r}
-data("airports")
+#data("airports")
 ```
 
 
 In `airports` the airport code is in `faa`, whereas in `flights` the airport codes are in `origin` and `dest`.
 
 ```{r}
-flights_with_airport_names <- flights %>% 
-  inner_join(airports, by = c("dest" = "faa"))
+# flights_with_airport_names <- flights %>% 
+#   inner_join(airports, by = c("dest" = "faa"))
 ```
 
 Let’s construct the chain of pipe operators %>% that computes the number of flights from NYC to each destination, but also includes information about each destination airport:
 
 ```{r}
-named_dests <- flights %>%
-  group_by(dest) %>%
-  summarize(num_flights = n()) %>%
-  arrange(desc(num_flights)) %>%
-  inner_join(airports, by = c("dest" = "faa")) %>%
-  rename(airport_name = name)
-named_dests
+# named_dests <- flights %>%
+#   group_by(dest) %>%
+#   summarize(num_flights = n()) %>%
+#   arrange(desc(num_flights)) %>%
+#   inner_join(airports, by = c("dest" = "faa")) %>%
+#   rename(airport_name = name)
+# named_dests
 ```
 
 ## Multiple Key variables
@@ -90,13 +89,13 @@ named_dests
 In order to join the flights and weather data frames, we need more than one key variable: `year`, `month`, `day`, `hour`, and `origin`. This is because the combination of these 5 variables act to uniquely identify each observational unit in the weather data frame: hourly weather recordings at each of the 3 NYC airports.
 
 ```{r}
-data("weather")
+#data("weather")
 ```
 
 
 ```{r}
-flights_weather_joined <- flights %>%
-  inner_join(weather, by = c("year", "month", "day", "hour", "origin"))
+# flights_weather_joined <- flights %>%
+#   inner_join(weather, by = c("year", "month", "day", "hour", "origin"))
 ```
 
 ## Why is this useful? 
@@ -104,31 +103,31 @@ flights_weather_joined <- flights %>%
 Updating labels: 
 
 ```{r}
-flights %>% 
-ggplot(aes(x = carrier, fill = origin)) +
-  geom_bar() + 
-  coord_flip()
-
-#VS
-
-flights %>% 
-  inner_join(airports, by = c("origin" = "faa")) %>% 
-  rename(origin_airport = name) %>% 
-  inner_join(airlines, by = c("carrier")) %>%  
-  rename(carrier_name= name) %>% 
-ggplot(mapping = aes(x = carrier_name, fill = origin_airport)) +
-  geom_bar() + 
-  coord_flip()
+# flights %>% 
+# ggplot(aes(x = carrier, fill = origin)) +
+#   geom_bar() + 
+#   coord_flip()
+# 
+# #VS
+# 
+# flights %>% 
+#   inner_join(airports, by = c("origin" = "faa")) %>% 
+#   rename(origin_airport = name) %>% 
+#   inner_join(airlines, by = c("carrier")) %>%  
+#   rename(carrier_name= name) %>% 
+# ggplot(mapping = aes(x = carrier_name, fill = origin_airport)) +
+#   geom_bar() + 
+#   coord_flip()
 ```
 
 
 Exploring relationships between variables in separate tables: 
 
 ```{r}
-flights_weather_joined %>% 
-  filter(dep_delay >0) %>% 
-  ggplot(aes(x=temp, y=dep_delay)) +
-  geom_point()
+# flights_weather_joined %>% 
+#   filter(dep_delay >0) %>% 
+#   ggplot(aes(x=temp, y=dep_delay)) +
+#   geom_point()
 ```
 
 # Different Types of Joins

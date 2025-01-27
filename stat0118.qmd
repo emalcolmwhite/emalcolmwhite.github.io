@@ -1,15 +1,5 @@
 ---
 website: 
-  title: "STAT 118"
-  sidebar:
-    title: "STAT 118 Sidebar"
-    subtitle: "Intro to Data Science"
-    style: "docked"
-    image: images/STAT0118_hex_sticker.png
-    contents:
-      - text: "Wrangling"
-        href: stat0118/B_Wrangling/118_B_wrangling_Notes.qmd
+  title: "STAT 118" 
 ---
 
-
-More Coming Soon!

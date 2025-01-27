@@ -229,8 +229,8 @@ youtube_videos <- clean_names(youtube_videos)
 
 Remove the last row:
 ```{r}
-youtube_videos <- youtube_videos %>% 
-  filter(no != "As of August 8, 2023")
+# youtube_videos <- youtube_videos %>% 
+#   filter(no != "As of August 8, 2023")
 ```
 
 Format the views as a number using `as.numeric`:

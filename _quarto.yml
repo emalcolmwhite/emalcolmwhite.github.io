@@ -25,7 +25,10 @@ website:
     right:
       - text: "Email"
         icon: envelope
-        href: mailto:emalcolmwhite@middlebury.edu  
+        href: mailto:emalcolmwhite@middlebury.edu 
+  sidebar: 
+    - title: "STAT 118"
+      contents: stat0118
   page-footer: 
     left: "Made by EMW (2024)" 
     right: "Powered by Quarto"

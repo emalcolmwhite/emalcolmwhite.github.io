@@ -7,6 +7,8 @@ format:
   html: 
     toc: TRUE
     code-overflow: wrap
+execute: 
+  eval: FALSE
 ---
 
 
@@ -64,13 +66,13 @@ can_lang <- can_lang %>%
 ## Scatterplot with Percents and Colors
 
 ```{r}
-ggplot(can_lang, aes(x = ???, y = ???)) +
-  geom_point() +
-  xlab("???") +
-  ylab("???") +
-  theme(text = element_text(size = 12)) +
-  scale_x_log10(labels = label_comma()) +
-  scale_y_log10(labels = label_comma())
+# ggplot(can_lang, aes(x = ???, y = ???)) +
+#   geom_point() +
+#   xlab("???") +
+#   ylab("???") +
+#   theme(text = element_text(size = 12)) +
+#   scale_x_log10(labels = label_comma()) +
+#   scale_y_log10(labels = label_comma())
 ```
 
 
@@ -122,11 +124,13 @@ ggplot(can_lang, aes(x = most_at_home_percent,
 Create a new column for the labels. Use `case_when` (or `ifelse`) to only use the official language names and not to put a label for other language categories. 
 
 ```{r}
+#| eval: FALSE
 can_lang <- can_lang %>% 
   mutate(official_languages = case_when(category == "Official languages" ~ language, TRUE ~ NA ))
 ```
 
 ```{r}
+#| eval: FALSE
 ggplot(can_lang, aes(x = most_at_home_percent, 
                      y = mother_tongue_percent, 
                      color = category, shape=category)) +

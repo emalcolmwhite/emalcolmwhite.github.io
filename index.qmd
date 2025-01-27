@@ -19,6 +19,7 @@ about:
       - text: "Email"
         icon: envelope-fill
         href: mailto:emalcolmwhite@middlebury.edu  https://github.com/emalcolmwhite
+sidebar: false
 ---
 
 

@@ -73,13 +73,13 @@ It is totally okay if your years are not displaying properly. For example, `2023
 	
 
 ```{r}
-library(janitor)
-Midd_Admissions %>% 
-  clean_names() %>% 
-  pivot_longer(2:12, names_to = "year", values_to="number") %>% 
-  filter(x %in% c("Applicants", "Admits", "Enrolled")) %>% 
-  pivot_wider(names_from=x, values_from=number) %>% 
-  mutate(year = str_sub(year, start=2, end=5))
+# library(janitor)
+# Midd_Admissions %>% 
+#   clean_names() %>% 
+#   pivot_longer(2:12, names_to = "year", values_to="number") %>% 
+#   filter(x %in% c("Applicants", "Admits", "Enrolled")) %>% 
+#   pivot_wider(names_from=x, values_from=number) %>% 
+#   mutate(year = str_sub(year, start=2, end=5))
 ```
 
 # 6.

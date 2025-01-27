@@ -88,6 +88,7 @@ data("weather")
 Updating labels: 
 
 ```{r}
+#| eval: FALSE
 flights %>% 
 ggplot(aes(x = carrier, fill = origin)) +
   geom_bar() + 
@@ -109,6 +110,7 @@ ggplot(mapping = aes(x = carrier_name, fill = origin_airport)) +
 Exploring relationships between variables in separate tables: 
 
 ```{r}
+#| eval: FALSE
 flights_weather_joined %>% 
   filter(dep_delay >0) %>% 
   ggplot(aes(x=temp, y=dep_delay)) +

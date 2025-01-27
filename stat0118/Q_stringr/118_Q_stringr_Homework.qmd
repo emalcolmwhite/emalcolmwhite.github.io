@@ -15,10 +15,10 @@ format:
 library(tidyverse)
 
 #LOAD DATA
-courses <- read_csv("data/courses.csv")
-courses <- courses %>%
-  mutate(isCW = str_extract(distros, "CW")) %>%
-  mutate(distros = str_remove(distros, "CW"))
+# courses <- read_csv("data/courses.csv")
+# courses <- courses %>%
+#   mutate(isCW = str_extract(distros, "CW")) %>%
+#   mutate(distros = str_remove(distros, "CW"))
 ```
 
 # 1.

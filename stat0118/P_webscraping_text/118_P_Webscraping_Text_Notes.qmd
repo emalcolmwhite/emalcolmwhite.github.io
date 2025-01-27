@@ -10,6 +10,8 @@ format:
     toc: TRUE
     code-overflow: wrap
     embed-resources: true
+execute: 
+  eval: FALSE
 ---
 
 ```{r message=FALSE, warning=FALSE}
