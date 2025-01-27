@@ -9,6 +9,7 @@ resources:
   - "EMW_CV.pdf"
 cv:
   pdf: "EMW_CV.pdf"
+sidebar: false
 ---
 
 ```{css echo=FALSE}

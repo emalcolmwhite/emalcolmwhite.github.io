@@ -1,5 +1,6 @@
 ---
 title: "404"
+sidebar: false
 ---
 
 Page not found, sorry! Try the search or navigate back to the base website.
