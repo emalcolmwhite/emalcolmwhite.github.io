@@ -15,18 +15,11 @@ website:
           href: stat0116.html
         - text: "R by the Sea"
           href: r-by-the-sea.html
-        - sidebar:stat0118
+
     right:
       - text: "Email"
         icon: envelope
         href: mailto:emalcolmwhite@middlebury.edu
-        
-  sidebar: 
-    - id: stat0118 
-      title: "STAT 118: Intro to Data Science"
-      image: images/STAT0118_hex_sticker.png
-      style: "docked"
-      contents: stat0118notes
   
   back-to-top-navigation: true
   
