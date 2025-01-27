@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EMW – math0102</title>
+<title>EMW - STAT 118: Notes Q</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/bar_chart.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bar_chart.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,17 +95,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">EMW</span>
     </a>
   </div>
@@ -87,19 +121,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-course-materials">    
         <li>
-    <a class="dropdown-item" href="./stat0116.html" rel="" target="">
+    <a class="dropdown-item" href="../../stat0116.html" rel="" target="">
  <span class="dropdown-text">STAT 116: Intro to Statistical Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0102.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0102.html" rel="" target="">
  <span class="dropdown-text">MATH 102: Logs, Exponentials, and their Applications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0103.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0103.html" rel="" target="">
  <span class="dropdown-text">MATH 103: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./r-by-the-sea.html" rel="" target="">
+    <a class="dropdown-item" href="../../r-by-the-sea.html" rel="" target="">
  <span class="dropdown-text">R by the Sea</span></a>
   </li>  
         <li class="dropdown-header">sidebar:stat0118</li>
@@ -118,28 +152,158 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT 118: Notes Q</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-few-basics" id="toc-a-few-basics" class="nav-link active" data-scroll-target="#a-few-basics">A few basics</a></li>
+  <li><a href="#using-stringr" id="toc-using-stringr" class="nav-link" data-scroll-target="#using-stringr">Using <code>stringr</code></a>
+  <ul class="collapse">
+  <li><a href="#str_detect" id="toc-str_detect" class="nav-link" data-scroll-target="#str_detect"><code>str_detect</code></a></li>
+  <li><a href="#str_extract-and-str_remove" id="toc-str_extract-and-str_remove" class="nav-link" data-scroll-target="#str_extract-and-str_remove"><code>str_extract</code> and <code>str_remove</code></a></li>
+  <li><a href="#str_sub" id="toc-str_sub" class="nav-link" data-scroll-target="#str_sub"><code>str_sub</code></a></li>
+  <li><a href="#str_count" id="toc-str_count" class="nav-link" data-scroll-target="#str_count"><code>str_count</code></a></li>
+  </ul></li>
+  <li><a href="#another-useful-function-str_squish" id="toc-another-useful-function-str_squish" class="nav-link" data-scroll-target="#another-useful-function-str_squish">Another useful function <code>str_squish</code></a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">STAT 118: Notes Q</h1>
+<p class="subtitle lead"></p><p>Working with text with <code>stringr</code><br>
+<img src="https://stringr.tidyverse.org/logo.png" class="img-fluid" style="width:10.0%"></p><p></p>
+</div>
 
 
-<section id="math-102-logs-exponentials-and-their-applications" class="level2">
-<h2 data-anchor-id="math-102-logs-exponentials-and-their-applications">MATH 102: Logs, Exponentials, and their Applications</h2>
-<div class="grid">
-<div class="g-col-4">
-<p><img src="images/MATH0105_hex_sticker.png" class="img-fluid"></p>
-</div>
-<div class="g-col-8">
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6bbcc35c-1863-49df-8204-d981303d8cd3_rw_1200.png?h=96d11e5bed7cfe2474d27a99980d0881" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
+</figure>
 </div>
+<section id="a-few-basics" class="level1">
+<h1>A few basics</h1>
+<p><strong>What is a string?</strong></p>
+<ul>
+<li>datatype we use to represent text</li>
+<li>use ” ”</li>
+</ul>
+<p><strong>Examples of strings:</strong></p>
+<ul>
+<li></li>
+</ul>
+<p>** NOT a string:**</p>
+<ul>
+<li></li>
+</ul>
+</section>
+<section id="using-stringr" class="level1">
+<h1>Using <code>stringr</code></h1>
+<p><a href="https://stringr.tidyverse.org/"><code>stringr</code></a> is a package containing a bunch of functions that help us work with strings. We’ll discuss how to detect, remove, extract, and count words/characters/phrases from a string. We’ll also talk about how to slice a string to get only the parts (aka the substrings) of it that you want.</p>
+<p><a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf"><strong><code>stringr</code> cheat sheet</strong></a></p>
+<p><code>stringr</code> is contained within the <code>tidyverse</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>More Coming Soon!</p>
+<p><strong>I’m registering for classes this Spring and am trying to decide what to take.</strong> Let’s look at the course catalog!</p>
+<p>Read in the courses data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>courses <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Fall23courses.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="str_detect" class="level2">
+<h2 data-anchor-id="str_detect"><code>str_detect</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/813129dc-25e9-4ea3-9d03-262401faefba_rw_1200.png?h=e33a9402181e738d792b78e04cf4a6bc" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
+</figure>
+</div>
+<p><strong>inputs</strong>: - string - pattern</p>
+<p><strong>output</strong>: - TRUE/FALSE</p>
+<p>little example:</p>
+<p>I only want to take classes in Warner!</p>
+<p>Suppose I don’t want any classes on Friday. Let’s use <code>str_detect</code> to find our options.</p>
+<p>Perhaps I’m interested in immigration.</p>
+<p>The <code>regex</code> function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.</p>
+<p>For now, we will only use regex to ignore capitalization.</p>
+<p>If you’re interested in using regular expressions at some point, this <a href="https://cheatography.com/davechild/cheat-sheets/regular-expressions/">regex cheat sheet</a> will be super helpful.</p>
+</section>
+<section id="str_extract-and-str_remove" class="level2">
+<h2 data-anchor-id="str_extract-and-str_remove"><code>str_extract</code> and <code>str_remove</code></h2>
+<p><strong>str_extract inputs</strong>: - string - pattern <strong>str_extract output</strong>: - the extracted pattern, if it appears in the the string</p>
+<p><strong>str_remove inputs</strong>: - string - pattern</p>
+<p><strong>str_extract output</strong>: - the string without the pattern, if it appears in the string</p>
+<p>little example:</p>
+<p>CW is part of the distribution requirement column. I want CW to be its own column.</p>
+</section>
+<section id="str_sub" class="level2">
+<h2 data-anchor-id="str_sub"><code>str_sub</code></h2>
+<p><strong>str_sub inputs</strong>: - string<br>
+- starting character - ending character</p>
+<p><strong>str_sub output</strong>: - string with only the characters between the start and the end</p>
+<p>little example:</p>
+<div class="notes-tip">
+<p>Bounds are inclusive!</p>
+</div>
+<p>Maybe I only want 200 level math classes.</p>
+<ul>
+<li>First we filter for just math classes.</li>
+<li>Then we can create a new column called <code>level</code> that contains only the sixth character from the <code>courses</code> column.</li>
+</ul>
+<p>We call this a <strong>substring</strong>, hence the function <code>str_sub</code>.</p>
+</section>
+<section id="str_count" class="level2">
+<h2 data-anchor-id="str_count"><code>str_count</code></h2>
+<p><strong>str_count inputs</strong>: - string<br>
+- pattern <strong>str_count output</strong>: - a count of the number of times the pattern appears in the string</p>
+<p>little example:</p>
+<p>Maybe I only want my classes to meet twice a week.</p>
+<p>Let’s visualize this data.</p>
+</section>
+</section>
+<section id="another-useful-function-str_squish" class="level1">
+<h1>Another useful function <code>str_squish</code></h1>
+<p><code>str_squish</code> is used to remove leading, trailing, and repeated interior whitespaces from strings</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/0e4df3af-8bca-4f5e-9945-a3859d56c534_rw_1200.png?h=cbb57087ad1e3e69fdb572d10f26f8e2" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
+</figure>
+</div>
 
 
 </section>

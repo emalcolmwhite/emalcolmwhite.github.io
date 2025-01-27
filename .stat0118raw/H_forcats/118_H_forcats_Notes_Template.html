@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Emily Malcolm-White">
 
-<title>EMW – math0102</title>
+<title>EMW - STAT 118: Notes H</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/bar_chart.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bar_chart.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,17 +96,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">EMW</span>
     </a>
   </div>
@@ -87,19 +122,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-course-materials">    
         <li>
-    <a class="dropdown-item" href="./stat0116.html" rel="" target="">
+    <a class="dropdown-item" href="../../stat0116.html" rel="" target="">
  <span class="dropdown-text">STAT 116: Intro to Statistical Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0102.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0102.html" rel="" target="">
  <span class="dropdown-text">MATH 102: Logs, Exponentials, and their Applications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0103.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0103.html" rel="" target="">
  <span class="dropdown-text">MATH 103: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./r-by-the-sea.html" rel="" target="">
+    <a class="dropdown-item" href="../../r-by-the-sea.html" rel="" target="">
  <span class="dropdown-text">R by the Sea</span></a>
   </li>  
         <li class="dropdown-header">sidebar:stat0118</li>
@@ -118,28 +153,149 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT 118: Notes H</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link active" data-scroll-target="#categorical-variables">Categorical Variables</a></li>
+  <li><a href="#mpg-data" id="toc-mpg-data" class="nav-link" data-scroll-target="#mpg-data"><code>mpg</code> Data</a></li>
+  <li><a href="#reordering-factor-levels" id="toc-reordering-factor-levels" class="nav-link" data-scroll-target="#reordering-factor-levels">Reordering Factor Levels</a></li>
+  <li><a href="#renaming-factor-levels" id="toc-renaming-factor-levels" class="nav-link" data-scroll-target="#renaming-factor-levels">Renaming Factor levels</a></li>
+  <li><a href="#factor-collapsing" id="toc-factor-collapsing" class="nav-link" data-scroll-target="#factor-collapsing">Factor Collapsing</a></li>
+  <li><a href="#lumping-into-an-other-category" id="toc-lumping-into-an-other-category" class="nav-link" data-scroll-target="#lumping-into-an-other-category">Lumping into an other category</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">STAT 118: Notes H</h1>
+<p class="subtitle lead"></p><p>working with categorical data using <code>forcats</code><br>
+<img src="https://forcats.tidyverse.org/logo.png" class="img-fluid" style="width:10.0%"></p><p></p>
+</div>
 
 
-<section id="math-102-logs-exponentials-and-their-applications" class="level2">
-<h2 data-anchor-id="math-102-logs-exponentials-and-their-applications">MATH 102: Logs, Exponentials, and their Applications</h2>
-<div class="grid">
-<div class="g-col-4">
-<p><img src="images/MATH0105_hex_sticker.png" class="img-fluid"></p>
-</div>
-<div class="g-col-8">
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Emily Malcolm-White </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Middlebury College
+          </p>
+      </div>
+    </div>
 
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The R package <code>forcats</code> is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the <code>forcats</code> package and some of its most useful functions.</p>
+<section id="categorical-variables" class="level2">
+<h2 data-anchor-id="categorical-variables">Categorical Variables</h2>
+<p>Let’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.</p>
+<p>Examples of categorical data include:</p>
+<ul>
+<li>Colors (red, blue, green, etc.)</li>
+<li>Types of vehicles (sedan, SUV, truck)</li>
+<li>Educational degrees (high school, college, graduate school)</li>
+</ul>
+<p>Categorical data can be further divided into two types: <em>nominal</em> and <em>ordinal</em>. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced.</p>
+</section>
+<section id="mpg-data" class="level2">
+<h2 data-anchor-id="mpg-data"><code>mpg</code> Data</h2>
+<p>We will play with different functions in the <code>forcats</code> packages using the <code>mpg</code> dataset from earlier in the semester.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Recall our side-by-side boxplot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_H_forcats_Notes_Template_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-<p>More Coming Soon!</p>
+</section>
+<section id="reordering-factor-levels" class="level2">
+<h2 data-anchor-id="reordering-factor-levels">Reordering Factor Levels</h2>
+<p>One of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.</p>
+<p>Is <code>class</code> a factor?</p>
+<p>Let’s make it a factor!</p>
+<p>Let’s check the levels and their current ordering!</p>
+<p>To reorder the levels:</p>
+<p>Let’s recreate our side-by-side boxplot now:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_H_forcats_Notes_Template_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:</p>
+</section>
+<section id="renaming-factor-levels" class="level2">
+<h2 data-anchor-id="renaming-factor-levels">Renaming Factor levels</h2>
+<p>Sometimes you might not like the way the levels are named.</p>
+</section>
+<section id="factor-collapsing" class="level2">
+<h2 data-anchor-id="factor-collapsing">Factor Collapsing</h2>
+<p>Let’s say we wanted to create only two categories – cars and larger vehicles.</p>
+</section>
+<section id="lumping-into-an-other-category" class="level2">
+<h2 data-anchor-id="lumping-into-an-other-category">Lumping into an other category</h2>
+<ul>
+<li><p><code>fct_lump_min()</code>: lumps levels that appear fewer than min times.</p></li>
+<li><p><code>fct_lump_prop()</code>: lumps levels that appear in fewer than (or equal to) prop * n times.</p></li>
+<li><p><code>fct_lump_n()</code> lumps all levels except for the n most frequent (or least frequent if n &lt; 0)</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg<span class="sc">$</span>manufacturer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      audi  chevrolet      dodge       ford      honda    hyundai       jeep 
+        18         19         37         25          9         14          8 
+land rover    lincoln    mercury     nissan    pontiac     subaru     toyota 
+         4          3          4         13          5         14         34 
+volkswagen 
+        27 </code></pre>
+</div>
+</div>
+<p>Let’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:</p>
 
 
 </section>

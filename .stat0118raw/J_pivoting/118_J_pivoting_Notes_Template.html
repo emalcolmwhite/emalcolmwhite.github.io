@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EMW – math0102</title>
+<title>EMW - STAT 118: Notes J</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/bar_chart.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bar_chart.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,17 +95,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">EMW</span>
     </a>
   </div>
@@ -87,19 +121,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-course-materials">    
         <li>
-    <a class="dropdown-item" href="./stat0116.html" rel="" target="">
+    <a class="dropdown-item" href="../../stat0116.html" rel="" target="">
  <span class="dropdown-text">STAT 116: Intro to Statistical Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0102.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0102.html" rel="" target="">
  <span class="dropdown-text">MATH 102: Logs, Exponentials, and their Applications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0103.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0103.html" rel="" target="">
  <span class="dropdown-text">MATH 103: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./r-by-the-sea.html" rel="" target="">
+    <a class="dropdown-item" href="../../r-by-the-sea.html" rel="" target="">
  <span class="dropdown-text">R by the Sea</span></a>
   </li>  
         <li class="dropdown-header">sidebar:stat0118</li>
@@ -118,28 +152,110 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT 118: Notes J</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#reshaping-with-pivoting-why" id="toc-reshaping-with-pivoting-why" class="nav-link active" data-scroll-target="#reshaping-with-pivoting-why">Reshaping with Pivoting – Why?</a></li>
+  <li><a href="#canlang-dataset" id="toc-canlang-dataset" class="nav-link" data-scroll-target="#canlang-dataset"><code>canlang</code> dataset</a></li>
+  <li><a href="#pivot-longer" id="toc-pivot-longer" class="nav-link" data-scroll-target="#pivot-longer">Pivot Longer</a></li>
+  <li><a href="#pivot-wider" id="toc-pivot-wider" class="nav-link" data-scroll-target="#pivot-wider">Pivot Wider</a></li>
+  <li><a href="#gapminder" id="toc-gapminder" class="nav-link" data-scroll-target="#gapminder">Gapminder</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">STAT 118: Notes J</h1>
+<p class="subtitle lead"></p><p><code>tidyr</code>: reshaping data with <code>pivot_longer()</code> and <code>pivot_wider()</code><br>
+<img src="https://tidyr.tidyverse.org/logo.png" class="img-fluid" style="width:10.0%"></p><p></p>
+</div>
 
 
-<section id="math-102-logs-exponentials-and-their-applications" class="level2">
-<h2 data-anchor-id="math-102-logs-exponentials-and-their-applications">MATH 102: Logs, Exponentials, and their Applications</h2>
-<div class="grid">
-<div class="g-col-4">
-<p><img src="images/MATH0105_hex_sticker.png" class="img-fluid"></p>
-</div>
-<div class="g-col-8">
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif" class="img-fluid"></p>
+<section id="reshaping-with-pivoting-why" class="level1">
+<h1>Reshaping with Pivoting – Why?</h1>
+<p>Data frames are often described as wide or long.</p>
+<p><em>Wide</em> when a row has more than one observation, and the units of observation are on one row each</p>
+<p><em>Long</em> when a row has only one observation, but the units of observation are repeated down the column</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.001.jpeg?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Credit: datasciencebook.ca</figcaption>
+</figure>
 </div>
+</section>
+<section id="canlang-dataset" class="level1">
+<h1><code>canlang</code> dataset</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD DATA</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>lang_wide <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_wide.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>More Coming Soon!</p>
+</section>
+<section id="pivot-longer" class="level1">
+<h1>Pivot Longer</h1>
+<p><img src="https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.003.jpeg?raw=true" class="img-fluid" alt="Credit: datasciencebook.ca"> <img src="https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_longer.jpeg?raw=true" class="img-fluid" alt="Credit: datasciencebook.ca"></p>
+<p>The data above is now tidy because all three criteria for tidy data have now been met:</p>
+<ul>
+<li>All the variables (category, language, region and mother_tongue) are now their own columns in the data frame.</li>
+<li>Each observation, (i.e., each language in a region) is in a single row.</li>
+<li>Each value is a single cell, i.e., its row, column position in the data frame is not shared with another value.</li>
+</ul>
+</section>
+<section id="pivot-wider" class="level1">
+<h1>Pivot Wider</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lang_long <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_long.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.004.jpeg?raw=true" class="img-fluid" alt="Credit: datasciencebook.ca"> <img src="https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_wider.jpeg?raw=true" class="img-fluid" alt="Credit: datasciencebook.ca"></p>
+</section>
+<section id="gapminder" class="level1">
+<h1>Gapminder</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"gapminder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s say we’d like to look at <code>LifeExp</code> over time for all the countries in Asia in our dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataset called asia with the data we need</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can create a wide version of our table, where each row is a country and each column a year, with values of <code>lifeExp</code> in each cell of the table.</p>
 
 
 </section>
