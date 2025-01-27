@@ -36,12 +36,12 @@ website:
   back-to-top-navigation: true
   
   page-footer: 
-    left: "Made by EMW (2024)" 
+    left: "Made by EMW (2025)" 
     right: "Powered by Quarto"
         
 format:
   html:
-    theme: default
+    theme: lux
     css: custom.css
     anchor-sections: false
 
