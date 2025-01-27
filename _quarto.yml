@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "Emily Malcolm-White"
+  title: "EMW"
   favicon: images/bar_chart.png
   navbar:
     background: "#496677" 
@@ -13,13 +13,13 @@ website:
       - text: "Course Materials"
         menu: 
         - text: "STAT 116: Intro to Statistical Science"
-          href: stat116.html
+          href: stat0116.html
         - text: "STAT 118: Intro to Data Science"
-          href: stat118.html
+          href: stat0118.html
         - text: "MATH 102: Logs, Exponentials, and their Applications"
-          href: math102.html
+          href: math0102.html
         - text: "MATH 103: Functions"
-          href: math103.html
+          href: math0103.html
         - text: "R by the Sea"
           href: r-by-the-sea.html
     right:

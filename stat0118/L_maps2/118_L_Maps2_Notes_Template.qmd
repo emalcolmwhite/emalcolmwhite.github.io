@@ -1,0 +1,100 @@
+---
+title: 'STAT 118: Notes L'
+subtitle: 'Plotting Points on Maps'
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(sf) #this is a package needed so R can work with sf objects
+
+#LOAD DATA
+library(spData) #this packages contains the dataset (with sf objects) that we will be using today
+data("us_states")
+```
+
+# More `sf` maps with points
+
+Recall our map of the continential US which shows the state borders. 
+
+```{r}
+us_states %>% 
+ggplot() + 
+  geom_sf() +
+  theme_light()
+```
+
+Recall the `nycflights13` dataset which had all kinds information about all the flights out of NYC airports in 2013. Check out the `airports` dataset, which has the latitude and longitude of all airports in the USA. 
+
+```{r}
+library(nycflights13)
+data(airports)
+```
+
+Suppose we want to plot these onto our map: 
+
+```{r}
+
+```
+
+What if we wanted to have each dot size represent the number of flights that flew to those airports from NYC? First we need the data: 
+
+```{r}
+
+```
+
+Then we need to merge this data into the `airports` dataset: 
+
+```{r}
+
+```
+
+Then we can add it to our plot: 
+
+```{r}
+
+```
+
+
+# Leaflet
+
+Leaflet is one of the most popular open-source JavaScript libraries for interactive maps. Leaflet was created 11 years ago by [Volodymyr Agafonkin](https://agafonkin.com/), a Ukrainian citizen living in Kyiv. 
+
+```{r}
+library(leaflet)
+```
+
+You create a Leaflet map with these basic steps:
+
+1. Create a map widget by calling leaflet().
+2. Add layers (i.e., features) to the map by using layer functions (e.g. `addTiles`, `addMarkers`, `addPolygons`) to modify the map widget.
+3. Repeat step 2 as desired.
+4. Print the map widget to display it.
+
+## Using OpenStreet Maps
+
+A simple map of Warner Hall: 
+
+```{r}
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=-73.175, lat=44.010, popup="Warner Hall")
+```
+
+A map of all airports in the USA: 
+
+```{r}
+
+```
+
+or using Circle Markers: 
+
+```{r}
+
+```
+
+

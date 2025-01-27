@@ -1,66 +1,150 @@
 [
   {
-    "objectID": "math103.html",
-    "href": "math103.html",
-    "title": "Emily Malcolm-White",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "math103.html#math-103-functions",
-    "href": "math103.html#math-103-functions",
-    "title": "Emily Malcolm-White",
+    "objectID": "stat0118.html",
+    "href": "stat0118.html",
+    "title": "EMW",
     "section": "",
     "text": "More Coming Soon!"
   },
   {
     "objectID": "r-by-the-sea.html",
     "href": "r-by-the-sea.html",
-    "title": "Emily Malcolm-White",
+    "title": "EMW",
     "section": "",
     "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
   },
   {
     "objectID": "r-by-the-sea.html#r-by-the-sea",
     "href": "r-by-the-sea.html#r-by-the-sea",
-    "title": "Emily Malcolm-White",
+    "title": "EMW",
     "section": "",
     "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
   },
   {
-    "objectID": "stat116.html",
-    "href": "stat116.html",
-    "title": "Emily Malcolm-White",
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html",
+    "title": "STAT 118",
+    "section": "",
+    "text": "What is Data Science?\nWhat will we be doing in this class?\nIntro to RStudio and Quarto"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#who-is-a-data-scientist",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#who-is-a-data-scientist",
+    "title": "STAT 118",
+    "section": "Who is a data scientist?",
+    "text": "Who is a data scientist?"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#data-science-process",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#data-science-process",
+    "title": "STAT 118",
+    "section": "Data Science Process",
+    "text": "Data Science Process\n\n\n\nCredit: @allisonhorst"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#is-this-how-youve-been-working-with-data",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#is-this-how-youve-been-working-with-data",
+    "title": "STAT 118",
+    "section": "Is this how you’ve been working with data?",
+    "text": "Is this how you’ve been working with data?\n\n\n\nCredit: Lumen Learning\n\n\nCool! But what about this might make it hard to reproduce?"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#tools-for-this-course",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#tools-for-this-course",
+    "title": "STAT 118",
+    "section": "Tools for this course",
+    "text": "Tools for this course\n\nR\n\n\nR is a free & open-source programming language\nThink “big fancy calculator”\n\n\n\n\nRStudio\n\n\nAn Integrated Development Environment for working w/ R\nit makes it easier to write R code, work with objects, prepare & publish documents all in one place\n\n\n\n\nQuarto\n\n\nQuarto is a file format for making dynamic documents – documents that content text and chunks of embedded R code\nThink Word Document or Google Doc with code in it"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#assessment-in-this-course",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#assessment-in-this-course",
+    "title": "STAT 118",
+    "section": "Assessment in this course",
+    "text": "Assessment in this course\n\n\nHomework: Each class we will have a lesson (30-40 minutes) and time to work on your daily homework assignments (30 - 40 minutes)\nMidterm Project: can be completed individually or in pairs\nFinal Project: can be completed individually or in pairs"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#late-work",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#late-work",
+    "title": "STAT 118",
+    "section": "Late Work",
+    "text": "Late Work\n\n\nWhen you become aware that you won’t be able to make a deadline, please email Professor Emily to let her know which homework you won’t be submitting on time and what date you anticipate the homework will be done. You do not need to disclose why you are missing the deadline. So long as you communicate to me before the deadline, no late penalty will be applied.\nIf you do not communicate with me before the deadline, late submissions will be subject to a penalty of 20% per day"
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Slides.html#academic-integrity",
+    "href": "stat0118/A_Intro/118_A_Intro_Slides.html#academic-integrity",
+    "title": "STAT 118",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\n\n\nUnless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must or explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.\nOn individual assignments, you may discuss the assignment with one another; however, you may not directly share code or write up with other students."
+  },
+  {
+    "objectID": "stat0118/B_wrangling/118_B_wrangling_Notes.html",
+    "href": "stat0118/B_wrangling/118_B_wrangling_Notes.html",
+    "title": "STAT 118: Notes B",
+    "section": "",
+    "text": "Importing Data\nIn this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census.\nWhat is a .csv file?\nHow do we import it into R?\nUse read.csv()! Note that your data file (.csv) needs to be saved in the same folder as your notes template document (.qmd).\n\ncan_lang &lt;- read.csv(\"can_lang.csv\")\n\nAlternatively, you can download it directly from the internet. Github user ttimbers hosts this file to share with the public at the link: https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\n\ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\nLet’s take a look at this data for a minute to see what information has been recorded.\n\nhead(can_lang)\n\n\n\nInstalling and Using Packages\nSometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.\nFirst, you need to download the package from the right hand menu –&gt; You only need to do this once.\nIn each new .Rmd document, you need to call any packages you want to use but adding the code library(packagename) inside an R chunk.\nFor example, in this class we will use the tidyverse package a lot.\n\nlibrary(tidyverse)\n\n\n\ndplyr\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets.\n\n\nfilter\nWe can use the filter function to extract rows from the data that have a particular characteristic.\n\n\n\nArtwork by @allisonhorst\n\n\nFor example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.\nStart with the can_lang dataset, the pipe “%&gt;%” means apply the action on the following line to the previous line. In this case, pick out only the rows were the category variable is “Aboriginal languages”\n\ncan_lang  %&gt;%              \n  filter(category == \"Aboriginal languages\")   \n\nSome notes:\n\nthe aboriginal languages is text/categorical and so quotation marks are needed.\nR doesn’t care about whether they are double quotation marks (“) or single (’). They work the same.\nIf we don’t assign it to an object, then it just prints out for us to see!\n\nOftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called aboriginal_lang.\n\naboriginal_lang &lt;- can_lang  %&gt;%              \n  filter(category == \"Aboriginal languages\")  \n\nNotes:\n\nNotice if you assign it to an object that it doesn’t print out the contents.\nYou’ll see the new object in your environment on the top right —&gt;\nIf you click on the word aboriginal languages (not the blue play button) it will open the object so you can see what is saved inside.\n\nIt can also be used with numeric criteria.\nSuppose we want a list of all the languages in Canada that are spoken by less than 100 people as their mother tongue.\n\nrare_lang &lt;- can_lang  %&gt;%              \n  filter(mother_tongue &lt; 100) \n\nThe logical operators are given below:\n\n\n\nselect\nselect is used to extract only certain columns. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).\n\naboriginal_lang %&gt;% \n  select(language)\n\nWe can combine criteria together as well in one command with multiple pipes:\n\ncan_lang %&gt;% \n  filter(category == \"Aboriginal languages\") %&gt;% \n  select(language)\n\n\n\narrange\nThe arrange function allows us to order the rows of the data frame by the values of a particular column.\nFor example, arrange all the aboriginal languages in canada by from most to least spoken as mother tongue.\n\naboriginal_lang %&gt;% \n  arrange(desc(mother_tongue)) \n\nNote:\n\nuse arrange(variable) to go from least to most\nuse arrange(desc(variable)) to go from most to least, arrange(-variable) also works\n\n\n\nslice\nThe slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).\nFor example, if I want a list of the 10 most commonly spoken aboriginal languages.\n\naboriginal_lang %&gt;% \n  arrange(desc(mother_tongue)) %&gt;% \n  slice(1:10) %&gt;% \n  select(language, mother_tongue) #optional\n\n\n\nBrain Break\nStudents at Allison Bernard Memorial High School in Eskasoni, Cape Breton recorded Paul McCartney’s Blackbird in their native Mi’kmaq language. https://www.youtube.com/watch?v=99-LoEkAA3w"
+  },
+  {
+    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html",
+    "href": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html",
+    "title": "STAT 118: Notes C",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nToday’s Dataset: palmerpenguins Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)"
+  },
+  {
+    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html#multiple-groups",
+    "href": "stat0118/C_aggregating/118_C_aggregating_Notes_Template.html#multiple-groups",
+    "title": "STAT 118: Notes C",
+    "section": "Multiple Groups",
+    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:"
+  },
+  {
+    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes.html",
+    "href": "stat0118/C_aggregating/118_C_aggregating_Notes.html",
+    "title": "STAT 118: Notes C",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nToday’s Dataset: palmerpenguins Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.\n#LOAD DATA \nlibrary(palmerpenguins)\ndata(penguins)"
+  },
+  {
+    "objectID": "stat0118/C_aggregating/118_C_aggregating_Notes.html#multiple-groups",
+    "href": "stat0118/C_aggregating/118_C_aggregating_Notes.html#multiple-groups",
+    "title": "STAT 118: Notes C",
+    "section": "Multiple Groups",
+    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:\n\npenguins %&gt;%\n  group_by(species, sex) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    average_bill_length average_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;                &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie    female                37.3               17.6\n2 Adelie    male                  40.4               19.1\n3 Chinstrap female                46.6               17.6\n4 Chinstrap male                  51.1               19.3\n5 Gentoo    female                45.6               14.2\n6 Gentoo    male                  49.5               15.7"
+  },
+  {
+    "objectID": "stat0118/C_aggregating/118_C_aggregating_Homework.html",
+    "href": "stat0118/C_aggregating/118_C_aggregating_Homework.html",
+    "title": "STAT 118: Homework C",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\n\nCode\n#LOAD DATASET\n# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. \ndata(\"iris\")\n\n\nThis famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\n1.\nVerify using group_by and summarize that there are indeed 50 different flowers from each of the different species of iris.\n\n\n2.\nCreate a table which displays the average sepal length and average sepal width for the setosa species of iris. No other data should be in this table.\n\n\n3.\nCreate a table which displays the average sepal length and the median sepal length for the setosa species of iris. No other data should be in this table.\n\n\n4.\nCreate a table which displays the minimum sepal length and the maximum sepal length for each of the three different species of iris.\n\n\n5.\nCreate one table which displays the minimum sepal length and the maximum sepal length for the species setosa and versicolor. Note that this table should not include any information about the virginica species. (This might be a challenge, but you can do it!)"
+  },
+  {
+    "objectID": "stat0118/B_wrangling/118_B_wrangling_Homework.html",
+    "href": "stat0118/B_wrangling/118_B_wrangling_Homework.html",
+    "title": "STAT 118: Homework B",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nThis assignment concerns the gapminder dataset which is available in the gapminder package.\nFirst, Download gapminder from the menu at the right. You only need to do this once. Once it has been download, you need to call it using the code below.\n\n\nCode\n# LOAD DATA SET\nlibrary(gapminder)\ndata(gapminder) \n\n\nIf you want to view this data, click on the word gapminder in your environment and it should open up\n\n\n\n\n\n\nTip\n\n\n\nThere are often many different ways to get to the right answer on this assignment! I don’t care how you get the answer. I care that you are clearly explaining how you got your answer – either by showing any code you used or explaining in words how you got to the answer you did.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn the problems below, I have not given you any blank R chunks. If you wish to use some R code to answer the problem, you can add your own R chunk – either by typing it directly OR going to Code –&gt; Insert Chunk in the top menu.\n\n\n\n1.\nHow many rows and columns does this dataset have?\n\n\n2.\nWhat are the names of the 6 columns?\n\n\n3.\nCreate a dataset called gapminder2007 which only contains information for each of the countries in 2007.\n\n\n4.\nIf you instead try to choose the subset with year equal to 2005, something will go wrong. Try it and explain what happens and why.\n\n\n5.\nPrint out the row of data corresponding to the US in 2007.\n\n\n6.\nIn the above problem, you would have put quotes around United States but not around 2007. Explain why.\n\n\n7.\nWhich country had a higher life expectancy in 1977: Ireland or Brazil?\n\n\n8.\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\n9.\nFor the year 2007, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data)."
+  },
+  {
+    "objectID": "stat0118/A_Intro/118_A_Intro_Homework.html",
+    "href": "stat0118/A_Intro/118_A_Intro_Homework.html",
+    "title": "STAT 118: Homework A",
+    "section": "",
+    "text": "In-lab Examples\nbold\nitalics\nbold and italics\na list\nlink\nimage\n\nR chunks\ncreate an object\ninline code\ncommenting code\n\n\n1.\nTell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)\n\n\n2.\nTell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It’s okay to say you don’t know)\n\n\n3.\nMake a list of a few of your interests\n\n\n4.\nWhat is the name of someone sitting near you in class? Include a link to something you both find funny or interesting.\n\n\n5.\nInclude a picture. This could be a picture of you or a picture of something you find funny or interesting.\n\n\n6.\nCreate an object called c. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to c.\n\n\n7.\nWrite a few sentences about why you choose this number. Be sure to print out this value of c somewhere in your paragraph as inline code.\n\n\n8.\nCreate an object called height. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.\n\n\n9.\nHave you ever taken a class that used R before? If so, which class?\n\n\n10.\nTell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?\n\n\n11.(Optional)\nUse this space below to tell me anything about yourself that you think Professor Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns."
+  },
+  {
+    "objectID": "stat0116.html",
+    "href": "stat0116.html",
+    "title": "EMW",
     "section": "",
     "text": "More Coming Soon!"
   },
   {
-    "objectID": "stat116.html#stat-116-introduction-to-statistical-science",
-    "href": "stat116.html#stat-116-introduction-to-statistical-science",
-    "title": "Emily Malcolm-White",
+    "objectID": "stat0116.html#stat-116-introduction-to-statistical-science",
+    "href": "stat0116.html#stat-116-introduction-to-statistical-science",
+    "title": "EMW",
     "section": "",
     "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "stat118.html",
-    "href": "stat118.html",
-    "title": "Emily Malcolm-White",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "stat118.html#stat-118-intro-to-data-science",
-    "href": "stat118.html#stat-118-intro-to-data-science",
-    "title": "Emily Malcolm-White",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Emily Malcolm-White (she/her)",
-    "section": "",
-    "text": "Hi there! 👋\nI’m an educator and student support specialist with a passion for teaching and developing quantitative skills for students from a wide variety of backgrounds. I’m deeply committed to creating an inclusive and equitable learning environment where all students can thrive.\nAt Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a new initiative dedicated to supporting students in developing their quantitative skills.\nEvery year, I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, at Shoals Marine Lab. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology."
   },
   {
     "objectID": "CV/index.html",
@@ -68,19 +152,5 @@
     "title": "Curriculum vitae",
     "section": "",
     "text": "Download current CV"
-  },
-  {
-    "objectID": "math102.html",
-    "href": "math102.html",
-    "title": "Emily Malcolm-White",
-    "section": "",
-    "text": "More Coming Soon!"
-  },
-  {
-    "objectID": "math102.html#math-102-logs-exponentials-and-their-applications",
-    "href": "math102.html#math-102-logs-exponentials-and-their-applications",
-    "title": "Emily Malcolm-White",
-    "section": "",
-    "text": "More Coming Soon!"
   }
 ]

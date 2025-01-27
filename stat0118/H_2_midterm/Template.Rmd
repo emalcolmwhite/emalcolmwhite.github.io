@@ -1,0 +1,33 @@
+---
+title: "Insert your appropriate/descriptive title name here"
+author: "Your Name Here"
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+#load more packages here as necessary
+```
+
+```{r}
+#Import the Data 
+
+```
+
+# Introduction
+
+
+# Results
+
+
+# Discussion
+
+
+# References

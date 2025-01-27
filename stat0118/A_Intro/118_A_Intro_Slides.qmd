@@ -1,0 +1,106 @@
+---
+title: "STAT 118"
+subtitle: "Introduction to Data Science"
+author: 'Emily Malcolm-White (she/her)'
+institute: 'Middlebury College'
+format: 
+  revealjs:
+    theme: simple
+---
+
+# Overview
+
+::: {.incremental}
+- What is Data Science?
+- What will we be doing in this class?
+- Intro to RStudio and Quarto
+:::
+
+
+# What is Data Science?
+
+::: {.incremental}
+- From RStudio CTO and R for Data Science co-author Hadley Wickham: "Data science is
+the process of turning data into understanding."
+:::
+
+---
+
+### We use data to understand something
+
+::: {.incremental}
+- What customers are interested in my product?
+- Who will respond to this cancer treatment?
+- How do neighborhoods in Chicago differ?
+:::
+
+### We use data to do something
+
+::: {.incremental}
+- Facial recognition
+- Targeted Advertising
+- Predict Disease Spread
+- Fraud Detection
+:::
+
+
+## Who is a data scientist? 
+
+![](https://d31kydh6n6r5j5.cloudfront.net/uploads/sites/114/2018/02/Data-Science-Venn-Diagram-by-Shelly-Palmer-2015-1ct291l.png)
+
+
+## Data Science Process
+
+![Credit: @allisonhorst](https://ecorepsci.github.io/reproducible-science/img/environmental-data-science-r4ds-general.png)
+
+## Is this how you've been working with data? {.smaller}
+![Credit: Lumen Learning](https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1844/2017/07/27185629/chartintoword8.png)
+
+Cool! But what about this might make it hard to reproduce? 
+
+## Tools for this course {.smaller}
+
+#### R 
+::: {.incremental}
+- R is a free & open-source programming language
+- Think “big fancy calculator”
+:::
+
+#### RStudio 
+
+::: {.incremental}
+- An Integrated Development Environment for working w/ R 
+- it makes it easier to write R code, work with objects, prepare & publish documents all in one place
+:::
+
+#### Quarto 
+
+::: {.incremental}
+- Quarto is a file format for making dynamic documents -- documents that content text and chunks of embedded R code
+- Think Word Document or Google Doc with code in it
+:::
+
+## Assessment in this course
+
+:::{.incremental}
+- **Homework**: Each class we will have a lesson (30-40 minutes) and time to work on your daily homework assignments (30 - 40 minutes)
+- **Midterm Project**: can be completed individually or in pairs
+- **Final Project**: can be completed individually or in pairs
+:::
+
+## Late Work
+
+:::{.incremental}
+-   When you become aware that you won't be able to make a deadline, **please email Professor Emily to let her know which homework you won't be submitting on time and what date you anticipate the homework will be done.** You do not need to disclose why you are missing the deadline. So long as you communicate to me before the deadline, no late penalty will be applied.
+-   If you do not communicate with me before the deadline, late submissions will be subject to a penalty of 20% per day
+:::
+
+## Academic Integrity
+
+:::{.incremental}
+- Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must or explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.
+- On individual assignments, you may discuss the assignment with one another; however, you may not directly share code or write up with other students.
+:::
+
+
+# Let's get to it!

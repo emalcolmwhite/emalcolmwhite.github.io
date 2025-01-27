@@ -1,0 +1,100 @@
+---
+title: "MATH 118: Homework Q"
+subtitle: "Working with text with `stringr`"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+
+#LOAD DATA
+courses <- read_csv("data/courses.csv")
+courses <- courses %>%
+  mutate(isCW = str_extract(distros, "CW")) %>%
+  mutate(distros = str_remove(distros, "CW"))
+```
+
+# 1.
+Create new column called `isDED` which indicates courses which have "DED" listed inside the `distros` column. 
+
+```{r}
+
+```
+
+
+# 2.
+How many classes will be offered in Fall 2023 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).
+
+```{r}
+
+```
+
+
+# 3.
+Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. MATH0118B-S23) into three separate pieces (ie. MATH, 0118, and B). 
+
+```{r}
+
+```
+
+
+# 4.
+How many *unique* classes will be offered in Fall 2023 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).
+
+```{r}
+
+```
+
+# 5.
+Suppose you really love taking classes in our classroom (WNS 101). Which classes will be offered in Fall 2023 in this classroom? 
+
+```{r}
+
+```
+
+
+# 6.
+Suppose you really love taking classes with an instructor with the first name "Emily". Which classes will be offered in Fall 2023 by someone with the first name "Emily"?
+
+```{r}
+
+```
+
+
+# 7.
+Suppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc. 
+
+```{r}
+
+```
+
+# 8.
+Create a visualization from the information you gathered in the previous problem. 
+
+```{r}
+
+```
+
+# 9.
+Which class(es) offer(s) the most number of sections? 
+
+```{r}
+
+```
+
+# 10.
+"The" is the most popular word in the english language. Count the number of times the word "the" appears in the description of each course. Which course uses the word "the" the most? 
+
+```{r}
+
+```
+
+
+

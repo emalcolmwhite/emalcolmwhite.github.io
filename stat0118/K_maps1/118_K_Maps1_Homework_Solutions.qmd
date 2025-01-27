@@ -1,0 +1,143 @@
+---
+title: "STAT 118: Homework K"
+subtitle: 'Intro to Maps'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(sf) #this is a package needed so R can work with sf objects
+library(maps)
+```
+
+# Using the `maps` package
+
+# 1.
+Use the `maps` package to create a map of New Zealand. To access map data for New Zealand use the code: `nz_maps <- map_data("world", region = "New Zealand")`. You may need to subset the latitude and longitude coordinates to get a great map of New Zealand. The land should be some shade of orange. 
+
+```{r}
+nz_maps <- map_data("world", region = "New Zealand")
+
+ggplot(nz_maps, aes(long, lat))+
+  geom_polygon(aes(group=group), color ="black", fill = "orange")+
+  xlim(c(160,190))+
+  ylim(c(-55,-30))+
+  coord_quickmap()+
+  xlab("Longitude")+
+  ylab("Latitude")+
+  ggtitle("Map of New Zeland")
+```
+
+
+# Use the `sf` package
+
+```{r}
+#LOAD DATA
+library(spData) #this packages contains the dataset (with sf objects) that we will be using today
+data("nz")
+data("us_states")
+data("us_counties")
+```
+
+# 2.
+Use the `sf` package to create a map of New Zealand. To access `sf` geometries for New Zealand use the "nz" dataset loaded above. The land should be some shade of orange. 
+
+```{r}
+ggplot(nz)+
+  geom_sf(fill = "orange")+
+   xlab("Longitude")+
+  ylab("Latitude")+
+  ggtitle("Map of New Zeland")
+```
+
+# 3.
+Name two differences between the two New Zealand maps you created above. 
+
+- The sf map has lines distinguishing the subregions.
+- The sf map has slightly curved latitude lines.
+
+# 4. 
+Use the `us_states` dataset from above to create a map of the US States. All the land map should be some shade of red. 
+
+```{r}
+ggplot(us_states)+
+  geom_sf(fill = "red")+
+   xlab("Longitude")+
+  ylab("Latitude")+
+  ggtitle("Map of United States")
+```
+
+# 5. 
+The `us_states` dataset has a column `REGION` which indicates whether the state is "Northeast", "Midwest", "South", or "West". Create a map which shades each state depending on the REGION it is located in.  
+
+```{r}
+ ggplot(us_states)+
+  geom_sf(aes(fill = REGION))+
+  xlab("Longitude")+
+  ylab("Latitude")+
+  ggtitle("Regions of United States")
+```
+
+# 6.
+Create a cloropleth map which colors each state depending on the total population of that state in 2015 (`total_pop_15` column in the `us_states` dataset). 
+
+```{r}
+library(RColorBrewer)
+
+ggplot(us_states)+
+  geom_sf(aes(fill = total_pop_15))+
+    scale_fill_gradientn(colors = brewer.pal(8, "PuRd")[4:8]) + 
+  theme_minimal()+
+   xlab("Longitude")+
+  ylab("Latitude")+
+  ggtitle("Population in the United States")
+```
+
+Suppose we wish to incorporate data from another source on each state. This will require us to join the `sf` data with another dataset (remember joins from before?). 
+
+```{r}
+#dataset which contains information about each state
+data(state) 
+state_data <- data.frame(state.x77)
+#weirdly, the state names are listed as row names instead of in their own column. The below code fixes this. 
+state_data$NAME <- rownames(state_data)
+```
+
+# 7. 
+Join together the `state_data` dataset with the `sf` data housed in `us_states` into a new dataset called `states_map_data`. The key variable is the state name. 
+
+```{r}
+states_map_data <- us_states %>% 
+  inner_join(state_data, by = "NAME")
+```
+
+# 8. 
+Note that in the previous step we lost one data row. What was it? 
+
+- There are 49 rows in us_states contain all the information about the continential US (49 states excluding Alaksa and Hawaii + District of Columbia). 
+- There are 50 rows in state_data (All 50 states including Alaska and Hawaii and not the District of Columbia) 
+
+`states_map_data` will contain all the contential US states, but not the District of Columbia.  
+
+
+# 9. 
+Ignoring the fact that we lost one row, use your new dataset `states_map_data` (from 7) to create a cloropleth map which colors each state depending on the illiteracy rate in 1970 as a percent of the population (`Illiteracy`). Use any color palette you like. 
+
+
+```{r}
+ggplot(states_map_data)+
+  geom_sf(aes(fill = Illiteracy))+
+    scale_fill_gradientn(colors = brewer.pal(8, "YlOrRd")[3:8]) + 
+  theme_minimal()+
+   xlab("Longitude")+
+  ylab("Latitude")+
+  ggtitle("Illiteracy in the United States")
+```
+

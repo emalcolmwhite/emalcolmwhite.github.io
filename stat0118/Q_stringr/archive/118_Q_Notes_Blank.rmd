@@ -1,0 +1,167 @@
+---
+title: "Math 118: Notes Q"
+subtitle: "Introducing Stringr"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+# A few basics
+
+**What is a string?**
+
+
+
+###Examples of strings:
+
+
+
+###NOT a string:
+
+
+
+**What is stringr?**
+stringr is a package containing a bunch of functions that help us work with strings. We'll discuss how to detect, remove, extract, and count words/characters/phrases from a string. We'll also talk about how to slice a string to get only the parts (aka the substrings) of it that you want.
+  
+[**stringr cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+
+# Using `stringr`
+
+**I'm registering for classes this Spring and am trying to decide what to take.**
+Let's look at the course catalog!
+
+Read in the courses data.
+```{r, message=FALSE, warning=FALSE}
+courses <- read_csv("courses.csv")
+```
+  
+  
+    
+## `str_detect` 
+  
+**inputs**: - 
+            - 
+**output**: 
+
+little example:
+```{r}
+
+```
+
+
+
+I only want to take classes in Warner! 
+```{r}
+
+```
+  
+  
+  
+Suppose I don't want any classes on Friday. Let's use `str_detect` to find our options.
+```{r}
+
+```
+
+
+Perhaps I'm interested in immigration.  
+ 
+  
+The `regex` function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.  
+For now, we will only use regex to ignore capitalization. 
+If you're interested in using regular expressions at some point, this [regex cheat sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/) will be super helpful.
+
+```{r}
+
+
+```
+  
+  
+  
+## `str_extract` and `str_remove`
+  
+  
+**str_extract inputs**: - 
+            - 
+**str_extract output**:  
+
+**str_remove inputs**: - 
+            - 
+**str_extract output**:  
+
+little example:
+```{r}
+
+```
+  
+  
+  
+CW is part of the distribution requirement column. I want CW to be its own column.  
+```{r}
+
+```
+  
+  
+  
+## `str_sub`
+  
+  
+**str_sub inputs**: -    
+            -  
+            -  
+**str_sub output**:     
+  
+little example:
+```{r}
+
+```
+  
+
+Maybe I only want 200 level math classes.  
+First we filter for just math classes. 
+Then we can create a new column called `level` that contains only the sixth character from the `courses` column.  
+We call this a **substring**, hence the function `str_sub`.  
+
+
+```{r}
+
+```
+  
+  
+  
+## `str_count`
+  
+  
+little example:
+```{r}
+
+```
+ 
+  
+**str_count inputs**: -    
+            -    
+**str_count output**: 
+
+
+Maybe I only want my classes to meet twice a week.
+```{r}
+
+
+#what's the maximum number of days a week a class meets?
+
+
+#what's the mean number of days?
+
+```
+
+Let's visualize this data.
+```{r}
+
+
+```

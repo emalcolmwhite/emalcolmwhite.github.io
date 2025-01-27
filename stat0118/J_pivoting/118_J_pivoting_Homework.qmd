@@ -1,0 +1,95 @@
+---
+title: "STAT 118: Homework J"
+subtitle: 'reshaping data with `pivot_longer()` and `pivot_wider()`'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+# Religious Income Data
+
+The Pew Religious Income Survey, conducted in 2007 and 2014, surveys more than 35,000 Americans from all 50 states about their religious affiliations, beliefs and practices, and social and political views. This data comes from 2009.
+
+```{r}
+data("relig_income") # contained in tidyverse package
+```
+
+This dataset contains three variables:
+
+-   religion of the surveyee
+-   the annual income bracket of the surveyee
+-   the count (number of surveyees)
+
+# 1.
+
+Is this data in wide or long format?
+
+# 2.
+
+Pivot the data (If it's in long format, make it wide. If it's in wide format, make it long).
+
+```{r}
+
+```
+
+# Fish Encounters Dataset
+
+The `fish_encounters` dataset contains information about fish swimming down a river. Each station recorded if a tagged fish was observed at its monitor stations. Fish travel is one direction (migrating downstream).
+
+```{r}
+data("fish_encounters") # contained in tidyverse package
+```
+
+The dataset contains three variables:
+
+-   fish, the fish identifier,
+-   station, the measurement stations
+-   seen = 1 if the fish was seen
+
+# 3.
+
+Is this data in wide or long format?
+
+# 4.
+
+Pivot the data (If it's in long format, make it wide. If it's in wide format, make it long).
+
+```{r}
+
+```
+
+# 5.
+
+You might notice that there are a lot of NA or missing values after pivoting wider. This is means that the fish was not observed at that given station. Let's replace the NA values with 0s. Repeat your pivot in the previous problem but, add the following to your pivot_wider() function call: `values_fill = 0`.
+
+```{r}
+
+```
+
+# `gapminder` Data
+
+```{r}
+library(gapminder)
+data('gapminder')
+```
+
+# 6.
+
+Recreate the following table from the `gapminder` dataset. Focus on the content first. If you have time, you can try to match the styling.
+
+![](https://github.com/emalcolmwhite/STAT0118/blob/main/J_Pivoting/images/gapminder_us_table.png?raw=true)
+
+# 7.
+
+Recreate the following table from the `gapminder` dataset. Focus on the content first. If you have time, you can try to match the styling.
+
+![](https://github.com/emalcolmwhite/STAT0118/blob/main/J_Pivoting/images/gapminder_table.jpg?raw=true)

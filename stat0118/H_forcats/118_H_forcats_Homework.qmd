@@ -1,0 +1,88 @@
+---
+title: "Homework H"
+subtitle: 'working with categorical data using `forcats`'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(forcats)
+
+#LOAD DATASET
+# This diamonds dataset is built into the tidyverse package
+data("gss_cat")
+```
+
+Today's dataset, `gss_cat`, is a sample of data from the General Social Survey, a long-running US survey conducted by the independent research organization NORC at the University of Chicago. The survey has thousands of questions, but `gss_cat` only contains the 9 variables.   
+
+Begin by reading more about each variable in the dataset by typing `?gss_cat` into the console. 
+
+# 1.  
+For each categorical/factor variable in `gss_cat` identify whether the order of the levels is ordinal or nominal. 
+
+marital - 
+race - 
+rincome - 
+partyid - 
+relig - 
+denom - 
+
+
+# 2. 
+What are the levels of the variable `partyid`? Create a table which displays how many people are in each category of `partyid`. 
+
+```{r}
+
+```
+
+# 3. 
+Construct a barplot which displays `partyid` on the x-axis and the the height of the bars represents the count of how many people fall in each category. What makes the default bar chart hard to understand? 
+
+```{r}
+
+```
+
+# 4.
+Regroup `partyid` variable to only contain four groups: "rep", "ind", "dem", and "other". Recreate the barchart above with your improved groupings. 
+
+```{r}
+
+```
+
+# 5.
+What are the levels of the `relig` variable? Create a table which counts how many people belong to each religion. Be sure to print out your table is a pretty way using the `kableExtra` package. 
+
+```{r}
+
+```
+
+# 6. 
+Create a new variable in the dataset called `top_relig` which only contains the 5 most popular religions and all other categories are grouped into an "other category". Create table which counts the number of people in each `top_relig` category. Be sure to print out your table is a pretty way using the `kableExtra` package.  
+
+```{r}
+
+```
+
+# 7. 
+Explore the relationship between marital status and the number of TV hours watched. Your results should include an appropriate plot that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way. 
+
+```{r}
+
+```
+
+
+# 8.
+Explore the relationship between one of the categorical variables in this dataset over time. Your results should include an appropriate plot  that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way. 
+
+```{r}
+
+```
+
+

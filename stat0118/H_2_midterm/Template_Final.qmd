@@ -1,0 +1,38 @@
+---
+title: "Insert your appropriate/descriptive title name here"
+author: "Your Name Here"
+institute: 'Middlebury College'
+format:
+  html: 
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+execute: 
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#load packages
+library(tidyverse)
+library(kableExtra)
+#load more packages here as necessary
+```
+
+```{r}
+#Import the Data 
+
+```
+
+# Introduction
+
+# Results
+
+# Discussion
+
+# Author Contributions
+
+# References
+
+

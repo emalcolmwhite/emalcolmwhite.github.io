@@ -1,0 +1,83 @@
+---
+title: "STAT 118: Homework F"
+subtitle: 'Making plots  with `ggplot2`: line graphs, histograms & boxplots'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+
+#Load Penguins Data
+library(palmerpenguins)
+data("penguins")
+```
+
+To the best of your ability, recreate the following plots from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.
+
+This image will also be available on the Canvas assignment (in case this link/preview don't work for you). 
+
+# 1. Iris Side-by-side Boxplot
+
+```{r}
+#load the iris dataset
+data("iris")
+```
+
+![]()
+
+```{r}
+
+```
+
+# 2. Gapminder Histogram
+
+```{r}
+#load the gapminder dataset
+library(gapminder)
+data("gapminder")
+```
+
+![]()
+
+```{r}
+gapminder %>% 
+  filter(continent == "Europe" & year == "1952") %>% 
+  ggplot(aes(x=lifeExp)) +
+  geom_histogram(fill = "cornflowerblue", col="black", binwidth=3) +
+  ggtitle("Distribution of Life Expectancy of \n European Countries in 1952") + 
+  xlab("Life Expectancy") +
+  theme_void() +
+  theme(axis.title.x = element_text(),
+        axis.text.x = element_text(),
+        panel.grid.major.y = element_line("grey"),
+        panel.grid.minor.y = element_line("grey")) 
+```
+
+# 3. Gapminder Line Graph
+
+![]()
+
+```{r}
+
+```
+
+# 4. Penguins Scatterplot
+
+```{r}
+#Load Penguins Data
+library(palmerpenguins)
+data("penguins")
+```
+
+![]()
+
+```{r}
+
+```

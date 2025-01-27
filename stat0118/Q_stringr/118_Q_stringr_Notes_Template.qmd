@@ -1,0 +1,182 @@
+---
+title: "STAT 118: Notes Q"
+subtitle: |
+  | Working with text with `stringr`
+  | ![](https://stringr.tidyverse.org/logo.png){width=10%}
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+![artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6bbcc35c-1863-49df-8204-d981303d8cd3_rw_1200.png?h=96d11e5bed7cfe2474d27a99980d0881){width=50%}
+
+
+
+# A few basics
+
+**What is a string?**
+
+- datatype we use to represent text
+- use " " 
+
+**Examples of strings:**
+
+- 
+
+** NOT a string:**
+
+- 
+
+# Using `stringr`
+
+[`stringr`](https://stringr.tidyverse.org/) is a package containing a bunch of functions that help us work with strings. We'll discuss how to detect, remove, extract, and count words/characters/phrases from a string. We'll also talk about how to slice a string to get only the parts (aka the substrings) of it that you want.
+  
+[**`stringr` cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+
+`stringr` is contained within the `tidyverse` package. 
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+**I'm registering for classes this Spring and am trying to decide what to take.**
+Let's look at the course catalog!
+
+Read in the courses data.
+```{r, message=FALSE, warning=FALSE}
+courses <- read_csv("Fall23courses.csv")
+```
+    
+## `str_detect` 
+
+![artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/813129dc-25e9-4ea3-9d03-262401faefba_rw_1200.png?h=e33a9402181e738d792b78e04cf4a6bc)
+  
+**inputs**: - string
+            - pattern
+            
+**output**: - TRUE/FALSE
+
+little example:
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+I only want to take classes in Warner! 
+```{r}
+
+```
+  
+  
+Suppose I don't want any classes on Friday. Let's use `str_detect` to find our options.
+
+```{r}
+
+```
+
+
+Perhaps I'm interested in immigration.  
+  
+The `regex` function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.  
+
+For now, we will only use regex to ignore capitalization.
+
+If you're interested in using regular expressions at some point, this [regex cheat sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/) will be super helpful.
+
+```{r}
+
+```
+  
+## `str_extract` and `str_remove`
+  
+**str_extract inputs**: - string
+                        - pattern
+**str_extract output**: - the extracted pattern, if it appears in the the string
+
+**str_remove inputs**:  - string
+                        - pattern
+                        
+**str_extract output**:  - the string without the pattern, if it appears in the string
+
+little example:
+```{r}
+
+```
+  
+  
+  
+CW is part of the distribution requirement column. I want CW to be its own column.  
+
+```{r}
+
+```
+  
+  
+  
+## `str_sub`
+  
+  
+**str_sub inputs**: - string   
+                    - starting character 
+                    - ending character
+                    
+**str_sub output**: - string with only the characters between the start and the end   
+  
+little example:
+```{r}
+
+```
+  
+:::notes-tip
+Bounds are inclusive!
+:::
+
+Maybe I only want 200 level math classes.  
+
+- First we filter for just math classes. 
+- Then we can create a new column called `level` that contains only the sixth character from the `courses` column.  
+
+We call this a **substring**, hence the function `str_sub`.  
+
+
+```{r}
+
+```
+  
+  
+## `str_count`
+  
+**str_count inputs**: - string  
+                      - pattern
+**str_count output**: - a count of the number of times the pattern appears in the string
+  
+little example:
+```{r}
+
+```
+ 
+Maybe I only want my classes to meet twice a week.
+```{r}
+
+```
+
+Let's visualize this data.
+```{r}
+
+```
+
+# Another useful function `str_squish`
+
+`str_squish` is used to remove leading, trailing, and repeated interior whitespaces from strings
+
+![artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/0e4df3af-8bca-4f5e-9945-a3859d56c534_rw_1200.png?h=cbb57087ad1e3e69fdb572d10f26f8e2)

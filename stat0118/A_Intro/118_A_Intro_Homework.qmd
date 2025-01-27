@@ -1,0 +1,76 @@
+---
+title: "STAT 118: Homework A"
+subtitle: "Intro to RStudio and Quarto"
+author: "YOUR NAME HERE"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+# In-lab Examples
+
+bold
+
+italics
+
+bold and italics
+
+a list
+
+link
+
+image
+
+------------------------------------------------------------------------
+
+R chunks
+
+create an object
+
+inline code
+
+commenting code
+
+# 1.
+Tell me your name in bold lettering. Is there anything I should know about your name and how to address you? (ie. I prefer to be called Liz instead of Elizabeth, my pronouns are he/his/him, etc.)
+
+# 2. 
+Tell me your major in italics lettering. Any ideas what you might like to do after you graduate? (It's okay to say you don't know) 
+
+# 3.
+Make a list of a few of your interests
+
+# 4.
+What is the name of someone sitting near you in class? Include a link to something you both find funny or interesting.
+
+# 5.
+Include a picture. This could be a picture of you or a picture of something you find funny or interesting.
+
+# 6.
+Create an object called `c`. Decide on a number between 1 and 10 that denotes your comfort level with taking a data sciebce course this semester (10 being that you are so, so excited and 1 being that you almost threw up this morning just thinking about it). Assign this value to `c`.
+
+```{r}
+
+```
+
+# 7.
+Write a few sentences about why you choose this number. Be sure to print out this value of `c` somewhere in your paragraph as inline code.
+
+# 8.
+Create an object called `height`. Assign your height in inches to this object (you can also use a made up number here if you like). Use R to convert the height to meters. Be sure to comment your code to explain what you are doing.
+
+```{r}
+
+```
+
+# 9.
+Have you ever taken a class that used R before? If so, which class?
+
+# 10.
+Tell me a little about how you feel about taking data science this semester. Are you nervous? Do you feel like this course is out of your comfort zone? Are you confident?
+
+# 11.(Optional)
+Use this space below to tell me anything about yourself that you think Professor Emily should know in order to teach you effectively. You can also use this space below to ask any questions or state any concerns.

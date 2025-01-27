@@ -1,0 +1,116 @@
+---
+title: 'MATH 118: Notes P'
+subtitle: 'Lubridate'
+output:
+  html_document:
+    code_folding: hide
+  pdf_document: default
+---
+
+```{r}
+#LOAD PACKAGES 
+library(tidyverse)
+library(lubridate)
+
+#LOAD DATA
+friendsvisits <- read.csv("data/friendsvisits.csv")
+# In short, this made-up dataset contains information about the times that our host(s) had friends over and the times that they left.
+```
+
+# Date Formats
+
+Think of how many different formats you know of to list today's date: 
+
+
+
+Yikes! 
+
+# Date, Time, and Datetime
+
+Date/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:
+
+1. Date - only has the date (e.g. 2020-05-15) 
+2. Time - only has the time (e.g. 20:45:00) 
+3. Datetime - has both the date and time (e.g. 2020-05-15 20:45:00)
+
+# Standard Date Format
+
+The `ymd()` function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day. 
+
+```{r}
+ymd("06 02 04")
+ymd("06/02/04")
+ymd("20060204")  # works as well
+ymd("2006 2 4")
+ymd(060204)  # works with numbers
+```
+
+`mdy()` (month day year) and `dmy()` (day month year) formats also exist. 
+
+```{r}
+ymd_hms("2020-04-01 10:30:13")
+ymd_hm("2020/04/01 10.30")
+```
+
+# Making Dates From Values
+
+```{r}
+make_date(year = 2020, month = 7, day = 13)
+
+make_datetime(year = 2020, month = 7, day = 13, hour = 8, min=30)
+```
+
+Unfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function `make_datetime()`
+
+```{r}
+
+```
+
+How can we turn values like 1951 into 19:51:00? Once again, `make_datetime()` is the answer!
+
+```{r}
+#%% indicates x mod y and %/% indicates integer division.
+# %% indicates 830 mod 100 = 8
+# %/% indicates the remainder of 830 mod 100 = 30
+
+
+```
+
+
+# Working with Time Spans
+
+```{r}
+
+```
+
+
+# Rounding Times
+
+```{r}
+t <- ymd_hms("2022-11-15 00:08:30")
+```
+
+```{r}
+#Round
+round_date(t, unit = "second") #no change
+round_date(t, unit = "minute")
+round_date(t, unit = "hour")
+round_date(t, unit = "day")
+```
+
+
+```{r}
+#Force Round UP
+ceiling_date(t, unit = "minute")
+ceiling_date(t, unit = "hour")
+```
+
+```{r}
+#Force Round DOWN
+floor_date(t, unit = "minute")
+floor_date(t, unit = "hour")
+```
+
+
+
+

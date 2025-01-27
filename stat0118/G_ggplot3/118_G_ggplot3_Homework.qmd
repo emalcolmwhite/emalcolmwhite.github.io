@@ -1,0 +1,50 @@
+---
+title: "STAT 118: Homework G"
+subtitle: "Making plots  with `ggplot2`: working with numeric data using `scales`, labels, jitter"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r}
+#make sure the package is installed on your computer or this won't run! 
+library(tidyverse)
+```
+
+# 1. Gapminder Scatterplot
+
+```{r}
+#load the gapminder dataset
+library(gapminder)
+data("gapminder")
+```
+
+To the best of your ability, recreate the following plot from the `gapminder` dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.
+
+![](https://github.com/emalcolmwhite/STAT0118/blob/main/G_ggplot3/images/118_G_ggplot3_gapminder_labels.jpg?raw=true)
+
+The dataset and this image will also be available on the Canvas assignment (in case this link/preview don't work for you).
+
+```{r}
+
+```
+
+# 2. Murders Scatterplot
+
+```{r}
+#The `murders` dataset can be found within `dslabs` packages. Be sure the download the package first and then run this command to load the data.
+library(dslabs)
+data(murders)
+```
+
+To the best of your ability, recreate the following plot from the `murders` dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.![](https://github.com/emalcolmwhite/STAT0118/blob/main/MATH0118_G_ggplot3_Homework_murders_scatterplot.png?raw=true)
+
+The dataset and this image will also be available on the Canvas assignment (in case this link/preview don't work for you).
+
+```{r}
+
+```

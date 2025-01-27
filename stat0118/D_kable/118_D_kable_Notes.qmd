@@ -1,0 +1,154 @@
+---
+title: 'STAT 118: Notes D'
+subtitle: |
+  | Pretty tables with `kableExtra`
+  | ![](https://zhuhao.org/post/2019-01-31-tips-on-designing-a-hex-sticker-for-rstats-packages_files/kableExtra_sm.png){width=10%}
+author: 'Emily Malcolm-White'
+institute: 'Middlebury College'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+```{r message=FALSE, warning=FALSE}
+#LOAD DATA 
+library(palmerpenguins)
+data(penguins)
+
+#CLEAN UP DATA
+penguins <- penguins %>%
+  drop_na()
+#sometimes this is appropriate. It's questionable here... 
+```
+
+# `mutate`
+
+The mutate function allows you create a new column which is a function of other columns. This can be useful to converting units.
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/bd4ae264-ae51-4d18-bd60-7a058ab42fba_rw_1920.png?h=a3757d1f46f418c59e7e7946d026344e){width=50%}
+
+For example, let's calculate create a new column which displays the body length weight in pounds (lbs) instead of grams. Recall: to convert from grams to pounds we need to multiply by 0.00220462
+
+```{r}
+penguins <- penguins %>% 
+  mutate(body_mass_lbs = body_mass_g*0.00220462)
+```
+
+This can also be useful for making new calculations based on existing data (for example, price and number of square feet could be used to calculate price per square foot).
+
+# `case_when`
+
+Case when can be used in combination with `mutate` to create a new column with a categorical variable conditional on the values in another column.
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6ffcd6d6-c783-4087-ae76-99aa851663ed_rw_1920.png?h=5f67935d69c92e1fda9074d00dfea972){width=50%}
+
+For example:
+
+```{r}
+penguins <- penguins %>% 
+  mutate(penguin_length_cat = case_when(bill_length_mm > 50 ~ 'whoa! huge bill!', TRUE ~ '--' ))
+```
+
+::: callout-tip
+For those of you who have taken a computer science class before, you may notice that `case_when` is similar to using an `ifelse` statement. You can also use `ifelse` in R if you'd prefer!
+
+```{r}
+penguins <- penguins %>% 
+  mutate(penguin_length_cat = ifelse(bill_length_mm > 50, 'whoa! huge bill!', '--' ))
+```
+:::
+
+
+# default printing style of a table
+
+Let's consider our table from last class:
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+```
+
+When we knit this up it looks like of ugly...
+
+# Using `kable` to get pretty tables
+
+```{r message=FALSE, warning=FALSE}
+library(kableExtra)
+```
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm)) %>% 
+  kbl()
+
+#OR 
+
+table1 <- penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+
+kbl(table1)
+```
+
+
+# Options in kable
+
+We customize the content so it's displaying the information more clearly.
+
+```{r}
+table1 %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"), 
+    caption = "Average Bill Characteristics by Species", 
+    digits = 2)
+```
+
+Better...
+
+# pretty styling
+
+```{r}
+table1 %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"), 
+    caption = "Average Bill Characteristics by Species", 
+    digits = 2) %>%
+  kable_styling()
+```
+
+Many options for customizing the look of the tables -- more here: <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
+
+Let's try one...
+
+Let's make each row's color correspond to
+
+```{r}
+table1 %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"), 
+    caption = "Average Bill Characteristics by Species", 
+    digits = 2) %>%
+  kable_paper() %>%
+  column_spec(1, bold=T) %>%
+  row_spec(2, color = "#c85bcc") %>%
+  row_spec(3, color = "#067176") %>%
+  row_spec(1, color = "#ff7501")
+```
+
+RStudio hosts a table contest every year!
+
+-   Here is a link to this year's contest <https://www.rstudio.com/blog/rstudio-table-contest-2022/>
+-   Here is a link to previous year's entries and winners to explore what is possible! <https://community.rstudio.com/c/table-gallery/64>
+
+::: callout-tip
+As a general rule, you should have the content of the table as you'd like it (the exact columns and rows you want) first and *then* you can make it pretty using the `kableExtra` package.
+:::
