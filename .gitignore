@@ -1,2 +1,6 @@
 /.quarto/
 .Rproj.user
+docs/
+*.log
+*Solutions.qmd
+*Solutions.html
