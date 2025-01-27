@@ -1,6 +1,6 @@
 ---
-title: 'STAT 118: Notes C'
-subtitle: 'Aggregating data with `summarize`, `group_by()`'
+title: 'Aggregating data with `summarize`, `group_by()`'
+subtitle: 'STAT 118: Notes C'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

@@ -1,8 +1,8 @@
 ---
-title: 'STAT 118: Notes B'
-subtitle: |
+title: |
   | Wrangling data with `dplyr`:: `filter`, `select`, `arrange`
   | ![](https://dplyr.tidyverse.org/logo.png){width=10%}
+subtitle: 'STAT 118: Notes B'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:
