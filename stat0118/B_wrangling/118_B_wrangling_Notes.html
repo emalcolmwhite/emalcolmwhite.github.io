@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Emily Malcolm-White">
 
-<title>EMW – stat0118</title>
+<title>EMW - STAT 118: Notes B</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/bar_chart.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bar_chart.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,10 +96,10 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -72,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">EMW</span>
     </a>
   </div>
@@ -88,23 +123,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-course-materials">    
         <li>
-    <a class="dropdown-item" href="./stat0116.html" rel="" target="">
+    <a class="dropdown-item" href="../../stat0116.html" rel="" target="">
  <span class="dropdown-text">STAT 116: Intro to Statistical Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0102.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0102.html" rel="" target="">
  <span class="dropdown-text">MATH 102: Logs, Exponentials, and their Applications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./math0103.html" rel="" target="">
+    <a class="dropdown-item" href="../../math0103.html" rel="" target="">
  <span class="dropdown-text">MATH 103: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./r-by-the-sea.html" rel="" target="">
+    <a class="dropdown-item" href="../../r-by-the-sea.html" rel="" target="">
  <span class="dropdown-text">R by the Sea</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./stat0118/A_Intro/118_A_Intro_Homework.html" rel="" target="">
+    <a class="dropdown-item" href="../../stat0118/A_Intro/118_A_Intro_Homework.html" rel="" target="">
  <span class="dropdown-text">STAT 118</span></a>
   </li>  
     </ul>
@@ -127,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Stat0118</li><li class="breadcrumb-item"><a href="../../stat0118/B_wrangling/118_B_wrangling_Homework.html">B Wrangling</a></li><li class="breadcrumb-item"><a href="../../stat0118/B_wrangling/118_B_wrangling_Notes.html">STAT 118: Notes B</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -159,13 +194,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/A_Intro/118_A_Intro_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/A_Intro/118_A_Intro_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework A</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/A_Intro/118_A_Intro_Slides.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/A_Intro/118_A_Intro_Slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118</span></a>
   </div>
 </li>
@@ -173,22 +208,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">B Wrangling</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/B_wrangling/118_B_wrangling_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/B_wrangling/118_B_wrangling_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework B</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/B_wrangling/118_B_wrangling_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/B_wrangling/118_B_wrangling_Notes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">STAT 118: Notes B</span></a>
   </div>
 </li>
@@ -205,19 +240,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/C_aggregating/118_C_aggregating_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/C_aggregating/118_C_aggregating_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/C_aggregating/118_C_aggregating_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/C_aggregating/118_C_aggregating_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/C_aggregating/118_C_aggregating_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/C_aggregating/118_C_aggregating_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes C</span></a>
   </div>
 </li>
@@ -234,19 +269,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/D_kable/118_D_kable_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/D_kable/118_D_kable_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework D</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/D_kable/118_D_kable_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/D_kable/118_D_kable_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes D</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/D_kable/118_D_kable_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/D_kable/118_D_kable_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes D</span></a>
   </div>
 </li>
@@ -263,19 +298,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/E_ggplot1/118_E_ggplot1_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/E_ggplot1/118_E_ggplot1_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework E</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/E_ggplot1/118_E_ggplot1_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/E_ggplot1/118_E_ggplot1_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes E</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/E_ggplot1/118_E_ggplot1_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/E_ggplot1/118_E_ggplot1_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes E</span></a>
   </div>
 </li>
@@ -292,19 +327,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/F_ggplot2/118_F_ggplot2_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/F_ggplot2/118_F_ggplot2_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework F</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/F_ggplot2/118_F_ggplot2_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/F_ggplot2/118_F_ggplot2_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes F</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/F_ggplot2/118_F_ggplot2_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/F_ggplot2/118_F_ggplot2_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes F</span></a>
   </div>
 </li>
@@ -321,19 +356,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/G_ggplot3/118_G_ggplot3_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/G_ggplot3/118_G_ggplot3_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework G</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/G_ggplot3/118_G_ggplot3_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/G_ggplot3/118_G_ggplot3_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes G</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/G_ggplot3/118_G_ggplot3_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes G</span></a>
   </div>
 </li>
@@ -350,19 +385,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_2_midterm/Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_2_midterm/Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Insert your appropriate/descriptive title name here</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_2_midterm/Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_2_midterm/Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Insert your appropriate/descriptive title name here</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_2_midterm/Template_Final.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_2_midterm/Template_Final.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Insert your appropriate/descriptive title name here</span></a>
   </div>
 </li>
@@ -377,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_2_midterm/students/backupfinal[7].html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_2_midterm/students/backupfinal[7].html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unemployment by region 1976-2022</span></a>
   </div>
 </li>
@@ -396,19 +431,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_forcats/118_H_forcats_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_forcats/118_H_forcats_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Homework H</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_forcats/118_H_forcats_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_forcats/118_H_forcats_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes H</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/H_forcats/118_H_forcats_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/H_forcats/118_H_forcats_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes H</span></a>
   </div>
 </li>
@@ -425,19 +460,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/I_joining/118_I_joining_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/I_joining/118_I_joining_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/I_joining/118_I_joining_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/I_joining/118_I_joining_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/I_joining/118_I_joining_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/I_joining/118_I_joining_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes I</span></a>
   </div>
 </li>
@@ -454,19 +489,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/J_pivoting/118_J_pivoting_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/J_pivoting/118_J_pivoting_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework J</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/J_pivoting/118_J_pivoting_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/J_pivoting/118_J_pivoting_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes J</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/J_pivoting/118_J_pivoting_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/J_pivoting/118_J_pivoting_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes J</span></a>
   </div>
 </li>
@@ -483,25 +518,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/K_maps1/118_K_Maps1_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/K_maps1/118_K_Maps1_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework K</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/K_maps1/118_K_Maps1_Homework_Solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/K_maps1/118_K_Maps1_Homework_Solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework K</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/K_maps1/118_K_Maps1_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/K_maps1/118_K_Maps1_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes K</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/K_maps1/118_K_Maps1_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/K_maps1/118_K_Maps1_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes K</span></a>
   </div>
 </li>
@@ -518,19 +553,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/L_maps2/118_L_Maps2_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/L_maps2/118_L_Maps2_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework L</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/L_maps2/118_L_Maps2_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/L_maps2/118_L_Maps2_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes L</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/L_maps2/118_L_Maps2_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/L_maps2/118_L_Maps2_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes L</span></a>
   </div>
 </li>
@@ -547,25 +582,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework_Solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Homework_Solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MATH 118: Notes O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/O_webscraping_tables/118_O_Webscraping_Tables_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MATH 118: Notes O</span></a>
   </div>
 </li>
@@ -582,13 +617,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/P_webscraping_text/118_P_Webscraping_Text_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework P</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/P_webscraping_text/118_P_Webscraping_Text_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes P</span></a>
   </div>
 </li>
@@ -605,19 +640,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/Q_stringr/118_Q_stringr_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/Q_stringr/118_Q_stringr_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MATH 118: Homework Q</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/Q_stringr/118_Q_stringr_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/Q_stringr/118_Q_stringr_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes Q</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/Q_stringr/118_Q_stringr_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/Q_stringr/118_Q_stringr_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes Q</span></a>
   </div>
 </li>
@@ -634,19 +669,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/R_lubridate/118_R_lubridate_Homework.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/R_lubridate/118_R_lubridate_Homework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Homework R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/R_lubridate/118_R_lubridate_Notes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/R_lubridate/118_R_lubridate_Notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stat0118/R_lubridate/118_R_lubridate_Notes_Template.html" class="sidebar-item-text sidebar-link">
+  <a href="../../stat0118/R_lubridate/118_R_lubridate_Notes_Template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118: Notes R</span></a>
   </div>
 </li>
@@ -659,14 +694,178 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link active" data-scroll-target="#importing-data">Importing Data</a></li>
+  <li><a href="#installing-and-using-packages" id="toc-installing-and-using-packages" class="nav-link" data-scroll-target="#installing-and-using-packages">Installing and Using Packages</a></li>
+  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><code>dplyr</code></a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter</code></a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><code>select</code></a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><code>arrange</code></a></li>
+  <li><a href="#slice" id="toc-slice" class="nav-link" data-scroll-target="#slice"><code>slice</code></a></li>
+  <li><a href="#brain-break" id="toc-brain-break" class="nav-link" data-scroll-target="#brain-break">Brain Break</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">STAT 118: Notes B</h1>
+<p class="subtitle lead"></p><p>Wrangling data with <code>dplyr</code>:: <code>filter</code>, <code>select</code>, <code>arrange</code><br>
+<img src="https://dplyr.tidyverse.org/logo.png" class="img-fluid" style="width:10.0%"></p><p></p>
+</div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Emily Malcolm-White </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Middlebury College
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="importing-data" class="level1">
+<h1>Importing Data</h1>
+<p>In this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census.</p>
+<p>What is a .csv file?</p>
+<p>How do we import it into R?</p>
+<p>Use <code>read.csv()</code>! Note that your data file (<code>.csv</code>) needs to be saved in the same folder as your notes template document (<code>.qmd</code>).</p>
+<div class="cell" data-version="notes">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"can_lang.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you can download it directly from the internet. Github user <code>ttimbers</code> hosts this file to share with the public at the link: <a href="https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv" class="uri">https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s take a look at this data for a minute to see what information has been recorded.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(can_lang)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="installing-and-using-packages" class="level1">
+<h1>Installing and Using Packages</h1>
+<p>Sometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.</p>
+<p>First, you need to download the package from the right hand menu –&gt; You only need to do this once.</p>
+<p>In each new .Rmd document, you need to call any packages you want to use but adding the code <code>library(packagename)</code> inside an R chunk.</p>
+<p>For example, in this class we will use the <code>tidyverse</code> package a lot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dplyr" class="level1">
+<h1><code>dplyr</code></h1>
+<p>There are actually many commonly used packages wrapped up inside one <code>tidyverse</code> package.</p>
+<p>Today we are specifically going to be talking about the package <code>dplyr</code> which is useful to manipulating data sets.</p>
+</section>
+<section id="filter" class="level1">
+<h1><code>filter</code></h1>
+<p>We can use the <code>filter</code> function to extract <strong><em>rows</em></strong> from the data that have a particular characteristic.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/cb8d9c50-f48e-4c6d-a5b3-1d30ce0be2ad_rw_1920.png?h=1a879eda58a5efbf709ad0a59d784f98" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
+</figure>
+</div>
+<p>For example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.</p>
+<p>Start with the <code>can_lang</code> dataset, the pipe “%&gt;%” means apply the action on the following line to the previous line. In this case, pick out only the rows were the category variable is “Aboriginal languages”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>can_lang  <span class="sc">%&gt;%</span>              </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">==</span> <span class="st">"Aboriginal languages"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Some notes:</p>
+<ul>
+<li>the aboriginal languages is text/categorical and so quotation marks are needed.</li>
+<li>R doesn’t care about whether they are double quotation marks (“) or single (’). They work the same.</li>
+<li>If we don’t assign it to an object, then it just prints out for us to see!</li>
+</ul>
+<p>Oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called <code>aboriginal_lang</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aboriginal_lang <span class="ot">&lt;-</span> can_lang  <span class="sc">%&gt;%</span>              </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">==</span> <span class="st">"Aboriginal languages"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notes:</p>
+<ul>
+<li>Notice if you assign it to an object that it doesn’t print out the contents.</li>
+<li>You’ll see the new object in your environment on the top right —&gt;</li>
+<li>If you click on the word <code>aboriginal languages</code> (not the blue play button) it will open the object so you can see what is saved inside.</li>
+</ul>
+<p>It can also be used with numeric criteria.</p>
+<p>Suppose we want a list of all the languages in Canada that are spoken by less than 100 people as their mother tongue.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rare_lang <span class="ot">&lt;-</span> can_lang  <span class="sc">%&gt;%</span>              </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mother_tongue <span class="sc">&lt;</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The logical operators are given below:</p>
+<p><img src="https://ehsanx.github.io/intro2R/images/logical.png" class="img-fluid" style="width:51.0%"></p>
+</section>
+<section id="select" class="level1">
+<h1><code>select</code></h1>
+<p><code>select</code> is used to extract only certain <strong><em>columns</em></strong>. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aboriginal_lang <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can combine criteria together as well in one command with multiple pipes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>can_lang <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">==</span> <span class="st">"Aboriginal languages"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="arrange" class="level1">
+<h1><code>arrange</code></h1>
+<p>The <code>arrange</code> function allows us to order the rows of the data frame by the values of a particular column.</p>
+<p>For example, arrange all the aboriginal languages in canada by from most to least spoken as mother tongue.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>aboriginal_lang <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mother_tongue)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note:</p>
+<ul>
+<li>use arrange(variable) to go from least to most</li>
+<li>use arrange(desc(variable)) to go from most to least, arrange(-variable) also works</li>
+</ul>
+</section>
+<section id="slice" class="level1">
+<h1><code>slice</code></h1>
+<p>The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).</p>
+<p>For example, if I want a list of the 10 most commonly spoken aboriginal languages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>aboriginal_lang <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mother_tongue)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(language, mother_tongue) <span class="co">#optional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="brain-break" class="level1">
+<h1>Brain Break</h1>
+<p>Students at Allison Bernard Memorial High School in Eskasoni, Cape Breton recorded Paul McCartney’s Blackbird in their native Mi’kmaq language. <a href="https://www.youtube.com/watch?v=99-LoEkAA3w">https://www.youtube.com/watch?v=99-LoEkAA3w</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/99-LoEkAA3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

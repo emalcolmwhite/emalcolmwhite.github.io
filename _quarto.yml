@@ -31,7 +31,8 @@ website:
       title: "STAT 118"
       style: "docked"
       contents: stat0118
-      
+  
+  back-to-top-navigation: true
   
   page-footer: 
     left: "Made by EMW (2024)" 
@@ -39,7 +40,7 @@ website:
         
 format:
   html:
-    theme: lux
+    theme: default
     css: custom.css
     anchor-sections: false
 
