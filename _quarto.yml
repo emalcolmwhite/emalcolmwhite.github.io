@@ -31,7 +31,7 @@ website:
       title: "STAT 118: Intro to Data Science"
       image: images/STAT0118_hex_sticker.png
       style: "docked"
-      contents: stat0118/stat0118notes
+      contents: stat0118notes
   
   back-to-top-navigation: true
   
