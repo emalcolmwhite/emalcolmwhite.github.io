@@ -66,6 +66,7 @@ ul.task-list li input[type="checkbox"] {
 
 <body class="nav-sidebar docked nav-fixed fullcontent">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">R by the Sea</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./stat0118notes/118_B_wrangling_Notes.html" rel="" target="">
+    <a class="dropdown-item" href="./stat0118notes/118_A_Intro_Notes.html" rel="" target="">
  <span class="dropdown-text">STAT 118: Intro to Data Science</span></a>
   </li>  
     </ul>
@@ -133,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Stat0118notes</span></a>
+ <span class="menu-text">Intro to R and R-Studio</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -141,14 +142,158 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_A_Intro_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markdown Formatting &amp; R Chunks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Wrangling with <code>dplyr</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./stat0118notes/118_B_wrangling_Notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Wrangling data with <code>dplyr</code>:: <code>filter</code>, <code>select</code>, <code>arrange</code></span></a>
+ <span class="menu-text">filter, select, arrange, slice, mutate</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stat0118notes/118_C_aggregating_Notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aggregating data with <code>summarize</code>, <code>group_by()</code></span></a>
+ <span class="menu-text">Aggregating with summarize, group_by()</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_I_joining_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joining tables with <code>dplyr</code></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Making plots with <code>ggplot2</code><img src="https://ggplot2.tidyverse.org/logo.png" class="img-fluid" style="width:10.0%"></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_E_ggplot1_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recall our Top 10 example:</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_F_ggplot2_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">line graphs, histograms &amp; boxplots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_G_ggplot3_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">plotting numeric data using <code>scales</code>, labels, jitter</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Advanced Wrangling with <code>tidyr</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_J_pivoting_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">reshaping data with <code>tidyr</code></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Other Useful packages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_H_forcats_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">categorical data using <code>forcats</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_Q_stringr_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with text with <code>stringr</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_R_lubridate_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with dates using <code>lubridate</code></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Maps with <code>sf</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_K_Maps1_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cloropleth Maps with <code>maps</code> and <code>sf</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_L_Maps2_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plotting Points on Maps</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Webscraping with <code>rvest</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_O_Webscraping_Tables_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Webscraping Tables with <code>rvest</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stat0118notes/118_P_Webscraping_Text_Notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Webscraping Text with <code>rvest</code></span></a>
   </div>
 </li>
       </ul>

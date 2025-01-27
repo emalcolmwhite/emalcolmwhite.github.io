@@ -1,0 +1,6 @@
+"0","flights_joined <- flights %>% "
+"0","  inner_join(airlines, by=""carrier"")"
+"0",""
+"0","flights _joined <- flights_joined %>% "
+"2","Error: unexpected input in ""flights _""
+"

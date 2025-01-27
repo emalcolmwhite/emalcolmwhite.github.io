@@ -1,6 +1,5 @@
 ---
-title: 'Wrangling data with `dplyr`:: `filter`, `select`, `arrange`'
-subtitle: 'STAT 118: Notes B'
+title: 'filter, select, arrange, slice, mutate'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:
