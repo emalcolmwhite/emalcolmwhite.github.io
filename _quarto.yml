@@ -8,7 +8,6 @@ website:
   navbar:
     background: "#496677" 
     foreground: "#ffffff"
-    search: false
     left:
       - text: "Course Materials"
         menu: 
@@ -40,6 +39,3 @@ format:
     theme: lux
     css: custom.css
     anchor-sections: false
-
-execute:
-  freeze: auto
