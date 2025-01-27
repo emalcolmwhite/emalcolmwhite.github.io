@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes J'
-subtitle: | 
-  | `tidyr`: reshaping data with `pivot_longer()` and `pivot_wider()`
-  | ![](https://tidyr.tidyverse.org/logo.png){width=10%}
+title: '`tidyr`: reshaping data with `pivot_longer()` and `pivot_wider()`'
+subtitle: 'STAT 118: Notes J'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

@@ -1,6 +1,6 @@
 ---
-title: 'STAT 118: Notes K'
-subtitle: 'Maps with `maps` and `sf`'
+title: 'Chlorepleth Maps with `maps` and `sf`'
+subtitle: 'STAT 118: Notes K'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

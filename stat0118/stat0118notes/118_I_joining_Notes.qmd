@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes I'
-subtitle: | 
-  | Joining tables with `dplyr`
-  | ![](https://dplyr.tidyverse.org/logo.png){width=10%}
+title: 'Joining tables with `dplyr`'
+subtitle: 'STAT 118: Notes I'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

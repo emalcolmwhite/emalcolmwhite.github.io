@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes P'
-subtitle: |
-  | Webscraping Text with `rvest`
-  | ![](https://rvest.tidyverse.org/logo.png){width=10%}
+title: 'Webscraping Text with `rvest`'
+subtitle: 'STAT 118: Notes P'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

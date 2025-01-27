@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes F'
-subtitle: |
-  | Making plots  with `ggplot2`: line graphs, histograms & boxplots
-  | ![](https://ggplot2.tidyverse.org/logo.png){width=10%} 
+title: 'Making plots  with `ggplot2`: line graphs, histograms & boxplots'
+subtitle: 'STAT 118: Notes F'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

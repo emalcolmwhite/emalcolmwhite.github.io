@@ -1,6 +1,6 @@
 ---
-title: "Notes A"
-subtitle: "Intro to R and RStudio"
+title: "Intro to R and RStudio"
+subtitle: "STAT 118: Notes A"
 author: "Emily Malcolm-White"
 format:
   html:

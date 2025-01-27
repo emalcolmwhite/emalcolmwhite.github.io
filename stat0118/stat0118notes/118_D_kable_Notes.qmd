@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes D'
-subtitle: |
-  | Pretty tables with `kableExtra`
-  | ![](https://zhuhao.org/post/2019-01-31-tips-on-designing-a-hex-sticker-for-rstats-packages_files/kableExtra_sm.png){width=10%}
+title: 'Pretty tables with `kableExtra`'
+subtitle: 'STAT 118: Notes D'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

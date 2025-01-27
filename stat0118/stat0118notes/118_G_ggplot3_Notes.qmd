@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes G'
-subtitle: |
-  | Making plots  with `ggplot2`: working with numeric data using `scales`, labels, jitter
-  | ![](https://ggplot2.tidyverse.org/logo.png){width=10%}
+title: 'Making plots  with `ggplot2`: working with numeric data using `scales`, labels, jitter'
+subtitle: 'STAT 118: Notes G'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

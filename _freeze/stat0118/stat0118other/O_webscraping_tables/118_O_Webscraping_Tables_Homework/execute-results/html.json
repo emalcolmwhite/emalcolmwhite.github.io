@@ -1,0 +1,14 @@
+{
+  "hash": "780a910ec0eb5086d1a37444f58eecd7",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework O\"\nsubtitle: 'Webscraping Tables'\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\nlibrary(rvest)\n```\n:::\n\n\n# 1. \nUse `read_html` to read in all the HTML code from [Middlebury Colleges's wikipedia page](https://en.wikipedia.org/wiki/Middlebury_College). Save this HTML code as `Midd_html`\n\n\n::: {.cell}\n\n:::\n\n\n\n# 2. \nUse the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name `Midd_Table1`. Don't worry about cleaning it up. \n\n\n::: {.cell}\n\n:::\n\n\n\n# 3. \nUse the appropriate code to save the ALL the tables on this wikipedia page as `Midd_Tables`. Don't worry about cleaning it up. \n\n\n::: {.cell}\n\n:::\n\n\n# 4. \nUse the appropriate code to scrape the [Admission Statistics table in the Admissions section](https://en.wikipedia.org/wiki/Middlebury_College#Admissions). Save this table as tibble named `Midd_Admissions`\n\n\n\n\n::: {.cell}\n\n:::\n\n\n# 5. \n\nUse `Midd_Admissions` you create above to recreate the following table below which shows the number of Applicants, Admits, and Enrolled in each year. *Hint: You may need to revisit our lesson on pivoting!* \n\n\tyear\tApplicants\tAdmits\tEnrolled\n\t2023\t13,297\t1,462\t630\n\t2022\t13,028\t1,955\t640\n\t2021\t11,906\t1,601\t680\n\t2020\t9,174\t2,022\t602\n\t2019\t9,754\t1,498\t605\n\t2018\t9,227\t1,542\t628\n\t2017\t8,909\t1,523\t635\n\t2016\t8,819\t1,423\t606\n\t2015\t8,891\t1,551\t589\n\t2014\t8,195\t1,407\t580\n\t2013\t9,109\t1,595\t625\n\t\nIt is totally okay if your years are not displaying properly. For example, `2023` may display as `2023_74` or `x2023_74` or something similar. You don't need to fix this in order to get full marks. If you are feeling up for a challenge, you could check out `stringr::str_sub` as a way to fix this.  \n\t\n\n\n::: {.cell}\n\n:::\n\n\n# 6.\n\nScrape a table of your choice from Wikipedia. Try to pick a simple table with one header, unless you are feeling up for a challenge.  Be sure to print out the table for the grader to see. Use the `kableExtra` package to make sure your table looks pretty. \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

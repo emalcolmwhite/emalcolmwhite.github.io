@@ -1,0 +1,14 @@
+{
+  "hash": "07602d7def28d779cf612945ffb97c5f",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework R\"\nsubtitle: 'Lubridate'\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n#LOAD DATA\nlibrary(nycflights13)\ndata(\"flights\")\n```\n:::\n\n\n\n# 1.\nCreate a new column in the flights dataset called `departure_datetime` which displays the departure datetime (for example, 2013-01-01 05:15:00)\n\n\n::: {.cell}\n\n:::\n\n\n\n# 2. \nCreate a new column in the flights dataset called  `sched_departure_datetime` which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)\n\n\n::: {.cell}\n\n:::\n\n\n# 3.\nUse an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called `calc_dep_delay`. Note that your new column `calc_dep_delay` should have the same values as `dep_delay`.  \n\n\n::: {.cell}\n\n:::\n\n\n\n# 4.\nCreate a new column called `overnight` which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time. \n\n\n::: {.cell}\n\n:::\n\n\n\n\n# 5. \n\nBlock time is defined as the time between departure and arrival time. Fun fact: pilots and flight attendents are only paid for block time, and that doesn't include boarding. Block time includes:\n\n- some time spent on the ground at the origin (doing safety checks, taxiing from the gate to the runway, waiting to get cleared to takeoff, etc.) \n- the amount of time in the air \n- some time spent on the ground at the destination (taxiing from the runway to the gate, etc.)\n\nCalculate a new column called `block_time` which is calculated by taking the `arrival_datetime` and subtracting the `departure_daterime`. \n\n\n::: {.cell}\n\n:::\n\n\n#6. \n\nCalculate a new column called `ground_time` which is calculated by taking the `block_time` and subtracting the `airtime`. Note that `airtime` is given in minutes and your calculated `ground_time` should also be given in minutes. \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

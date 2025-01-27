@@ -1,8 +1,6 @@
 ---
-title: "STAT 118: Notes Q"
-subtitle: |
-  | Working with text with `stringr`
-  | ![](https://stringr.tidyverse.org/logo.png){width=10%}
+title: 'Working with text with `stringr`'
+subtitle: "STAT 118: Notes Q"
 author: 'Violet Ross and Emily Malcolm-White'
 institute: 'Middlebury College'
 format:
@@ -55,7 +53,7 @@ Let's look at the course catalog!
 
 Read in the courses data.
 ```{r, message=FALSE, warning=FALSE}
-courses <- read_csv("Fall23courses.csv")
+courses <- read_csv("../data/Fall23courses.csv")
 ```
     
 ## `str_detect` 

@@ -1,8 +1,6 @@
 ---
-title: 'MATH 118: Notes O'
-subtitle: |
-  | Webscraping Tables with `rvest`
-  | ![](https://rvest.tidyverse.org/logo.png){width=10%}
+title: 'Webscraping Tables with `rvest`'
+subtitle: 'MATH 118: Notes O'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

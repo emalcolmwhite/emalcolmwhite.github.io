@@ -1,0 +1,14 @@
+{
+  "hash": "cb6f0293d706465ee33e753bd7c6ba5d",
+  "result": {
+    "markdown": "---\ntitle: \"Insert your appropriate/descriptive title name here\"\nauthor: \"Your Name Here\"\ninstitute: 'Middlebury College'\nformat:\n  html: \n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\nexecute: \n  echo: true\n  warning: false\n  message: false\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#load packages\nlibrary(tidyverse)\nlibrary(kableExtra)\n#load more packages here as necessary\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#Import the Data \n```\n:::\n\n\n# Introduction\n\n# Results\n\n# Discussion\n\n# Author Contributions\n\n# References\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

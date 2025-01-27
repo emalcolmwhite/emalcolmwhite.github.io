@@ -1,8 +1,6 @@
 ---
-title: 'STAT 118: Notes E'
-subtitle: |
-  | Making plots  with `ggplot2`: barplots and scatterplots
-  | ![](https://ggplot2.tidyverse.org/logo.png){width=10%}
+title: 'Making plots  with `ggplot2`: barplots and scatterplots'
+subtitle: 'STAT 118: Notes E'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

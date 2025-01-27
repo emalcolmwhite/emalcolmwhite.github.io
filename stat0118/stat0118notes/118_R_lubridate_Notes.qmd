@@ -1,7 +1,5 @@
 ---
-title: |
-  | Working with dates using `lubridate`
-  | ![](https://lubridate.tidyverse.org/logo.png){width=10%}
+title: 'Working with dates using `lubridate`'
 subtitle: "STAT 118: Notes R"
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
@@ -69,7 +67,7 @@ Shoal Marine Lab (SML) is a remote field station located on Appledore Island, Ma
 
 ```{r}
 #read in Data
-power <- read.csv("data/power.csv")
+power <- read.csv("../data/power.csv")
 ```
 
 What format is the date in? 

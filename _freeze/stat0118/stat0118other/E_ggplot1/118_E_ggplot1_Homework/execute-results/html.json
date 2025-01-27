@@ -1,0 +1,14 @@
+{
+  "hash": "53a44ac8f2de22568c9249a85dc95fc2",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework E\"\nsubtitle: \"Making plots  with ggplot2: barplots and scatterplots\"\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#load the gapminder data for this lab\nlibrary(gapminder)\ndata('gapminder')\n```\n:::\n\n\n# 1.\n\nPick a year. Create a dataset which only contains that data for that year and is appropriately labeled. For example, if you choose the year `2007`, you might choose to call this new dataset `gapminder2007`. You will use this dataset for the rest of the assignment.\n\n\n::: {.cell}\n\n:::\n\n\n# 2.\n\nUsing your dataset you created in 1, create a barplot which displays the GDP per capita of the ten countries with the highest GDP per capita that year. Be sure your axes are appropriately labeled.\n\n\n::: {.cell}\n\n:::\n\n\n# 3.\n\nPick a continent. Using your dataset you created in 1, create a barplot which displays the life expectancy of all the countries in that continent in that year. You should sort the countries from highest life expectancy to lowest life expectancy. Be sure your axes are appropriately labeled.\n\n\n::: {.cell}\n\n:::\n\n\n# 4.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#Load Penguins Data\nlibrary(palmerpenguins)\ndata(\"penguins\")\n```\n:::\n\n\nTo the best of your ability, recreate the following plot from the `penguins` dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can. \n\n![](https://github.com/emalcolmwhite/STAT0118/blob/main/penguins_scatterplot.png?raw=true) \n\nThis image will also be available on the Canvas assignment (in case this link/preview don't work for you).\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

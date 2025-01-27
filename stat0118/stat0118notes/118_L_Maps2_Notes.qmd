@@ -1,6 +1,6 @@
 ---
-title: 'STAT 118: Notes L'
-subtitle: 'Plotting Points on Maps'
+title: 'Plotting Points on Maps'
+subtitle: 'STAT 118: Notes L'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:
