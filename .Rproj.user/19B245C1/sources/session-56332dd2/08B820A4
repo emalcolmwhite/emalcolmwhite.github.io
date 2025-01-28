@@ -1,26 +1,26 @@
 {
-    "id": "F4E75F46",
-    "path": "~/OneDrive - Middlebury College/emalcolmwhite.github.io/stat0118notes/118_C_aggregating_Notes.qmd",
-    "project_path": "stat0118notes/118_C_aggregating_Notes.qmd",
+    "id": "08B820A4",
+    "path": "~/OneDrive - Middlebury College/emalcolmwhite.github.io/index.qmd",
+    "project_path": "index.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1738069938825.0,
+    "created": 1738083929097.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "130,171",
-        "scrollLine": "118"
+        "cursorPosition": "21,0",
+        "scrollLine": "14"
     },
     "folds": "",
-    "lastKnownWriteTime": 1738069963,
+    "lastKnownWriteTime": 1738010653,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1738069963584,
+    "last_content_update": 1738010653,
     "read_only": false,
     "read_only_alternatives": []
 }

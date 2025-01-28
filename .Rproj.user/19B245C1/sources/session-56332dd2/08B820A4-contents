@@ -1,0 +1,34 @@
+---
+title: "Emily Malcolm-White (she/her)"
+subtitle: "Faculty, Department of Mathematics and Statistics, Middlebury College"
+page-layout: full
+image: images/EMW.jpg
+about: 
+  template: solana
+  image-shape: round
+  links:
+      - text: GitHub
+        icon: github
+        href: https://github.com/emalcolmwhite
+      - text: YouTube
+        icon: youtube
+        href: https://www.youtube.com/@emalcolmwhite
+      - text: "CV"
+        icon: file-earmark-fill
+        href: CV/index.qmd
+      - text: "Email"
+        icon: envelope-fill
+        href: mailto:emalcolmwhite@middlebury.edu  https://github.com/emalcolmwhite
+sidebar: false
+---
+
+
+**Hi there!** 👋
+
+I’m an educator and student support specialist with a passion for teaching and developing quantitative skills for students from a wide variety of backgrounds. I’m deeply committed to creating an inclusive and equitable learning environment where all students can thrive.
+
+At Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a new initiative dedicated to supporting Middlebury students in developing quantitative skills.
+
+Every year, I co-teach [“R by the Sea”](r-by-the-sea.html), a hands-on data science workshop for marine ecologists. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology. 
+
+
