@@ -1,0 +1,1 @@
+"0","can_lang <- read.csv(""https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv"") #<1>"

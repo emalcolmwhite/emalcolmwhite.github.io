@@ -1,15 +1,27 @@
 ---
 title: 'Cloropleth Maps with `maps` and `sf`'
+subtitle: '![](https://r-spatial.github.io/sf/logo.png){width=20%}'
 author: 'Emily Malcolm-White'
-institute: 'Middlebury College'
 format:
   html: 
     toc: TRUE
     code-overflow: wrap
     embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
 ---
 
-### Before we get started, some context:
+
+::: callout-tip
+# Resources
+- Notes Template
+- Homework
+:::
+
+
+# Before we get started, some context:
 
 - R is ***fantastic*** for spacial analysis (not covered in this class... look for classes related to spacial statistics)
 - R is *great* for interactive data visualization (via `leaflet` or `shiny`... more on this on Thursday)
@@ -103,7 +115,8 @@ theme_light()
 
 There are a few limitations to the approach outlined above, not least of which is the fact that the simple "longitude-latitude" data format is not typically used in real world mapping. Vector data for maps are typically encoded using the "simple features" standard produced by the Open Geospatial Consortium. The [`sf`](https://r-spatial.github.io/sf/) package developed by Edzer Pebesma provides an excellent toolset for working with such data, and the `geom_sf()` and `coord_sf()` functions in ggplot2 are designed to work together with the `sf` package.
 
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6025ee5a-bf25-4275-a211-16f4425089d2_rw_1200.png?h=fc615002bc5369c182feebc9c93b90a3){width=50%}
+![Artwork by @allisonhorst](https://user-images.githubusercontent.com/520851/50280460-e35c1880-044c-11e9-9ed7-cc46754e49db.jpg)
+
 
 ```{r}
 #LOAD PACKAGES

@@ -1,0 +1,13 @@
+---
+title: 'Animating plots using `gganimate`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+---
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/7606f921-3cf8-4240-b9a6-f31ebbe6cd6c_rw_1920.png?h=173381b1a16193a0f6cd17c89d4a58d5)
+
+Coming soon!

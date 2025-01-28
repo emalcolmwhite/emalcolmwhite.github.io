@@ -1,0 +1,10 @@
+---
+title: 'Cleaning data using `janitor`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+---
+

@@ -126,6 +126,10 @@ penguins %>%
 Remember when we deleted rows with missing data earlier? The above is only the number of penguins which we have full data for! There could be more penguins on those islands who didn't have a complete data available for them!
 :::
 
+# `across`
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a)
+
 
 # Brain Break
 

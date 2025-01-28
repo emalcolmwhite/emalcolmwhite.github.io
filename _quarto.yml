@@ -15,7 +15,6 @@ website:
       - text: "R by the Sea"
         href: r-by-the-sea.html
 
-
     right:
       - text: "Email"
         icon: envelope
@@ -36,7 +35,7 @@ website:
         - stat0118notes/118_B_wrangling_Notes.qmd
         - stat0118notes/118_C_aggregating_Notes.qmd
         - stat0118notes/118_I_joining_Notes.qmd
-      - section: 'Making plots  with `ggplot2`![](https://ggplot2.tidyverse.org/logo.png){width=10%}'
+      - section: 'Making plots with `ggplot2`'
         contents: 
         - stat0118notes/118_E_ggplot1_Notes.qmd
         - stat0118notes/118_F_ggplot2_Notes.qmd
@@ -49,7 +48,9 @@ website:
         - stat0118notes/118_H_forcats_Notes.qmd
         - stat0118notes/118_Q_stringr_Notes.qmd
         - stat0118notes/118_R_lubridate_Notes.qmd
-      - section: "Maps with `sf`"
+        - stat0118notes/118_janitor_Notes.qmd
+        - stat0118notes/118_gganimate_Notes.qmd
+      - section: "Maps"
         contents:
         - stat0118notes/118_K_Maps1_Notes.qmd
         - stat0118notes/118_L_Maps2_Notes.qmd
