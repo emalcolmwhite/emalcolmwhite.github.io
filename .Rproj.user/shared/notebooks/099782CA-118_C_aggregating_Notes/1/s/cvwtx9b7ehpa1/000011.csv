@@ -1,0 +1,4 @@
+"0","penguins %>%"
+"0","  filter(species == ""Adelie"") %>%"
+"0","  summarize(average_bill_lenth = mean(bill_length_mm),  #<1>"
+"0","            average_bill_depth = mean(bill_depth_mm))"
