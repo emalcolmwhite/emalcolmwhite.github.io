@@ -4542,6 +4542,20 @@ font-size: 1.2em;
 .social-icons a:hover {
 color: #000;
 }
+
+.quarto-sidebar .sidebar-item-list {
+counter-reset: sidebar-counter; 
+}
+
+.quarto-sidebar .sidebar-item-list > li {
+counter-increment: sidebar-counter; 
+}
+
+.quarto-sidebar .sidebar-item-list > li::before {
+content: counter(sidebar-counter) ". ";
+font-weight: bold; 
+margin-right: 5px; 
+}
 </style>
 </head>
 

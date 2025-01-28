@@ -88,4 +88,19 @@
   color: #000;
 }
 
+/* Initialize the counter for the sidebar */
+.quarto-sidebar .sidebar-item-list {
+  counter-reset: sidebar-counter; /* Start the counter */
+}
 
+/* Style each sidebar item */
+.quarto-sidebar .sidebar-item-list > li {
+  counter-increment: sidebar-counter; /* Increment the counter */
+}
+
+/* Add numbers to the sidebar items */
+.quarto-sidebar .sidebar-item-list > li::before {
+  content: counter(sidebar-counter) ". ";
+  font-weight: bold; /* Optional: make the numbers bold */
+  margin-right: 5px; /* Add spacing between the number and the text */
+}

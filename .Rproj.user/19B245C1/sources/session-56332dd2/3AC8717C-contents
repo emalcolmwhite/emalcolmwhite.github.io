@@ -15,7 +15,6 @@ website:
       - text: "R by the Sea"
         href: r-by-the-sea.html
 
-
     right:
       - text: "Email"
         icon: envelope
