@@ -1,2 +1,6 @@
 "0","can_lang  %>%                                  #<1>"
-"0","  filter(category == ""Aboriginal languages"")   #<2>"
+"0","  filter(category == ""Aboriginal languages"") %>%  #<2>"
+"0","  as.tibble()"
+"2","Warning: `as.tibble()` was deprecated in tibble 2.0.0.
+Please use `as_tibble()` instead.
+The signature and semantics have changed, see `?as_tibble`."

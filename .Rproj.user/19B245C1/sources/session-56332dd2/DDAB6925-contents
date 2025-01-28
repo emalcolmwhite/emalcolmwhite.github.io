@@ -1,0 +1,143 @@
+---
+title: 'Aggregating with summarize, group_by()'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+Today's Dataset: `palmerpenguins` Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.
+
+```{r message=FALSE, warning=FALSE}
+#LOAD DATA 
+library(palmerpenguins)
+data(penguins)
+```
+
+# Remove rows with missing data with `drop_na()`
+
+```{r}
+penguins <- penguins %>%
+  drop_na()
+```
+
+::: callout-warning
+Is it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?
+
+Removing rows can affect the validity and generalizability of your analysis!
+:::
+
+# `summarize` Function or `summarise` Function (either works)
+
+Suppose we are interested in the average bill length of all Adelie penguins:
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarize(average_bill_lenth = mean(bill_length_mm))
+```
+
+Suppose we are interested in the average bill length AND average bill depth of all Adelie penguins:
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarize(average_bill_lenth = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+```
+
+There are lots of other functions available:
+
+-   `min`: minimum value
+-   `max`: maximum value
+-   `mean`: average or mean value
+-   `median`: median value
+-   `var`: variance
+-   `sd`: standard deviation
+-   `n`: count or number of values
+-   `n_distinct`: counts number of distinct values
+
+Suppose we are interested in the average bill length AND the median bill length of all Adelie penguins:
+
+```{r}
+penguins %>%
+  filter(species == "Adelie") %>%
+  summarise(average_bill_lenth = mean(bill_length_mm), 
+            median_bill_length = median(bill_length_mm))
+```
+
+# `group_by`
+
+Let's say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.
+
+OR we could use the `group_by` command!
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+```
+
+## Multiple Groups
+
+Suppose we wish to have the average bill length and average bill depth broken down by sex AND species:
+
+```{r}
+penguins %>%
+  group_by(species, sex) %>%
+  summarise(average_bill_length = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+```
+
+# (Optional)`across`
+
+If you wish to apply the same calculation to many columns, you may wish to check out the `across` function.
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a)
+
+# More Examples
+
+Suppose we want to calculate the number of distinct islands each species is found on:
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(number_islands = n_distinct(island))
+```
+
+Suppose we are interested in how many penguins of each species are on each island in the year 2007:
+
+```{r}
+penguins %>% 
+  filter(year == "2007") %>%
+  group_by(species, island) %>%
+  summarise(number_penguins = n())
+```
+
+::: callout-warning
+Remember when we deleted rows with missing data earlier? The above is only the number of penguins which we have full data for! There could be more penguins on those islands who didn't have a complete data available for them!
+:::
+
+# `across`
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a)
+
+
+# Brain Break
+
+This is a story about Jinjing the South American Magellanic Penguin, that swims 5,000 miles each year to be reunited with the man who saved his life. The rescued Penguin was saved by João Pereira de Souza, a 73 year old part-time fisherman, who lives in an island village just outside Rio de Janeiro, Brazil. <https://youtu.be/oks2R4LqWtE>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oks2R4LqWtE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
