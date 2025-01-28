@@ -9,13 +9,12 @@ website:
     background: "#496677" 
     foreground: "#ffffff"
     left:
-      - text: "Course Materials"
-        menu: 
-        - text: "STAT 116: Intro to Statistical Science"
-          href: stat0116.html
-        - text: "R by the Sea"
-          href: r-by-the-sea.html
-        - sidebar:stat0118
+      - sidebar:stat0118
+      - text: "STAT 116: Intro to Statistical Science"
+        href: stat0116.html
+      - text: "R by the Sea"
+        href: r-by-the-sea.html
+
 
     right:
       - text: "Email"
@@ -25,7 +24,8 @@ website:
   sidebar: 
   - id: stat0118 
     title: "STAT 118: Intro to Data Science"
-    image: images/STAT0118_hex_sticker.png
+    logo: images/STAT0118_hex_sticker.png
+    search: true
     style: "docked"
     contents: 
       - section: "Intro to R and R-Studio"
