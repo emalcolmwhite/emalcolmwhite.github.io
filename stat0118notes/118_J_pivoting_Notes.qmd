@@ -17,12 +17,13 @@ execute:
 ---
 
 ![](https://tidyr.tidyverse.org/logo.png){width=30%}
-The goal of tidyr is to help you create tidy data. 
 
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/85520b8f-4629-4763-8a2a-9ceff27458bf_rw_1920.jpg?h=21007b20ac00cf37318dca645c215453)
+The goal of `tidyr` is to help you create tidy data. 
+
+![Illustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/85520b8f-4629-4763-8a2a-9ceff27458bf_rw_1920.jpg?h=21007b20ac00cf37318dca645c215453)
 
 
-![](https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif)
+
 
 # Reshaping with Pivoting -- Why? 
 
@@ -82,6 +83,8 @@ lang_home_tidy <- pivot_wider(lang_long,
 )
 lang_home_tidy
 ```
+
+![](https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif)
 
 # Gapminder
 
