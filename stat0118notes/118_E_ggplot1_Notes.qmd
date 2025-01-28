@@ -1,5 +1,5 @@
 ---
-subtitle:  'barplots and scatterplots'
+title:  'barplots and scatterplots'
 author: 'Emily Malcolm-White'
 format:
   html: 
