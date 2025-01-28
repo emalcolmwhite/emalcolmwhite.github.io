@@ -289,4 +289,9 @@ top10 %>%
 ```
 
 
+:::callout
+# External Resources
+
+- [R for Data Science, Webscraping](https://r4ds.hadley.nz/webscraping)
+
 :::

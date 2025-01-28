@@ -27,34 +27,34 @@ website:
     search: true
     style: "docked"
     contents: 
-      - section: "Intro to R and R-Studio"
+      - section: "1. Intro to R and R-Studio"
         contents:
         - stat0118notes/118_A_Intro_Notes.qmd
-      - section: "Wrangling with `dplyr`"
+      - section: "2. Wrangling with `dplyr`"
         contents:
         - stat0118notes/118_B_wrangling_Notes.qmd
         - stat0118notes/118_C_aggregating_Notes.qmd
         - stat0118notes/118_I_joining_Notes.qmd
-      - section: 'Making plots with `ggplot2`'
+      - section: '3. Making plots with `ggplot2`'
         contents: 
         - stat0118notes/118_E_ggplot1_Notes.qmd
         - stat0118notes/118_F_ggplot2_Notes.qmd
         - stat0118notes/118_G_ggplot3_Notes.qmd
-      - section: "Advanced Wrangling with `tidyr`"
+      - section: "4. Advanced Wrangling with `tidyr`"
         contents:
         - stat0118notes/118_J_pivoting_Notes.qmd
-      - section: "Other Useful packages"
+      - section: "5. Other Useful packages"
         contents:
         - stat0118notes/118_H_forcats_Notes.qmd
         - stat0118notes/118_Q_stringr_Notes.qmd
         - stat0118notes/118_R_lubridate_Notes.qmd
         - stat0118notes/118_janitor_Notes.qmd
         - stat0118notes/118_gganimate_Notes.qmd
-      - section: "Maps"
+      - section: "6. Maps"
         contents:
         - stat0118notes/118_K_Maps1_Notes.qmd
         - stat0118notes/118_L_Maps2_Notes.qmd
-      - section: "Webscraping with `rvest`"
+      - section: "7. Webscraping with `rvest`"
         contents:
         - stat0118notes/118_O_Webscraping_Tables_Notes.qmd
         - stat0118notes/118_P_Webscraping_Text_Notes.qmd

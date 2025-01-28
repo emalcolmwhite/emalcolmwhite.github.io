@@ -139,5 +139,10 @@ flights_weather_joined %>%
 - symbols or whitespace
 - Make sure the join fields are the same format.
 
+:::callout
+# External Resources
 
+- [R for Data Science, Joins](https://r4ds.hadley.nz/joins)
+
+:::
 

@@ -1,0 +1,166 @@
+---
+title: "Markdown Formatting & R Chunks"
+author: "Emily Malcolm-White"
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+::: {.callout-tip}
+A comprehensive list of markdown syntax can be found at [https://quarto.org/docs/authoring/markdown-basics.html](https://quarto.org/docs/authoring/markdown-basics.html). 
+:::
+
+
+# In-lab Examples
+
++------------------------------------------------------+------------------------------------------------------+
+| Markdown Syntax                                      | Output                                               |
++======================================================+======================================================+
+| ``` markdown                                         | *italics*                                            |
+| *italics*                                            |                                                      |
+| ```                                                  |                                                      |
++------------------------------------------------------+------------------------------------------------------+
+| ``` markdown                                         | **bold**                                             |
+| **bold**                                             |                                                      |
+| ```                                                  |                                                      |
++------------------------------------------------------+------------------------------------------------------+
+| ``` markdown                                         | ***bold italics***                                   |
+| ***bold italics***                                   |                                                      |
+| ```                                                  |                                                      |
++------------------------------------------------------+------------------------------------------------------+
+| ``` markdown                                         | -   chai tea                                         |
+| - chai tea                                           | -   green tea                                        |
+| - green tea                                          | -   earl grey tea                                    |
+| - earl grey tea                                      |                                                      |
+| ```                                                  |                                                      |
++------------------------------------------------------+------------------------------------------------------+
+| ``` markdown                                         | [this is the text that will display](www.google.com) |
+| [this is the text that will display](www.google.com) |                                                      |
+| ```                                                  |                                                      |
++------------------------------------------------------+------------------------------------------------------+
+| ``` markdown                                         | ![a caption here](../images/jellyfish.jpg)           | 
+| ![a caption here](jellyfish.jpg)                     |                                                      |
+| ```                                                  |                                                      |
++------------------------------------------------------+------------------------------------------------------+
+
+------------------------------------------------------------------------
+
+# R chunks
+
+To create a R chunk:
+
+- use the +C green buttom in the top menu
+- Mac Shortcut: CMD + OPTION + I 
+- PC shortcut: Ctrl + ALT + I
+- manually type out ```{r}... etc. 
+
+
+
+Calculations and R code goes inside chunks. 
+
+```{r}
+2+2
+```
+
+
+| Operator  | Description                          |
+|-----------|--------------------------------------|
+| `+`       | Addition                            |
+| `-`       | Subtraction                         |
+| `*`       | Multiplication                      |
+| `/`       | Division                            |
+| `^` or `**` | Exponentiation                     |
+| `x %% y`  | Modulus (x mod y) → `5 %% 2 = 1`    |
+| `x %/% y` | Integer division → `5 %/% 2 = 2`    |
+
+
+Commenting inside an R chunk: 
+
+```{r}
+# anything behind a "#" in an R chunk is a comment
+```
+
+Assigning a value to an object: 
+
+```{r}
+# this takes the value of 20 and assigns it to the object x
+x <-11
+```
+
+Operations with objects: 
+
+```{r}
+# take the object x, multiply by 2, and spit out the answer
+y <- x*2
+y
+```
+
+Creating a vector: 
+
+```{r}
+z <- c(1.778, 1.53, 1.58, 1.56)
+# c stands for concatenate -- a fancy computer science word for "put together"
+
+z_inches <- z*39.701
+
+# This calculates the mean of z
+mean(z, na.rm=TRUE)
+
+# This calculates the standard deviation of z
+sd(z)
+```
+
+# Equations
+
+## Centered and large equations
+
+Type in the plain text section: 
+
+``` markdown
+$$y=\frac{x^2}{SE(x^2)} $$
+```
+
+Displays as: 
+
+$$y=\frac{x^2}{SE(x^2)} $$
+
+*Hint: Some people like to use the visual editor to insert equations*
+
+## Inline equations
+
+
+Type in the plain text section: 
+
+```{r, results='asis', echo=FALSE}
+cat("We take and calculate the standard error `` $SE(x_1)$. ``")
+```
+
+Displays as: 
+
+We take and calculate the standard error $SE(x_1)$.
+
+## Inline code
+
+
+Type in the plain text section: 
+
+```{r, results='asis', echo=FALSE}
+cat("This is a sentence. The value of x is `` `r x` ``")
+```
+
+Displays as: 
+
+This is a sentence. The value of x is `r x`.
+
+
+

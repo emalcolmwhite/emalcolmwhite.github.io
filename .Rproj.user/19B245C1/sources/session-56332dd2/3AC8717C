@@ -3,7 +3,7 @@
     "path": "~/OneDrive - Middlebury College/emalcolmwhite.github.io/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "1375195118",
     "contents": "",
     "dirty": false,
     "created": 1734568774460.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "64,2",
-        "scrollLine": "53"
+        "cursorPosition": "56,21",
+        "scrollLine": "36"
     },
     "folds": "",
-    "lastKnownWriteTime": 1738071238,
+    "lastKnownWriteTime": 1738092873,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1738071238766,
+    "last_content_update": 1738092873172,
     "read_only": false,
     "read_only_alternatives": []
 }
