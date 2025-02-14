@@ -431,14 +431,14 @@
     "href": "courses/stat0118/118_A_Intro_Notes.html#inline-equations",
     "title": "Markdown Formatting & R Chunks",
     "section": "Inline equations",
-    "text": "Inline equations\nType in the plain text section:\n\nWe take and calculate the standard error $SE(x_1)$.\n\nDisplays as:\nWe take and calculate the standard error \\(SE(x_1)\\)."
+    "text": "Inline equations\nType in the plain text section:\nWe take and calculate the standard error $SE(x_1)$.\nDisplays as:\nWe take and calculate the standard error \\(SE(x_1)\\)."
   },
   {
     "objectID": "courses/stat0118/118_A_Intro_Notes.html#inline-code",
     "href": "courses/stat0118/118_A_Intro_Notes.html#inline-code",
     "title": "Markdown Formatting & R Chunks",
     "section": "Inline code",
-    "text": "Inline code\nType in the plain text section:\n\nThis is a sentence. The value of x is `r x`\n\nDisplays as:\nThis is a sentence. The value of x is 11."
+    "text": "Inline code\nType in the plain text section:\nThis is a sentence. The value of x is `r x`\nDisplays as:\nThis is a sentence. The value of x is 11."
   },
   {
     "objectID": "courses/stat0118/raw_qmds/118_B_wrangling_Notes_Blank.html",

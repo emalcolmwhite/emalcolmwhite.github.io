@@ -60,7 +60,6 @@ website:
         contents:
         - courses/stat0118/118_O_Webscraping_Tables_Notes.qmd
         - courses/stat0118/118_P_Webscraping_Text_Notes.qmd
-    
   back-to-top-navigation: true
   page-footer: 
     left: "Made by EMW (2025)" 
@@ -71,7 +70,6 @@ format:
     theme: lumen
     css: styles/custom.css
     anchor-sections: false
-    
+
 execute:
-  cache: true
   freeze: auto

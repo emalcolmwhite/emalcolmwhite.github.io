@@ -48,7 +48,7 @@ A comprehensive list of markdown syntax can be found at [https://quarto.org/docs
 | [this is the text that will display](www.google.com) |                                                      |
 | ```                                                  |                                                      |
 +------------------------------------------------------+------------------------------------------------------+
-| ``` markdown                                         | ![a caption here](images/jellyfish.jpg)           | 
+| ``` markdown                                         | ![a caption here](images/jellyfish.jpeg)           | 
 | ![a caption here](jellyfish.jpg)                     |                                                      |
 | ```                                                  |                                                      |
 +------------------------------------------------------+------------------------------------------------------+
