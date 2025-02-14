@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   resources: 
-  - courses/**/*.qmd
+  - courses/stat0118/*.qmd
 
 website:
   title: "EMW"
