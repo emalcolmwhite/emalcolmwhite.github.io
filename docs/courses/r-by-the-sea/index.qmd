@@ -1,0 +1,41 @@
+---
+format: html
+sidebar: false
+---
+
+
+## R by the Sea
+
+
+I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the [Quantitative Marine Ecology Lab at the University of New Hampshire](https://quantmarineecolab.github.io/). It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology. 
+
+::: {.grid style="margin-top: 50px; margin-bottom: 50px;"}
+
+::: {.g-col-4}
+![](images/r_by_the_sea_hex_sticker_nobg.png)
+:::
+
+::: {.g-col-8 style="align-items: center; height: 100%;"}
+
+**R by the Sea @ Shoals Marine Lab** is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning.   Check out the [R by the Sea webpage](https://quantmarineecolab.github.io/r-by-the-sea/). It contains resources for the most recent iteration of this course.
+
+For more information on upcoming offerings and enrolling in the course, check out the [Shoals Marine Lab “R by the Sea” website](https://www.shoalsmarinelaboratory.org/r-sea-data-analysis-marine-sciences). The course typically runs in May.
+
+:::
+
+:::
+
+
+::: {.grid}
+
+::: {.g-col-4}
+![](images/r_by_the_sea_jp_hex_sticker.png)
+:::
+
+::: {.g-col-8 style="display: flex; align-items: center; height: 100%;"}
+**R by the Sea @ Japan 2025** is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the [R by the Sea Japan webpage](https://quantmarineecolab.github.io/r-by-the-sea-jp/) for more details. 
+
+:::
+
+:::
+

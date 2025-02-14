@@ -1,0 +1,220 @@
+---
+title: 'Working with text with `stringr`'
+author: 'Violet Ross and Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+![](https://stringr.tidyverse.org/logo.png){width=30%}
+
+![artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6bbcc35c-1863-49df-8204-d981303d8cd3_rw_1200.png?h=96d11e5bed7cfe2474d27a99980d0881){width=50%}
+
+
+# A few basics
+
+**What is a string?**
+
+- datatype we use to represent text
+- use " " 
+
+**Examples of strings:**
+
+- "Hello world" 
+- "5678"
+- "blah blah blah"
+
+** NOT a string:**
+
+- 5678
+
+# Using `stringr`
+
+[`stringr`](https://stringr.tidyverse.org/) is a package containing a bunch of functions that help us work with strings. We'll discuss how to detect, remove, extract, and count words/characters/phrases from a string. We'll also talk about how to slice a string to get only the parts (aka the substrings) of it that you want.
+  
+[**`stringr` cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+
+`stringr` is contained within the `tidyverse` package. 
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+**I'm registering for classes this Spring and am trying to decide what to take.**
+Let's look at the course catalog!
+
+Read in the courses data.
+```{r, message=FALSE, warning=FALSE}
+courses <- read_csv("data/Fall23courses.csv")
+```
+    
+## `str_detect` 
+
+![artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/813129dc-25e9-4ea3-9d03-262401faefba_rw_1200.png?h=e33a9402181e738d792b78e04cf4a6bc)
+  
+**inputs**: - string
+            - pattern
+            
+**output**: - TRUE/FALSE
+
+little example:
+```{r}
+str_detect("Welcome to data science, look at this cool data", "data")
+```
+```{r}
+str_detect("Welcome to data science, look at this cool data", "pineapple")
+```
+
+
+I only want to take classes in Warner! 
+```{r}
+courses %>% 
+  filter(str_detect(location, "WNS"))
+```
+  
+  
+Suppose I don't want any classes on Friday. Let's use `str_detect` to find our options.
+
+```{r}
+notFriday <- courses %>% 
+  filter(!str_detect(meet, "Friday"))
+```
+
+
+Perhaps I'm interested in immigration.  
+  
+The `regex` function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.  
+
+For now, we will only use regex to ignore capitalization.
+
+If you're interested in using regular expressions at some point, this [regex cheat sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/) will be super helpful.
+
+```{r}
+immigrationclasses <- courses %>% 
+  filter(str_detect(description, regex("immigration", ignore_case=TRUE)))
+
+immigrationclasses
+```
+  
+## `str_extract` and `str_remove`
+  
+**str_extract inputs**: - string
+                        - pattern
+**str_extract output**: - the extracted pattern, if it appears in the the string
+
+**str_remove inputs**:  - string
+                        - pattern
+**str_extract output**:  - the string without the pattern, if it appears in the string
+
+little example:
+```{r}
+str_extract("Welcome to data science, look at this cool data", "data")
+
+str_extract_all("Welcome to data science, look at this cool data", "data")
+
+str_remove("Welcome to data science, look at this cool data", "data")
+
+str_remove_all("Welcome to data science, look at this cool data", "data")
+```
+  
+  
+  
+CW is part of the distribution requirement column. I want CW to be its own column.  
+
+```{r}
+courses %>% 
+  mutate(CW = str_extract(distros, "CW")) %>% 
+  mutate(distros = str_remove(distros, "CW"))
+```
+  
+  
+  
+## `str_sub`
+  
+  
+**str_sub inputs**: - string   
+                    - starting character 
+                    - ending character
+**str_sub output**: - string with only the characters between the start and the end   
+  
+little example:
+```{r}
+str_sub("Welcome to data science, look at this cool data", start=12, end=23) 
+```
+  
+:::notes-tip
+Bounds are inclusive!
+:::
+
+Maybe I only want 200 level math classes.  
+
+- First we filter for just math classes. 
+- Then we can create a new column called `level` that contains only the sixth character from the `courses` column.  
+
+We call this a **substring**, hence the function `str_sub`.  
+
+
+```{r}
+MathClasses <- courses %>% 
+  filter(department == "Mathematics") %>% 
+  mutate(level=str_sub(courseNum, start=6, end=6)) 
+
+Math2Classes <- MathClasses %>% 
+  filter(level== "2")
+```
+  
+  
+## `str_count`
+
+**str_count inputs**: - string  
+                      - pattern
+**str_count output**: - a count of the number of times the pattern appears in the string
+  
+  
+little example:
+```{r}
+str_count("Welcome to data science, look at this cool data", "data")
+```
+ 
+
+Maybe I only want my classes to meet twice a week.
+```{r}
+
+courses <- courses %>% 
+  mutate(dayCount = str_count(meet, "day"))
+
+#what's the maximum number of days a week a class meets?
+max(courses$dayCount)
+
+#what's the mean number of days?
+mean(courses$dayCount)
+
+```
+
+Let's visualize this data.
+```{r}
+courses %>% 
+  ggplot() + 
+  geom_bar(aes(x=dayCount), fill="blue") + 
+  xlab("Number of Days Class Meets") + 
+  ylab("Number of Classes") + 
+  labs(title="How many Days a Week do Classes at Middlebury Meet?")+
+  theme_classic()
+```
+
+# Another useful function `str_squish`
+
+`str_squish` is used to remove leading, trailing, and repeated interior whitespaces from strings
+
+![artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/0e4df3af-8bca-4f5e-9945-a3859d56c534_rw_1200.png?h=cbb57087ad1e3e69fdb572d10f26f8e2)

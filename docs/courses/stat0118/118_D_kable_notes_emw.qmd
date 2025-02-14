@@ -1,0 +1,123 @@
+---
+title: 'Pretty tables with `kableExtra`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+![](https://zhuhao.org/post/2019-01-31-tips-on-designing-a-hex-sticker-for-rstats-packages_files/kableExtra_sm.png){width=30%}
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+```{r message=FALSE, warning=FALSE}
+#LOAD DATA 
+library(palmerpenguins)
+data(penguins)
+
+#CLEAN UP DATA
+penguins <- penguins %>%
+  drop_na()
+#sometimes this is appropriate. It's questionable here... 
+```
+
+
+# default printing style of a table
+
+Let's consider our table from last class:
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_lenth = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+```
+
+When we knit this up it looks like of ugly...
+
+# Using `kable` to get pretty tables
+
+```{r message=FALSE, warning=FALSE}
+library(kableExtra)
+```
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm)) %>% 
+  kbl()
+
+#OR 
+
+table1 <- penguins %>%
+  group_by(species) %>%
+  summarise(average_bill_length = mean(bill_length_mm), 
+            average_bill_depth = mean(bill_depth_mm))
+
+kbl(table1)
+```
+
+
+# Options in kable
+
+We customize the content so it's displaying the information more clearly.
+
+```{r}
+table1 %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"), 
+    caption = "Average Bill Characteristics by Species", 
+    digits = 2)
+```
+
+Better...
+
+# pretty styling
+
+```{r}
+table1 %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"), 
+    caption = "Average Bill Characteristics by Species", 
+    digits = 2) %>%
+  kable_styling()
+```
+
+Many options for customizing the look of the tables -- more here: <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
+
+Let's try one...
+
+Let's make each row's color correspond to
+
+```{r}
+table1 %>%
+  kbl(col.names = c("Species", "Average Bill Length", "Average Bill Depth"), 
+    caption = "Average Bill Characteristics by Species", 
+    digits = 2) %>%
+  kable_paper() %>%
+  column_spec(1, bold=T) %>%
+  row_spec(2, color = "#c85bcc") %>%
+  row_spec(3, color = "#067176") %>%
+  row_spec(1, color = "#ff7501")
+```
+
+RStudio hosts a table contest every year!
+
+-   Here is a link to this year's contest <https://www.rstudio.com/blog/rstudio-table-contest-2022/>
+-   Here is a link to previous year's entries and winners to explore what is possible! <https://community.rstudio.com/c/table-gallery/64>
+
+::: callout-tip
+As a general rule, you should have the content of the table as you'd like it (the exact columns and rows you want) first and *then* you can make it pretty using the `kableExtra` package.
+:::

@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   resources: 
-    - courses/stat0118/raw_qmds/
+  - courses/**/*.qmd
 
 website:
   title: "EMW"
@@ -31,35 +31,35 @@ website:
     contents: 
       - section: "1. Intro to R and R-Studio"
         contents:
-        - courses/stat0118/118_A_Intro_Notes.qmd
+        - courses/stat0118/118_A_Intro_notes_emw.qmd
       - section: "2. Wrangling with `dplyr`"
         contents:
-        - courses/stat0118/118_B_wrangling_Notes.qmd
-        - courses/stat0118/118_C_aggregating_Notes.qmd
-        - courses/stat0118/118_I_joining_Notes.qmd
+        - courses/stat0118/118_B_wrangling_notes_emw.qmd
+        - courses/stat0118/118_C_aggregating_notes_emw.qmd
+        - courses/stat0118/118_I_joining_notes_emw.qmd
       - section: '3. Making plots with `ggplot2`'
         contents: 
-        - courses/stat0118/118_E_ggplot1_Notes.qmd
-        - courses/stat0118/118_F_ggplot2_Notes.qmd
-        - courses/stat0118/118_G_ggplot3_Notes.qmd
+        - courses/stat0118/118_E_ggplot1_notes_emw.qmd
+        - courses/stat0118/118_F_ggplot2_notes_emw.qmd
+        - courses/stat0118/118_G_ggplot3_notes_emw.qmd
       - section: "4. Advanced Wrangling with `tidyr`"
         contents:
-        - courses/stat0118/118_J_pivoting_Notes.qmd
+        - courses/stat0118/118_J_pivoting_notes_emw.qmd
       - section: "5. Other Useful packages"
         contents:
-        - courses/stat0118/118_H_forcats_Notes.qmd
-        - courses/stat0118/118_Q_stringr_Notes.qmd
-        - courses/stat0118/118_R_lubridate_Notes.qmd
-        - courses/stat0118/118_janitor_Notes.qmd
-        - courses/stat0118/118_gganimate_Notes.qmd
+        - courses/stat0118/118_H_forcats_notes_emw.qmd
+        - courses/stat0118/118_Q_stringr_notes_emw.qmd
+        - courses/stat0118/118_R_lubridate_notes_emw.qmd
+        - courses/stat0118/118_janitor_notes_emw.qmd
+        - courses/stat0118/118_gganimate_notes_emw.qmd
       - section: "6. Maps"
         contents:
-        - courses/stat0118/118_K_Maps1_Notes.qmd
-        - courses/stat0118/118_L_Maps2_Notes.qmd
+        - courses/stat0118/118_K_Maps1_notes_emw.qmd
+        - courses/stat0118/118_L_Maps2_notes_emw.qmd
       - section: "7. Webscraping with `rvest`"
         contents:
-        - courses/stat0118/118_O_Webscraping_Tables_Notes.qmd
-        - courses/stat0118/118_P_Webscraping_Text_Notes.qmd
+        - courses/stat0118/118_O_Webscraping_Tables_notes_emw.qmd
+        - courses/stat0118/118_P_Webscraping_Text_notes_emw.qmd
   back-to-top-navigation: true
   page-footer: 
     left: "Made by EMW (2025)" 

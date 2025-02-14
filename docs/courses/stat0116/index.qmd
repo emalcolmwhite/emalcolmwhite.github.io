@@ -1,0 +1,22 @@
+---
+format: html
+sidebar: false
+---
+
+
+## STAT 116: Introduction to Statistical Science
+
+::: {.grid}
+
+::: {.g-col-4}
+![](images/STAT0116_hex_sticker.png)
+:::
+
+::: {.g-col-8}
+
+:::
+
+:::
+
+
+More Coming Soon!
