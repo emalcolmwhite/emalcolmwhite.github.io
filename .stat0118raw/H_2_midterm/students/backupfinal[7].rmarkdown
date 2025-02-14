@@ -1,0 +1,297 @@
+---
+title: "Unemployment by region 1976-2022"
+author: "Lucas Nerbonne"
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning =FALSE, message= FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+library(ggplot2)
+library(janitor)
+
+#load more packages here as necessary
+```
+
+```{r}
+library(janitor)
+unemployment <- read.csv("unemployment.csv")
+clean_data<-distinct(unemployment)
+ 
+#data prep
+clean_data<-drop_na(unemployment)
+
+```
+
+```{r}
+#filtering out cities from the dataset
+statesunemployment<-clean_data%>%
+  filter(!FIPS.Code==37&!FIPS.Code==51000&!FIPS.Code==11)
+```
+
+```{r}
+#adding region column
+statesunemployment <- statesunemployment%>%
+  mutate(region="")
+
+#transferring to variable to character
+statesunemployment$FIPS.Code<-as.character(statesunemployment$FIPS.Code)
+```
+
+```{r include=FALSE, results='hide'}
+#transferring to variable to character
+statesunemployment$FIPS.Code<-as.character(statesunemployment$FIPS.Code)
+
+
+#assigning states to regions
+statesunemployment$region<-statesunemployment$FIPS.Code%>%
+fct_collapse(Northeast=c(
+'9',
+'23',
+'25',
+'33',
+'44',
+'50',
+'34',
+'36',
+'42'),Midwest=c(
+'17',
+'18',
+'26',
+'39',
+'55',
+'19',
+'20',
+'27',
+'29',
+'31',
+'38',
+'46'), South=c('10',
+'11',
+'12',
+'13',
+'24',
+'37',
+'45',
+'51',
+'54',
+'1',
+'21',
+'28',
+'47',
+'5',
+'22',
+'40',
+'48'), West= c('4',
+'8',
+'16',
+'30',
+'32',
+'35',
+'49',
+'56',
+'2',
+'6',
+'15',
+'41',
+'53'))
+
+#assigning states to smaller regions, which I didn't end up using 
+statesunemployment$smallerregion<-statesunemployment$FIPS.Code%>%
+fct_collapse(NE=c('9',
+'23',
+'25',
+'33',
+'44',
+'50'),MidA=c('34',
+'36',
+'42'),ENC=c('17',
+'18',
+'26',
+'39',
+'55'),WNC=c('19',
+'20',
+'27',
+'29',
+'31',
+'38',
+'46'),SAL=c('10',
+'11',
+'12',
+'13',
+'24',
+'37',
+'45',
+'51',
+'54'),ESC=c('1',
+'21',
+'28',
+'47'),WSC=c('5',
+'22',
+'40',
+'48'),Mtn=c('4',
+'8',
+'16',
+'30',
+'32',
+'35',
+'49',
+'56'),PACIFIC=c('2',
+'6',
+'15',
+'41',
+'53'))
+
+#all regions
+statesunemployment%>%
+  group_by(region, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=region))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Unemployment by Region, 1976-2022")
+
+#bigregion2008
+statesunemployment%>%
+  filter(Year==2005:2015)%>%
+  group_by(region, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=region))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Unemployment by Region, 2005-2015")+
+  scale_x_continuous(breaks=c(2005,2010,2015))
+
+#smallregion
+statesunemployment%>%
+  filter(Year==2005:2015)%>%
+  group_by(smallerregion, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=smallerregion))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Unemployment by microRegion, 2005-2015")%>%
+  scale_x_continuous(breaks=c(2005,2010,2015))
+
+#bigregion 2020
+statesunemployment%>%
+  filter(Year==2018:2022)%>%
+  group_by(region, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=region))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Unemployment by Region, 2018-2022")+
+  scale_x_continuous(breaks=c(2005,2010,2015))
+
+statesunemployment%>%
+  group_by(State.Area)%>%
+  summarize(avunemployment= mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  arrange(by=desc(avunemployment))%>%
+  slice(1:5,45:50)
+
+```
+
+
+
+
+*Introduction*
+
+The 2008 financial crisis and the economic fallout from the COVID 19 Pandemic looked surprisingly similar from a data perspective- A single event triggering a wave of unemployment across the country. This rapid job loss was heralded in both 2008 and 2020 as unprecedented and unexpected but saw large spacial fluctuation on a smaller scale. What communities did better than others? Are there similar patterns across the two economic upheavals?
+
+The data for this report is sourced from a compilation of US Bureau of Labor Statistics monthly reports, which are modeled with data from the bureau's Current Population Survey (CPS) which polls 110,000 individuals once a month to gather information about labor trends. Payroll information from the Current Employment Survey (CES) and unemployment insurance are used as additional model inputs. (https://www.bls.gov/lau/laumthd.htm)
+
+
+
+*Results*
+
+
+```{r}
+statesunemployment%>%
+group_by(region)%>%
+summarize("Mean Unemployent Percentage"=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  kbl(col.names = c("Region", "Mean Unemployment Percentage"), caption = "Mean Yearly Unemployment Percentage by Geographic Region",)%>%
+  kable_styling()%>%
+  row_spec(1,color="#6CA209")%>%
+  row_spec(2,color ="#F2625D")%>%
+  row_spec(3,color="#1EB4B8")%>%
+  row_spec(4, color="#BC61FF")
+
+
+```
+
+
+Table 1: Mean unemployment percentage, 1976-2022. We can see that the midwest and the northeast have the lowest average unemployment rates, while the south and west have higher. 
+
+
+```{r}
+statesunemployment%>%
+  group_by(region, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=region))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Yearly Unemployment by Region, 1976-2022")
+```
+
+
+Figure 1: Average unemployment by region (Northeast, South, West, Midwest), 1976-2022.
+
+
+```{r}
+statesunemployment%>%
+  filter(Year==2005:2015)%>%
+  group_by(region, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=region))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Yearly Unemployment by Region, 2005-2015")+
+  scale_x_continuous(breaks=c(2005,2010,2015))
+```
+
+
+Figure 2: Yearly average unemployment by region preceding and following the 2008 financial crisis. The Midwest appeared to have both the least effected employment stats and the fastest recovery from the initial hit than any of the four regions.
+
+
+```{r}
+statesunemployment%>%
+  filter(Year==2018:2022)%>%
+  group_by(region, Year)%>%
+  summarize(mean=mean(Percent.....of.Labor.Force.Unemployed.in.State.Area))%>%
+  ggplot(aes(x=Year, y=mean, color=region))+
+  geom_line()+
+  ylab("Percent Unemployed")+
+  ggtitle("Average Yearly Unemployment by Region, 2018-2022")+
+  scale_x_continuous(breaks=c(2018,2020,2022))
+```
+
+
+Figure 3: Average yearly unemployment percentages before and after the height of the COVID 19 pandemic, 2018-2022. This graph shows the Midwest being less effected by COVID layoffs while the Northeast took a heavy hit.
+
+*Discussion*
+
+The comparison of overall averages between the temporal snapshots from 2005-2015 and 2018-2022 shows a strong trend- the Midwest has both a lower overall rate of unemployment and additionally recovered jobs more quickly from both crises.
+
+The overall trends seen in the graphs remain consistent across our two study periods- a rapid rise in unemployment followed by a recovery period. The recovery is significantly different between the two events- COVID 19's recovery was much more swift, with all four regions 
+
+The other three geographic regions have different reactions to the 2008 crisis than they do to COVID- the northeast does much better than the south and west in 2008 (Fig.2), but is far and away the most effected by COVID 19 (Fig.3). This could be attributed to the particularly high levels of community spread seen in the northeast during the height of the pandemic along with Democratic governors being more willing to institute stay-at-home policies in their states. The northeast and it's prevalent tourism industry could have been negatively effected because of that industry's ubiquity in the area's economy and it's reliance on travelers, outside dollars, and good economic climates, all of which were few and far between in 2020-2022. 
+
+The Midwest's employment resilience to disruption holds true across both of these events, as well as many of the other disruptions over the span of the dataset (Figure 1). One potential explanation is the type of jobs in the area- small, interdependent towns with lots of farmers have both more job security during a pandemic (we all need food!) and remain more insulated from the outside world because of the limited interaction/reliance on outside industry. 
+
+This study is limited by it's lack of analysis of outside factors, especially in the case of COVID. Work-from-home orders and virus outbreaks potentially had a huge effect on unemployment numbers and effected different regions differently. In the northern/western states, large COVID waves would be met with stricter regulations while lawmakers in the south and parts of the midwest were more laissez faire about their restrictions. Future research could investigate the effect on different policies and state government control on state-level unemployment.
+
+Research on the difference in job sector distribution between regions could also highlight the differences in the effects of job market disruption on different industries. Comparisons between job sector distribution could explain some of the regional variation in effects of upheaval.
+
+
+*References*
+
+  “Local Area Unemployment Statistics Estimation Methodology : U.S. Bureau of Labor Statistics.” www.bls.gov, Bureau of Labor Statistics, www.bls.gov/lau/laumthd.htm. Accessed 18 Mar. 2023.
+
+  OH, Justin. “Unemployment in America, per US State.” Www.kaggle.com, 13 Mar. 2023, www.kaggle.com/datasets/justin2028/unemployment-in-america-per-us-state.

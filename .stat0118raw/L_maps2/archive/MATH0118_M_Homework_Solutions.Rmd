@@ -1,0 +1,62 @@
+---
+title: "MATH 118: Homework O"
+subtitle: 'Maps'
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(sf) 
+library(leaflet)
+library(spData)
+```
+
+Choose one of the datasets provided which displays the latitude and longitude of many locations. Your job will be to create a map which displays the locations of the items on an appropriate map.
+
+1. Use the space below to import in your dataset of choice (choices are on the Canvas Assignment page). 
+
+**Keep in mind that you may want to work with ALL locations in the dataset OR you may wish to work with a subset of the locations -- totally your choice.**
+
+```{r}
+dunkin <- read.csv("~/Library/CloudStorage/OneDrive-MiddleburyCollege/MATH0118 - Fall 2022/dunkin_stores.csv")
+```
+
+2. Find an appropriate `sf` dataset for the locations of your data. Recall the `spData` package contains many different `sf` objects, so you might be able to find an appropriate map there. 
+
+```{r}
+data(
+"us_states"
+)
+```
+
+3. Create an `ggplot` map (using `sf` objects) which displays the locations from your dataset as points on the map. All points should be the same size (choose an appropriate size and color). Your plot should include a title and appropriate colors. 
+
+```{r}
+us_states %>%
+ggplot() +
+geom_sf() +
+theme_light()
+```
+
+4. Create an `ggplot` map (using `sf` objects) which displays the locations from your dataset as points on the map. Your points should vary in size depending on a quantitative variable in your data OR vary in color depending on a categorical variable in your data. Your plot should include a title and appropriate colors.
+
+```{r}
+us_states %>%  
+ggplot() +  
+  geom_sf() + 
+  geom_point(data=dunkin_stores, aes(x=loc_long, y=loc_lat), pch=19, size=1) +
+   coord_sf(xlim = c(-125, -65), 
+           ylim = c(20, 50))+
+  xlab("Longitude")+
+  ylab('Latitude')
+```
+
+5. Create a `leaflet` map which displays the locations from your dataset as well-labeled markers on a map. 
+
+```{r}
+
+```
+

@@ -1,0 +1,189 @@
+---
+title: 'filter, select, arrange, slice, mutate'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+# Installing and Using Packages
+
+Sometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.
+
+First, you need to download the package from the right hand menu --\> You only need to do this once.
+
+In each new .qmd document, you need to call any packages you want to use but adding the code `library(packagename)` inside an R chunk.
+
+For example, in this class we will use the `tidyverse` package a lot.
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+library(tidyverse) 
+```
+
+
+There are actually many commonly used packages wrapped up inside one `tidyverse` package.
+
+![Credit: https://uopsych-r-bootcamp-2020.netlify.app/](https://uopsych-r-bootcamp-2020.netlify.app/slides/images/tidyverse_packages_purpose.png)
+
+
+Today we are specifically going to be talking about the package `dplyr` which is useful to manipulating data sets.
+
+
+# `can_lang` dataset 
+
+![](https://github.com/ttimbers/canlang/blob/master/man/figures/hex-canlang.png?raw=true){width=30%}
+
+In this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census. 
+
+# Importing Data
+
+What is a .csv file?
+
+How do we import it into R?
+
+Use `read.csv()`! Note that your data file (`.csv`) needs to be saved in the same folder as your notes template document (`.qmd`).
+
+```{r}
+#can_lang <- read.csv("can_lang.csv") 
+```
+
+Alternatively, you can download it directly from the internet. Github user `ttimbers` hosts this file to share with the public at the link: <https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv>
+
+```{r}
+#can_lang <- read.csv("https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv") 
+```
+
+
+Let's take a look at this data for a minute to see what information has been recorded. In the environment in the top left, if you click on the word `can_lang` (not the blue play button, the word itself) it will open the object so you can see what is saved inside. Alternatively you can use the `head()` function to display just the first few rows of the dataset. 
+
+```{r}
+
+```
+
+# `filter`
+
+We can use the `filter` function to extract ***rows*** from the data that have a particular characteristic.
+
+![Artwork by @allisonhorst]https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/cb8d9c50-f48e-4c6d-a5b3-1d30ce0be2ad_rw_1920.png?h=1a879eda58a5efbf709ad0a59d784f98){width=80%}
+
+For example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.
+
+Start with the `can_lang dataset`, the pipe "%>%" means apply the action on the following line to the previous line.
+
+```{r}
+
+```
+
+Some notes:
+
+-   the aboriginal languages is text/categorical and so quotation marks are needed.
+-   R doesn't care about whether they are double quotation marks (") or single ('). They work the same.
+-   If we don't assign it to an object, then it just prints out for us to see!
+
+Oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called `aboriginal_lang`.
+
+```{r}
+  
+```
+
+
+Notes:
+
+-   Notice if you assign it to an object that it doesn't print out the contents.
+-   You'll see the new object in your environment on the top right ---\>
+
+
+It can also be used with numeric criteria.
+
+Suppose we want a list of all the languages in Canada that are spoken by less than 100 people as their mother tongue.
+
+```{r}
+
+```
+
+
+The logical operators are given below:
+
+| Operator | Description               |
+|----------|---------------------------|
+| `<`      | Less than                 |
+| `>`      | Greater than              |
+| `<=`     | Less than or equal to     |
+| `>=`     | Greater than or equal to  |
+| `==`     | Equal to                  |
+| `!=`     | Not equal to              |
+| `!x`     | Not x                     |
+| `x | y`  | x OR y                    |
+| `x & y`  | x AND y                   |
+
+
+# `select`
+
+`select` is used to extract only certain ***columns***. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).
+
+```{r}
+
+```
+
+
+
+We can combine criteria together as well in one command with multiple pipes:
+
+```{r}
+
+```
+
+# `arrange`
+
+The `arrange` function allows us to order the rows of the data frame by the values of a particular column.
+
+For example, arrange all the aboriginal languages in canada by from most to least spoken as mother tongue.
+
+```{r}
+
+```
+
+
+
+Note:
+
+-   use arrange(variable) to go from least to most
+-   use arrange(desc(variable)) to go from most to least, arrange(-variable) also works
+
+# `slice`
+
+The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).
+
+For example, if I want a list of the 10 most commonly spoken aboriginal languages.
+
+```{r}
+
+```
+
+
+# `mutate`
+
+`mutate()` creates new columns that are functions of existing variables.
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/bd4ae264-ae51-4d18-bd60-7a058ab42fba_rw_1920.png?h=a3757d1f46f418c59e7e7946d026344e)
+
+For example, if I want to create a new column called `mother_tongue_K` which represents the number of people who speak the language their mother tongue in thousands. You may want to save this new dataset over top of the original dataset so you could use this new column in the future. 
+
+```{r}
+
+```
+
+This can be useful for unit conversions. It also be useful for making new calculations based on existing data (for example, price and number of square feet could be used to calculate price per square foot).
+

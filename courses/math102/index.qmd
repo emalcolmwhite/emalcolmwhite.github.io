@@ -1,0 +1,23 @@
+---
+format: html
+sidebar: false
+---
+
+
+## MATH 102: Logs, Exponentials, and their Applications
+
+
+::: {.grid}
+
+::: {.g-col-4}
+![](images/MATH0105_hex_sticker.png)
+:::
+
+::: {.g-col-8}
+
+:::
+
+:::
+
+
+More Coming Soon!
