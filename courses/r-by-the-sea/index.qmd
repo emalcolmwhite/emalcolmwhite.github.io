@@ -12,7 +12,7 @@ I co-teach “R by the Sea”, a hands-on data science workshop for marine ecolo
 ::: {.grid style="margin-top: 50px; margin-bottom: 50px;"}
 
 ::: {.g-col-4}
-![](images/r_by_the_sea_hex_sticker_nobg.png)
+![](r_by_the_sea_hex_sticker_nobg.png)
 :::
 
 ::: {.g-col-8 style="align-items: center; height: 100%;"}
@@ -29,7 +29,7 @@ For more information on upcoming offerings and enrolling in the course, check ou
 ::: {.grid}
 
 ::: {.g-col-4}
-![](images/r_by_the_sea_jp_hex_sticker.png)
+![](r_by_the_sea_jp_hex_sticker.png)
 :::
 
 ::: {.g-col-8 style="display: flex; align-items: center; height: 100%;"}
