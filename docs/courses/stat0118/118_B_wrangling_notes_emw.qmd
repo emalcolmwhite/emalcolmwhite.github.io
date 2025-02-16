@@ -17,7 +17,7 @@ execute:
 ---
 
 :::{.callout-note title="Downloads for this page:" icon="download"}
-- 📖 [Complete Notes .qmd]118_B_wrangling_notes_emw.qmd)
+- 📖 [Complete Notes .qmd](118_B_wrangling_notes_emw.qmd)
 - 📝 [Blank Notes Template .qmd](118_B_wrangling_notes.qmd)
 - 📚 [Homework .qmd](118_B_wrangling_homework.qmd)
 :::

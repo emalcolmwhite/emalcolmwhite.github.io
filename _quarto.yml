@@ -6,6 +6,8 @@ project:
 
 website:
   title: "EMW"
+  repo-url: https://github.com/emalcolmwhite/emalcolmwhite.github.io
+  repo-actions: [edit]
   favicon: images/bar_chart.png
   navbar:
     background: "#496677" 
@@ -25,7 +27,7 @@ website:
   sidebar: 
   - id: courses/stat0118 
     title: "STAT 118: Intro to Data Science"
-    logo: images/stat0118_hex_sticker.png
+    logo: courses/stat0118/images/stat0118_hex_sticker.png
     search: true
     style: "docked"
     contents: 
@@ -62,8 +64,14 @@ website:
         - courses/stat0118/118_P_Webscraping_Text_notes_emw.qmd
   back-to-top-navigation: true
   page-footer: 
-    left: "Made by EMW (2025)" 
-    right: "Powered by Quarto"
+    left: "Made by EMW (2025) \nPowered by Quarto" 
+    right:
+      - icon: github
+        text: "View Source"
+        href: https://github.com/emalcolmwhite/emalcolmwhite.github.io/{{< page.path >}}
+      - icon: bug
+        text: "Report an issue"
+        href: https://github.com/emalcolmwhite/emalcolmwhite.github.io/issues
         
 format:
   html:

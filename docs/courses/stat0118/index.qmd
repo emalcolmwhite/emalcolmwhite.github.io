@@ -1,5 +1,5 @@
 ---
-website: 
-  title: "STAT 118" 
+title: "STAT 118: Intro to Data Science"
 ---
 
+Use the sidebar to navigate through course topics and download notes, templates, and homework assignments.
