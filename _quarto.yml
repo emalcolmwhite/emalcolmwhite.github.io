@@ -13,9 +13,9 @@ website:
     background: "#496677" 
     foreground: "#ffffff"
     left:
-      - text: "STAT 118: Intro to Data Science"
+      - text: "STAT 118: Data Science"
         href: courses/stat0118/index.qmd
-      - text: "STAT 116: Intro to Statistical Science"
+      - text: "STAT 116: Stats"
         href: courses/stat0116/index.qmd
       - text: "R by the Sea"
         href: courses/r-by-the-sea/index.qmd
@@ -24,16 +24,16 @@ website:
       - text: "Email"
         icon: envelope
         href: mailto:emalcolmwhite@middlebury.edu
-      
 
   sidebar: 
   - id: courses/stat0118 
     title: "STAT 118: Intro to Data Science"
     logo: courses/stat0118/images/stat0118_hex_sticker.png
-    search: true
     style: "docked"
+    type: "dark"
+    background: "light"
     contents: 
-      - text: "STAT 118"
+      - text: "STAT 118 Home"
         href: courses/stat0118/index.qmd
       - section: "1. Intro to R and R-Studio"
         contents:
@@ -74,7 +74,7 @@ website:
       
 format:
   html:
-    theme: lumen
+    theme: cosmo
     css: styles/custom.css
     anchor-sections: false
   

@@ -104,3 +104,11 @@
   font-weight: bold; /* Optional: make the numbers bold */
   margin-right: 5px; /* Add spacing between the number and the text */
 }
+
+.toc {
+  display: block !important;
+}
+
+h1 {
+  text-transform: none !important;
+}

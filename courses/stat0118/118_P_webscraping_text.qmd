@@ -1,5 +1,5 @@
 ---
-title: 'Webscraping Text with `rvest`'
+title: 'Webscraping Text'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:

@@ -4,6 +4,7 @@ author: 'Emily Malcolm-White'
 format:
   html: 
     toc: TRUE
+    toc-float: TRUE
     code-overflow: wrap
     embed-resources: true
     code-tools:
@@ -16,6 +17,11 @@ execute:
   message: FALSE
   warning: FALSE
 ---
+
+```{r}
+#| echo: FALSE
+options(max.print = 10)
+```
 
 
 # Installing and Using Packages
@@ -44,9 +50,7 @@ There are actually many commonly used packages wrapped up inside one `tidyverse`
 Today we are specifically going to be talking about the package `dplyr` which is useful to manipulating data sets.
 
 
-# `can_lang` dataset 
-
-![](https://github.com/ttimbers/canlang/blob/master/man/figures/hex-canlang.png?raw=true){width=30%}
+# `can_lang` dataset ![](https://github.com/ttimbers/canlang/blob/master/man/figures/hex-canlang.png?raw=true){width=10%}
 
 In this class, we are going to be working with a dataset relating to the languages spoken at home by Canadian residents. Many Indigenous peoples exist in Canada with their own languages and cultures. Sadly, colonization has led to the loss of many of these languages. This data is a subset of data collected during the 2016 census. 
 
@@ -90,6 +94,7 @@ We can use the `filter` function to extract ***rows*** from the data that have a
 For example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.
 
 Start with the `can_lang` dataset, the pipe `%>%` means apply the action on the following line to the previous line.
+
 
 ```{r}
 can_lang  %>%                                  #<1>

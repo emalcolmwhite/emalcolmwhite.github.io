@@ -1,5 +1,5 @@
 ---
-title: 'Webscraping Tables with `rvest`'
+title: 'Webscraping Tables'
 author: 'Emily Malcolm-White'
 format:
   html: 
