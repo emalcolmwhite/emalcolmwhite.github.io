@@ -19,9 +19,9 @@ execute:
 
 :::{.callout-tip title="Downloads"}
 
-- [📖 Notes .qmd](courses/stat0118/{{< page.file >}})
-- [📝️ Notes Template .qmd](courses/stat0118/{{< page.file | path.splitext | first }}_notes.qmd)
-- [📚 Homework .qmd](courses/stat0118/{{< page.file | path.splitext | first }}_homework.qmd)
+- [📖 Notes .qmd](courses/stat0118/{{< meta.file-base >}}.qmd)
+- [📝️ Notes Template .qmd](courses/stat0118{{< meta.file-base >}}_notes.qmd)
+- [📚 Homework .qmd](courses/stat0118/{{< meta.file-base >}}_homework.qmd)
 :::
 
 # Installing and Using Packages
