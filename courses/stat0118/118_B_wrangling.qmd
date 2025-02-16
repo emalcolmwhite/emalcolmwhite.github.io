@@ -1,5 +1,5 @@
 ---
-title: 'filter, select, arrange, slice, mutate'
+title: '`filter()`, `select()`, `arrange()`, `slice()`, `mutate()`'
 author: 'Emily Malcolm-White'
 format:
   html: 
@@ -11,18 +11,12 @@ format:
       toggle: false
       caption: none
     code-annotations: hover
+  pdf: default
 execute: 
   message: FALSE
   warning: FALSE
 ---
 
-
-:::{.callout-note title="Downloads" icon="download"}
-
-- [📖 Notes .qmd](118_B_wrangling.qmd)
-- [📝️ Notes Template .qmd](118_B_wrangling_notes.qmd)
-- [📚 Homework .qmd](118_B_wrangling_homework.qmd)
-:::
 
 # Installing and Using Packages
 
@@ -87,7 +81,7 @@ Let's take a look at this data for a minute to see what information has been rec
 head(can_lang)
 ```
 
-# filter()
+# `filter()`
 
 We can use the `filter` function to extract ***rows*** from the data that have a particular characteristic.
 
@@ -155,7 +149,7 @@ The logical operators are given below:
 | `x & y`  | x AND y                   |
 
 
-# select()
+# `select()`
 
 `select` is used to extract only certain ***columns***. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).
 
@@ -175,7 +169,7 @@ can_lang %>%
   select(language)
 ```
 
-# arrange()
+# `arrange()`
 
 The `arrange` function allows us to order the rows of the data frame by the values of a particular column.
 
@@ -193,7 +187,7 @@ Note:
 -   use arrange(variable) to go from least to most
 -   use arrange(desc(variable)) to go from most to least, arrange(-variable) also works
 
-# slice()
+# `slice()`
 
 The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).
 
@@ -207,7 +201,7 @@ aboriginal_lang %>%
 
 1. Only include the first 10 rows of the dataset
 
-# mutate()
+# `mutate()`
 
 `mutate()` creates new columns that are functions of existing variables.
 

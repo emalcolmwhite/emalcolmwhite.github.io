@@ -77,7 +77,8 @@ format:
     theme: lumen
     css: styles/custom.css
     anchor-sections: false
-  pdf: default
   
 execute:
   freeze: auto
+  warning: false
+  message: false

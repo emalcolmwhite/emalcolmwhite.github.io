@@ -11,6 +11,7 @@ format:
       toggle: false
       caption: none
     code-annotations: hover
+  pdf: default
 execute: 
   message: FALSE
   warning: FALSE
@@ -33,7 +34,7 @@ Data frames are often described as wide or long.
 
 *Long* when a row has only one observation, but the units of observation are repeated down the column
 
-![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.001.jpeg?raw=true)
+[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.001.jpeg?raw=true)
 
 # `canlang` dataset 
 
@@ -47,8 +48,9 @@ lang_wide <- read.csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-t
 
 # Pivot Longer
 
-![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.003.jpeg?raw=true)
-![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_longer.jpeg?raw=true)
+[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.003.jpeg?raw=true)
+
+[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_longer.jpeg?raw=true)
 
 ```{r}
 lang_mother_tidy <- pivot_longer(lang_wide,
@@ -73,8 +75,9 @@ lang_long <- read.csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-t
 ```
 
 
-![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.004.jpeg?raw=true)
-![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_wider.jpeg?raw=true)
+[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.004.jpeg?raw=true)
+
+[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_wider.jpeg?raw=true)
 
 ```{r}
 lang_home_tidy <- pivot_wider(lang_long,
@@ -84,7 +87,7 @@ lang_home_tidy <- pivot_wider(lang_long,
 lang_home_tidy
 ```
 
-![](https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif)
+[gif](https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif)
 
 # Gapminder
 

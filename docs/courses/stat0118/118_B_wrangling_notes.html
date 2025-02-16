@@ -8,7 +8,7 @@
 
 <meta name="author" content="Emily Malcolm-White">
 
-<title>EMW - filter, select, arrange, slice, mutate</title>
+<title>EMW - filter(), select(), arrange(), slice(), mutate()</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4607,7 +4607,7 @@ margin-right: 5px;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">filter, select, arrange, slice, mutate</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><code>filter()</code>, <code>select()</code>, <code>arrange()</code>, <code>slice()</code>, <code>mutate()</code></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label onclick="window.quartoOpenSearch();">
@@ -4667,13 +4667,13 @@ margin-right: 5px;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">filter, select, arrange, slice, mutate</span></a>
+ <span class="menu-text"><code>filter()</code>, <code>select()</code>, <code>arrange()</code>, <code>slice()</code>, <code>mutate()</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_C_aggregating.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aggregating with count(), summarize(), group_by(), case_when()</span></a>
+ <span class="menu-text">Aggregating with <code>count()</code>, <code>summarize()</code>, <code>group_by()</code>, <code>case_when()</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4818,10 +4818,11 @@ margin-right: 5px;
   <li><a href="#installing-and-using-packages" id="toc-installing-and-using-packages" class="nav-link active" data-scroll-target="#installing-and-using-packages">Installing and Using Packages</a></li>
   <li><a href="#can_lang-dataset" id="toc-can_lang-dataset" class="nav-link" data-scroll-target="#can_lang-dataset"><code>can_lang</code> dataset</a></li>
   <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing Data</a></li>
-  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><code>select</code></a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><code>arrange</code></a></li>
-  <li><a href="#slice" id="toc-slice" class="nav-link" data-scroll-target="#slice"><code>slice</code></a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><code>mutate</code></a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><code>select()</code></a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><code>arrange()</code></a></li>
+  <li><a href="#slice" id="toc-slice" class="nav-link" data-scroll-target="#slice"><code>slice()</code></a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><code>mutate()</code></a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/edit/main/courses/stat0118/118_B_wrangling_notes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/118_B_wrangling_notes.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -4830,7 +4831,7 @@ margin-right: 5px;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">filter, select, arrange, slice, mutate</h1>
+<h1 class="title"><code>filter()</code>, <code>select()</code>, <code>arrange()</code>, <code>slice()</code>, <code>mutate()</code></h1>
 </div>
 
 
@@ -4874,7 +4875,10 @@ margin-right: 5px;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#can_lang &lt;- read.csv(&quot;https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv&quot;) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s take a look at this data for a minute to see what information has been recorded. In the environment in the top left, if you click on the word <code>can_lang</code> (not the blue play button, the word itself) it will open the object so you can see what is saved inside. # <code>filter</code></p>
+<p>Let’s take a look at this data for a minute to see what information has been recorded. In the environment in the top left, if you click on the word <code>can_lang</code> (not the blue play button, the word itself) it will open the object so you can see what is saved inside.</p>
+</section>
+<section id="filter" class="level1">
+<h1><code>filter()</code></h1>
 <p>We can use the <code>filter</code> function to extract <strong><em>rows</em></strong> from the data that have a particular characteristic.</p>
 <p>For example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.</p>
 <p>Oftentimes, we want to take our subset and give it a new name. This takes our subset and assigns it to a new dataset called <code>aboriginal_lang</code>.</p>
@@ -4928,12 +4932,12 @@ margin-right: 5px;
 </table>
 </section>
 <section id="select" class="level1">
-<h1><code>select</code></h1>
+<h1><code>select()</code></h1>
 <p><code>select</code> is used to extract only certain <strong><em>columns</em></strong>. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).</p>
 <p>We can combine criteria together as well in one command with multiple pipes:</p>
 </section>
 <section id="arrange" class="level1">
-<h1><code>arrange</code></h1>
+<h1><code>arrange()</code></h1>
 <p>The <code>arrange</code> function allows us to order the rows of the data frame by the values of a particular column.</p>
 <p>For example, arrange all the aboriginal languages in canada by from most to least spoken as mother tongue.</p>
 <p>Note:</p>
@@ -4943,12 +4947,12 @@ margin-right: 5px;
 </ul>
 </section>
 <section id="slice" class="level1">
-<h1><code>slice</code></h1>
+<h1><code>slice()</code></h1>
 <p>The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).</p>
 <p>For example, if I want a list of the 10 most commonly spoken aboriginal languages.</p>
 </section>
 <section id="mutate" class="level1">
-<h1><code>mutate</code></h1>
+<h1><code>mutate()</code></h1>
 <p><code>mutate()</code> creates new columns that are functions of existing variables.</p>
 <p>For example, if I want to create a new column called <code>mother_tongue_K</code> which represents the number of people who speak the language their mother tongue in thousands. You may want to save this new dataset over top of the original dataset so you could use this new column in the future.</p>
 <p>This can be useful for unit conversions. It also be useful for making new calculations based on existing data (for example, price and number of square feet could be used to calculate price per square foot).</p>

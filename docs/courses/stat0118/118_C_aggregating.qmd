@@ -1,5 +1,5 @@
 ---
-title: 'Aggregating with count(), summarize(), group_by(), case_when()'
+title: 'Aggregating with `count()`, `summarize()`, `group_by()`, `case_when()`'
 author: 'Emily Malcolm-White'
 format:
   html: 
@@ -11,6 +11,7 @@ format:
       toggle: false
       caption: none
     code-annotations: hover
+  pdf: default
 execute: 
   message: FALSE
   warning: FALSE
@@ -36,7 +37,7 @@ data(penguins)          #<2>
 1. Load the `palmerpenguins` package
 2. Display the penguins dataset in the environment
 
-# Remove rows with missing data with `drop_na()`
+# Remove rows with missing data with drop_na()
 
 ```{r}
 penguins <- penguins %>%    #<2>
@@ -53,7 +54,7 @@ Removing rows can affect the validity and generalizability of your analysis!
 :::
 
 
-# `count`
+# `count()`
 
 `count()` lets you quickly count the unique values of one or more variables. Suppose you want the number of penguins on each island.  
 
@@ -63,7 +64,7 @@ penguins %>%
 ```
 
 
-# `summarize` or `summarise` (either works)
+# `summarize()` or `summarise()` (either works)
 
 Suppose we are interested in the average bill length of all Adelie penguins:
 
@@ -108,7 +109,7 @@ penguins %>%
             median_bill_length = median(bill_length_mm))
 ```
 
-# `group_by`
+# `group_by()`
 
 Let's say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.
 
@@ -134,12 +135,18 @@ penguins %>%
             average_bill_depth = mean(bill_depth_mm))
 ```
 
-# (Optional) `across`
+# (Optional) `across()`
 
 If you wish to apply the same calculation to many columns, you may wish to check out the `across` function.
 ![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a)
 
-# Recall: `mutate`
+```{r}
+penguins %>%
+  group_by(species, sex) %>%
+  summarise(across(where(is.numeric), mean))
+```
+
+# Recall: `mutate()`
 
 The mutate function allows you create a new column which is a function of other columns. This can be useful to converting units.
 
@@ -152,7 +159,7 @@ penguins <- penguins %>%
 
 1. Creates a new column in the penguins dataset called `body_mass_lbs` calculated by taking the value of the body mass (in g) and multiplying by 0.00220562. 
 
-# `case_when`
+# `case_when()`
 
 Case when can be used in combination with `mutate` to create a new column with a categorical variable conditional on the values in another column.
 

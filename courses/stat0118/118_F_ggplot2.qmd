@@ -11,6 +11,7 @@ format:
       toggle: false
       caption: none
     code-annotations: hover
+  pdf: default
 execute: 
   message: FALSE
   warning: FALSE

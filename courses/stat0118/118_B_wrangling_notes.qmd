@@ -1,5 +1,5 @@
 ---
-title: 'filter, select, arrange, slice, mutate'
+title: '`filter()`, `select()`, `arrange()`, `slice()`, `mutate()`'
 author: 'Emily Malcolm-White'
 format:
   html: 
@@ -48,7 +48,8 @@ Alternatively, you can download it directly from the internet. Github user `ttim
 
 
 Let's take a look at this data for a minute to see what information has been recorded. In the environment in the top left, if you click on the word `can_lang` (not the blue play button, the word itself) it will open the object so you can see what is saved inside.
-# `filter`
+
+# `filter()`
 
 We can use the `filter` function to extract ***rows*** from the data that have a particular characteristic.
 
@@ -88,7 +89,7 @@ The logical operators are given below:
 | `x & y`  | x AND y                   |
 
 
-# `select`
+# `select()`
 
 `select` is used to extract only certain ***columns***. For example, perhaps we only want to print out a list names of the aboriginal languages (language column).
 
@@ -102,7 +103,7 @@ We can combine criteria together as well in one command with multiple pipes:
 
 ```
 
-# `arrange`
+# `arrange()`
 
 The `arrange` function allows us to order the rows of the data frame by the values of a particular column.
 
@@ -117,7 +118,7 @@ Note:
 -   use arrange(variable) to go from least to most
 -   use arrange(desc(variable)) to go from most to least, arrange(-variable) also works
 
-# `slice`
+# `slice()`
 
 The slice function will allow us to pick only a subset of the rows based on their numeric order (1st through last).
 
@@ -128,7 +129,7 @@ For example, if I want a list of the 10 most commonly spoken aboriginal language
 ```
 
 
-# `mutate`
+# `mutate()`
 
 `mutate()` creates new columns that are functions of existing variables.
 
