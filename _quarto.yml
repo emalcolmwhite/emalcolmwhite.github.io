@@ -7,13 +7,14 @@ project:
 website:
   title: "EMW"
   repo-url: https://github.com/emalcolmwhite/emalcolmwhite.github.io
-  repo-actions: [edit]
+  repo-actions: [source, issue]
   favicon: images/bar_chart.png
   navbar:
     background: "#496677" 
     foreground: "#ffffff"
     left:
-      - sidebar:courses/stat0118
+      - text: "STAT 118: Intro to Data Science"
+        href: courses/stat0118/index.qmd
       - text: "STAT 116: Intro to Statistical Science"
         href: courses/stat0116/index.qmd
       - text: "R by the Sea"
@@ -31,6 +32,8 @@ website:
     search: true
     style: "docked"
     contents: 
+      - text: "STAT 118"
+        href: courses/stat0118/index.qmd
       - section: "1. Intro to R and R-Studio"
         contents:
         - courses/stat0118/118_A_Intro_notes_emw.qmd
