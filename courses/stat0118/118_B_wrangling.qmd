@@ -11,12 +11,18 @@ format:
       toggle: false
       caption: none
     code-annotations: hover
-sidebar: download-sidebar
 execute: 
   message: FALSE
   warning: FALSE
 ---
 
+
+:::{.callout-tip title="Downloads"}
+
+- [📖 Notes .qmd](courses/stat0118/{{< page.file >}})
+- [📝️ Notes Template .qmd](courses/stat0118/{{< page.file | path.splitext | first }}_notes.qmd)
+- [📚 Homework .qmd](courses/stat0118/{{< page.file | path.splitext | first }}_homework.qmd)
+:::
 
 # Installing and Using Packages
 
