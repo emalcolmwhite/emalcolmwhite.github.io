@@ -1,6 +1,6 @@
 ---
 title: "STAT 118: Homework B"
-subtitle: "Wrangling data with dplyr: filter, select, arrange"
+subtitle: "Wrangling Basics"
 author: "YOUR NAME HERE"
 format:
   html:

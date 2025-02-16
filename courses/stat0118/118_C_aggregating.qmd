@@ -1,5 +1,5 @@
 ---
-title: 'Aggregating with `count()`, `summarize()`, `group_by()`, `case_when()`'
+title: 'Aggregating'
 author: 'Emily Malcolm-White'
 format:
   html: 
@@ -17,16 +17,16 @@ execute:
   warning: FALSE
 ---
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 #LOAD PACKAGES 
 library(tidyverse)
 ```
 
-# `palmerpenguins` dataset
+# `palmerpenguins` dataset ![](https://allisonhorst.github.io/palmerpenguins/logo.png){width=10%}
 
 Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.
 
-![](https://allisonhorst.github.io/palmerpenguins/logo.png){width=30%}
+
 
 ```{r}
 #LOAD DATA 
@@ -138,7 +138,7 @@ penguins %>%
 # (Optional) `across()`
 
 If you wish to apply the same calculation to many columns, you may wish to check out the `across` function.
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a)
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a){width=60%}
 
 ```{r}
 penguins %>%
@@ -163,7 +163,7 @@ penguins <- penguins %>%
 
 Case when can be used in combination with `mutate` to create a new column with a categorical variable conditional on the values in another column.
 
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6ffcd6d6-c783-4087-ae76-99aa851663ed_rw_1920.png?h=5f67935d69c92e1fda9074d00dfea972){width=50%}
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6ffcd6d6-c783-4087-ae76-99aa851663ed_rw_1920.png?h=5f67935d69c92e1fda9074d00dfea972){width=60%}
 
 For example:
 
@@ -182,10 +182,7 @@ penguins <- penguins %>%
 :::
 
 
-# Brain Break
+# Brain Break: Jingjing! 
 
-This is a story about Jinjing the South American Magellanic Penguin, that swims 5,000 miles each year to be reunited with the man who saved his life. The rescued Penguin was saved by João Pereira de Souza, a 73 year old part-time fisherman, who lives in an island village just outside Rio de Janeiro, Brazil. <https://youtu.be/oks2R4LqWtE>
+[https://youtu.be/oks2R4LqWtE](https://youtu.be/oks2R4LqWtE)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oks2R4LqWtE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-
-</iframe>

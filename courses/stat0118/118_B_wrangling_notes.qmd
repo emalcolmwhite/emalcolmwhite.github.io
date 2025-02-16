@@ -1,5 +1,5 @@
 ---
-title: '`filter()`, `select()`, `arrange()`, `slice()`, `mutate()`'
+title: 'Wrangling Basics'
 author: 'Emily Malcolm-White'
 format:
   html: 

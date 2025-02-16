@@ -4561,7 +4561,18 @@ display: block !important;
 }
 h1 {
 text-transform: none !important;
-}</style>
+}
+
+code:not(.sourceCode) {
+color: #008080 !important; 
+background-color: #f5f5f5; 
+}
+
+div.cell-output pre code {
+color:#4B4B4B !important; 
+background-color: #fafafa;
+}
+</style>
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -4664,13 +4675,13 @@ text-transform: none !important;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><code>filter()</code>, <code>select()</code>, <code>arrange()</code>, <code>slice()</code>, <code>mutate()</code></span></a>
+ <span class="menu-text">Wrangling Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_C_aggregating.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aggregating with <code>count()</code>, <code>summarize()</code>, <code>group_by()</code>, <code>case_when()</code></span></a>
+ <span class="menu-text">Aggregating</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4969,11 +4980,11 @@ text-transform: none !important;
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-7">use pivot_wider to go from long to wide format</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-7" data-code-lines="2">use pivot_wider to go from long to wide format</span>
 </dd>
 <dt data-target-cell="annotated-cell-7" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-7">Adds the pre-fix “yr” to all the column names – it’s a good idea to avoid column names that start with a number.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-7" data-code-lines="3">Adds the pre-fix “yr” to all the column names – it’s a good idea to avoid column names that start with a number.</span>
 </dd>
 </dl>
 </div>

@@ -82,3 +82,6 @@ execute:
   freeze: auto
   warning: false
   message: false
+  setup: |
+    library(tidyverse)
+    theme_set(theme_minimal())

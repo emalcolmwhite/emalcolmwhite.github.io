@@ -112,3 +112,16 @@
 h1 {
   text-transform: none !important;
 }
+
+/* Inline code (backticks) */
+code:not(.sourceCode) {
+  color: #008080 !important; /* Earthy dark grey-brown */
+  background-color: #f5f5f5; /* Light background for contrast */
+}
+
+/* R chunk output */
+div.cell-output pre code {
+  color:#4B4B4B  !important; /* Grey text for output text */
+  background-color: #fafafa;
+}
+

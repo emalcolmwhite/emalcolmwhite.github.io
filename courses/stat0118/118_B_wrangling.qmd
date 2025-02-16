@@ -1,5 +1,5 @@
 ---
-title: '`filter()`, `select()`, `arrange()`, `slice()`, `mutate()`'
+title: 'Wrangling Basics'
 author: 'Emily Malcolm-White'
 format:
   html: 
@@ -32,11 +32,11 @@ First, you need to download the package from the right hand menu --\> You only n
 
 In each new .qmd document, you need to call any packages you want to use but adding the code `library(packagename)` inside an R chunk.
 
-For example, in this class we will use the `tidyverse` package a lot.
+## The `tidyverse` package
+
+In this class we will use the `tidyverse` package a lot.
 
 ```{r}
-#| warning: FALSE
-#| message: FALSE
 library(tidyverse) #<1>
 ```
 
@@ -44,7 +44,7 @@ library(tidyverse) #<1>
 
 There are actually many commonly used packages wrapped up inside one `tidyverse` package.
 
-![Credit: https://uopsych-r-bootcamp-2020.netlify.app/](images/tidyverse_packages.png)
+![Credit: https://uopsych-r-bootcamp-2020.netlify.app/](images/tidyverse_packages.png){width=80%}
 
 
 Today we are specifically going to be talking about the package `dplyr` which is useful to manipulating data sets.
@@ -89,7 +89,7 @@ head(can_lang)
 
 We can use the `filter` function to extract ***rows*** from the data that have a particular characteristic.
 
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/cb8d9c50-f48e-4c6d-a5b3-1d30ce0be2ad_rw_1920.png?h=1a879eda58a5efbf709ad0a59d784f98){width=80%}
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/cb8d9c50-f48e-4c6d-a5b3-1d30ce0be2ad_rw_1920.png?h=1a879eda58a5efbf709ad0a59d784f98){width=60%}
 
 For example, we may be interested in only looking at only the languages in this dataset that are Aboriginal languages.
 
@@ -210,7 +210,7 @@ aboriginal_lang %>%
 
 `mutate()` creates new columns that are functions of existing variables.
 
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/bd4ae264-ae51-4d18-bd60-7a058ab42fba_rw_1920.png?h=a3757d1f46f418c59e7e7946d026344e)
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/bd4ae264-ae51-4d18-bd60-7a058ab42fba_rw_1920.png?h=a3757d1f46f418c59e7e7946d026344e){width=60%}
 
 For example, if I want to create a new column called `mother_tongue_K` which represents the number of people who speak the language their mother tongue in thousands. You may want to save this new dataset over top of the original dataset so you could use this new column in the future. 
 
