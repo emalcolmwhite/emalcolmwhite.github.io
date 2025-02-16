@@ -24,7 +24,7 @@ website:
       - text: "Email"
         icon: envelope
         href: mailto:emalcolmwhite@middlebury.edu
-  
+
   sidebar: 
   - id: courses/stat0118 
     title: "STAT 118: Intro to Data Science"
@@ -36,35 +36,46 @@ website:
         href: courses/stat0118/index.qmd
       - section: "1. Intro to R and R-Studio"
         contents:
-        - courses/stat0118/notes/118_A_intro.qmd
+        - courses/stat0118/118_A_intro.qmd
       - section: "2. Wrangling with `dplyr`"
         contents:
-        - courses/stat0118/notes/118_B_wrangling.qmd
-        - courses/stat0118/notes/118_C_aggregating.qmd
-        - courses/stat0118/notes/118_I_joining.qmd
+        - courses/stat0118/118_B_wrangling.qmd
+        - courses/stat0118/118_C_aggregating.qmd
+        - courses/stat0118/118_I_joining.qmd
       - section: '3. Making plots with `ggplot2`'
         contents: 
-        - courses/stat0118/notes/118_E_ggplot1.qmd
-        - courses/stat0118/notes/118_F_ggplot2.qmd
-        - courses/stat0118/notes/118_G_ggplot3.qmd
+        - courses/stat0118/118_E_ggplot1.qmd
+        - courses/stat0118/118_F_ggplot2.qmd
+        - courses/stat0118/118_G_ggplot3.qmd
       - section: "4. Advanced Wrangling with `tidyr`"
         contents:
-        - courses/stat0118/notes/118_J_pivoting.qmd
+        - courses/stat0118/118_J_pivoting.qmd
       - section: "5. Other Useful packages"
         contents:
-        - courses/stat0118/notes/118_H_forcats.qmd
-        - courses/stat0118/notes/118_Q_stringr.qmd
-        - courses/stat0118/notes/118_R_lubridate.qmd
-        - courses/stat0118/notes/118_janitor.qmd
-        - courses/stat0118/notes/118_gganimate.qmd
+        - courses/stat0118/118_H_forcats.qmd
+        - courses/stat0118/118_Q_stringr.qmd
+        - courses/stat0118/118_R_lubridate.qmd
+        - courses/stat0118/118_janitor.qmd
+        - courses/stat0118/118_gganimate.qmd
       - section: "6. Maps"
         contents:
-        - courses/stat0118/notes/118_K_Maps1.qmd
-        - courses/stat0118/notes/118_L_Maps2.qmd
+        - courses/stat0118/118_K_Maps1.qmd
+        - courses/stat0118/118_L_Maps2.qmd
       - section: "7. Webscraping with `rvest`"
         contents:
-        - courses/stat0118/notes/118_O_webscraping_tables.qmd
-        - courses/stat0118/notes/118_P_webscraping_text.qmd
+        - courses/stat0118/118_O_webscraping_tables.qmd
+        - courses/stat0118/118_P_webscraping_text.qmd
+  - id: download-sidebar
+    title: "📥 Downloads"
+    style: "floating"  # Right-side floating sidebar
+    position: right
+    contents:
+      - text: "📖 Notes .qmd"
+        href: courses/stat0118/{{< page.file >}}
+      - text: "📝️ Notes Template .qmd"
+        href: courses/stat0118/{{< page.file | path.splitext | first }}_notes.qmd
+      - text: "📚 Homework .qmd"
+        href: courses/stat0118/{{< page.file | path.splitext | first }}_homework.qmd
   back-to-top-navigation: true
   page-footer: 
     left: "Made by EMW (2025)" 
