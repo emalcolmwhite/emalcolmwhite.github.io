@@ -1,6 +1,6 @@
 ---
 title: "STAT 118: Intro to Data Science"
-sidebar: courses/stat0118
+sidebar: [courses/stat0118]
 ---
 
 Use the sidebar to navigate through course topics and download notes, templates, and homework assignments.

@@ -7,7 +7,7 @@ project:
 website:
   title: "EMW"
   repo-url: https://github.com/emalcolmwhite/emalcolmwhite.github.io
-  repo-actions: [source, edit]
+  repo-actions: [edit, source, issue]
   favicon: images/bar_chart.png
   navbar:
     background: "#496677" 
@@ -24,6 +24,7 @@ website:
       - text: "Email"
         icon: envelope
         href: mailto:emalcolmwhite@middlebury.edu
+      
 
   sidebar: 
   - id: courses/stat0118 
@@ -65,26 +66,18 @@ website:
         contents:
         - courses/stat0118/118_O_webscraping_tables.qmd
         - courses/stat0118/118_P_webscraping_text.qmd
-  - id: download-sidebar
-    title: "📥 Downloads"
-    style: "floating"  # Right-side floating sidebar
-    position: right
-    contents:
-      - text: "📖 Notes .qmd"
-        href: courses/stat0118/{{< page.file >}}
-      - text: "📝️ Notes Template .qmd"
-        href: courses/stat0118/{{< page.file | path.splitext | first }}_notes.qmd
-      - text: "📚 Homework .qmd"
-        href: courses/stat0118/{{< page.file | path.splitext | first }}_homework.qmd
+
   back-to-top-navigation: true
   page-footer: 
-    left: "Made by EMW (2025)" 
+    left: "Made by EMW (2025)"
     right: "Powered by Quarto"
+      
 format:
   html:
     theme: lumen
     css: styles/custom.css
     anchor-sections: false
-
+  pdf: default
+  
 execute:
   freeze: auto
