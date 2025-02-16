@@ -85,3 +85,4 @@ execute:
   setup: |
     library(tidyverse)
     theme_set(theme_minimal())
+    options(max.print = 50) 

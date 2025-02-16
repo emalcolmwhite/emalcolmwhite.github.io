@@ -18,10 +18,6 @@ execute:
   warning: FALSE
 ---
 
-```{r}
-#| echo: FALSE
-options(max.print = 10)
-```
 
 
 # Installing and Using Packages
