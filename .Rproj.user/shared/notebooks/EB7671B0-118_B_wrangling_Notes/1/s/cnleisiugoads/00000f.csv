@@ -1,2 +1,0 @@
-"0","aboriginal_lang <- can_lang  %>%             #<1> "
-"0","  filter(category == ""Aboriginal languages"")  "

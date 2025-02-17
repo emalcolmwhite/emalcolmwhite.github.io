@@ -1,3 +1,0 @@
-"0","#LOAD DATA "
-"0","library(palmerpenguins) #<1>"
-"0","data(penguins)          #<2>"

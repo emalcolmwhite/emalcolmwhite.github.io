@@ -1,2 +1,0 @@
-"0","aboriginal_lang <- aboriginal_lang %>% "
-"0","  mutate(mother_tongue_K = mother_tongue/1000)"

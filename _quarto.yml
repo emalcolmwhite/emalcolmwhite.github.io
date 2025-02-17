@@ -38,6 +38,7 @@ website:
       - section: "1. Intro to R and R-Studio"
         contents:
         - courses/stat0118/118_A_intro.qmd
+        - courses/stat0118/118_A_intro_quarto.qmd
       - section: "2. Wrangling with `dplyr`"
         contents:
         - courses/stat0118/118_B_wrangling.qmd

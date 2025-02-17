@@ -1,3 +1,0 @@
-"0","rare_lang <- can_lang  %>%        #<1>     "
-"0","  filter(mother_tongue < 100)     #<2>"
-"0","                                  #<3>"

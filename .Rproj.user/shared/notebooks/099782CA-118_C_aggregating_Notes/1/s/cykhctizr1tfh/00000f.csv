@@ -1,2 +1,0 @@
-"0","penguins <- penguins %>%    #<2>"
-"0","  drop_na()                 #<1>"
