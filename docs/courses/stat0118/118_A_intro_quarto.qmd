@@ -118,9 +118,9 @@ The file has been created in the same folder as your .qmd file: ![](images/file_
 When you render, a preview of the document will show up!
 
 ::: callout-tip
-By default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I'm working at a computer station with multiple browsers.
+By default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I'm working at a computer station with multiple monitors.
 
-However, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I'm just working on my laptop.
+However, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I'm just working on just my laptop.
 
 Click on the "gear button" ![](images/gear.png){width="20"} and select "Preview in Viewer Pane"
 :::
