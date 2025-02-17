@@ -8,6 +8,9 @@ format:
     code-overflow: wrap
     code-fold: true
     embed-resources: true
+execute: 
+  warning: false
+  message: false
 ---
 
 

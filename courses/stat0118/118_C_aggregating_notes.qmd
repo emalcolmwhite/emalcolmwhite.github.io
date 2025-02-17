@@ -1,0 +1,129 @@
+---
+title: 'Aggregating data'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+# `palmerpenguins` dataset 
+
+Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program.
+
+```{r}
+#LOAD DATA 
+library(palmerpenguins) 
+data(penguins)         
+```
+
+
+# Remove rows with missing data with drop_na()
+
+```{r}
+                
+```
+
+
+::: callout-warning
+Is it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?
+
+Removing rows can affect the validity and generalizability of your analysis!
+:::
+
+
+# `count()`
+
+`count()` lets you quickly count the unique values of one or more variables. Suppose you want the number of penguins on each island.  
+
+```{r}
+
+```
+
+
+# `summarize()` or `summarise()` (either works)
+
+Suppose we are interested in the average bill length of all Adelie penguins:
+
+```{r}
+
+```
+
+
+Suppose we are interested in the average bill length AND average bill depth of all Adelie penguins:
+
+```{r}
+
+```
+
+There are lots of other functions available:
+
+-   `min`: minimum value
+-   `max`: maximum value
+-   `mean`: average or mean value
+-   `median`: median value
+-   `var`: variance
+-   `sd`: standard deviation
+-   `n`: count or number of values
+-   `n_distinct`: counts number of distinct values
+
+Suppose we are interested in the average bill length AND the median bill length of all Adelie penguins:
+
+```{r}
+
+```
+
+# `group_by()`
+
+Let's say we were interested in the average bill length and bill depth of all penguin species in this dataset. We could repeat this for the other species (Gentoo and Chinstrap). This would be a fair amount of work AND the results would not end up in the same table.
+
+OR we could use the `group_by` command!
+
+```{r}
+
+```
+
+
+
+## Multiple Groups
+
+Suppose we wish to have the average bill length and average bill depth broken down by sex AND species:
+
+```{r}
+
+```
+
+#  Recall: `mutate()` 
+
+For example, let's calculate create a new column which displays the body length weight in pounds (lbs) instead of grams. Recall: to convert from grams to pounds we need to multiply by 0.00220462
+
+```{r}
+
+```
+
+
+# `case_when()`
+
+Case when can be used in combination with `mutate` to create a new column with a categorical variable conditional on the values in another column.
+
+For example:
+
+```{r}
+penguins <- penguins %>% 
+  mutate(penguin_length_cat = case_when(bill_length_mm > 50 ~ 'whoa! huge bill!', TRUE ~ '--' ))
+```
+
+

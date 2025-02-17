@@ -135,9 +135,10 @@ penguins %>%
             average_bill_depth = mean(bill_depth_mm))
 ```
 
-# (Optional) `across()`
+#  `across()` (Optional)
 
 If you wish to apply the same calculation to many columns, you may wish to check out the `across` function.
+
 ![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/2471e3f8-348e-470c-a162-3eea0606ff96_rw_1920.png?h=1caf8d5f3d25792fbaf296a1e62b670a){width=60%}
 
 ```{r}
@@ -146,7 +147,7 @@ penguins %>%
   summarise(across(where(is.numeric), mean))
 ```
 
-# Recall: `mutate()`
+#  Recall: `mutate()` 
 
 The mutate function allows you create a new column which is a function of other columns. This can be useful to converting units.
 
@@ -183,6 +184,5 @@ penguins <- penguins %>%
 
 
 # Brain Break: Jingjing! 
-
 [https://youtu.be/oks2R4LqWtE](https://youtu.be/oks2R4LqWtE)
 
