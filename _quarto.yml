@@ -46,7 +46,7 @@ website:
         - courses/stat0118/118_I_joining.qmd
       - section: '3. Making plots with `ggplot2`'
         contents: 
-        - courses/stat0118/118_E_ggplot1.qmd
+        - courses/stat0118/118_D_ggplot1.qmd
         - courses/stat0118/118_F_ggplot2.qmd
         - courses/stat0118/118_G_ggplot3.qmd
       - section: "4. Advanced Wrangling with `tidyr`"
