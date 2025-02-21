@@ -56,21 +56,7 @@ library(ggthemes) # you might need this to help with the theme...
 
 
 ```{r}
-# Filter data for selected countries
-selected_countries <- gapminder %>%
-  filter(country %in% c("United States", "China", "Canada", "Japan", "India"))
 
-# Create the line graph
-ggplot(selected_countries, aes(x = year, y = lifeExp, color = country)) +
-  geom_line(size = 1.2) +
-  labs(
-    title = "Life Expectancy Over Time",
-    x = "Year",
-    y = "",
-    color = "Country",
-    caption = "Source: Gapminder Dataset"
-  ) +
-  theme_economist()  # Apply the Economist theme
 ```
 
 # 4. Penguins Histogram
