@@ -36,7 +36,7 @@ data("possum")
 Histograms are great for looking at the distributions of numeric variables
 :::
 
-A boxplot for the footlength of all possums in this dataset: 
+A boxplot for the foot length of all possums in this dataset: 
 
 ```{r}
 

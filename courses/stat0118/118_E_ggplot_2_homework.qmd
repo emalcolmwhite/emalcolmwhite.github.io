@@ -17,9 +17,10 @@ library(tidyverse)
 
 To the best of your ability, recreate the following plots from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.
 
-This image will also be available on the Canvas assignment (in case this link/preview don't work for you). 
 
 # 1. Iris Side-by-Side Boxplot
+
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/iris_boxplot.jpg?raw=true)
 
 ```{r}
 #load the iris dataset
@@ -41,7 +42,13 @@ data("gapminder")
 
 
 ```{r}
-
+ggplot(gapminder, aes(x=continent, fill=continent)) + 
+    geom_bar(aes(y=..count../12)) +
+    labs(y="Number of countries") +
+    guides(fill=FALSE) + 
+  scale_fill_manual(values=c("#533A71", "#6184D8", "#50C5B7", "#9CEC5B", "#F0F465")) + 
+  theme_bw() +
+  coord_flip()
 ```
 
 # 3. Gapminder Line Graph
