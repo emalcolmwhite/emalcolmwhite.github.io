@@ -1,0 +1,16 @@
+{
+  "hash": "aec29a2899dd18bca80c4ea4b03a0948",
+  "result": {
+    "markdown": "---\ntitle: \"Making plots  with ggplot2: histograms, boxplots, line graphs\"\nauthor: 'Emily Malcolm-White'\nformat:\n  html: \n    toc: TRUE\n    code-overflow: wrap\n    embed-resources: true\nexecute: \n  message: FALSE\n  warning: FALSE\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n# load packages\nlibrary(tidyverse)\n```\n:::\n\n\n# `possum` data\n\nThe possum data frame consists of nine morphometric measurements on each of 104 mountain brushtail possums, trapped at seven Australian sites from Southern Victoria to central Queensland.\n\nThere are two different populations (`pop`):  `Vic` (Victoria) and `other` (New South Wales or Queensland)\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#Import the possum data again\nlibrary(DAAG)\ndata(\"possum\")\n```\n:::\n\n\n\n# Histograms\n\n:::callout-tip\nHistograms are great for looking at the distributions of numeric variables\n:::\n\nA boxplot for the footlength of all possums in this dataset: \n\n\n::: {.cell}\n\n:::\n\n\n\n# Boxplots\n\n:::callout-tip\nBoxplots are good for displaying the spread, central tendency, and distribution of one numeric variable. \n:::\n\n![Credit: Michael Galarnyk](https://miro.medium.com/max/9000/1*2c21SkzJMf3frPXPAR_gZA.png)\n\nA lone box-plot for one numeric variable (foot length) with some custom colors: \n\n\n::: {.cell}\n\n:::\n\n\n:::{callout-tip}\n\nIf only one boxplot, it puts weird numbers on the x axis, you may want to use the theme to hide these numbers. \n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(possum, aes(y = footlgth)) +\n  geom_boxplot(color = \"blue\", fill = \"lightblue\") +\n  theme(\n    axis.text.x = element_blank(),  # Hide text\n    axis.ticks.x = element_blank(), # Hide tick marks\n    axis.title.x = element_blank()  # Hide axis title\n  )\n```\n\n::: {.cell-output-display}\n![](118_E_ggplot_2_notes_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n\n:::\n\n:::callout-tip\nSide-by-side boxplots are good for displaying one categorical variable and one numeric variable. One advantage of boxplots over bar plots is that they are able to show a bit about the spread and distribution of the numeric variable! \n:::\n\nA side-by-side boxplot to compare the foot lengths between the two populations of possums: \n\n\n::: {.cell}\n\n```{.r .cell-code}\n# same color for both boxplots\n\n\n# different color for both boxplots\n```\n:::\n\n\n# Line Graph\n\nThis dataset was produced from US economic time series data available from [https://fred.stlouisfed.org/](https://fred.stlouisfed.org/). Type `? economics` to learn more. \n\n\n::: {.cell}\n\n```{.r .cell-code}\ndata(\"economics\")\n```\n:::\n\n\nCreate a line plot with the unemployment rate of the US over time: \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [
+      "118_E_ggplot_2_notes_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

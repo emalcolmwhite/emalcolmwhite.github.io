@@ -1,0 +1,69 @@
+---
+title: "STAT 118: Homework E"
+subtitle: "Making plots  with ggplot2: histograms, boxplots, jitter, labels"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+To the best of your ability, recreate the following plots from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.
+
+This image will also be available on the Canvas assignment (in case this link/preview don't work for you). 
+
+# 1. Iris Side-by-Side Boxplot
+
+```{r}
+#load the iris dataset
+data("iris")
+```
+
+
+```{r}
+
+```
+
+# 2. Gapminder Barplot
+
+```{r}
+#load the gapminder dataset
+library(gapminder)
+data("gapminder")
+```
+
+
+```{r}
+
+```
+
+# 3. Gapminder Line Graph
+
+```{r}
+library(tidyverse)
+library(ggthemes) # you might need this to help with the theme... 
+```
+
+
+```{r}
+
+```
+
+# 4. Penguins Histogram
+
+```{r}
+#Load Penguins Data
+library(palmerpenguins)
+data("penguins")
+```
+
+```{r}
+
+```

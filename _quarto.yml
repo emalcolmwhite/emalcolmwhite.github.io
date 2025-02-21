@@ -47,8 +47,8 @@ website:
       - section: '3. Making plots with `ggplot2`'
         contents: 
         - courses/stat0118/118_D_ggplot.qmd
-        - courses/stat0118/118_F_ggplot2.qmd
-        - courses/stat0118/118_G_ggplot3.qmd
+        - courses/stat0118/118_E_ggplot_2.qmd
+        - courses/stat0118/118_F_ggplot_3.qmd
       - section: "4. Advanced Wrangling with `tidyr`"
         contents:
         - courses/stat0118/118_J_pivoting.qmd

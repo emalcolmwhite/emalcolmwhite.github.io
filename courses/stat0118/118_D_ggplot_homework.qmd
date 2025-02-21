@@ -54,8 +54,7 @@ data("penguins")
 ```
 
 To the best of your ability, recreate the following plot from the `penguins` dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can. 
-
-![](https://github.com/emalcolmwhite/STAT0118/blob/main/penguins_scatterplot.png?raw=true) 
+![https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/penguins_scatterplot.png](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/penguins_scatterplot.png?raw=true)
 
 This image will also be available on the Canvas assignment (in case this link/preview don't work for you).
 
