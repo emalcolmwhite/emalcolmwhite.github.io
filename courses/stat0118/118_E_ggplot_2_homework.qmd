@@ -27,12 +27,13 @@ To the best of your ability, recreate the following plots from the penguins data
 data("iris")
 ```
 
-
 ```{r}
 
 ```
 
 # 2. Gapminder Barplot
+
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/gapminder_country_barplot.png?raw=true)
 
 ```{r}
 #load the gapminder dataset
@@ -42,19 +43,14 @@ data("gapminder")
 
 
 ```{r}
-ggplot(gapminder, aes(x=continent, fill=continent)) + 
-    geom_bar(aes(y=..count../12)) +
-    labs(y="Number of countries") +
-    guides(fill=FALSE) + 
-  scale_fill_manual(values=c("#533A71", "#6184D8", "#50C5B7", "#9CEC5B", "#F0F465")) + 
-  theme_bw() +
-  coord_flip()
+
 ```
 
 # 3. Gapminder Line Graph
 
+![]()
+
 ```{r}
-library(tidyverse)
 library(ggthemes) # you might need this to help with the theme... 
 ```
 
@@ -64,6 +60,8 @@ library(ggthemes) # you might need this to help with the theme...
 ```
 
 # 4. Penguins Histogram
+
+![]()
 
 ```{r}
 #Load Penguins Data
