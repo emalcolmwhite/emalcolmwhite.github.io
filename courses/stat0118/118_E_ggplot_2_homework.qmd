@@ -48,7 +48,7 @@ data("gapminder")
 
 # 3. Gapminder Line Graph
 
-![]()
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/gapminder_linegraph.png?raw=true)
 
 ```{r}
 library(ggthemes) # you might need this to help with the theme... 
