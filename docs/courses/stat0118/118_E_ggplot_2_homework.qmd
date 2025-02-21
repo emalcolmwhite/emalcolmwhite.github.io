@@ -61,7 +61,7 @@ library(ggthemes) # you might need this to help with the theme...
 
 # 4. Penguins Histogram
 
-![]()
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/penguins_histogram.png?raw=true)
 
 ```{r}
 #Load Penguins Data
