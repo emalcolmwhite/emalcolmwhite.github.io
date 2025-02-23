@@ -26,50 +26,64 @@ website:
         href: mailto:emalcolmwhite@middlebury.edu
 
   sidebar: 
-  - id: courses/stat0118 
-    title: "STAT 118: Intro to Data Science"
-    logo: courses/stat0118/images/stat0118_hex_sticker.png
-    style: "docked"
-    type: "dark"
-    background: "light"
-    contents: 
-      - text: "STAT 118 Home"
-        href: courses/stat0118/index.qmd
-      - section: "1. Intro to R and R-Studio"
-        contents:
-        - courses/stat0118/118_A_intro_quarto.qmd
-        - courses/stat0118/118_A_intro.qmd
-      - section: "2. Wrangling with `dplyr`"
-        contents:
-        - courses/stat0118/118_B_wrangling.qmd
-        - courses/stat0118/118_C_aggregating.qmd
-        - courses/stat0118/118_I_joining.qmd
-      - section: '3. Making plots with `ggplot2`'
-        contents: 
-        - courses/stat0118/118_D_ggplot.qmd
-        - courses/stat0118/118_E_ggplot_2.qmd
-        - courses/stat0118/118_F_ggplot_3.qmd
-      - section: "4. Advanced Wrangling with `tidyr`"
-        contents:
-        - courses/stat0118/118_J_pivoting.qmd
-      - section: "5. Other Useful packages"
-        contents:
-        - courses/stat0118/118_H_forcats.qmd
-        - courses/stat0118/118_Q_stringr.qmd
-        - courses/stat0118/118_R_lubridate.qmd
-        - courses/stat0118/118_janitor.qmd
-        - courses/stat0118/118_gganimate.qmd
-      - section: "6. Maps"
-        contents:
-        - courses/stat0118/118_K_Maps1.qmd
-        - courses/stat0118/118_L_Maps2.qmd
-      - section: "7. Webscraping with `rvest`"
-        contents:
-        - courses/stat0118/118_O_webscraping_tables.qmd
-        - courses/stat0118/118_P_webscraping_text.qmd
+    - id: courses/stat0118 
+      title: "STAT 118: Intro to Data Science"
+      logo: courses/stat0118/images/stat0118_hex_sticker.png
+      style: "docked"
+      type: "dark"
+      background: "light"
+      contents: 
+        - text: "STAT 118 Home"
+          href: courses/stat0118/index.qmd
+        - text: "Getting Started"
+          contents:
+            - text: "Introduction to R & RStudio"
+              href: courses/stat0118/118_A_intro.qmd
+            - text: "Introduction to Quarto"
+              href: courses/stat0118/118_A_intro_quarto.qmd
+        - text: "Data Wrangling"
+          contents:
+            - text: "Basics with `dplyr`"
+              href: courses/stat0118/118_B_wrangling.qmd
+            - text: "Aggregating Data"
+              href: courses/stat0118/118_C_aggregating.qmd
+            - text: "Joining Tables"
+              href: courses/stat0118/118_I_joining.qmd
+            - text: "Advanced Wrangling with `tidyr`"
+              href: courses/stat0118/118_J_pivoting.qmd
+        - text: "Visualization with `ggplot2`"
+          contents:
+            - text: "Intro to Plotting"
+              href: courses/stat0118/118_D_ggplot.qmd
+            - text: "Advanced Plotting"
+              href: courses/stat0118/118_E_ggplot_2.qmd
+            - text: "Customizing Plots"
+              href: courses/stat0118/118_F_ggplot_3.qmd
+        - text: "Specialized Tools"
+          contents:
+            - text: "Categorical Data: `forcats`"
+              href: courses/stat0118/118_H_forcats.qmd
+            - text: "Working with Text: `stringr`"
+              href: courses/stat0118/118_Q_stringr.qmd
+            - text: "Date-Time Data: `lubridate`"
+              href: courses/stat0118/118_R_lubridate.qmd
+            - text: "Data Cleaning: `janitor`"
+              href: courses/stat0118/118_janitor.qmd
+            - text: "Animated Plots: `gganimate`"
+              href: courses/stat0118/118_gganimate.qmd
+        - text: "Advanced Topics"
+          contents:
+            - text: "Maps with `ggplot2`"
+              href: courses/stat0118/118_K_Maps1.qmd
+            - text: "Advanced Maps"
+              href: courses/stat0118/118_L_Maps2.qmd
+            - text: "Web Scraping with `rvest`"
+              href: courses/stat0118/118_O_webscraping_tables.qmd
+            - text: "Scraping Text Data"
+              href: courses/stat0118/118_P_webscraping_text.qmd
 
-  back-to-top-navigation: true
-  page-footer: 
+back-to-top-navigation: true
+page-footer: 
     left: "Made by EMW (2025)"
     right: "Powered by Quarto"
       

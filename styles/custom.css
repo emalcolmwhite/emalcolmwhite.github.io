@@ -125,3 +125,24 @@ div.cell-output pre code {
   background-color: #fafafa;
 }
 
+/* Sidebar section titles */
+.sidebar-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Sidebar links */
+.sidebar a {
+  color: #e0e0e0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: #496677;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+}
