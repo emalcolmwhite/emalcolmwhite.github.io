@@ -125,24 +125,16 @@ div.cell-output pre code {
   background-color: #fafafa;
 }
 
-/* Sidebar section titles */
-.sidebar-title {
-  font-size: 1.5rem;
-  color: #ffffff;
-  text-align: center;
-  margin: 10px 0;
+/* Add extra spacing between grouped sidebar items */
+#quarto-sidebar .sidebar-item-group {
+  margin-top: 20px;  /* Extra space above each group */
+  padding-top: 10px;
+  border-top: 1px solid #cccccc;  /* Light gray divider */
 }
 
-/* Sidebar links */
-.sidebar a {
-  color: #e0e0e0;
-  font-weight: bold;
-  text-decoration: none;
+/* First group shouldn't have a top border */
+#quarto-sidebar .sidebar-item-group:first-child {
+  margin-top: 0;
+  border-top: none;
 }
 
-.sidebar a:hover {
-  background-color: #496677;
-  color: #ffffff;
-  padding: 5px;
-  border-radius: 5px;
-}

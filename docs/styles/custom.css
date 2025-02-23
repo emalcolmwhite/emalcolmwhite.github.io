@@ -125,3 +125,16 @@ div.cell-output pre code {
   background-color: #fafafa;
 }
 
+/* Add extra spacing between grouped sidebar items */
+#quarto-sidebar .sidebar-item-group {
+  margin-top: 20px;  /* Extra space above each group */
+  padding-top: 10px;
+  border-top: 1px solid #cccccc;  /* Light gray divider */
+}
+
+/* First group shouldn't have a top border */
+#quarto-sidebar .sidebar-item-group:first-child {
+  margin-top: 0;
+  border-top: none;
+}
+
