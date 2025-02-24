@@ -37,7 +37,7 @@ data(penguins)          #<2>
 1. Load the `palmerpenguins` package
 2. Display the penguins dataset in the environment
 
-# Remove rows with missing data with drop_na()
+## Remove rows with missing data with drop_na()
 
 ```{r}
 penguins <- penguins %>%    #<2>

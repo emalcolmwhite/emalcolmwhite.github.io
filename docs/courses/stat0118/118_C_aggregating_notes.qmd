@@ -31,7 +31,7 @@ data(penguins)
 ```
 
 
-# Remove rows with missing data with drop_na()
+## Remove rows with missing data with drop_na()
 
 ```{r}
                 

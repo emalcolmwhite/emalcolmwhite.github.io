@@ -1,5 +1,5 @@
 ---
-title: "Intro to Quarto"
+title: "Intro to R and RStudio"
 author: "Emily Malcolm-White"
 format:
   html: 

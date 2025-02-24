@@ -40,9 +40,9 @@ website:
         - text: "🚀 <b> Getting Started </b>"
           class: sidebar-item-group
         - text: "R & RStudio"
-          href: courses/stat0118/118_A_intro.qmd
-        - text: "Quarto & Markdown"
           href: courses/stat0118/118_A_intro_quarto.qmd
+        - text: "Quarto & Markdown"
+          href: courses/stat0118/118_A_intro.qmd
   
         # Group 2: Data Wrangling
         - text: "🛠️ <b> Data Wrangling</b> "
@@ -53,7 +53,7 @@ website:
           href: courses/stat0118/118_C_aggregating.qmd
         - text: "Joining Tables"
           href: courses/stat0118/118_I_joining.qmd
-        - text: "Adv Wrangling with `tidyr`"
+        - text: "Pivoting with `tidyr`"
           href: courses/stat0118/118_J_pivoting.qmd
   
         # Group 3: Visualization
@@ -81,7 +81,7 @@ website:
           href: courses/stat0118/118_gganimate.qmd
   
         # Group 5: Maps
-        - text: "🌍 <b> Maps </b>"
+        - text: "🗺️  <b> Maps </b>"
           class: sidebar-item-group
         - text: "Chlorepleth Maps"
           href: courses/stat0118/118_K_Maps1.qmd

@@ -4648,13 +4648,13 @@ border-radius: 5px;
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../courses/stat0118/118_A_intro_quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R &amp; RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_A_intro_quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto &amp; Markdown</span></a>
   </div>
 </li>
@@ -4682,7 +4682,7 @@ border-radius: 5px;
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_J_pivoting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adv Wrangling with <code>tidyr</code></span></a>
+ <span class="menu-text">Pivoting with <code>tidyr</code></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -4740,7 +4740,7 @@ border-radius: 5px;
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">🌍 <b> Maps </b></span>
+ <span class="menu-text">🗺️  <b> Maps </b></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -4779,8 +4779,10 @@ border-radius: 5px;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#palmerpenguins-dataset" id="toc-palmerpenguins-dataset" class="nav-link active" data-scroll-target="#palmerpenguins-dataset"><code>palmerpenguins</code> dataset</a></li>
+  <li><a href="#palmerpenguins-dataset" id="toc-palmerpenguins-dataset" class="nav-link active" data-scroll-target="#palmerpenguins-dataset"><code>palmerpenguins</code> dataset</a>
+  <ul class="collapse">
   <li><a href="#remove-rows-with-missing-data-with-drop_na" id="toc-remove-rows-with-missing-data-with-drop_na" class="nav-link" data-scroll-target="#remove-rows-with-missing-data-with-drop_na">Remove rows with missing data with drop_na()</a></li>
+  </ul></li>
   <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><code>count()</code></a></li>
   <li><a href="#summarize-or-summarise-either-works" id="toc-summarize-or-summarise-either-works" class="nav-link" data-scroll-target="#summarize-or-summarise-either-works"><code>summarize()</code> or <code>summarise()</code> (either works)</a></li>
   <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><code>group_by()</code></a>
@@ -4830,9 +4832,8 @@ border-radius: 5px;
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins) </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="remove-rows-with-missing-data-with-drop_na" class="level1">
-<h1>Remove rows with missing data with drop_na()</h1>
+<section id="remove-rows-with-missing-data-with-drop_na" class="level2">
+<h2 data-anchor-id="remove-rows-with-missing-data-with-drop_na">Remove rows with missing data with drop_na()</h2>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4847,6 +4848,7 @@ Warning
 <p>Removing rows can affect the validity and generalizability of your analysis!</p>
 </div>
 </div>
+</section>
 </section>
 <section id="count" class="level1">
 <h1><code>count()</code></h1>
@@ -5207,7 +5209,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="fu"># Remove rows with missing data with drop_na()</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Remove rows with missing data with drop_na()</span></span>
 <span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>

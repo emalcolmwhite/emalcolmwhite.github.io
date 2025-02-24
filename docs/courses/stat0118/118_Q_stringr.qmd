@@ -1,5 +1,5 @@
 ---
-title: 'Working with text with `stringr`'
+title: 'Working with text using `stringr`'
 author: 'Violet Ross and Emily Malcolm-White'
 format:
   html: 

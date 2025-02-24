@@ -1,5 +1,5 @@
 ---
-title: 'plotting numeric data using `scales`, labels, jitter, lines of best fit'
+title: 'Using`scales`, labels, jitter, lines of best fit'
 author: 'Emily Malcolm-White'
 format:
   html: 

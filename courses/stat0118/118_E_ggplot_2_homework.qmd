@@ -1,6 +1,6 @@
 ---
 title: "STAT 118: Homework E"
-subtitle: "Making plots  with ggplot2: histograms, boxplots, jitter, labels"
+subtitle: "Making plots  with `ggplot2`: histograms, boxplots, line graphs"
 author: "YOUR NAME HERE"
 format:
   html: 

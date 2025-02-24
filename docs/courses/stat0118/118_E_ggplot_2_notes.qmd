@@ -1,5 +1,5 @@
 ---
-title: "Making plots  with ggplot2: histograms, boxplots, line graphs"
+title: "Making plots  with `ggplot2`: histograms, boxplots, line graphs"
 author: 'Emily Malcolm-White'
 format:
   html: 

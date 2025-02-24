@@ -1,5 +1,5 @@
 ---
-title: 'categorical data using `forcats`'
+title: 'Working with Categorical Data using `forcats`'
 author: 'Emily Malcolm-White'
 format:
   html: 

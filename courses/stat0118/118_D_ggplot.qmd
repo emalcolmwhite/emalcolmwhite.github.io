@@ -1,5 +1,5 @@
 ---
-title:  'barplots and scatterplots'
+title:  'Making plots  with `ggplot2`: Barplots and Scatterplots'
 author: 'Emily Malcolm-White'
 format:
   html: 

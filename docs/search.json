@@ -121,7 +121,7 @@
   {
     "objectID": "courses/stat0118/118_D_ggplot_notes.html",
     "href": "courses/stat0118/118_D_ggplot_notes.html",
-    "title": "barplots and scatterplots",
+    "title": "Making plots with ggplot2: Barplots and Scatterplots",
     "section": "",
     "text": "ggplot2 is a package built within the tidyverse package for creating awesome graphs!\n\nlibrary(tidyverse)\n\n\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\n\nRecall our Top 10 example:\nThis code gave a list of 10 Aboriginal Languages which have the most number of people who speak them as their mother tongue:\n\nten_lang &lt;- can_lang %&gt;%  \n  filter(category == \"Aboriginal languages\") %&gt;% \n  arrange(desc(mother_tongue)) %&gt;% \n  select(language, mother_tongue) %&gt;%  \n  slice(1:10) #\n\n\n\nBarplots\nSuppose we wanted to display this information in a barplot instead of in a table.\nIs there any improvements we could make to this graph?\n\n\nTo better view text\nDisplay the bars horizontally instead of vertically!\n\nThis flips the x and y axes!\n\n\n\nLabels, Colors, and Themes\n\nggplot(ten_lang, aes(x = mother_tongue, y = language)) +\n  geom_bar(stat = \"identity\") \n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nBarplots are good for displaying one categorical variable and one numeric variable. The number variable could be counts (as above) or they could be averages or totals or maximums or minimums (or many other things!)\n\n\n\n\nggplot: scatterplot with geom_point\n\n\n\n\n\n\nTip\n\n\n\nScatterplots are good for displaying the relationship between two numerical variables.\n\n\nThe mtcars dataset was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It’s available inside the ggplot package which is already installed.\n\n#load the data\ndata(mtcars)\n\nNote that you can change the color, shape (pch for plotting character) and size of these points!\n\nQuick update to the dataset\n\n#code to update `mtcars` dataset so that `am` is treated as a factor rather than a continuous numeric variable\nmtcars &lt;- mtcars %&gt;%  \n  mutate(am = as.factor(am)) \n\nThis modifies the am column, which represents the transmission type of the car (0 = automatic, 1 = manual). The as.factor(am) function converts the am variable from a numeric type (0 or 1) into a categorical factor.\n\n\n\nInside aes() or outside aes()?\nWhat is the difference between these two graphs?\n\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(color=\"red\") \n\n\n\n\n\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nIf the thing you are trying to change (color, shape, size, etc.) depends on a variable, you should put in inside the aesthetics\nIf the thing you are trying to change (color, shape, size, etc.) should happen for all things, you should not put it inside the aesthetics.\n\n\n\n\n\nCustomizing Colors in Aesthetics\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am)) +\n  scale_color_manual(values=c(\"black\", \"orange\")) \n\n\n\n\n\n\nGlobal vs. Local Aesthetics\nGlobal aesthetic mappings apply to all geometries and can be defined when you initially call ggplot(). All the geometries added as layers will default to this mapping. Local aesthetic mappings add additional information or override the default mappings.\n\n#color = am as a global aethetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point()\n\n\n\n\n\n#color = am as a local aethetic\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n#overwriting color = am as a global aethetic with a local aesthetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point(color=\"purple\")"
   },
@@ -159,6 +159,13 @@
     "title": "Aggregating",
     "section": "",
     "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
+    "href": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
+    "title": "Aggregating",
+    "section": "Remove rows with missing data with drop_na()",
+    "text": "Remove rows with missing data with drop_na()\n\n2penguins &lt;- penguins %&gt;%\n1  drop_na()\n\n\n1\n\nDrops all the rows in the penguins dataset which has missing data (NA values)\n\n2\n\noverwrite the penguins dataset with the penguins dataset without the missing rows\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
   },
   {
     "objectID": "courses/stat0118/118_C_aggregating.html#multiple-groups",
@@ -219,28 +226,28 @@
   {
     "objectID": "courses/stat0118/118_Q_stringr.html#str_detect",
     "href": "courses/stat0118/118_Q_stringr.html#str_detect",
-    "title": "Working with text with stringr",
+    "title": "Working with text using stringr",
     "section": "str_detect",
     "text": "str_detect\n\n\n\nartwork by @allisonhorst\n\n\ninputs: - string - pattern\noutput: - TRUE/FALSE\nlittle example:\n\nstr_detect(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] TRUE\n\n\n\nstr_detect(\"Welcome to data science, look at this cool data\", \"pineapple\")\n\n[1] FALSE\n\n\nI only want to take classes in Warner!\n\ncourses %&gt;% \n  filter(str_detect(location, \"WNS\"))\n\n# A tibble: 45 × 9\n   titles      distros department time  location professor description courseNum\n   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    \n 1 Gothic and… AMR HI… Program i… 2:15… \"Warner… Michael … \"\\nThis co… AMST0225…\n 2 Education … AMR SOC Program i… 2:15… \"Warner… Melissa … \"\\nWhat ar… BLST0115…\n 3 Economic S… DED     Economics  2:15… \"Warner… Amanda G… \"\\nAn intr… ECON0111…\n 4 Introducto… SOC     Economics  9:45… \"Warner… Raphaell… \"\\nAn intr… ECON0150…\n 5 Introducto… SOC     Economics  11:1… \"Warner… Raphaell… \"\\nAn intr… ECON0150…\n 6 Introducto… SOC     Economics  8:15… \"Warner… Will Pyle \"\\nAn intr… ECON0155…\n 7 Introducto… SOC     Economics  9:45… \"Warner… Will Pyle \"\\nAn intr… ECON0155…\n 8 Microecono… &lt;NA&gt;    Economics  12:4… \"Warner… &lt;NA&gt;      \"\\nMicroec… ECON0255…\n 9 Microecono… &lt;NA&gt;    Economics  2:15… \"Warner… &lt;NA&gt;      \"\\nMicroec… ECON0255…\n10 Federal Re… AMR DED Economics  1:30… \"Warner… Erin Wol… \"\\nIn this… ECON0360…\n# ℹ 35 more rows\n# ℹ 1 more variable: meet &lt;chr&gt;\n\n\nSuppose I don’t want any classes on Friday. Let’s use str_detect to find our options.\n\nnotFriday &lt;- courses %&gt;% \n  filter(!str_detect(meet, \"Friday\"))\n\nPerhaps I’m interested in immigration.\nThe regex function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.\nFor now, we will only use regex to ignore capitalization.\nIf you’re interested in using regular expressions at some point, this regex cheat sheet will be super helpful.\n\nimmigrationclasses &lt;- courses %&gt;% \n  filter(str_detect(description, regex(\"immigration\", ignore_case=TRUE)))\n\nimmigrationclasses\n\n# A tibble: 10 × 9\n   titles      distros department time  location professor description courseNum\n   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    \n 1 Immigrant … AMR HIS Program i… 11:1… \"Axinn … Rachael … \"\\nIn this… AMST0175…\n 2 Introducti… EUR LN… French     2:15… \"Le Cha… William … \"\\nIn this… FREN0230…\n 3 Introducti… CW EUR… French     2:15… \"Le Cha… William … \"\\nIn this… FREN0230…\n 4 The United… AMR HIS History    9:45… \"Axinn … Joyce Mao \"\\nThis co… HIST0206…\n 5 Introducti… CMP     Internati… 12:4… \"Twilig… Amit Pra… \"\\nThis is… IGST0101…\n 6 An Introdu… EUR LN… Italian    9:45… \"Wright… Thomas V… \"\\nIntende… ITAL0251…\n 7 An Introdu… EUR LN… Italian    11:1… \"75 Sha… Sandra C… \"\\nIntende… ITAL0251…\n 8 Globalizat… SOC     Political… 2:15… \"Librar… Orion Le… \"\\nHow doe… PSCI0314…\n 9 City Polit… &lt;NA&gt;    Political… 11:1… \"LaForc… Bert Joh… \"\\nCities … PSCI0465…\n10 Christiani… AMR HI… Religion   7:30… \"Librar… James Ca… \"\\nReligio… RELI0398…\n# ℹ 1 more variable: meet &lt;chr&gt;"
   },
   {
     "objectID": "courses/stat0118/118_Q_stringr.html#str_extract-and-str_remove",
     "href": "courses/stat0118/118_Q_stringr.html#str_extract-and-str_remove",
-    "title": "Working with text with stringr",
+    "title": "Working with text using stringr",
     "section": "str_extract and str_remove",
     "text": "str_extract and str_remove\nstr_extract inputs: - string - pattern str_extract output: - the extracted pattern, if it appears in the the string\nstr_remove inputs: - string - pattern str_extract output: - the string without the pattern, if it appears in the string\nlittle example:\n\nstr_extract(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] \"data\"\n\nstr_extract_all(\"Welcome to data science, look at this cool data\", \"data\")\n\n[[1]]\n[1] \"data\" \"data\"\n\nstr_remove(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] \"Welcome to  science, look at this cool data\"\n\nstr_remove_all(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] \"Welcome to  science, look at this cool \"\n\n\nCW is part of the distribution requirement column. I want CW to be its own column.\n\ncourses %&gt;% \n  mutate(CW = str_extract(distros, \"CW\")) %&gt;% \n  mutate(distros = str_remove(distros, \"CW\"))\n\n# A tibble: 586 × 10\n   titles      distros department time  location professor description courseNum\n   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    \n 1 Introducti… AMR CMP Program i… 12:4… \"Axinn … Roberto … \"\\nIn this… AMST0101…\n 2 Immigrant … AMR HIS Program i… 11:1… \"Axinn … Rachael … \"\\nIn this… AMST0175…\n 3 American L… AMR LIT Program i… 11:1… \"Axinn … Ellery F… \"\\nA study… AMST0209…\n 4 Introducti… AMR HI… Program i… 1:30… \"Twilig… Roberto … \"\\nIn this… AMST0213…\n 5 Gothic and… AMR HI… Program i… 2:15… \"Warner… Michael … \"\\nThis co… AMST0225…\n 6 American C… AMR HIS Program i… 9:45… \"Axinn … Holly Al… \"\\nFor man… AMST0234…\n 7 Constructi… AMR ART Program i… 1:30… \"Ross C… Deb Evans \"\\n“Democr… AMST0251…\n 8 African Am… AMR LIT Program i… 9:45… \"Axinn … William … \"\\nThis co… AMST0252…\n 9 American D… AMR HI… Program i… 11:1… \"Axinn … Susan Bu… \"\\nIn this… AMST0260…\n10 Chicagoland AMR HIS Program i… 11:1… \"Giffor… Jim Ralp… \"\\nIn this… AMST0264…\n# ℹ 576 more rows\n# ℹ 2 more variables: meet &lt;chr&gt;, CW &lt;chr&gt;"
   },
   {
     "objectID": "courses/stat0118/118_Q_stringr.html#str_sub",
     "href": "courses/stat0118/118_Q_stringr.html#str_sub",
-    "title": "Working with text with stringr",
+    "title": "Working with text using stringr",
     "section": "str_sub",
     "text": "str_sub\nstr_sub inputs: - string\n- starting character - ending character str_sub output: - string with only the characters between the start and the end\nlittle example:\n\nstr_sub(\"Welcome to data science, look at this cool data\", start=12, end=23) \n\n[1] \"data science\"\n\n\n\nBounds are inclusive!\n\nMaybe I only want 200 level math classes.\n\nFirst we filter for just math classes.\nThen we can create a new column called level that contains only the sixth character from the courses column.\n\nWe call this a substring, hence the function str_sub.\n\nMathClasses &lt;- courses %&gt;% \n  filter(department == \"Mathematics\") %&gt;% \n  mutate(level=str_sub(courseNum, start=6, end=6)) \n\nMath2Classes &lt;- MathClasses %&gt;% \n  filter(level== \"2\")"
   },
   {
     "objectID": "courses/stat0118/118_Q_stringr.html#str_count",
     "href": "courses/stat0118/118_Q_stringr.html#str_count",
-    "title": "Working with text with stringr",
+    "title": "Working with text using stringr",
     "section": "str_count",
     "text": "str_count\nstr_count inputs: - string\n- pattern str_count output: - a count of the number of times the pattern appears in the string\nlittle example:\n\nstr_count(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] 2\n\n\nMaybe I only want my classes to meet twice a week.\n\ncourses &lt;- courses %&gt;% \n  mutate(dayCount = str_count(meet, \"day\"))\n\n#what's the maximum number of days a week a class meets?\nmax(courses$dayCount)\n\n[1] 5\n\n#what's the mean number of days?\nmean(courses$dayCount)\n\n[1] 2.187713\n\n\nLet’s visualize this data.\n\ncourses %&gt;% \n  ggplot() + \n  geom_bar(aes(x=dayCount), fill=\"blue\") + \n  xlab(\"Number of Days Class Meets\") + \n  ylab(\"Number of Classes\") + \n  labs(title=\"How many Days a Week do Classes at Middlebury Meet?\")+\n  theme_classic()"
   },
@@ -289,7 +296,7 @@
   {
     "objectID": "courses/stat0118/118_D_ggplot.html",
     "href": "courses/stat0118/118_D_ggplot.html",
-    "title": "barplots and scatterplots",
+    "title": "Making plots with ggplot2: Barplots and Scatterplots",
     "section": "",
     "text": "ggplot2 is a package built within the tidyverse package for creating awesome graphs!\n\n\n\nArtwork by @allisonhorst\n\n\n\nlibrary(tidyverse)\n\n\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\n\nRecall our Top 10 example:\nThis code gave a list of 10 Aboriginal Languages which have the most number of people who speak them as their mother tongue:\n\n1ten_lang &lt;- can_lang %&gt;%\n2  filter(category == \"Aboriginal languages\") %&gt;%\n3  arrange(desc(mother_tongue)) %&gt;%\n4  select(language, mother_tongue) %&gt;%\n5  slice(1:10)\n\n\n1\n\nStart with the can_lang dataset\n\n2\n\nFilter for aboriginal languages only\n\n3\n\narrange the rows from highest number of people who speak the language as their mother tongue, to the lowest number of people who speak the language as their mother tongue\n\n4\n\nonly include the language and mother_tongue columns\n\n5\n\nonly include the top 10 rows\n\n\n\n\n\n\nBarplots\nSuppose we wanted to display this information in a barplot instead of in a table. Let’s take a look at the ggplot syntax:\n\n\n\nCredit: https://github.com/UBC-DSCI/introduction-to-datascience/\n\n\n\n1ten_lang %&gt;%\n2  ggplot(aes(x = language, y = mother_tongue)) +\n3  geom_bar(stat = \"identity\")\n\n\n1\n\nBegin with the ten_lang dataset\n\n2\n\nCreate a plot – the x-axis contains the languages and the y-axis contains the number of people who speak the language as their mother tongue. This sets up the coordinate system, but no visualization appears yet.\n\n3\n\nadd a layer with a barplot. The height of the bars should simply be the number of people who speak the language as their mother tongue. Without stat = \"identity\", geom_bar() defaults to stat = \"count\", which means it counts rows instead of using a y-variable.\n\n\n\n\n\n\n\nIs there any improvements we could make to this graph?\n\n\nTo better view text\nDisplay the bars horizontally instead of vertically!\n\nggplot(ten_lang, aes(x = language, y = mother_tongue)) +\n  geom_bar(stat = \"identity\") +  \n1  coord_flip()\n\n\n1\n\nThis flips the x and y axes!\n\n\n\n\n\n\n#OR\n\nggplot(ten_lang, aes(x = mother_tongue, y = language)) +\n  geom_bar(stat = \"identity\") \n\n\n\n\n\n\nLabels, Colors, and Themes\n\n1ggplot(ten_lang, aes(x = mother_tongue, y = reorder(language, mother_tongue))) +\n2  geom_bar(fill=\"lightblue\", stat = \"identity\") +\n3  ylab(\"Language\") +\n4  xlab(\"Mother Tongue (Number of Canadian Residents)\") +\n5  ggtitle(\"Ten Aboriginal Languages Most Often \\n Reported by Canadian Residents \\n as Their Mother Tongue\") +\n6  theme_minimal()\n\n\n1\n\nThe reorder function helps to reorder the languages from highest to lowest value of mother tongue.\n\n2\n\nChanges the colors of the bars to light blue!\n\n3\n\nUpdates x-axis label\n\n4\n\nUpdates y-axis label\n\n5\n\nadds a title\n\n6\n\nchanges the theme\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nBarplots are good for displaying one categorical variable and one numeric variable. The number variable could be counts (as above) or they could be averages or totals or maximums or minimums (or many other things!)\n\n\n\n\nggplot: scatterplot with geom_point\n\n\n\n\n\n\nTip\n\n\n\nScatterplots are good for displaying the relationship between two numerical variables.\n\n\nThe mtcars dataset was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It’s available inside the ggplot package which is already installed.\n\n#load the data\ndata(mtcars)\n\n\n1mtcars %&gt;%\n2ggplot(aes(x=wt, y=mpg)) +\n3  geom_point()\n\n\n1\n\nBegin with the mtcars dataset\n\n2\n\nset up the plot – weight on the x-axis and miles per gallon on the y-axis\n\n3\n\nAdds a scatter plot layer to the plot.\n\n\n\n\n\n\n\nNote that you can change the color, shape (pch for plotting character) and size of these points!\n\nQuick update to the dataset\n\n#code to update `mtcars` dataset so that `am` is treated as a factor rather than a continuous numeric variable\nmtcars &lt;- mtcars %&gt;%  \n  mutate(am = as.factor(am)) \n\nThis modifies the am column, which represents the transmission type of the car (0 = automatic, 1 = manual). The as.factor(am) function converts the am variable from a numeric type (0 or 1) into a categorical factor.\n\n\n\nInside aes() or outside aes()?\nWhat is the difference between these two graphs?\n\n#color not in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n1  geom_point(color=\"red\")\n\n\n1\n\ncolor the same for all points\n\n\n\n\n\n\n\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n1  geom_point(aes(color=am))\n\n\n1\n\ncolor will vary based on the value of am\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nIf the thing you are trying to change (color, shape, size, etc.) depends on a variable, you should put in inside the aesthetics\nIf the thing you are trying to change (color, shape, size, etc.) should happen for all things, you should not put it inside the aesthetics.\n\n\n\n\n\nCustomizing Colors in Aesthetics\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am)) +\n1  scale_color_manual(values=c(\"black\", \"orange\"))\n\n\n1\n\nThis updates the two colors to black and orange, instead of the default colors.\n\n\n\n\n\n\n\n\n\nGlobal vs. Local Aesthetics\nGlobal aesthetic mappings apply to all geometries and can be defined when you initially call ggplot(). All the geometries added as layers will default to this mapping. Local aesthetic mappings add additional information or override the default mappings.\n\n#color = am as a global aethetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point()\n\n\n\n\n\n#color = am as a local aethetic\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n#overwriting color = am as a global aethetic with a local aesthetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point(color=\"purple\")"
   },
@@ -303,49 +310,49 @@
   {
     "objectID": "courses/stat0118/118_H_forcats.html",
     "href": "courses/stat0118/118_H_forcats.html",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "",
     "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
   },
   {
     "objectID": "courses/stat0118/118_H_forcats.html#categorical-variables",
     "href": "courses/stat0118/118_H_forcats.html#categorical-variables",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "Categorical Variables",
     "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced."
   },
   {
     "objectID": "courses/stat0118/118_H_forcats.html#mpg-data",
     "href": "courses/stat0118/118_H_forcats.html#mpg-data",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "mpg Data",
     "text": "mpg Data\nWe will play with different functions in the forcats packages using the mpg dataset from earlier in the semester.\n\nlibrary(forcats)\nlibrary(tidyverse)\ndata(\"mpg\")\n\nRecall our side-by-side boxplot:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()"
   },
   {
     "objectID": "courses/stat0118/118_H_forcats.html#reordering-factor-levels",
     "href": "courses/stat0118/118_H_forcats.html#reordering-factor-levels",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "Reordering Factor Levels",
     "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs class a factor?\n\nmpg$class %&gt;% \n  is.factor()\n\n[1] FALSE\n\n\nLet’s make it a factor!\n\nmpg$class &lt;- mpg$class %&gt;% \n  as.factor()\n\nmpg$class %&gt;% \n  is.factor()\n\n[1] TRUE\n\n\nLet’s check the levels and their current ordering!\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"2seater\"    \"compact\"    \"midsize\"    \"minivan\"    \"pickup\"    \n[6] \"subcompact\" \"suv\"       \n\n\nTo reorder the levels:\n\nmpg$class &lt;- mpg$class  %&gt;% \n  fct_relevel(\"compact\",\"subcompact\",\"midsize\",\"2seater\",\"minivan\",\"suv\",\"pickup\")\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"compact\"    \"subcompact\" \"midsize\"    \"2seater\"    \"minivan\"   \n[6] \"suv\"        \"pickup\"    \n\n\nLet’s recreate our side-by-side boxplot now:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()\n\n\n\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:\n\nmpg$class &lt;- mpg$class %&gt;% \n  fct_reorder(mpg$cty, median)\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"suv\"        \"pickup\"     \"2seater\"    \"minivan\"    \"midsize\"   \n[6] \"subcompact\" \"compact\""
   },
   {
     "objectID": "courses/stat0118/118_H_forcats.html#renaming-factor-levels",
     "href": "courses/stat0118/118_H_forcats.html#renaming-factor-levels",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "Renaming Factor levels",
     "text": "Renaming Factor levels\nSometimes you might not like the way the levels are named.\n\nmpg$class &lt;- mpg$class  %&gt;% \n  fct_recode(\"two-seater\" = \"2seater\")\n\n## NEW NAME = OLD NAME\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"suv\"        \"pickup\"     \"two-seater\" \"minivan\"    \"midsize\"   \n[6] \"subcompact\" \"compact\"   \n\n#Check out the change in the mpg dataset"
   },
   {
     "objectID": "courses/stat0118/118_H_forcats.html#factor-collapsing",
     "href": "courses/stat0118/118_H_forcats.html#factor-collapsing",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "Factor Collapsing",
     "text": "Factor Collapsing\nLet’s say we wanted to create only two categories – cars and larger vehicles.\n\nmpg$class_two &lt;- mpg$class %&gt;% \n  fct_collapse(cars = c(\"compact\", \"subcompact\", \"midsize\", \"two-seater\"),\n               big = c(\"pickup\", \"suv\", \"minivan\"))\n\nmpg$class_two %&gt;% \n  levels()\n\n[1] \"big\"  \"cars\""
   },
   {
     "objectID": "courses/stat0118/118_H_forcats.html#lumping-into-an-other-category",
     "href": "courses/stat0118/118_H_forcats.html#lumping-into-an-other-category",
-    "title": "categorical data using forcats",
+    "title": "Working with Categorical Data using forcats",
     "section": "Lumping into an other category",
     "text": "Lumping into an other category\n\nfct_lump_min(): lumps levels that appear fewer than min times.\nfct_lump_prop(): lumps levels that appear in fewer than (or equal to) prop * n times.\nfct_lump_n() lumps all levels except for the n most frequent (or least frequent if n &lt; 0)\n\n\ntable(mpg$manufacturer)\n\n\n      audi  chevrolet      dodge       ford      honda    hyundai       jeep \n        18         19         37         25          9         14          8 \nland rover    lincoln    mercury     nissan    pontiac     subaru     toyota \n         4          3          4         13          5         14         34 \nvolkswagen \n        27 \n\n\nLet’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:\n\nmpg$manufacturer &lt;- mpg$manufacturer %&gt;%   fct_lump_min(15)\n\nmpg$manufacturer %&gt;% \n  levels()\n\n[1] \"audi\"       \"chevrolet\"  \"dodge\"      \"ford\"       \"toyota\"    \n[6] \"volkswagen\" \"Other\""
   },
@@ -387,35 +394,35 @@
   {
     "objectID": "courses/stat0118/118_A_intro_quarto.html",
     "href": "courses/stat0118/118_A_intro_quarto.html",
-    "title": "Intro to Quarto",
+    "title": "Intro to R and RStudio",
     "section": "",
     "text": "You will need to follow the directions available at https://posit.co/download/rstudio-desktop/ to download both R and RStudio.\n\n\n\nCredit: moderndive\n\n\nR (The brain behind it all)\n\nR is the actual programming language and the computational engine that performs all the calculations, data analysis, and visualizations.\nWithout R, there’s no way to run your code or perform any data analysis tasks.\nWorking in base R is possible, but it’s\n\nRStudio (The interface you work with)\nRStudio is an IDE (Integrated Development Environment) that gives you a user-friendly interface to write and run your R code.\n\n\n\n\n\n\nTip\n\n\n\nThink of it like this:1\n\nR is the engine of a car that powers the vehicle,\nRStudio is the dashboard, steering wheel, and GPS that help you control and navigate the car.\nYou need both for a smooth ride! 🚗\n\n\n\nWhen you open RStudio, you should see something similar to this:"
   },
   {
     "objectID": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
     "href": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
-    "title": "Intro to Quarto",
+    "title": "Intro to R and RStudio",
     "section": "1️⃣ Open Your .qmd File in RStudio",
     "text": "1️⃣ Open Your .qmd File in RStudio\nNavigate to the file on your local computer and click to open it!\n\nSome folks prefer to use the “Files” tab within RStudio to navigate to the file\nOther folks prefer to interact with their files in their typical way (Using Finder on Mac or File Explorer on PC)\n\nEither way works just fine!"
   },
   {
     "objectID": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
     "href": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
-    "title": "Intro to Quarto",
+    "title": "Intro to R and RStudio",
     "section": "2️⃣ Install Quarto in RStudio",
     "text": "2️⃣ Install Quarto in RStudio\nOption 1: Using the RStudio Interface\n\nGo to the Packages pane in RStudio (bottom-right by default),\nClick Install,\nIn the box that appears:\n\nEnter the package name (quarto),\n\nMake sure Install dependencies is checked,\nClick Install.\n\n\n\nOption 2: Using R Code in the Console\n\ninstall.packages(\"quarto\")"
   },
   {
     "objectID": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
     "href": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
-    "title": "Intro to Quarto",
+    "title": "Intro to R and RStudio",
     "section": "3️⃣ Render and Preview",
     "text": "3️⃣ Render and Preview\nClick the Render button () at the top-right of your RStudio editor window.\nTada! You now have created a .html file!\nThe file has been created in the same folder as your .qmd file: \nWhen you render, a preview of the document will show up!\n\n\n\n\n\n\nTip\n\n\n\nBy default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I’m working at a computer station with multiple monitors.\nHowever, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I’m just working on just my laptop.\nClick on the “gear button”  and select “Preview in Viewer Pane”\n\n\nThe preview will update whenever you re-render the document."
   },
   {
     "objectID": "courses/stat0118/118_A_intro_quarto.html#footnotes",
     "href": "courses/stat0118/118_A_intro_quarto.html#footnotes",
-    "title": "Intro to Quarto",
+    "title": "Intro to R and RStudio",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://moderndive.com/1-getting-started.html↩︎"
   },
@@ -425,6 +432,13 @@
     "title": "Aggregating data",
     "section": "",
     "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_C_aggregating_notes.html#remove-rows-with-missing-data-with-drop_na",
+    "href": "courses/stat0118/118_C_aggregating_notes.html#remove-rows-with-missing-data-with-drop_na",
+    "title": "Aggregating data",
+    "section": "Remove rows with missing data with drop_na()",
+    "text": "Remove rows with missing data with drop_na()\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
   },
   {
     "objectID": "courses/stat0118/118_C_aggregating_notes.html#multiple-groups",
@@ -485,28 +499,28 @@
   {
     "objectID": "courses/stat0118/118_A_intro.html",
     "href": "courses/stat0118/118_A_intro.html",
-    "title": "Markdown Formatting & R Chunks",
+    "title": "Quarto & Markdown Formatting",
     "section": "",
     "text": "If you type…\nOutput\n\n\n\n\n*italics*\nitalics\n\n\n**bold**\nbold\n\n\n***bold italics***\nbold italics\n\n\n- chai tea\n- green tea\n- earl grey tea\n\nchai tea\ngreen tea\nearl grey tea\n\n\n\n[this is the text that will display](www.google.com)\nthis is the text that will display\n\n\n![a caption here](jellyfish.jpg)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nA comprehensive list of markdown syntax can be found at https://quarto.org/docs/authoring/markdown-basics.html."
   },
   {
     "objectID": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
     "href": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
-    "title": "Markdown Formatting & R Chunks",
+    "title": "Quarto & Markdown Formatting",
     "section": "Centered and large equations",
     "text": "Centered and large equations\nType in the plain text section:\n$$y=\\frac{x^2}{SE(x^2)} $$\nDisplays as:\n\\[y=\\frac{x^2}{SE(x^2)} \\]\nHint: Some people like to use the visual editor to insert equations"
   },
   {
     "objectID": "courses/stat0118/118_A_intro.html#inline-equations",
     "href": "courses/stat0118/118_A_intro.html#inline-equations",
-    "title": "Markdown Formatting & R Chunks",
+    "title": "Quarto & Markdown Formatting",
     "section": "Inline equations",
     "text": "Inline equations\nType in the plain text section:\nWe take and calculate the standard error $SE(x_1)$.\nDisplays as:\nWe take and calculate the standard error \\(SE(x_1)\\)."
   },
   {
     "objectID": "courses/stat0118/118_A_intro.html#inline-code",
     "href": "courses/stat0118/118_A_intro.html#inline-code",
-    "title": "Markdown Formatting & R Chunks",
+    "title": "Quarto & Markdown Formatting",
     "section": "Inline code",
     "text": "Inline code\nType in the plain text section:\nThis is a sentence. The value of x is `r x`\nDisplays as:\nThis is a sentence. The value of x is 11."
   },
@@ -555,42 +569,42 @@
   {
     "objectID": "courses/stat0118/118_F_ggplot_3.html",
     "href": "courses/stat0118/118_F_ggplot_3.html",
-    "title": "plotting numeric data using scales, labels, jitter, lines of best fit",
+    "title": "Usingscales, labels, jitter, lines of best fit",
     "section": "",
     "text": "library(tidyverse)\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")"
   },
   {
     "objectID": "courses/stat0118/118_F_ggplot_3.html#mutate-to-create-new-columns",
     "href": "courses/stat0118/118_F_ggplot_3.html#mutate-to-create-new-columns",
-    "title": "plotting numeric data using scales, labels, jitter, lines of best fit",
+    "title": "Usingscales, labels, jitter, lines of best fit",
     "section": "mutate to create new columns",
     "text": "mutate to create new columns\n\ncan_lang &lt;- can_lang %&gt;%\n  mutate(\n    mother_tongue_percent = (mother_tongue / 35151728) * 100,\n    most_at_home_percent = (most_at_home / 35151728) * 100\n  )"
   },
   {
     "objectID": "courses/stat0118/118_F_ggplot_3.html#scatterplot-with-percents-and-colors",
     "href": "courses/stat0118/118_F_ggplot_3.html#scatterplot-with-percents-and-colors",
-    "title": "plotting numeric data using scales, labels, jitter, lines of best fit",
+    "title": "Usingscales, labels, jitter, lines of best fit",
     "section": "Scatterplot with Percents and Colors",
     "text": "Scatterplot with Percents and Colors\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)"
   },
   {
     "objectID": "courses/stat0118/118_F_ggplot_3.html#size-of-labels",
     "href": "courses/stat0118/118_F_ggplot_3.html#size-of-labels",
-    "title": "plotting numeric data using scales, labels, jitter, lines of best fit",
+    "title": "Usingscales, labels, jitter, lines of best fit",
     "section": "Size of labels",
     "text": "Size of labels\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma) + \n  geom_text(aes(label=language), \n              nudge_x = 0.25, \n              nudge_y=0.25, size=3)"
   },
   {
     "objectID": "courses/stat0118/118_F_ggplot_3.html#subset-the-labels",
     "href": "courses/stat0118/118_F_ggplot_3.html#subset-the-labels",
-    "title": "plotting numeric data using scales, labels, jitter, lines of best fit",
+    "title": "Usingscales, labels, jitter, lines of best fit",
     "section": "Subset the labels",
     "text": "Subset the labels\nCreate a new column for the labels. Use case_when (or ifelse) to only use the official language names and not to put a label for other language categories.\n\ncan_lang &lt;- can_lang %&gt;% \n  mutate(official_languages = case_when(category == \"Official languages\" ~ language, TRUE ~ NA ))\n\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma) + \n  geom_text(aes(label=official_languages), \n              nudge_x = 0.25, \n              nudge_y=0.25, size = 3)"
   },
   {
     "objectID": "courses/stat0118/118_F_ggplot_3.html#using-ggrepel",
     "href": "courses/stat0118/118_F_ggplot_3.html#using-ggrepel",
-    "title": "plotting numeric data using scales, labels, jitter, lines of best fit",
+    "title": "Usingscales, labels, jitter, lines of best fit",
     "section": "Using ggrepel",
     "text": "Using ggrepel\n\nlibrary(ggrepel)\n\n\n\n\nArtwork by @allisonhorst\n\n\n\nggplot(can_lang, aes(x = most_at_home_percent, \n                     y = mother_tongue_percent, \n                     color = category, shape=category)) +\n  geom_point() +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(text = element_text(size = 12),\n        legend.position = \"top\",\n        legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma) + \n  geom_text_repel(aes(label=official_languages), min.segment.length=0, box.padding=1)"
   },
