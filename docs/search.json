@@ -445,7 +445,7 @@
     "href": "courses/stat0118/118_A_intro.html",
     "title": "Markdown Formatting & R Chunks",
     "section": "",
-    "text": "If you type…\nOutput\n\n\n\n\n*italics*\nitalics\n\n\n**bold**\nbold\n\n\n***bold italics***\nbold italics\n\n\n- chai tea\n- green tea\n- earl grey tea\n\nchai tea\ngreen tea\nearl grey tea\n\n\n\n[this is the text that will display](www.google.com)\nthis is the text that will display\n\n\n![a caption here](jellyfish.jpg)\n |\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nA comprehensive list of markdown syntax can be found at https://quarto.org/docs/authoring/markdown-basics.html."
+    "text": "If you type…\nOutput\n\n\n\n\n*italics*\nitalics\n\n\n**bold**\nbold\n\n\n***bold italics***\nbold italics\n\n\n- chai tea\n- green tea\n- earl grey tea\n\nchai tea\ngreen tea\nearl grey tea\n\n\n\n[this is the text that will display](www.google.com)\nthis is the text that will display\n\n\n![a caption here](jellyfish.jpg)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nA comprehensive list of markdown syntax can be found at https://quarto.org/docs/authoring/markdown-basics.html."
   },
   {
     "objectID": "courses/stat0118/118_A_intro.html#centered-and-large-equations",

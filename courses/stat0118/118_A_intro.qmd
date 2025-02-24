@@ -11,14 +11,6 @@ format:
       toggle: false
       caption: none
     code-annotations: hover
-    css: |
-      pre code.language-markdown {
-        background-color: #ffffff !important;
-        color: #333333 !important;
-        border: 1px solid #e0e0e0;
-        padding: 10px;
-        border-radius: 5px;
-      }
 execute: 
   message: FALSE
   warning: FALSE
@@ -54,7 +46,7 @@ execute:
 | [this is the text that will display](www.google.com) |                                                      |
 | ```                                                  |                                                      |
 +------------------------------------------------------+------------------------------------------------------+
-| ``` markdown                                         | ![a caption here](images/jellyfish.jpeg)           | 
+| ``` markdown                                         | ![a caption here](images/jellyfish.jpeg)             | 
 | ![a caption here](jellyfish.jpg)                     |                                                      |
 | ```                                                  |                                                      |
 +------------------------------------------------------+------------------------------------------------------+

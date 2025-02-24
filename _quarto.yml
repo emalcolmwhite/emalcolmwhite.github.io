@@ -37,7 +37,7 @@ website:
           href: courses/stat0118/index.qmd
         
         # Group 1: Getting Started
-        - text: ""
+        - text: "🚀 <b> Getting Started </b>"
           class: sidebar-item-group
         - text: "R & RStudio"
           href: courses/stat0118/118_A_intro.qmd
@@ -45,7 +45,7 @@ website:
           href: courses/stat0118/118_A_intro_quarto.qmd
   
         # Group 2: Data Wrangling
-        - text: ""
+        - text: "🛠️ <b> Data Wrangling</b> "
           class: sidebar-item-group
         - text: "Wrangling with `dplyr`"
           href: courses/stat0118/118_B_wrangling.qmd
@@ -57,17 +57,17 @@ website:
           href: courses/stat0118/118_J_pivoting.qmd
   
         # Group 3: Visualization
-        - text: ""
+        - text: "📊 <b> Visualization</b>"
           class: sidebar-item-group
-        - text: "Plotting: barplots and scatterplots"
+        - text: "Barplots and Scatterplots"
           href: courses/stat0118/118_D_ggplot.qmd
-        - text: "Plotting: histograms, boxplots, linegraphs"
+        - text: "Histograms, Boxplots, Linegraphs"
           href: courses/stat0118/118_E_ggplot_2.qmd
         - text: "Customizing Plots: `scales`"
           href: courses/stat0118/118_F_ggplot_3.qmd
   
         # Group 4: Specialized Tools
-        - text: ""
+        - text: "🧰 <b> Specialized Tools </b>"
           class: sidebar-item-group
         - text: "Categorical Data: `forcats`"
           href: courses/stat0118/118_H_forcats.qmd
@@ -80,16 +80,20 @@ website:
         - text: "Animated Plots: `gganimate`"
           href: courses/stat0118/118_gganimate.qmd
   
-        # Group 5: Advanced Topics
-        - text: ""
+        # Group 5: Maps
+        - text: "🌍 <b> Maps </b>"
           class: sidebar-item-group
-        - text: "Maps with `ggplot2`"
+        - text: "Chlorepleth Maps"
           href: courses/stat0118/118_K_Maps1.qmd
-        - text: "Advanced Maps"
+        - text: "Points on Maps"
           href: courses/stat0118/118_L_Maps2.qmd
-        - text: "Webscraping tables: `rvest`"
+          
+        # Group 6: Webscraping:
+        - text: "🌐️ <b>  Webscraping</b>"   
+          class: sidebar-item-group
+        - text: "tables"
           href: courses/stat0118/118_O_webscraping_tables.qmd
-        - text: "Webscraping text: `rvest`"
+        - text: "text"
           href: courses/stat0118/118_P_webscraping_text.qmd
 
 back-to-top-navigation: true

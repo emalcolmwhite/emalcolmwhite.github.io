@@ -88,22 +88,6 @@
   color: #000;
 }
 
-/* Initialize the counter for the sidebar */
-.quarto-sidebar .sidebar-item-list {
-  counter-reset: sidebar-counter; /* Start the counter */
-}
-
-/* Style each sidebar item */
-.quarto-sidebar .sidebar-item-list > li {
-  counter-increment: sidebar-counter; /* Increment the counter */
-}
-
-/* Add numbers to the sidebar items */
-.quarto-sidebar .sidebar-item-list > li::before {
-  content: counter(sidebar-counter) ". ";
-  font-weight: bold; /* Optional: make the numbers bold */
-  margin-right: 5px; /* Add spacing between the number and the text */
-}
 
 .toc {
   display: block !important;
@@ -125,16 +109,17 @@ div.cell-output pre code {
   background-color: #fafafa;
 }
 
-/* Add extra spacing between grouped sidebar items */
-#quarto-sidebar .sidebar-item-group {
-  margin-top: 20px;  /* Extra space above each group */
-  padding-top: 10px;
-  border-top: 1px solid #cccccc;  /* Light gray divider */
+
+/* Extra spacing between groups for better visual separation */
+#quarto-sidebar .sidebar-item + .sidebar-item.sidebar-item-group {
+  margin-top: 20px;
 }
 
-/* First group shouldn't have a top border */
-#quarto-sidebar .sidebar-item-group:first-child {
-  margin-top: 0;
-  border-top: none;
+/* Subtle border for markdown code blocks */
+pre code.language-markdown {
+  background-color: transparent !important;
+  color: #333333 !important;
+  border: 1px dashed #cccccc;  /* Light dashed border */
+  padding: 5px;
+  border-radius: 5px;
 }
-

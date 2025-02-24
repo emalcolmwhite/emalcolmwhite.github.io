@@ -4553,20 +4553,6 @@ font-size: 1.2em;
 .social-icons a:hover {
 color: #000;
 }
-
-.quarto-sidebar .sidebar-item-list {
-counter-reset: sidebar-counter; 
-}
-
-.quarto-sidebar .sidebar-item-list > li {
-counter-increment: sidebar-counter; 
-}
-
-.quarto-sidebar .sidebar-item-list > li::before {
-content: counter(sidebar-counter) ". ";
-font-weight: bold; 
-margin-right: 5px; 
-}
 .toc {
 display: block !important;
 }
@@ -4584,24 +4570,17 @@ color:#4B4B4B !important;
 background-color: #fafafa;
 }
 
-#quarto-sidebar .sidebar-item-group {
-margin-top: 20px; 
-padding-top: 10px;
-border-top: 1px solid #cccccc; 
+#quarto-sidebar .sidebar-item + .sidebar-item.sidebar-item-group {
+margin-top: 20px;
 }
 
-#quarto-sidebar .sidebar-item-group:first-child {
-margin-top: 0;
-border-top: none;
-}
-</style>
-<link rel="stylesheet" href="pre code.language-markdown {
-  background-color: #ffffff !important;
-  color: #333333 !important;
-  border: 1px solid #e0e0e0;
-  padding: 10px;
-  border-radius: 5px;
-}">
+pre code.language-markdown {
+background-color: transparent !important;
+color: #333333 !important;
+border: 1px dashed #cccccc; 
+padding: 5px;
+border-radius: 5px;
+}</style>
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -4676,6 +4655,9 @@ border-top: none;
   </div>
 </li>
         <li class="sidebar-item">
+ <span class="menu-text">🚀 <b> Getting Started </b></span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">R &amp; RStudio</span></a>
@@ -4687,6 +4669,9 @@ border-top: none;
  <span class="menu-text">Quarto &amp; Markdown</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+ <span class="menu-text">🛠️ <b> Data Wrangling</b> </span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
@@ -4712,15 +4697,18 @@ border-top: none;
   </div>
 </li>
         <li class="sidebar-item">
+ <span class="menu-text">📊 <b> Visualization</b></span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_D_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plotting: barplots and scatterplots</span></a>
+ <span class="menu-text">Barplots and Scatterplots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_E_ggplot_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plotting: histograms, boxplots, linegraphs</span></a>
+ <span class="menu-text">Histograms, Boxplots, Linegraphs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -4729,6 +4717,9 @@ border-top: none;
  <span class="menu-text">Customizing Plots: <code>scales</code></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+ <span class="menu-text">🧰 <b> Specialized Tools </b></span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_H_forcats.html" class="sidebar-item-text sidebar-link">
@@ -4760,27 +4751,33 @@ border-top: none;
   </div>
 </li>
         <li class="sidebar-item">
+ <span class="menu-text">🌍 <b> Maps </b></span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_K_Maps1.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Maps with <code>ggplot2</code></span></a>
+ <span class="menu-text">Chlorepleth Maps</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_L_Maps2.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Advanced Maps</span></a>
+ <span class="menu-text">Points on Maps</span></a>
   </div>
 </li>
         <li class="sidebar-item">
+ <span class="menu-text">🌐️ <b>  Webscraping</b></span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_O_webscraping_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Webscraping tables: <code>rvest</code></span></a>
+ <span class="menu-text">tables</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../courses/stat0118/118_P_webscraping_text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Webscraping text: <code>rvest</code></span></a>
+ <span class="menu-text">text</span></a>
   </div>
 </li>
     </ul>
@@ -4868,7 +4865,7 @@ border-top: none;
 </tr>
 <tr class="even">
 <td><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="al">![a caption here](jellyfish.jpg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-<td><img src="data:image/jpeg;base64,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" class="img-fluid" alt="a caption here"> |</td>
+<td><img src="data:image/jpeg;base64,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" class="img-fluid" alt="a caption here"></td>
 </tr>
 </tbody>
 </table>
@@ -5376,170 +5373,162 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: false</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-annotations: hover</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">    css: |</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">      pre code.language-markdown {</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">        background-color: #ffffff !important;</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">        color: #333333 !important;</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">        border: 1px solid #e0e0e0;</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">        padding: 10px;</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">        border-radius: 5px;</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co">      }</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Markdown Syntax</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>| If you type...                                       | Output                                               |</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>+======================================================+======================================================+</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | *italics*                                            |</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>| *italics*                                            |                                                      |</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># Markdown Syntax</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>| If you type...                                       | Output                                               |</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>+======================================================+======================================================+</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | *italics*                                            |</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>| *italics*                                            |                                                      |</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | **bold**                                             |</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>| **bold**                                             |                                                      |</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | ***bold italics***                                   |</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>| ***bold italics***                                   |                                                      |</span>
 <span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
 <span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | **bold**                                             |</span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>| **bold**                                             |                                                      |</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | ***bold italics***                                   |</span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>| ***bold italics***                                   |                                                      |</span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | -   chai tea                                         |</span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>| - chai tea                                           | -   green tea                                        |</span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>| - green tea                                          | -   earl grey tea                                    |</span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>| - earl grey tea                                      |                                                      |</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | -   chai tea                                         |</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>| - chai tea                                           | -   green tea                                        |</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>| - green tea                                          | -   earl grey tea                                    |</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>| - earl grey tea                                      |                                                      |</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | <span class="co">[</span><span class="ot">this is the text that will display</span><span class="co">](www.google.com)</span> |</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">this is the text that will display</span><span class="co">](www.google.com)</span> |                                                      |</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | <span class="al">![a caption here](images/jellyfish.jpeg)</span>             | </span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>| <span class="al">![a caption here](jellyfish.jpg)</span>                     |                                                      |</span>
 <span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
 <span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | <span class="co">[</span><span class="ot">this is the text that will display</span><span class="co">](www.google.com)</span> |</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>| <span class="co">[</span><span class="ot">this is the text that will display</span><span class="co">](www.google.com)</span> |                                                      |</span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>| ``` markdown                                         | <span class="al">![a caption here](images/jellyfish.jpeg)</span>           | </span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>| <span class="al">![a caption here](jellyfish.jpg)</span>                     |                                                      |</span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>| ```                                                  |                                                      |</span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>+------------------------------------------------------+------------------------------------------------------+</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>A comprehensive list of markdown syntax can be found at <span class="co">[</span><span class="ot">https://quarto.org/docs/authoring/markdown-basics.html</span><span class="co">](https://quarto.org/docs/authoring/markdown-basics.html)</span>. </span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a><span class="fu"># R chunks</span></span>
 <span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>A comprehensive list of markdown syntax can be found at <span class="co">[</span><span class="ot">https://quarto.org/docs/authoring/markdown-basics.html</span><span class="co">](https://quarto.org/docs/authoring/markdown-basics.html)</span>. </span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a><span class="fu"># R chunks</span></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>To create a R chunk:</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>use the +C green buttom in the top menu</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mac Shortcut: CMD + OPTION + I </span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>PC shortcut: Ctrl + ALT + I</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>manually type out ```{r}... etc. </span>
 <span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>To create a R chunk:</span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>use the +C green buttom in the top menu</span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mac Shortcut: CMD + OPTION + I </span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>PC shortcut: Ctrl + ALT + I</span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>manually type out ```{r}... etc. </span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>Calculations and R code goes inside chunks. </span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>Calculations and R code goes inside chunks. </span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>| Operator  | Description                          |</span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>|-----------|--------------------------------------|</span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>| <span class="in">`+`</span>       | Addition                            |</span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>| <span class="in">`-`</span>       | Subtraction                         |</span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a>| <span class="in">`*`</span>       | Multiplication                      |</span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/`</span>       | Division                            |</span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>| <span class="in">`^`</span> or <span class="in">`**`</span> | Exponentiation                     |</span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>| <span class="in">`x %% y`</span>  | Modulus (x mod y) → <span class="in">`5 %% 2 = 1`</span>    |</span>
-<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>| <span class="in">`x %/% y`</span> | Integer division → <span class="in">`5 %/% 2 = 2`</span>    |</span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>| Operator  | Description                          |</span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>|-----------|--------------------------------------|</span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>| <span class="in">`+`</span>       | Addition                            |</span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>| <span class="in">`-`</span>       | Subtraction                         |</span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a>| <span class="in">`*`</span>       | Multiplication                      |</span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/`</span>       | Division                            |</span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>| <span class="in">`^`</span> or <span class="in">`**`</span> | Exponentiation                     |</span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>| <span class="in">`x %% y`</span>  | Modulus (x mod y) → <span class="in">`5 %% 2 = 1`</span>    |</span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>| <span class="in">`x %/% y`</span> | Integer division → <span class="in">`5 %/% 2 = 2`</span>    |</span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>Commenting inside an R chunk: </span>
+<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a><span class="co"># anything behind a &quot;#&quot; in an R chunk is a comment</span></span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>Commenting inside an R chunk: </span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>Assigning a value to an object: </span>
 <span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a><span class="co"># anything behind a &quot;#&quot; in an R chunk is a comment</span></span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>Assigning a value to an object: </span>
-<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a><span class="co"># this takes the value of 20 and assigns it to the object x</span></span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span><span class="dv">11</span></span>
-<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>Operations with objects: </span>
+<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a><span class="co"># this takes the value of 20 and assigns it to the object x</span></span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span><span class="dv">11</span></span>
+<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>Operations with objects: </span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a><span class="co"># take the object x, multiply by 2, and spit out the answer</span></span>
+<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="co"># take the object x, multiply by 2, and spit out the answer</span></span>
-<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>Creating a vector: </span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.778</span>, <span class="fl">1.53</span>, <span class="fl">1.58</span>, <span class="fl">1.56</span>)</span>
+<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a><span class="co"># c stands for concatenate -- a fancy computer science word for &quot;put together&quot;</span></span>
 <span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>Creating a vector: </span>
+<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>z_inches <span class="ot">&lt;-</span> z<span class="sc">*</span><span class="fl">39.701</span></span>
 <span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.778</span>, <span class="fl">1.53</span>, <span class="fl">1.58</span>, <span class="fl">1.56</span>)</span>
-<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a><span class="co"># c stands for concatenate -- a fancy computer science word for &quot;put together&quot;</span></span>
-<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a>z_inches <span class="ot">&lt;-</span> z<span class="sc">*</span><span class="fl">39.701</span></span>
-<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a><span class="co"># This calculates the mean of z</span></span>
-<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(z, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a><span class="co"># This calculates the mean of z</span></span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(z, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a><span class="co"># This calculates the standard deviation of z</span></span>
+<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(z)</span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a><span class="fu"># Equations</span></span>
+<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a><span class="fu">## Centered and large equations</span></span>
 <span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a><span class="co"># This calculates the standard deviation of z</span></span>
-<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(z)</span>
-<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a><span class="fu"># Equations</span></span>
+<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>Type in the plain text section: </span>
+<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a><span class="in">``` markdown</span></span>
+<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a>$$y=\frac{x^2}{SE(x^2)} $$</span>
+<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Centered and large equations</span></span>
+<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a>Displays as: </span>
 <span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>Type in the plain text section: </span>
+<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>$$y=\frac{x^2}{SE(x^2)} $$</span>
 <span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a><span class="in">``` markdown</span></span>
-<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a>$$y=\frac{x^2}{SE(x^2)} $$</span>
-<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a>*Hint: Some people like to use the visual editor to insert equations*</span>
+<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inline equations</span></span>
 <span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a>Displays as: </span>
-<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a>$$y=\frac{x^2}{SE(x^2)} $$</span>
-<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>*Hint: Some people like to use the visual editor to insert equations*</span>
-<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inline equations</span></span>
-<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a>Type in the plain text section: </span>
+<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results=&#39;asis&#39;, echo=FALSE}</span></span>
+<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;We take and calculate the standard error `` $SE(x_1)$. ``&quot;</span>)</span>
+<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a>Displays as: </span>
 <span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a>Type in the plain text section: </span>
+<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a>We take and calculate the standard error $SE(x_1)$.</span>
 <span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results=&#39;asis&#39;, echo=FALSE}</span></span>
-<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;We take and calculate the standard error `` $SE(x_1)$. ``&quot;</span>)</span>
-<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a>Displays as: </span>
-<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a>We take and calculate the standard error $SE(x_1)$.</span>
-<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inline code</span></span>
-<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inline code</span></span>
+<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a>Type in the plain text section: </span>
+<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results=&#39;asis&#39;, echo=FALSE}</span></span>
+<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;This is a sentence. The value of x is `` `r x` ``&quot;</span>)</span>
+<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a>Displays as: </span>
 <span id="cb18-176"><a href="#cb18-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>Type in the plain text section: </span>
+<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>This is a sentence. The value of x is <span class="in">`r x`</span>.</span>
 <span id="cb18-178"><a href="#cb18-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results=&#39;asis&#39;, echo=FALSE}</span></span>
-<span id="cb18-180"><a href="#cb18-180" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;This is a sentence. The value of x is `` `r x` ``&quot;</span>)</span>
-<span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a>Displays as: </span>
-<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a>This is a sentence. The value of x is <span class="in">`r x`</span>.</span>
-<span id="cb18-186"><a href="#cb18-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-187"><a href="#cb18-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
