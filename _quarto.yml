@@ -39,27 +39,27 @@ website:
         # Group 1: Getting Started
         - text: ""
           class: sidebar-item-group
-        - text: "Introduction to R & RStudio"
+        - text: "R & RStudio"
           href: courses/stat0118/118_A_intro.qmd
-        - text: "Introduction to Quarto & Markdown"
+        - text: "Quarto & Markdown"
           href: courses/stat0118/118_A_intro_quarto.qmd
   
         # Group 2: Data Wrangling
         - text: ""
           class: sidebar-item-group
-        - text: "Wrangling Basics with `dplyr`"
+        - text: "Wrangling with `dplyr`"
           href: courses/stat0118/118_B_wrangling.qmd
         - text: "Aggregating Data"
           href: courses/stat0118/118_C_aggregating.qmd
         - text: "Joining Tables"
           href: courses/stat0118/118_I_joining.qmd
-        - text: "Advanced Wrangling with `tidyr`"
+        - text: "Adv Wrangling with `tidyr`"
           href: courses/stat0118/118_J_pivoting.qmd
   
         # Group 3: Visualization
         - text: ""
           class: sidebar-item-group
-        - text: "Intro to Plotting: barplots and scatterplots"
+        - text: "Plotting: barplots and scatterplots"
           href: courses/stat0118/118_D_ggplot.qmd
         - text: "Plotting: histograms, boxplots, linegraphs"
           href: courses/stat0118/118_E_ggplot_2.qmd
@@ -87,9 +87,9 @@ website:
           href: courses/stat0118/118_K_Maps1.qmd
         - text: "Advanced Maps"
           href: courses/stat0118/118_L_Maps2.qmd
-        - text: "Webscraping tables with `rvest`"
+        - text: "Webscraping tables: `rvest`"
           href: courses/stat0118/118_O_webscraping_tables.qmd
-        - text: "Webscraping text with `rvest`"
+        - text: "Webscraping text: `rvest`"
           href: courses/stat0118/118_P_webscraping_text.qmd
 
 back-to-top-navigation: true
