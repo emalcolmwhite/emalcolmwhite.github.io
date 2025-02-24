@@ -42,6 +42,18 @@ A boxplot for the foot length of all possums in this dataset:
 
 ```
 
+You can also customize by color: 
+
+```{r}
+
+```
+
+
+Some people prefer to use `geom_density` for a smoother effect: 
+
+```{r}
+
+```
 
 # Boxplots
 
@@ -100,4 +112,54 @@ Create a line plot with the unemployment rate of the US over time:
 ```{r}
 
 ```
+
+
+
+:::callout-tip
+
+In ggplot2, you use the **`group`** aesthetic in a `geom_line()` plot when you need to explicitly tell R how to group data points together into lines.
+
+**🌶️ Spicy alert**: I am creating a dataset here using some techniques that might be new to you. Don't worry so much about *how* I created the dataset, you should focus on what the dataset looks like. 
+
+```{r}
+# Example dataset
+df <- data.frame(
+  time = rep(1:5, 2),
+  value = c(1, 3, 5, 7, 9, 2, 5, 8, 11, 14),
+  category = rep(c("A", "B"), each = 5)
+)
+
+df
+
+```
+
+## Without the needed `group` command
+
+```{r}
+# Incorrect: Only one line drawn without group
+ggplot(df, aes(x = time, y = value)) +
+  geom_line() +
+  ggtitle("Incorrect - Missing Group")
+```
+
+
+## With the `group` command
+
+```{r}
+# Correct: Separate lines for each category using group
+ggplot(df, aes(x = time, y = value, group = category)) +
+  geom_line() +
+  ggtitle("Correct - Grouped by Category")
+```
+
+## Using `color` (or `linetype`) instead
+
+```{r}
+# Automatically groups by color
+ggplot(df, aes(x = time, y = value, color = category)) +
+  geom_line() +
+  ggtitle("Grouping by Color")
+```
+
+:::
 

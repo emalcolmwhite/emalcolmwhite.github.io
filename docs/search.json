@@ -81,7 +81,28 @@
     "href": "courses/stat0118/118_E_ggplot_2_notes.html",
     "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
     "section": "",
-    "text": "# load packages\nlibrary(tidyverse)\n\n\npossum data\nThe possum data frame consists of nine morphometric measurements on each of 104 mountain brushtail possums, trapped at seven Australian sites from Southern Victoria to central Queensland.\nThere are two different populations (pop): Vic (Victoria) and other (New South Wales or Queensland)\n\n#Import the possum data again\nlibrary(DAAG)\ndata(\"possum\")\n\n\n\nHistograms\n\n\n\n\n\n\nTip\n\n\n\nHistograms are great for looking at the distributions of numeric variables\n\n\nA boxplot for the foot length of all possums in this dataset:\n\n\nBoxplots\n\n\n\n\n\n\nTip\n\n\n\nBoxplots are good for displaying the spread, central tendency, and distribution of one numeric variable.\n\n\n\n\n\nCredit: Michael Galarnyk\n\n\nA lone box-plot for one numeric variable (foot length) with some custom colors:\n\nIf only one boxplot, it puts weird numbers on the x axis, you may want to use the theme to hide these numbers.\n\nggplot(possum, aes(y = footlgth)) +\n  geom_boxplot(color = \"blue\", fill = \"lightblue\") +\n  theme(\n    axis.text.x = element_blank(),  # Hide text\n    axis.ticks.x = element_blank(), # Hide tick marks\n    axis.title.x = element_blank()  # Hide axis title\n  )\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nSide-by-side boxplots are good for displaying one categorical variable and one numeric variable. One advantage of boxplots over bar plots is that they are able to show a bit about the spread and distribution of the numeric variable!\n\n\nA side-by-side boxplot to compare the foot lengths between the two populations of possums:\n\n# same color for both boxplots\n\n\n# different color for both boxplots\n\n\n\nLine Graph\nThis dataset was produced from US economic time series data available from https://fred.stlouisfed.org/. Type ? economics to learn more.\n\ndata(\"economics\")\n\nCreate a line plot with the unemployment rate of the US over time:"
+    "text": "# load packages\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2_notes.html#without-the-needed-group-command",
+    "href": "courses/stat0118/118_E_ggplot_2_notes.html#without-the-needed-group-command",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "Without the needed group command",
+    "text": "Without the needed group command\n\n# Incorrect: Only one line drawn without group\nggplot(df, aes(x = time, y = value)) +\n  geom_line() +\n  ggtitle(\"Incorrect - Missing Group\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2_notes.html#with-the-group-command",
+    "href": "courses/stat0118/118_E_ggplot_2_notes.html#with-the-group-command",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "With the group command",
+    "text": "With the group command\n\n# Correct: Separate lines for each category using group\nggplot(df, aes(x = time, y = value, group = category)) +\n  geom_line() +\n  ggtitle(\"Correct - Grouped by Category\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2_notes.html#using-color-or-linetype-instead",
+    "href": "courses/stat0118/118_E_ggplot_2_notes.html#using-color-or-linetype-instead",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "Using color (or linetype) instead",
+    "text": "Using color (or linetype) instead\n\n# Automatically groups by color\nggplot(df, aes(x = time, y = value, color = category)) +\n  geom_line() +\n  ggtitle(\"Grouping by Color\")"
   },
   {
     "objectID": "courses/stat0118/archive_118_D_kable.html",
@@ -333,7 +354,28 @@
     "href": "courses/stat0118/118_E_ggplot_2.html",
     "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
     "section": "",
-    "text": "# load packages\nlibrary(tidyverse)\n\n\npossum data\nThe possum data frame consists of nine morphometric measurements on each of 104 mountain brushtail possums, trapped at seven Australian sites from Southern Victoria to central Queensland.\nThere are two different populations (pop): Vic (Victoria) and other (New South Wales or Queensland)\n\n#Import the possum data again\nlibrary(DAAG)\ndata(\"possum\")\n\n\n\nHistograms\n\n\n\n\n\n\nTip\n\n\n\nHistograms are great for looking at the distributions of numeric variables\n\n\nA boxplot for the footlength of all possums in this dataset:\n\n1ggplot(possum, aes(x=footlgth)) +\n2  geom_histogram(binwidth=1)\n\n\n1\n\nonly one x variable is needed\n\n2\n\nyou can adjust the binwidth, as needed\n\n\n\n\n\n\n\n\n\nBoxplots\n\n\n\n\n\n\nTip\n\n\n\nBoxplots are good for displaying the spread, central tendency, and distribution of one numeric variable.\n\n\n\n\n\nCredit: Michael Galarnyk\n\n\nA lone box-plot for one numeric variable (foot length) with some custom colors:\n\nggplot(possum, aes(y=footlgth)) +\n1  geom_boxplot(color=\"blue\", fill=\"lightblue\")\n\n\n1\n\nThe geom for boxplot. The color arguments makes the outline of the boxplot blue and the the fill argument shades the inside of the inner quartile range.\n\n\n\n\n\n\n\n\nIf only one boxplot, it puts weird numbers on the x axis, you may want to use the theme to hide these numbers.\n\nggplot(possum, aes(y = footlgth)) +\n  geom_boxplot(color = \"blue\", fill = \"lightblue\") +\n  theme(\n    axis.text.x = element_blank(),  # Hide text\n    axis.ticks.x = element_blank(), # Hide tick marks\n    axis.title.x = element_blank()  # Hide axis title\n  )\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nSide-by-side boxplots are good for displaying one categorical variable and one numeric variable. One advantage of boxplots over bar plots is that they are able to show a bit about the spread and distribution of the numeric variable!\n\n\nA side-by-side boxplot to compare the foot lengths between the two populations of possums:\n\n# same color for both boxplots\nggplot(possum, aes(y=footlgth, x=Pop)) +\n  geom_boxplot(color=\"blue\", fill=\"lightblue\")\n\n\n\n# different color for both boxplots\nggplot(possum, aes(y=footlgth, x=Pop, color=Pop)) +\n  geom_boxplot()\n\n\n\n\n\n\nLine Graph\nThis dataset was produced from US economic time series data available from https://fred.stlouisfed.org/. Type ? economics to learn more.\n\ndata(\"economics\")\n\nCreate a line plot with the unemployment rate of the US over time:\n\n# Create a line plot of unemployment over time\nggplot(economics, aes(x = date, y = unemploy)) +\n  geom_line(color = \"darkblue\", size = 1) +\n  labs(\n    title = \"U.S. Unemployment Over Time\",\n    x = \"Year\",\n    y = \"Number of Unemployed (in thousands)\"\n  )"
+    "text": "# load packages\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html#without-the-needed-group-command",
+    "href": "courses/stat0118/118_E_ggplot_2.html#without-the-needed-group-command",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "Without the needed group command",
+    "text": "Without the needed group command\n\n# Incorrect: Only one line drawn without group\nggplot(df, aes(x = time, y = value)) +\n  geom_line() +\n  ggtitle(\"Incorrect - Missing Group\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html#with-the-group-command",
+    "href": "courses/stat0118/118_E_ggplot_2.html#with-the-group-command",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "With the group command",
+    "text": "With the group command\n\n# Correct: Separate lines for each category using group\nggplot(df, aes(x = time, y = value, group = category)) +\n  geom_line() +\n  ggtitle(\"Correct - Grouped by Category\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html#using-color-or-linetype-instead",
+    "href": "courses/stat0118/118_E_ggplot_2.html#using-color-or-linetype-instead",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "Using color (or linetype) instead",
+    "text": "Using color (or linetype) instead\n\n# Automatically groups by color\nggplot(df, aes(x = time, y = value, color = category)) +\n  geom_line() +\n  ggtitle(\"Grouping by Color\")"
   },
   {
     "objectID": "courses/stat0118/118_KeyboardShortcuts.html",
