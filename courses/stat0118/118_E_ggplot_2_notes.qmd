@@ -24,8 +24,8 @@ The possum data frame consists of nine morphometric measurements on each of 104 
 There are two different populations (`pop`):  `Vic` (Victoria) and `other` (New South Wales or Queensland)
 
 ```{r}
-#Import the possum data again
-library(DAAG)
+#Be sure to install the openintro package if you've never used it before... 
+library(openintro)
 data("possum")
 ```
 
@@ -36,7 +36,7 @@ data("possum")
 Histograms are great for looking at the distributions of numeric variables
 :::
 
-A boxplot for the foot length of all possums in this dataset: 
+A boxplot for the foot length (`footlgth`) of all possums in this dataset: 
 
 ```{r}
 
