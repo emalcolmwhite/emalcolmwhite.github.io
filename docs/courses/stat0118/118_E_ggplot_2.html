@@ -4821,7 +4821,7 @@ border-radius: 5px;
 <p>The possum data frame consists of nine morphometric measurements on each of 104 mountain brushtail possums, trapped at seven Australian sites from Southern Victoria to central Queensland.</p>
 <p>There are two different populations (<code>pop</code>): <code>Vic</code> (Victoria) and <code>other</code> (New South Wales or Queensland)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import the possum data again</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Be sure to install the DAAG package if you&#39;ve never used it before... </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DAAG)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;possum&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -4841,7 +4841,7 @@ Tip
 <p>Histograms are great for looking at the distributions of numeric variables</p>
 </div>
 </div>
-<p>A boxplot for the footlength of all possums in this dataset:</p>
+<p>A boxplot for the footlength (<code>footlgth</code>) of all possums in this dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(possum, <span class="fu">aes</span>(<span class="at">x=</span>footlgth)) <span class="sc">+</span></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2">2</button><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">1</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4849,11 +4849,11 @@ Tip
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="1">only one x variable is needed</span>
+<span data-code-lines="1" data-code-cell="annotated-cell-3" data-code-annotation="1">only one x variable is needed</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="2">you can adjust the binwidth, as needed</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-3" data-code-annotation="2">you can adjust the binwidth, as needed</span>
 </dd>
 </dl>
 </div>
@@ -4869,7 +4869,7 @@ Tip
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="1">adding <code>fill=Pop</code> customizes the colors based on which population the possums come from</span>
+<span data-code-lines="1" data-code-cell="annotated-cell-4" data-code-annotation="1">adding <code>fill=Pop</code> customizes the colors based on which population the possums come from</span>
 </dd>
 </dl>
 </div>
@@ -4885,7 +4885,7 @@ Tip
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="2">Personally, I prefer density plots with slight transparency (<code>alpha=0.5</code>) so that you can fully see both plots</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-5" data-code-annotation="1">Personally, I prefer density plots with slight transparency (<code>alpha=0.5</code>) so that you can fully see both plots</span>
 </dd>
 </dl>
 </div>
@@ -4923,7 +4923,7 @@ Tip
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-annotation="1" data-code-lines="2">The <code>geom</code> for boxplot. The <code>color</code> arguments makes the outline of the boxplot blue and the the <code>fill</code> argument shades the inside of the inner quartile range.</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-6" data-code-annotation="1">The <code>geom</code> for boxplot. The <code>color</code> arguments makes the outline of the boxplot blue and the the <code>fill</code> argument shades the inside of the inner quartile range.</span>
 </dd>
 </dl>
 </div>
@@ -5450,7 +5450,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>There are two different populations (<span class="in">`pop`</span>):  <span class="in">`Vic`</span> (Victoria) and <span class="in">`other`</span> (New South Wales or Queensland)</span>
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Import the possum data again</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Be sure to install the DAAG package if you&#39;ve never used it before... </span></span>
 <span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DAAG)</span>
 <span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;possum&quot;</span>)</span>
 <span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -5462,7 +5462,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>Histograms are great for looking at the distributions of numeric variables</span>
 <span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>A boxplot for the footlength of all possums in this dataset: </span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>A boxplot for the footlength (<span class="in">`footlgth`</span>) of all possums in this dataset: </span>
 <span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(possum, <span class="fu">aes</span>(<span class="at">x=</span>footlgth)) <span class="sc">+</span> <span class="co">#&lt;1&gt; </span></span>

@@ -1,0 +1,344 @@
+---
+title: 'Customizing Plots'
+subtitle: '`scales`, labels, `facet_wrap()`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+  pdf: default
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+library(tidyverse)
+```
+
+```{r}
+#Import the can_lang dataset 
+can_lang <- read.csv("https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv")
+```
+
+
+# A starting graph: scatterplot of `can_lang`
+
+```{r}
+can_lang_plot <- ggplot(can_lang, aes(x=most_at_home, y=mother_tongue)) +
+  geom_point() + 
+  xlab("Language spoken most at home \n (number of Canadian residents)") +
+  ylab("Mother tongue \n (number of Canadian residents)") 
+```
+
+Notice anything weird about this plot? 
+
+
+# Axis display format: `scales` package
+
+```{r}
+ # Install the package if needed
+library(scales)
+```
+
+We want to customize how the continuous x and y axes look, so we need to use the argument `labels=label_comma()` inside a `scale_*_continuous()` layer: 
+
+```{r}
+can_lang_plot 
+```
+
+
+
+:::{.callout-note}
+# What other formats are available in the `scales` package?
+
+When passing a formatting function inside `scale_*_continuous(labels = ...)` you have options! 
+
+| Function           | Use Case                              | Example Input  | Example Output  |
+|-------------------|---------------------------------|---------------|----------------|
+| `label_comma()`  | Formats numbers with commas    | `1234567`     | `"1,234,567"`  |
+| `label_dollar()` | Formats numbers as dollar currency   | `99.99`       | `"$99.99"`     |
+| `label_dollar(prefix = "€")` | Formats numbers as euro currency   | `99.99`       | `"99.99€"`     
+| `label_percent()` | Converts decimals to percent | `0.25`        | `"25%"`        |
+| `label_pvalue()` | Formats p-values              | `0.00005`     | `"<0.0001"`    |
+
+:::
+
+
+Anything else? 
+
+## Logarithmic Axes Transformations
+
+:::{.callout-note}
+#  Applying a Log Transformation
+
+When you apply a log transformation to an axis (or both axes) in a plot, you convert values using a logarithmic scale instead of a linear scale. This means:
+
+- Instead of evenly spaced values (1, 2, 3, 4, ...), a logarithmic scale spaces values exponentially (1, 10, 100, 1000, ...).
+- The distance between ticks represents a multiplicative factor instead of an additive one.
+
+
+```{r}
+#| echo: FALSE
+#| fig-width: 12
+#| fig-height: 6
+
+### ALL OF THIS IS SUPER SPICY 🌶️🌶️️ and beyond what I would expect of you in this course...
+
+library(scales)
+
+# Function to generate breaks for log10 scale
+minor_log_breaks <- function() {
+  as.numeric(outer(1:10, 10^(0:6)))  # Generates minor breaks at 1.1, 1.2, ..., 9, 10, 20, 30...
+}
+
+# Define major log breaks for both plots (powers of 10)
+major_log_breaks <- 10^(0:6)  # 1, 10, 100, 1000, ..., 1,000,000
+
+# Define linear breaks for both plots (powers of 10)
+major_linear_breaks <- seq(0, 30000000, 5000000)
+minor_linear_breaks <- seq(0, 30000000, 1000000)
+
+# Scatterplot with Linear Scale
+p1 <- ggplot(can_lang, aes(x = most_at_home, y = mother_tongue)) +
+  geom_point() +
+  scale_x_continuous(breaks = major_linear_breaks, 
+                     labels = label_comma(), 
+                     minor_breaks = minor_linear_breaks) +
+  scale_y_continuous(breaks = major_linear_breaks,
+                     labels = label_comma(), 
+                     minor_breaks = minor_linear_breaks) +
+  labs(
+    x = "Language spoken most at home \n (number of Canadian residents)",
+    y = "Mother tongue \n (number of Canadian residents)",
+    title = "Linear Scale on x- and y-axis", 
+    subtitle = "the next break on a linear scale can be found my ADDING"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_line(color = "lightblue", linetype = "solid"), # Light blue for major grid lines
+    panel.grid.minor = element_line(color = "#D6EBF2", linetype = "solid")
+  )
+
+# Extract breaks from the linear scale plot
+p1_build <- ggplot_build(p1)
+extracted_linear_breaks <- p1_build$layout$panel_params[[1]]$x$breaks
+
+# Remove zeros (log10(0) is undefined)
+extracted_linear_breaks <- extracted_linear_breaks[extracted_linear_breaks > 0]
+
+# Transform breaks for log scale
+log_breaks <- 10^floor(log10(extracted_linear_breaks))  # Round to nearest power of 10
+
+# Custom function to format numbers as scientific notation (10^x)
+format_scientific <- function(x) {
+  parse(text = paste0("10^", log10(x)))  # Converts numbers into properly formatted exponents
+}
+
+# Scatterplot with Log Scale
+p2 <- ggplot(can_lang, aes(x = most_at_home, y = mother_tongue)) +
+  geom_point() +
+  scale_x_log10(
+    minor_breaks = minor_log_breaks(),
+    breaks = major_log_breaks,  # Use manually defined major breaks
+    labels = label_comma(),
+    sec.axis = sec_axis(~ .,  
+                        breaks = major_log_breaks,  
+                        labels = format_scientific,  # Scientific notation labels
+                        name = NULL)  
+  ) +
+  scale_y_log10(
+    minor_breaks = minor_log_breaks(),
+    breaks = major_log_breaks,  
+    labels = label_comma(),
+    sec.axis = sec_axis(~ .,  
+                        breaks = major_log_breaks,  
+                        labels = format_scientific,  # Scientific notation labels
+                        name = NULL)  
+  ) +
+  labs(
+    x = "Language spoken most at home \n (number of Canadian residents, log scale)",
+    y = "Mother tongue \n (number of Canadian residents, log scale)",
+    title = "Log Scale on x- and y-axis (log-log scale)", 
+    subtitle = "The next break on a log scale can be found by MULTIPLYING"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid.minor = element_line(color = "lightblue", linetype = "solid"),  # Light blue for minor grid lines
+    panel.grid.major = element_line(color = "darkred", linetype = "dotted"),  # Dark red dotted for major grid lines
+    axis.title.x.bottom = element_text(margin = margin(t = 10)),
+    axis.text.x.top = element_text(margin = margin(b = 5)),
+    axis.title.y.left = element_text(margin = margin(r = 10)),  # Add space for primary y-axis
+    axis.text.y.right = element_text(margin = margin(l = 5))  # Add space for secondary y-axis
+  )
+
+
+# Display both plots side by side
+library(gridExtra)
+grid.arrange(p1, p2, ncol = 2)
+
+```
+
+See how much more clearly we can see all the points! 
+
+:::
+
+For you to do this yourself, you need to use `scale_*_log10()` instead of `scale_*_continuous()`: 
+
+```{r}
+can_lang_plot 
+```
+
+1. converts x-axis to a log-scale
+2. converts y-axis to a log-scale
+
+:::{.callout-tip}
+# Use ✅ `scale_*_log10()` instead of 🚫`log(variable)`
+
+```{r}
+#| echo: FALSE
+
+# Scatterplot with Log Scale (Recommended)
+p1 <- ggplot(can_lang, aes(x = most_at_home, y = mother_tongue)) +
+  geom_point() +
+  scale_x_log10(labels = label_comma()) + 
+  scale_y_log10(labels = label_comma()) + 
+  labs(
+    title = "Recommended Approach", 
+    subtitle = "Use `scale_*_log10()`",
+    x =  "Language spoken most at home \n (number of Canadian residents)",
+    y = "Mother tongue \n (number of Canadian residents)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(color = "darkgreen", size = 12, face = "bold"), 
+    text = element_text(family = "sans")  # Ensures emoji support in most environments
+  )
+
+# Scatterplot with Manual Log Transform (Not Recommended)
+p2 <- ggplot(can_lang, aes(x = log(most_at_home), y = log(mother_tongue))) +
+  geom_point() +
+  scale_x_continuous(labels = label_comma()) + 
+  scale_y_continuous(labels = label_comma()) + 
+  labs(
+    title = "Not recommended", 
+    subtitle="Manually Transforming the Data (log(variable))",
+    x =  "Language spoken most at home \n (number of Canadian residents)",
+    y = "Mother tongue \n (number of Canadian residents)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(color = "red", size = 12, face = "bold"), 
+    text = element_text(family = "sans")  
+  )
+
+# Display both plots side by side
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
+:::
+
+
+## Using percents on a log scale
+
+### `mutate` to create new columns with percentage of Canadians who speak the language as their mother tongue: 
+
+```{r}
+can_lang <- can_lang %>%
+  mutate(
+    mother_tongue_percent = (mother_tongue / 35151728) * 100,
+    most_at_home_percent = (most_at_home / 35151728) * 100
+  )
+```
+
+### Scatterplot with Percents and Colors
+
+Create a scatterplot with `most_at_home_percent` and `mother_tongue_percent`. Vary the color and shape of the points depending on the category of language. You may need to adjust the position of the legend: 
+
+```{r}
+can_lang_percent_plot <- ggplot(can_lang, aes(x = most_at_home,  
+                     y = mother_tongue )) +  
+  geom_point(aes(color = category, shape=category), alpha=0.5) + #<3>
+  xlab("Language spoken most at home \n (percentage of Canadian residents)") +
+  ylab("Mother tongue \n (percentage of Canadian residents)") +
+  theme(legend.position = "top", legend.direction = "vertical") + #<4>
+  scale_x_log10(labels = comma) +
+  scale_y_log10(labels = comma)
+
+can_lang_percent_plot 
+```
+
+
+
+
+# Labels
+
+Adding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labeling outliers and other important points is very useful. 
+
+A add label for each language in this dataset using `geom_text(aes(label = language))`: 
+
+```{r}
+can_lang_percent_plot  
+```
+
+Yikes! This is way too much going on in one plot. A few options to try when this happens: 
+
+- Decrease the font size of the labels (using the `size=` argument inside `geom_text`).
+- Use the `ggrepel` package to spread out the labels a bit more 
+- Pick out only a subset of the points to label
+
+## Using `ggrepel`
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/874dedf0-55d1-4cdd-a390-45b8376d2fc2_rw_1920.png?h=39c69f525af3256f7096f510bafb0913){width=50%}
+
+```{r}
+library(ggrepel)
+
+can_lang_percent_plot 
+```
+
+## Subset the labels
+
+Create a new column for the labels. Use `case_when` (or `ifelse`) to only use the official language names and not to put a label for other language categories. 
+
+```{r}
+can_lang <- can_lang %>% 
+  mutate(official_languages = case_when(category == "Official languages" ~ language, TRUE ~ NA ))
+```
+
+```{r}
+# We need to redo the base plot with the new can_lang dataset with the new official_languages column in it 
+can_lang_percent_plot <- ggplot(can_lang, aes(x = most_at_home_percent,  y = mother_tongue_percent)) + #<2> 
+  geom_point(aes(color = category, shape=category)) +
+  xlab("Language spoken most at home \n (percentage of Canadian residents)") +
+  ylab("Mother tongue \n (percentage of Canadian residents)") +
+  theme(legend.position = "top", legend.direction = "vertical") + 
+  scale_x_log10(labels = comma) +
+  scale_y_log10(labels = comma)
+```
+
+```{r}
+can_lang_percent_plot 
+```
+
+
+
+# Facet Wrap
+
+`facet_wrap()` is a function in the `ggplot2` package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable. 
+
+Create separate side-by-side plots for each different category of language. 
+
+```{r}
+can_lang_percent_plot  
+```
+

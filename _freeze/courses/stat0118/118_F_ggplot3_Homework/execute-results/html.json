@@ -1,0 +1,14 @@
+{
+  "hash": "52ebccbf762528c9494cab008af6531e",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework G\"\nsubtitle: \"Making plots  with `ggplot2`: working with numeric data using `scales`, labels, jitter\"\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n```\n:::\n\n\n# 1. Gapminder Scatterplot\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#load the gapminder dataset\nlibrary(gapminder)\ndata(\"gapminder\")\n```\n:::\n\n\nTo the best of your ability, recreate the following plot from the `murders` dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.![](https://github.com/emalcolmwhite/STAT0118/blob/main/MATH0118_G_ggplot3_gapminder_labels.jpg?raw=true)\n\nThe dataset and this image will also be available on the Canvas assignment (in case this link/preview don't work for you).\n\n\n::: {.cell}\n\n:::\n\n\n\n# 2. Murders Scatterplot\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#The `murders` dataset can be found within `dslabs` packages. Be sure the download the package first and then run this command to load the data.\nlibrary(dslabs)\ndata(murders)\n```\n:::\n\n\nTo the best of your ability, recreate the following plot from the `murders` dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.![](https://github.com/emalcolmwhite/STAT0118/blob/main/MATH0118_G_ggplot3_Homework_murders_scatterplot.png?raw=true)\n\nThe dataset and this image will also be available on the Canvas assignment (in case this link/preview don't work for you).\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

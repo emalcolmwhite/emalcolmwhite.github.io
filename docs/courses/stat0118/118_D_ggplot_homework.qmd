@@ -1,5 +1,5 @@
 ---
-title: "STAT 118: Homework E"
+title: "STAT 118: Homework D"
 subtitle: "Making plots  with ggplot2: barplots and scatterplots"
 author: "YOUR NAME HERE"
 format:
