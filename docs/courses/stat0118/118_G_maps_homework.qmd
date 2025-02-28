@@ -1,6 +1,6 @@
 ---
-title: "STAT 118: Homework K"
-subtitle: 'Intro to Maps'
+title: "STAT 118: Homework G"
+subtitle: 'Maps with `maps` and `sf`'
 author: "YOUR NAME HERE"
 format:
   html: 
@@ -14,79 +14,84 @@ format:
 #LOAD PACKAGES 
 library(tidyverse)
 library(sf) #this is a package needed so R can work with sf objects
-library(maps)
 ```
-
-# Using the `maps` package
-
-# 1.
-Use the `maps` package to create a map of New Zealand. To access map data for New Zealand use the code: `nz_maps <- map_data("world", region = "New Zealand")`. You may need to subset the latitude and longitude coordinates to get a great map of New Zealand. The land should be some shade of orange. 
-
-```{r}
-
-```
-
-
-# Use the `sf` package
 
 ```{r}
 #LOAD DATA
 library(spData) #this packages contains the dataset (with sf objects) that we will be using today
-data("nz")
 data("us_states")
-data("us_counties")
-```
 
-# 2.
-Use the `sf` package to create a map of New Zealand. To access `sf` geometries for New Zealand use the "nz" dataset loaded above. The land should be some shade of orange. 
-
-```{r}
+library(rnaturalearth)
+world <- ne_countries(scale = "medium", returnclass = "sf")
+africa <- world[world$continent == "Africa", ]
 
 ```
+
+# 1.
+Create a basic map of the countries of the world. To access `sf` geometries for the world use the `world` dataset loaded above. The land should be some shade of green. 
+
+
+# 2. 
+
+Use the columns `pop_year` and `gdp_year` to create a new column called `gdp_per_cap` which contains the GDP per capita for each country in the world in this dataset. 
+
+
 
 # 3.
-Name two differences between the two New Zealand maps you created above. 
+Create a cloropleth map which colors each country depending on the GDP per capita. 
 
-# 4. 
-Use the `us_states` dataset from above to create a map of the US States. All the land map should be some shade of red. 
+- Utilize an appropriate color palette for this data
+- Add a theme
+- make sure the legend labels are clear to a general audience (you might need to research this a bit...)
+- the country borders should be "black"
 
 ```{r}
 
 ```
 
+# 4.
+Create a cloropleth map which colors each country based on their economy type (`economy`). 
+
+- Utilize an appropriate color palette for this data
+- Add a theme
+- make sure the legend labels are clear to a general audience (you might need to research this a bit...)
+- the country borders should be "grey"
+
+```{r}
+
+```
+`
 # 5. 
-The `us_states` dataset has a column `REGION` which indicates whether the state is "Northeast", "Midwest", "South", or "West". Create a map which shades each state depending on the REGION it is located in.  
 
-```{r}
- 
-```
-
-# 6.
-Create a cloropleth map which colors each state depending on the total population of that state in 2015 (`total_pop_15` column in the `us_states` dataset). 
+Create a cloropleth map of Africa based on the population in each country. 
+Use `scale_fill_viridis_c(option = "viridis")`. 
 
 ```{r}
 
 ```
 
-Suppose we wish to incorporate data from another source on each state. This will require us to join the `sf` data with another dataset (remember joins from before?). 
+
+
+# 6. 
+
+Create a cloropleth map of Africa based on the population in each country. 
+Use `scale_fill_viridis_c(option = "viridis", trans = "log")`. 
 
 ```{r}
-#dataset which contains information about each state
-data(state) 
-state_data <- data.frame(state.x77)
-#weirdly, the state names are listed as row names instead of in their own column. The below code fixes this. 
-state_data$NAME <- rownames(state_data)
+
 ```
 
 # 7. 
-Join together the `state_data` dataset with the `sf` data housed in `us_states` into a new dataset called `states_map_data`. The key variable is the state name. 
+
+Why is the trans = "log" transformation applied? 
+
+
+# 8. 
+
+Add country names to your map from #6. 
 
 ```{r}
 
 ```
 
-# 8. 
-Note that in the previous step we lost one data row. What was it? 
 
-# 9. 
-Ignoring the fact that we lost one row, use your new dataset `states_map_data` (from 7) to create a cloropleth map which colors each state depending on the illiteracy rate in 1970 as a percent of the population (`Illiteracy`). Use any color palette you like. 

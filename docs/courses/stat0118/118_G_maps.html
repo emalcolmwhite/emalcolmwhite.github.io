@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EMW - STAT 118: Notes K</title>
+<title>EMW - Maps with maps and sf</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -326,8 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STAT 118: Notes K</h1>
-<p class="subtitle lead">Maps with <code>maps</code> and <code>sf</code></p>
+<h1 class="title">Maps with <code>maps</code> and <code>sf</code></h1>
 </div>
 
 
@@ -389,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>NWBIR79</code> non-white births, 1979-84</li>
 <li><code>geom</code> information needed to plot the map for each county</li>
 </ul>
-<p>Let’s begin by simply plotting the map:</p>
+<p>Let’s begin by simply plotting the map using <code>geom_sf</code>. Note that you don’t need to specify the x- or y-axes – sf figures that out for you.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nc <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>

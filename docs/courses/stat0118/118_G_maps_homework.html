@@ -8,7 +8,7 @@
 
 <meta name="author" content="YOUR NAME HERE">
 
-<title>EMW - STAT 118: Homework K</title>
+<title>EMW - STAT 118: Homework G</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4620,7 +4620,7 @@ border-radius: 5px;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT 118: Homework K</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT 118: Homework G</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -4779,17 +4779,13 @@ border-radius: 5px;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#using-the-maps-package" id="toc-using-the-maps-package" class="nav-link active" data-scroll-target="#using-the-maps-package">Using the <code>maps</code> package</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1.</a></li>
-  <li><a href="#use-the-sf-package" id="toc-use-the-sf-package" class="nav-link" data-scroll-target="#use-the-sf-package">Use the <code>sf</code> package</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">1.</a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2.</a></li>
   <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3.</a></li>
   <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4.</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">5.</a></li>
-  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">6.</a></li>
-  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">7.</a></li>
-  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">8.</a></li>
-  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">9.</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">6.</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">7.</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">8.</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/edit/main/courses/stat0118/118_G_maps_homework.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/118_G_maps_homework.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -4798,8 +4794,8 @@ border-radius: 5px;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STAT 118: Homework K</h1>
-<p class="subtitle lead">Intro to Maps</p>
+<h1 class="title">STAT 118: Homework G</h1>
+<p class="subtitle lead">Maps with <code>maps</code> and <code>sf</code></p>
 </div>
 
 
@@ -4825,72 +4821,63 @@ border-radius: 5px;
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) <span class="co">#this is a package needed so R can work with sf objects</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) <span class="co">#this is a package needed so R can work with sf objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="using-the-maps-package" class="level1">
-<h1>Using the <code>maps</code> package</h1>
-</section>
-<section id="section" class="level1">
-<h1>1.</h1>
-<p>Use the <code>maps</code> package to create a map of New Zealand. To access map data for New Zealand use the code: <code>nz_maps &lt;- map_data(&quot;world&quot;, region = &quot;New Zealand&quot;)</code>. You may need to subset the latitude and longitude coordinates to get a great map of New Zealand. The land should be some shade of orange.</p>
-</section>
-<section id="use-the-sf-package" class="level1">
-<h1>Use the <code>sf</code> package</h1>
 <div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD DATA</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData) <span class="co">#this packages contains the dataset (with sf objects) that we will be using today</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;nz&quot;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;us_states&quot;</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;us_counties&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;us_states&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">&quot;medium&quot;</span>, <span class="at">returnclass =</span> <span class="st">&quot;sf&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>africa <span class="ot">&lt;-</span> world[world<span class="sc">$</span>continent <span class="sc">==</span> <span class="st">&quot;Africa&quot;</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<section id="section" class="level1">
+<h1>1.</h1>
+<p>Create a basic map of the countries of the world. To access <code>sf</code> geometries for the world use the <code>world</code> dataset loaded above. The land should be some shade of green.</p>
 </section>
 <section id="section-1" class="level1">
 <h1>2.</h1>
-<p>Use the <code>sf</code> package to create a map of New Zealand. To access <code>sf</code> geometries for New Zealand use the “nz” dataset loaded above. The land should be some shade of orange.</p>
+<p>Use the columns <code>pop_year</code> and <code>gdp_year</code> to create a new column called <code>gdp_per_cap</code> which contains the GDP per capita for each country in the world in this dataset.</p>
 </section>
 <section id="section-2" class="level1">
 <h1>3.</h1>
-<p>Name two differences between the two New Zealand maps you created above.</p>
+<p>Create a cloropleth map which colors each country depending on the GDP per capita.</p>
+<ul>
+<li>Utilize an appropriate color palette for this data</li>
+<li>Add a theme</li>
+<li>make sure the legend labels are clear to a general audience (you might need to research this a bit…)</li>
+<li>the country borders should be “black”</li>
+</ul>
 </section>
 <section id="section-3" class="level1">
 <h1>4.</h1>
-<p>Use the <code>us_states</code> dataset from above to create a map of the US States. All the land map should be some shade of red.</p>
+<p>Create a cloropleth map which colors each country based on their economy type (<code>economy</code>).</p>
+<ul>
+<li>Utilize an appropriate color palette for this data</li>
+<li>Add a theme</li>
+<li>make sure the legend labels are clear to a general audience (you might need to research this a bit…)</li>
+<li>the country borders should be “grey”</li>
+</ul>
+<p>` # 5.</p>
+<p>Create a cloropleth map of Africa based on the population in each country. Use <code>scale_fill_viridis_c(option = &quot;viridis&quot;)</code>.</p>
 </section>
 <section id="section-4" class="level1">
-<h1>5.</h1>
-<p>The <code>us_states</code> dataset has a column <code>REGION</code> which indicates whether the state is “Northeast”, “Midwest”, “South”, or “West”. Create a map which shades each state depending on the REGION it is located in.</p>
+<h1>6.</h1>
+<p>Create a cloropleth map of Africa based on the population in each country. Use <code>scale_fill_viridis_c(option = &quot;viridis&quot;, trans = &quot;log&quot;)</code>.</p>
 </section>
 <section id="section-5" class="level1">
-<h1>6.</h1>
-<p>Create a cloropleth map which colors each state depending on the total population of that state in 2015 (<code>total_pop_15</code> column in the <code>us_states</code> dataset).</p>
-<p>Suppose we wish to incorporate data from another source on each state. This will require us to join the <code>sf</code> data with another dataset (remember joins from before?).</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dataset which contains information about each state</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>state_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(state.x77)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#weirdly, the state names are listed as row names instead of in their own column. The below code fixes this. </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>state_data<span class="sc">$</span>NAME <span class="ot">&lt;-</span> <span class="fu">rownames</span>(state_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<h1>7.</h1>
+<p>Why is the trans = “log” transformation applied?</p>
 </section>
 <section id="section-6" class="level1">
-<h1>7.</h1>
-<p>Join together the <code>state_data</code> dataset with the <code>sf</code> data housed in <code>us_states</code> into a new dataset called <code>states_map_data</code>. The key variable is the state name.</p>
-</section>
-<section id="section-7" class="level1">
 <h1>8.</h1>
-<p>Note that in the previous step we lost one data row. What was it?</p>
-</section>
-<section id="section-8" class="level1">
-<h1>9.</h1>
-<p>Ignoring the fact that we lost one row, use your new dataset <code>states_map_data</code> (from 7) to create a cloropleth map which colors each state depending on the illiteracy rate in 1970 as a percent of the population (<code>Illiteracy</code>). Use any color palette you like.</p>
+<p>Add country names to your map from #6.</p>
 
 
 </section>

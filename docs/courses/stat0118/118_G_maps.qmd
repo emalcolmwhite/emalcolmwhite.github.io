@@ -1,6 +1,5 @@
 ---
-title: 'STAT 118: Notes K'
-subtitle: 'Maps with `maps` and `sf`'
+title: 'Maps with `maps` and `sf`'
 format:
   html:
     toc: true
@@ -55,7 +54,7 @@ Each row represents a county in North Carolina. This data frame contains the fol
 - `NWBIR79` non-white births, 1979-84
 - `geom` information needed to plot the map for each county
 
-Let's begin by simply plotting the map: 
+Let's begin by simply plotting the map using `geom_sf`. Note that you don't need to specify the x- or y-axes -- sf figures that out for you. 
 
 ```{r}
 nc %>%
