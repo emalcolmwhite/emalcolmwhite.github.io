@@ -119,130 +119,144 @@
     "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\n\nCode\n#LOAD DATASET\n# This iris dataset should be built into base R (no need to download a package). Just run the code below to load it. \ndata(\"iris\")\n\n\nThis famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\n1.\nVerify using group_by and summarize that there are indeed 50 different flowers from each of the different species of iris.\n\n\n2.\nCreate a table which displays the average sepal length and average sepal width for the setosa species of iris. No other data should be in this table.\n\n\n3.\nCreate a table which displays the average sepal length and the median sepal length for the setosa species of iris. No other data should be in this table.\n\n\n4.\nCreate a table which displays the minimum sepal length and the maximum sepal length for each of the three different species of iris.\n\n\n5.\nCreate one table which displays the minimum sepal length and the maximum sepal length for the species setosa and versicolor. Note that this table should not include any information about the virginica species. (This might be a challenge, but you can do it!)"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro.html",
-    "href": "courses/stat0118/118_A_intro.html",
-    "title": "Quarto & Markdown Formatting",
+    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html",
+    "href": "courses/stat0118/118_F_ggplot_3_notes.html",
+    "title": "Customizing Plots",
     "section": "",
-    "text": "If you type…\nOutput\n\n\n\n\n*italics*\nitalics\n\n\n**bold**\nbold\n\n\n***bold italics***\nbold italics\n\n\n- chai tea\n- green tea\n- earl grey tea\n\nchai tea\ngreen tea\nearl grey tea\n\n\n\n[this is the text that will display](www.google.com)\nthis is the text that will display\n\n\n![a caption here](jellyfish.jpg)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nA comprehensive list of markdown syntax can be found at https://quarto.org/docs/authoring/markdown-basics.html."
+    "text": "library(tidyverse)\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
-    "href": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
-    "title": "Quarto & Markdown Formatting",
-    "section": "Centered and large equations",
-    "text": "Centered and large equations\nType in the plain text section:\n$$y=\\frac{x^2}{SE(x^2)} $$\nDisplays as:\n\\[y=\\frac{x^2}{SE(x^2)} \\]\nHint: Some people like to use the visual editor to insert equations"
+    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#logarithmic-axes-transformations",
+    "href": "courses/stat0118/118_F_ggplot_3_notes.html#logarithmic-axes-transformations",
+    "title": "Customizing Plots",
+    "section": "Logarithmic Axes Transformations",
+    "text": "Logarithmic Axes Transformations\n\n\n\n\n\n\nApplying a Log Transformation\n\n\n\nWhen you apply a log transformation to an axis (or both axes) in a plot, you convert values using a logarithmic scale instead of a linear scale. This means:\n\nInstead of evenly spaced values (1, 2, 3, 4, …), a logarithmic scale spaces values exponentially (1, 10, 100, 1000, …).\nThe distance between ticks represents a multiplicative factor instead of an additive one.\n\n\n\n\n\n\nSee how much more clearly we can see all the points!\n\n\nFor you to do this yourself, you need to use scale_*_log10() instead of scale_*_continuous():\n\ncan_lang_plot \n\n\n\n\n\nconverts x-axis to a log-scale\nconverts y-axis to a log-scale\n\n\n\n\n\n\n\nUse ✅ scale_*_log10() instead of 🚫log(variable)"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro.html#inline-equations",
-    "href": "courses/stat0118/118_A_intro.html#inline-equations",
-    "title": "Quarto & Markdown Formatting",
-    "section": "Inline equations",
-    "text": "Inline equations\nType in the plain text section:\nWe take and calculate the standard error $SE(x_1)$.\nDisplays as:\nWe take and calculate the standard error \\(SE(x_1)\\)."
+    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#using-percents-on-a-log-scale",
+    "href": "courses/stat0118/118_F_ggplot_3_notes.html#using-percents-on-a-log-scale",
+    "title": "Customizing Plots",
+    "section": "Using percents on a log scale",
+    "text": "Using percents on a log scale\n\nmutate to create new columns with percentage of Canadians who speak the language as their mother tongue:\n\ncan_lang &lt;- can_lang %&gt;%\n  mutate(\n    mother_tongue_percent = (mother_tongue / 35151728) * 100,\n    most_at_home_percent = (most_at_home / 35151728) * 100\n  )\n\n\n\nScatterplot with Percents and Colors\nCreate a scatterplot with most_at_home_percent and mother_tongue_percent. Vary the color and shape of the points depending on the category of language. You may need to adjust the position of the legend:\n\ncan_lang_percent_plot &lt;- ggplot(can_lang, aes(x = most_at_home,  \n                     y = mother_tongue )) +  \n  geom_point(aes(color = category, shape=category), alpha=0.5) +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(legend.position = \"top\", legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)\n\ncan_lang_percent_plot"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro.html#inline-code",
-    "href": "courses/stat0118/118_A_intro.html#inline-code",
-    "title": "Quarto & Markdown Formatting",
-    "section": "Inline code",
-    "text": "Inline code\nType in the plain text section:\nThis is a sentence. The value of x is `r x`\nDisplays as:\nThis is a sentence. The value of x is 11."
+    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#using-ggrepel",
+    "href": "courses/stat0118/118_F_ggplot_3_notes.html#using-ggrepel",
+    "title": "Customizing Plots",
+    "section": "Using ggrepel",
+    "text": "Using ggrepel\n\n\n\nArtwork by @allisonhorst\n\n\n\nlibrary(ggrepel)\n\ncan_lang_percent_plot"
   },
   {
-    "objectID": "courses/stat0118/118_B_wrangling_homework.html",
-    "href": "courses/stat0118/118_B_wrangling_homework.html",
-    "title": "STAT 118: Homework B",
+    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#subset-the-labels",
+    "href": "courses/stat0118/118_F_ggplot_3_notes.html#subset-the-labels",
+    "title": "Customizing Plots",
+    "section": "Subset the labels",
+    "text": "Subset the labels\nCreate a new column for the labels. Use case_when (or ifelse) to only use the official language names and not to put a label for other language categories.\n\ncan_lang &lt;- can_lang %&gt;% \n  mutate(official_languages = case_when(category == \"Official languages\" ~ language, TRUE ~ NA ))\n\n\ncan_lang_percent_plot \n\n\n\n\n\n# We need to redo the base plot with the new can_lang dataset with the new official_languages column in it \ncan_lang_percent_plot &lt;- ggplot(can_lang, aes(x = most_at_home_percent,  y = mother_tongue_percent)) +\n  geom_point(aes(color = category, shape=category)) +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(legend.position = \"top\", legend.direction = \"vertical\") + \n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)"
+  },
+  {
+    "objectID": "courses/stat0118/118_D_ggplot_notes.html",
+    "href": "courses/stat0118/118_D_ggplot_notes.html",
+    "title": "Making plots with ggplot2: Barplots and Scatterplots",
     "section": "",
-    "text": "Code\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n\nThis assignment concerns the gapminder dataset which is available in the gapminder package.\nFirst, Download gapminder from the menu at the right. You only need to do this once. Once it has been download, you need to call it using the code below.\n\n\nCode\n# LOAD DATA SET\nlibrary(gapminder)\ndata(gapminder) \n\n\nIf you want to view this data, click on the word gapminder in your environment and it should open up\n\n\n\n\n\n\nTip\n\n\n\nThere are often many different ways to get to the right answer on this assignment! I don’t care how you get the answer. I care that you are clearly explaining how you got your answer – either by showing any code you used or explaining in words how you got to the answer you did.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn the problems below, I have not given you any blank R chunks. If you wish to use some R code to answer the problem, you can add your own R chunk – either by typing it directly OR going to Code –&gt; Insert Chunk in the top menu.\n\n\n\n1.\nHow many rows and columns does this dataset have?\n\n\n2.\nWhat are the names of the 6 columns?\n\n\n3.\nCreate a dataset called gapminder2002 which only contains information for each of the countries in 2002.\n\n\n4.\nIf you instead try to choose the subset with year equal to 2005, something will go wrong. Try it and explain what happens and why.\n\n\n5.\nPrint out the row of data corresponding to the US in 2002.\n\n\n6.\nIn the above problem, you would have put quotes around United States but not around 2002. Explain why.\n\n\n7.\nWhich country had a higher life expectancy in 1977: Japan or Ireland? Note there are many different possible correct ways of solving this. You just need to find one\n\n\n8.\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\n9.\nFor the year 2002, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data)."
+    "text": "ggplot2 is a package built within the tidyverse package for creating awesome graphs!\n\nlibrary(tidyverse)\n\n\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\n\nRecall our Top 10 example:\nThis code gave a list of 10 Aboriginal Languages which have the most number of people who speak them as their mother tongue:\n\nten_lang &lt;- can_lang %&gt;%  \n  filter(category == \"Aboriginal languages\") %&gt;% \n  arrange(desc(mother_tongue)) %&gt;% \n  select(language, mother_tongue) %&gt;%  \n  slice(1:10) #\n\n\n\nBarplots\nSuppose we wanted to display this information in a barplot instead of in a table.\nIs there any improvements we could make to this graph?\n\n\nTo better view text\nDisplay the bars horizontally instead of vertically!\n\nThis flips the x and y axes!\n\n\n\nLabels, Colors, and Themes\n\nggplot(ten_lang, aes(x = mother_tongue, y = language)) +\n  geom_bar(stat = \"identity\") \n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nBarplots are good for displaying one categorical variable and one numeric variable. The number variable could be counts (as above) or they could be averages or totals or maximums or minimums (or many other things!)\n\n\n\n\nggplot: scatterplot with geom_point\n\n\n\n\n\n\nTip\n\n\n\nScatterplots are good for displaying the relationship between two numerical variables.\n\n\nThe mtcars dataset was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It’s available inside the ggplot package which is already installed.\n\n#load the data\ndata(mtcars)\n\nNote that you can change the color, shape (pch for plotting character) and size of these points!\n\nQuick update to the dataset\n\n#code to update `mtcars` dataset so that `am` is treated as a factor rather than a continuous numeric variable\nmtcars &lt;- mtcars %&gt;%  \n  mutate(am = as.factor(am)) \n\nThis modifies the am column, which represents the transmission type of the car (0 = automatic, 1 = manual). The as.factor(am) function converts the am variable from a numeric type (0 or 1) into a categorical factor.\n\n\n\nInside aes() or outside aes()?\nWhat is the difference between these two graphs?\n\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(color=\"red\") \n\n\n\n\n\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nIf the thing you are trying to change (color, shape, size, etc.) depends on a variable, you should put in inside the aesthetics\nIf the thing you are trying to change (color, shape, size, etc.) should happen for all things, you should not put it inside the aesthetics.\n\n\n\n\n\nCustomizing Colors in Aesthetics\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am)) +\n  scale_color_manual(values=c(\"black\", \"orange\")) \n\n\n\n\n\n\nGlobal vs. Local Aesthetics\nGlobal aesthetic mappings apply to all geometries and can be defined when you initially call ggplot(). All the geometries added as layers will default to this mapping. Local aesthetic mappings add additional information or override the default mappings.\n\n#color = am as a global aethetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point()\n\n\n\n\n\n#color = am as a local aethetic\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n#overwriting color = am as a global aethetic with a local aesthetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point(color=\"purple\")"
   },
   {
-    "objectID": "courses/stat0118/118_K_maps1.html",
-    "href": "courses/stat0118/118_K_maps1.html",
-    "title": "Cloropleth Maps with maps and sf",
+    "objectID": "courses/stat0118/118_B_wrangling.html",
+    "href": "courses/stat0118/118_B_wrangling.html",
+    "title": "Wrangling Basics",
     "section": "",
-    "text": "Before we get started, some context:"
+    "text": "Sometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.\nFirst, you need to download the package from the right hand menu –&gt; You only need to do this once.\nIn each new .qmd document, you need to call any packages you want to use but adding the code library(packagename) inside an R chunk.\n\n\nIn this class we will use the tidyverse package a lot.\n\n1library(tidyverse)\n\n\n1\n\nLoads the tidyverse package\n\n\n\n\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\n\n\n\nCredit: https://uopsych-r-bootcamp-2020.netlify.app/\n\n\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets."
   },
   {
-    "objectID": "courses/stat0118/118_K_maps1.html#what-about-subsetting-the-data",
-    "href": "courses/stat0118/118_K_maps1.html#what-about-subsetting-the-data",
-    "title": "Cloropleth Maps with maps and sf",
-    "section": "What about subsetting the data?",
-    "text": "What about subsetting the data?\n\n#Subset to get Italy\nitaly &lt;- map_data(\"world\", region =\"Italy\")\n\n#Subset to get USA\nusa &lt;- map_data(\"world\", region =\"USA\")"
-  },
-  {
-    "objectID": "courses/stat0118/118_K_maps1.html#what-if-aspect-ratio-is-not-maintained",
-    "href": "courses/stat0118/118_K_maps1.html#what-if-aspect-ratio-is-not-maintained",
-    "title": "Cloropleth Maps with maps and sf",
-    "section": "What if aspect ratio is not maintained?",
-    "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\nggplot(italy, aes(long, lat)) + \n  geom_polygon(aes(group=group)) + \n  theme_light() +\n  ggtitle(\"Italy - Aspect Ratio Not Maintained (not good)\")\n\n\n\n\n\n# ASPECT RATIO MAINTAINED\nggplot(italy, aes(long, lat)) + \n  geom_polygon(aes(group=group)) + \n  coord_quickmap()  +\n  theme_light() +\n  ggtitle(\"Italy - Aspect Ratio Maintained (better)\")"
-  },
-  {
-    "objectID": "courses/stat0118/118_K_maps1.html#usa-with-states",
-    "href": "courses/stat0118/118_K_maps1.html#usa-with-states",
-    "title": "Cloropleth Maps with maps and sf",
-    "section": "USA with states",
-    "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n#Plot of USA with state borders\nggplot(usa_states, aes(long, lat)) +\ngeom_polygon(aes(group=group)) +\ncoord_quickmap()"
-  },
-  {
-    "objectID": "courses/stat0118/118_K_maps1.html#how-to-customize-colors",
-    "href": "courses/stat0118/118_K_maps1.html#how-to-customize-colors",
-    "title": "Cloropleth Maps with maps and sf",
-    "section": "How to customize colors?",
-    "text": "How to customize colors?\n\nggplot(usa_states, aes(long, lat)) +\ngeom_polygon(aes(group=group), fill =\"#75816b\", color =\"#292c26\") +\ncoord_quickmap() +\ntheme_light()"
-  },
-  {
-    "objectID": "courses/stat0118/118_K_maps1.html#adding-labels",
-    "href": "courses/stat0118/118_K_maps1.html#adding-labels",
-    "title": "Cloropleth Maps with maps and sf",
-    "section": "Adding labels",
-    "text": "Adding labels\n\nggplot(nc) + \n  geom_sf() + \n  aes(fill = BIR74) +\n  ggtitle(\"North Carolina, Birth Rates in 1974\") +\n  scale_fill_gradientn(colors = brewer.pal(8, \"Spectral\") ) +  #customize colors\n  theme_light() +\n  geom_sf_text(data = nc[nc$BIR74 &gt;15000,], aes(label = NAME), fontface=\"bold\")"
-  },
-  {
-    "objectID": "courses/stat0118/118_C_aggregating_notes.html",
-    "href": "courses/stat0118/118_C_aggregating_notes.html",
-    "title": "Aggregating data",
+    "objectID": "courses/stat0118/118_B_wrangling.html#the-tidyverse-package",
+    "href": "courses/stat0118/118_B_wrangling.html#the-tidyverse-package",
+    "title": "Wrangling Basics",
     "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
+    "text": "In this class we will use the tidyverse package a lot.\n\n1library(tidyverse)\n\n\n1\n\nLoads the tidyverse package\n\n\n\n\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\n\n\n\nCredit: https://uopsych-r-bootcamp-2020.netlify.app/\n\n\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets."
   },
   {
-    "objectID": "courses/stat0118/118_C_aggregating_notes.html#remove-rows-with-missing-data-with-drop_na",
-    "href": "courses/stat0118/118_C_aggregating_notes.html#remove-rows-with-missing-data-with-drop_na",
-    "title": "Aggregating data",
-    "section": "Remove rows with missing data with drop_na()",
-    "text": "Remove rows with missing data with drop_na()\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
-  },
-  {
-    "objectID": "courses/stat0118/118_C_aggregating_notes.html#multiple-groups",
-    "href": "courses/stat0118/118_C_aggregating_notes.html#multiple-groups",
-    "title": "Aggregating data",
-    "section": "Multiple Groups",
-    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:"
-  },
-  {
-    "objectID": "courses/stat0118/118_patchwork.html",
-    "href": "courses/stat0118/118_patchwork.html",
-    "title": "Arranging plots with patchwork",
+    "objectID": "courses/stat0118/index.html",
+    "href": "courses/stat0118/index.html",
+    "title": "STAT 118: Intro to Data Science",
     "section": "",
-    "text": "Artwork by @allisonhorst\n\n\nComing soon!"
+    "text": "Use the sidebar to navigate through course topics and download notes, templates, and homework assignments."
   },
   {
-    "objectID": "courses/stat0118/118_C_aggregating.html",
-    "href": "courses/stat0118/118_C_aggregating.html",
-    "title": "Aggregating",
+    "objectID": "courses/stat0118/118_F_ggplot_3_homework.html",
+    "href": "courses/stat0118/118_F_ggplot_3_homework.html",
+    "title": "STAT 118: Homework F",
     "section": "",
-    "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
+    "text": "Code\n# load packages\nlibrary(tidyverse)\n\n# load data\nlibrary(gapminder)\n\n\n\n1. Gapminder Scatterplot\n\nFor the year 2007, plot GDP per capita (x-axis) vs. life expectancy (y-axis).\nFormat large numbers as numbers with commas (not scientific notation)\ncolor points by continent\nBe sure your axes are clearly labelled for a general audience\n\n\n\n2. Log-Transformed Gapminder Scatterplot\nTake your scatterplot from the previous problem. Log-transform the GDP per capita axis. Explain why a log-transformed x-axis is useful here.\n\n\n3. Gapminder Scatterplot with labels\nTake your scatterplot from the previous problem. Use geom_text_repel() to label the subset of countres which have a GDP per capita over over $40,000.\n\n\n4. Gapminder Scatterplot over the years\nRepeat this plot for all years in the dataset. Hint: you’ll need to make sure you are using the full dataset for all years (not just 2007 like in the previous plots) AND you can use a nifty function that we talked about to repeat the analysis for all years in only one line of code!\n\n\n5. Gapminder US Time Series\n\nCreate a time-series line plot for GDP per capita in the United States\nLabel the highest and lowest years using geom_text_repel().\nBe sure that the axis showing the GDP per capita is shown in currency format (with dollar signs!)\nBe sure your axes are clearly labelled for a general audience\n\n\n\n6. Explain using Gapminder US Time Series\nHow has GDP per capita in the U.S. changed over time? What major historical events might explain large shifts?"
   },
   {
-    "objectID": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
-    "href": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
-    "title": "Aggregating",
-    "section": "Remove rows with missing data with drop_na()",
-    "text": "Remove rows with missing data with drop_na()\n\n2penguins &lt;- penguins %&gt;%\n1  drop_na()\n\n\n1\n\nDrops all the rows in the penguins dataset which has missing data (NA values)\n\n2\n\noverwrite the penguins dataset with the penguins dataset without the missing rows\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
+    "objectID": "courses/stat0118/118_A_intro_quarto.html",
+    "href": "courses/stat0118/118_A_intro_quarto.html",
+    "title": "Intro to R and RStudio",
+    "section": "",
+    "text": "You will need to follow the directions available at https://posit.co/download/rstudio-desktop/ to download both R and RStudio.\n\n\n\nCredit: moderndive\n\n\nR (The brain behind it all)\n\nR is the actual programming language and the computational engine that performs all the calculations, data analysis, and visualizations.\nWithout R, there’s no way to run your code or perform any data analysis tasks.\nWorking in base R is possible, but it’s\n\nRStudio (The interface you work with)\nRStudio is an IDE (Integrated Development Environment) that gives you a user-friendly interface to write and run your R code.\n\n\n\n\n\n\nTip\n\n\n\nThink of it like this:1\n\nR is the engine of a car that powers the vehicle,\nRStudio is the dashboard, steering wheel, and GPS that help you control and navigate the car.\nYou need both for a smooth ride! 🚗\n\n\n\nWhen you open RStudio, you should see something similar to this:"
   },
   {
-    "objectID": "courses/stat0118/118_C_aggregating.html#multiple-groups",
-    "href": "courses/stat0118/118_C_aggregating.html#multiple-groups",
-    "title": "Aggregating",
-    "section": "Multiple Groups",
-    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:\n\npenguins %&gt;%\n  group_by(species, sex) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    average_bill_length average_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;                &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie    female                37.3               17.6\n2 Adelie    male                  40.4               19.1\n3 Chinstrap female                46.6               17.6\n4 Chinstrap male                  51.1               19.3\n5 Gentoo    female                45.6               14.2\n6 Gentoo    male                  49.5               15.7"
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
+    "href": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
+    "title": "Intro to R and RStudio",
+    "section": "1️⃣ Open Your .qmd File in RStudio",
+    "text": "1️⃣ Open Your .qmd File in RStudio\nNavigate to the file on your local computer and click to open it!\n\nSome folks prefer to use the “Files” tab within RStudio to navigate to the file\nOther folks prefer to interact with their files in their typical way (Using Finder on Mac or File Explorer on PC)\n\nEither way works just fine!"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
+    "href": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
+    "title": "Intro to R and RStudio",
+    "section": "2️⃣ Install Quarto in RStudio",
+    "text": "2️⃣ Install Quarto in RStudio\nOption 1: Using the RStudio Interface\n\nGo to the Packages pane in RStudio (bottom-right by default),\nClick Install,\nIn the box that appears:\n\nEnter the package name (quarto),\n\nMake sure Install dependencies is checked,\nClick Install.\n\n\n\nOption 2: Using R Code in the Console\n\ninstall.packages(\"quarto\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
+    "href": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
+    "title": "Intro to R and RStudio",
+    "section": "3️⃣ Render and Preview",
+    "text": "3️⃣ Render and Preview\nClick the Render button () at the top-right of your RStudio editor window.\nTada! You now have created a .html file!\nThe file has been created in the same folder as your .qmd file: \nWhen you render, a preview of the document will show up!\n\n\n\n\n\n\nTip\n\n\n\nBy default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I’m working at a computer station with multiple monitors.\nHowever, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I’m just working on just my laptop.\nClick on the “gear button”  and select “Preview in Viewer Pane”\n\n\nThe preview will update whenever you re-render the document."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#footnotes",
+    "href": "courses/stat0118/118_A_intro_quarto.html#footnotes",
+    "title": "Intro to R and RStudio",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://moderndive.com/1-getting-started.html↩︎"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html",
+    "href": "courses/stat0118/118_G_maps.html",
+    "title": "STAT 118: Notes K",
+    "section": "",
+    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#qualitative-color-palettes",
+    "href": "courses/stat0118/118_G_maps.html#qualitative-color-palettes",
+    "title": "STAT 118: Notes K",
+    "section": "Qualitative Color Palettes",
+    "text": "Qualitative Color Palettes\n\n\n\n\n\n\n\nBest for…\nCategories (unordered)\n\n\nExamples\nSpecies, Groups, Brands\n\n\nRColorBrewer Palettes\n\"Set1\", \"Dark2\", \"Paired\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"Set1\")\n\n\nwesanderson Palettes\n\"GrandBudapest1\", \"Darjeeling1\", \"Moonrise2\"\n\n\nExample R Code\nscale_fill_manual(values = wes_palette(\"GrandBudapest1\"))"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#sequential-color-palettes",
+    "href": "courses/stat0118/118_G_maps.html#sequential-color-palettes",
+    "title": "STAT 118: Notes K",
+    "section": "Sequential Color Palettes",
+    "text": "Sequential Color Palettes\n\n\n\n\n\n\n\nBest for…\nOrdered, continuous data\n\n\nExamples\nTemperature, Population Density\n\n\nRColorBrewer Palettes\n\"Blues\", \"Reds\", \"Greens\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"Blues\")\n\n\nviridis Palettes\n\"viridis\", \"magma\", \"plasma\", \"cividis\"\n\n\nExample R Code\nscale_fill_viridis_c(option = \"magma\")\n\n\nBuild your Own\nscale_fill_gradientn(c(\"red\", \"yellow\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote: Be sure that higher values are encoded with the darkest colors!"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#diverging-color-palettes",
+    "href": "courses/stat0118/118_G_maps.html#diverging-color-palettes",
+    "title": "STAT 118: Notes K",
+    "section": "Diverging Color Palettes",
+    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n🔴 Avoid: Using blue for land in maps"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#adding-labels-with-geom_sf_text",
+    "href": "courses/stat0118/118_G_maps.html#adding-labels-with-geom_sf_text",
+    "title": "STAT 118: Notes K",
+    "section": "Adding labels with geom_sf_text()",
+    "text": "Adding labels with geom_sf_text()\n\nmap + \n  scale_fill_viridis_c(option = \"magma\", direction = -1)+ \n  geom_sf_text(aes(label = NAME), size = 1)"
   },
   {
     "objectID": "courses/stat0118/118_O_webscraping_tables.html",
@@ -462,109 +476,137 @@
     "text": "Action\nWindows/Linux\nMac\n\n\n\n\n\nInsert Chunk\nCtrl + Alt + I\nCmd + Option + I\n\n\n%&gt;%\nInsert pipe operator\nCtrl + Shift + M\nCmd + Shift + M\n\n\n#\nUn/Comment out a line\nCtrl + Shift + C\nCmd + Shift + C\n\n\n\nRun Current line/selection\nCtrl+Enter\nCmd+Return\n\n\n\nRun Current Chunk\nCtrl + Alt + C\nCmd + Option + C\n\n\n\nRun All Chunks Above\nCtrl + Alt + P\nCmd + Option + P\n\n\n\nRender document\nCtrl + Shift + K\nCmd + Shift + K\n\n\n\nUndo\nCtrl + Z\nCmd + Z\n\n\n\nCut\nCtrl+X\nCmd+X\n\n\n\nCopy\nCtrl+C\nCmd+C\n\n\n\nPaste\nCtrl+V\nCmd+V"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro_quarto.html",
-    "href": "courses/stat0118/118_A_intro_quarto.html",
-    "title": "Intro to R and RStudio",
+    "objectID": "courses/stat0118/118_C_aggregating.html",
+    "href": "courses/stat0118/118_C_aggregating.html",
+    "title": "Aggregating",
     "section": "",
-    "text": "You will need to follow the directions available at https://posit.co/download/rstudio-desktop/ to download both R and RStudio.\n\n\n\nCredit: moderndive\n\n\nR (The brain behind it all)\n\nR is the actual programming language and the computational engine that performs all the calculations, data analysis, and visualizations.\nWithout R, there’s no way to run your code or perform any data analysis tasks.\nWorking in base R is possible, but it’s\n\nRStudio (The interface you work with)\nRStudio is an IDE (Integrated Development Environment) that gives you a user-friendly interface to write and run your R code.\n\n\n\n\n\n\nTip\n\n\n\nThink of it like this:1\n\nR is the engine of a car that powers the vehicle,\nRStudio is the dashboard, steering wheel, and GPS that help you control and navigate the car.\nYou need both for a smooth ride! 🚗\n\n\n\nWhen you open RStudio, you should see something similar to this:"
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
-    "href": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
-    "title": "Intro to R and RStudio",
-    "section": "1️⃣ Open Your .qmd File in RStudio",
-    "text": "1️⃣ Open Your .qmd File in RStudio\nNavigate to the file on your local computer and click to open it!\n\nSome folks prefer to use the “Files” tab within RStudio to navigate to the file\nOther folks prefer to interact with their files in their typical way (Using Finder on Mac or File Explorer on PC)\n\nEither way works just fine!"
+    "objectID": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
+    "href": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
+    "title": "Aggregating",
+    "section": "Remove rows with missing data with drop_na()",
+    "text": "Remove rows with missing data with drop_na()\n\n2penguins &lt;- penguins %&gt;%\n1  drop_na()\n\n\n1\n\nDrops all the rows in the penguins dataset which has missing data (NA values)\n\n2\n\noverwrite the penguins dataset with the penguins dataset without the missing rows\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
-    "href": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
-    "title": "Intro to R and RStudio",
-    "section": "2️⃣ Install Quarto in RStudio",
-    "text": "2️⃣ Install Quarto in RStudio\nOption 1: Using the RStudio Interface\n\nGo to the Packages pane in RStudio (bottom-right by default),\nClick Install,\nIn the box that appears:\n\nEnter the package name (quarto),\n\nMake sure Install dependencies is checked,\nClick Install.\n\n\n\nOption 2: Using R Code in the Console\n\ninstall.packages(\"quarto\")"
+    "objectID": "courses/stat0118/118_C_aggregating.html#multiple-groups",
+    "href": "courses/stat0118/118_C_aggregating.html#multiple-groups",
+    "title": "Aggregating",
+    "section": "Multiple Groups",
+    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:\n\npenguins %&gt;%\n  group_by(species, sex) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    average_bill_length average_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;                &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie    female                37.3               17.6\n2 Adelie    male                  40.4               19.1\n3 Chinstrap female                46.6               17.6\n4 Chinstrap male                  51.1               19.3\n5 Gentoo    female                45.6               14.2\n6 Gentoo    male                  49.5               15.7"
   },
   {
-    "objectID": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
-    "href": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
-    "title": "Intro to R and RStudio",
-    "section": "3️⃣ Render and Preview",
-    "text": "3️⃣ Render and Preview\nClick the Render button () at the top-right of your RStudio editor window.\nTada! You now have created a .html file!\nThe file has been created in the same folder as your .qmd file: \nWhen you render, a preview of the document will show up!\n\n\n\n\n\n\nTip\n\n\n\nBy default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I’m working at a computer station with multiple monitors.\nHowever, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I’m just working on just my laptop.\nClick on the “gear button”  and select “Preview in Viewer Pane”\n\n\nThe preview will update whenever you re-render the document."
-  },
-  {
-    "objectID": "courses/stat0118/118_A_intro_quarto.html#footnotes",
-    "href": "courses/stat0118/118_A_intro_quarto.html#footnotes",
-    "title": "Intro to R and RStudio",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://moderndive.com/1-getting-started.html↩︎"
-  },
-  {
-    "objectID": "courses/stat0118/118_F_ggplot_3_homework.html",
-    "href": "courses/stat0118/118_F_ggplot_3_homework.html",
-    "title": "STAT 118: Homework F",
+    "objectID": "courses/stat0118/118_patchwork.html",
+    "href": "courses/stat0118/118_patchwork.html",
+    "title": "Arranging plots with patchwork",
     "section": "",
-    "text": "Code\n# load packages\nlibrary(tidyverse)\n\n# load data\nlibrary(gapminder)\n\n\n\n1. Gapminder Scatterplot\n\nFor the year 2007, plot GDP per capita (x-axis) vs. life expectancy (y-axis).\nFormat large numbers as numbers with commas (not scientific notation)\ncolor points by continent\nBe sure your axes are clearly labelled for a general audience\n\n\n\n2. Log-Transformed Gapminder Scatterplot\nTake your scatterplot from the previous problem. Log-transform the GDP per capita axis. Explain why a log-transformed x-axis is useful here.\n\n\n3. Gapminder Scatterplot with labels\nTake your scatterplot from the previous problem. Use geom_text_repel() to label the subset of countres which have a GDP per capita over over $40,000.\n\n\n4. Gapminder Scatterplot over the years\nRepeat this plot for all years in the dataset. Hint: you’ll need to make sure you are using the full dataset for all years (not just 2007 like in the previous plots) AND you can use a nifty function that we talked about to repeat the analysis for all years in only one line of code!\n\n\n5. Gapminder US Time Series\n\nCreate a time-series line plot for GDP per capita in the United States\nLabel the highest and lowest years using geom_text_repel().\nBe sure that the axis showing the GDP per capita is shown in currency format (with dollar signs!)\nBe sure your axes are clearly labelled for a general audience\n\n\n\n6. Explain using Gapminder US Time Series\nHow has GDP per capita in the U.S. changed over time? What major historical events might explain large shifts?"
+    "text": "Artwork by @allisonhorst\n\n\nComing soon!"
   },
   {
-    "objectID": "courses/stat0118/index.html",
-    "href": "courses/stat0118/index.html",
-    "title": "STAT 118: Intro to Data Science",
+    "objectID": "courses/stat0118/118_C_aggregating_notes.html",
+    "href": "courses/stat0118/118_C_aggregating_notes.html",
+    "title": "Aggregating data",
     "section": "",
-    "text": "Use the sidebar to navigate through course topics and download notes, templates, and homework assignments."
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
   },
   {
-    "objectID": "courses/stat0118/118_B_wrangling.html",
-    "href": "courses/stat0118/118_B_wrangling.html",
-    "title": "Wrangling Basics",
+    "objectID": "courses/stat0118/118_C_aggregating_notes.html#remove-rows-with-missing-data-with-drop_na",
+    "href": "courses/stat0118/118_C_aggregating_notes.html#remove-rows-with-missing-data-with-drop_na",
+    "title": "Aggregating data",
+    "section": "Remove rows with missing data with drop_na()",
+    "text": "Remove rows with missing data with drop_na()\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
+  },
+  {
+    "objectID": "courses/stat0118/118_C_aggregating_notes.html#multiple-groups",
+    "href": "courses/stat0118/118_C_aggregating_notes.html#multiple-groups",
+    "title": "Aggregating data",
+    "section": "Multiple Groups",
+    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:"
+  },
+  {
+    "objectID": "courses/stat0118/118_K_maps1.html",
+    "href": "courses/stat0118/118_K_maps1.html",
+    "title": "Cloropleth Maps with maps and sf",
     "section": "",
-    "text": "Sometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.\nFirst, you need to download the package from the right hand menu –&gt; You only need to do this once.\nIn each new .qmd document, you need to call any packages you want to use but adding the code library(packagename) inside an R chunk.\n\n\nIn this class we will use the tidyverse package a lot.\n\n1library(tidyverse)\n\n\n1\n\nLoads the tidyverse package\n\n\n\n\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\n\n\n\nCredit: https://uopsych-r-bootcamp-2020.netlify.app/\n\n\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets."
+    "text": "Before we get started, some context:"
   },
   {
-    "objectID": "courses/stat0118/118_B_wrangling.html#the-tidyverse-package",
-    "href": "courses/stat0118/118_B_wrangling.html#the-tidyverse-package",
-    "title": "Wrangling Basics",
+    "objectID": "courses/stat0118/118_K_maps1.html#what-about-subsetting-the-data",
+    "href": "courses/stat0118/118_K_maps1.html#what-about-subsetting-the-data",
+    "title": "Cloropleth Maps with maps and sf",
+    "section": "What about subsetting the data?",
+    "text": "What about subsetting the data?\n\n#Subset to get Italy\nitaly &lt;- map_data(\"world\", region =\"Italy\")\n\n#Subset to get USA\nusa &lt;- map_data(\"world\", region =\"USA\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_K_maps1.html#what-if-aspect-ratio-is-not-maintained",
+    "href": "courses/stat0118/118_K_maps1.html#what-if-aspect-ratio-is-not-maintained",
+    "title": "Cloropleth Maps with maps and sf",
+    "section": "What if aspect ratio is not maintained?",
+    "text": "What if aspect ratio is not maintained?\n\n# ASPECT RATIO NOT MAINTAINED\nggplot(italy, aes(long, lat)) + \n  geom_polygon(aes(group=group)) + \n  theme_light() +\n  ggtitle(\"Italy - Aspect Ratio Not Maintained (not good)\")\n\n\n\n\n\n# ASPECT RATIO MAINTAINED\nggplot(italy, aes(long, lat)) + \n  geom_polygon(aes(group=group)) + \n  coord_quickmap()  +\n  theme_light() +\n  ggtitle(\"Italy - Aspect Ratio Maintained (better)\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_K_maps1.html#usa-with-states",
+    "href": "courses/stat0118/118_K_maps1.html#usa-with-states",
+    "title": "Cloropleth Maps with maps and sf",
+    "section": "USA with states",
+    "text": "USA with states\n\n#Load Data from maps\nusa_states &lt;- map_data(\"state\")\n\n#Plot of USA with state borders\nggplot(usa_states, aes(long, lat)) +\ngeom_polygon(aes(group=group)) +\ncoord_quickmap()"
+  },
+  {
+    "objectID": "courses/stat0118/118_K_maps1.html#how-to-customize-colors",
+    "href": "courses/stat0118/118_K_maps1.html#how-to-customize-colors",
+    "title": "Cloropleth Maps with maps and sf",
+    "section": "How to customize colors?",
+    "text": "How to customize colors?\n\nggplot(usa_states, aes(long, lat)) +\ngeom_polygon(aes(group=group), fill =\"#75816b\", color =\"#292c26\") +\ncoord_quickmap() +\ntheme_light()"
+  },
+  {
+    "objectID": "courses/stat0118/118_K_maps1.html#adding-labels",
+    "href": "courses/stat0118/118_K_maps1.html#adding-labels",
+    "title": "Cloropleth Maps with maps and sf",
+    "section": "Adding labels",
+    "text": "Adding labels\n\nggplot(nc) + \n  geom_sf() + \n  aes(fill = BIR74) +\n  ggtitle(\"North Carolina, Birth Rates in 1974\") +\n  scale_fill_gradientn(colors = brewer.pal(8, \"Spectral\") ) +  #customize colors\n  theme_light() +\n  geom_sf_text(data = nc[nc$BIR74 &gt;15000,], aes(label = NAME), fontface=\"bold\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_B_wrangling_homework.html",
+    "href": "courses/stat0118/118_B_wrangling_homework.html",
+    "title": "STAT 118: Homework B",
     "section": "",
-    "text": "In this class we will use the tidyverse package a lot.\n\n1library(tidyverse)\n\n\n1\n\nLoads the tidyverse package\n\n\n\n\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\n\n\n\nCredit: https://uopsych-r-bootcamp-2020.netlify.app/\n\n\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets."
+    "text": "Code\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n\nThis assignment concerns the gapminder dataset which is available in the gapminder package.\nFirst, Download gapminder from the menu at the right. You only need to do this once. Once it has been download, you need to call it using the code below.\n\n\nCode\n# LOAD DATA SET\nlibrary(gapminder)\ndata(gapminder) \n\n\nIf you want to view this data, click on the word gapminder in your environment and it should open up\n\n\n\n\n\n\nTip\n\n\n\nThere are often many different ways to get to the right answer on this assignment! I don’t care how you get the answer. I care that you are clearly explaining how you got your answer – either by showing any code you used or explaining in words how you got to the answer you did.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn the problems below, I have not given you any blank R chunks. If you wish to use some R code to answer the problem, you can add your own R chunk – either by typing it directly OR going to Code –&gt; Insert Chunk in the top menu.\n\n\n\n1.\nHow many rows and columns does this dataset have?\n\n\n2.\nWhat are the names of the 6 columns?\n\n\n3.\nCreate a dataset called gapminder2002 which only contains information for each of the countries in 2002.\n\n\n4.\nIf you instead try to choose the subset with year equal to 2005, something will go wrong. Try it and explain what happens and why.\n\n\n5.\nPrint out the row of data corresponding to the US in 2002.\n\n\n6.\nIn the above problem, you would have put quotes around United States but not around 2002. Explain why.\n\n\n7.\nWhich country had a higher life expectancy in 1977: Japan or Ireland? Note there are many different possible correct ways of solving this. You just need to find one\n\n\n8.\nWhat is the lowest life expectancy in the gapminder dataset? Which country and year does it correspond to?\n\n\n9.\nFor the year 2002, print out a list of the top 10 countries with the highest life expectancy. They should be ordered from highest life expectancy to 10th highest life expectancy. You should only display the countries name and life expectancy (and no other data)."
   },
   {
-    "objectID": "courses/stat0118/118_D_ggplot_notes.html",
-    "href": "courses/stat0118/118_D_ggplot_notes.html",
-    "title": "Making plots with ggplot2: Barplots and Scatterplots",
+    "objectID": "courses/stat0118/118_A_intro.html",
+    "href": "courses/stat0118/118_A_intro.html",
+    "title": "Quarto & Markdown Formatting",
     "section": "",
-    "text": "ggplot2 is a package built within the tidyverse package for creating awesome graphs!\n\nlibrary(tidyverse)\n\n\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\n\nRecall our Top 10 example:\nThis code gave a list of 10 Aboriginal Languages which have the most number of people who speak them as their mother tongue:\n\nten_lang &lt;- can_lang %&gt;%  \n  filter(category == \"Aboriginal languages\") %&gt;% \n  arrange(desc(mother_tongue)) %&gt;% \n  select(language, mother_tongue) %&gt;%  \n  slice(1:10) #\n\n\n\nBarplots\nSuppose we wanted to display this information in a barplot instead of in a table.\nIs there any improvements we could make to this graph?\n\n\nTo better view text\nDisplay the bars horizontally instead of vertically!\n\nThis flips the x and y axes!\n\n\n\nLabels, Colors, and Themes\n\nggplot(ten_lang, aes(x = mother_tongue, y = language)) +\n  geom_bar(stat = \"identity\") \n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nBarplots are good for displaying one categorical variable and one numeric variable. The number variable could be counts (as above) or they could be averages or totals or maximums or minimums (or many other things!)\n\n\n\n\nggplot: scatterplot with geom_point\n\n\n\n\n\n\nTip\n\n\n\nScatterplots are good for displaying the relationship between two numerical variables.\n\n\nThe mtcars dataset was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It’s available inside the ggplot package which is already installed.\n\n#load the data\ndata(mtcars)\n\nNote that you can change the color, shape (pch for plotting character) and size of these points!\n\nQuick update to the dataset\n\n#code to update `mtcars` dataset so that `am` is treated as a factor rather than a continuous numeric variable\nmtcars &lt;- mtcars %&gt;%  \n  mutate(am = as.factor(am)) \n\nThis modifies the am column, which represents the transmission type of the car (0 = automatic, 1 = manual). The as.factor(am) function converts the am variable from a numeric type (0 or 1) into a categorical factor.\n\n\n\nInside aes() or outside aes()?\nWhat is the difference between these two graphs?\n\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(color=\"red\") \n\n\n\n\n\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nIf the thing you are trying to change (color, shape, size, etc.) depends on a variable, you should put in inside the aesthetics\nIf the thing you are trying to change (color, shape, size, etc.) should happen for all things, you should not put it inside the aesthetics.\n\n\n\n\n\nCustomizing Colors in Aesthetics\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am)) +\n  scale_color_manual(values=c(\"black\", \"orange\")) \n\n\n\n\n\n\nGlobal vs. Local Aesthetics\nGlobal aesthetic mappings apply to all geometries and can be defined when you initially call ggplot(). All the geometries added as layers will default to this mapping. Local aesthetic mappings add additional information or override the default mappings.\n\n#color = am as a global aethetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point()\n\n\n\n\n\n#color = am as a local aethetic\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n#overwriting color = am as a global aethetic with a local aesthetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point(color=\"purple\")"
+    "text": "If you type…\nOutput\n\n\n\n\n*italics*\nitalics\n\n\n**bold**\nbold\n\n\n***bold italics***\nbold italics\n\n\n- chai tea\n- green tea\n- earl grey tea\n\nchai tea\ngreen tea\nearl grey tea\n\n\n\n[this is the text that will display](www.google.com)\nthis is the text that will display\n\n\n![a caption here](jellyfish.jpg)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nA comprehensive list of markdown syntax can be found at https://quarto.org/docs/authoring/markdown-basics.html."
   },
   {
-    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html",
-    "href": "courses/stat0118/118_F_ggplot_3_notes.html",
-    "title": "Customizing Plots",
+    "objectID": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
+    "href": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
+    "title": "Quarto & Markdown Formatting",
+    "section": "Centered and large equations",
+    "text": "Centered and large equations\nType in the plain text section:\n$$y=\\frac{x^2}{SE(x^2)} $$\nDisplays as:\n\\[y=\\frac{x^2}{SE(x^2)} \\]\nHint: Some people like to use the visual editor to insert equations"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro.html#inline-equations",
+    "href": "courses/stat0118/118_A_intro.html#inline-equations",
+    "title": "Quarto & Markdown Formatting",
+    "section": "Inline equations",
+    "text": "Inline equations\nType in the plain text section:\nWe take and calculate the standard error $SE(x_1)$.\nDisplays as:\nWe take and calculate the standard error \\(SE(x_1)\\)."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro.html#inline-code",
+    "href": "courses/stat0118/118_A_intro.html#inline-code",
+    "title": "Quarto & Markdown Formatting",
+    "section": "Inline code",
+    "text": "Inline code\nType in the plain text section:\nThis is a sentence. The value of x is `r x`\nDisplays as:\nThis is a sentence. The value of x is 11."
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps_homework.html",
+    "href": "courses/stat0118/118_G_maps_homework.html",
+    "title": "STAT 118: Homework K",
     "section": "",
-    "text": "library(tidyverse)\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")"
-  },
-  {
-    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#logarithmic-axes-transformations",
-    "href": "courses/stat0118/118_F_ggplot_3_notes.html#logarithmic-axes-transformations",
-    "title": "Customizing Plots",
-    "section": "Logarithmic Axes Transformations",
-    "text": "Logarithmic Axes Transformations\n\n\n\n\n\n\nApplying a Log Transformation\n\n\n\nWhen you apply a log transformation to an axis (or both axes) in a plot, you convert values using a logarithmic scale instead of a linear scale. This means:\n\nInstead of evenly spaced values (1, 2, 3, 4, …), a logarithmic scale spaces values exponentially (1, 10, 100, 1000, …).\nThe distance between ticks represents a multiplicative factor instead of an additive one.\n\n\n\n\n\n\nSee how much more clearly we can see all the points!\n\n\nFor you to do this yourself, you need to use scale_*_log10() instead of scale_*_continuous():\n\ncan_lang_plot \n\n\n\n\n\nconverts x-axis to a log-scale\nconverts y-axis to a log-scale\n\n\n\n\n\n\n\nUse ✅ scale_*_log10() instead of 🚫log(variable)"
-  },
-  {
-    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#using-percents-on-a-log-scale",
-    "href": "courses/stat0118/118_F_ggplot_3_notes.html#using-percents-on-a-log-scale",
-    "title": "Customizing Plots",
-    "section": "Using percents on a log scale",
-    "text": "Using percents on a log scale\n\nmutate to create new columns with percentage of Canadians who speak the language as their mother tongue:\n\ncan_lang &lt;- can_lang %&gt;%\n  mutate(\n    mother_tongue_percent = (mother_tongue / 35151728) * 100,\n    most_at_home_percent = (most_at_home / 35151728) * 100\n  )\n\n\n\nScatterplot with Percents and Colors\nCreate a scatterplot with most_at_home_percent and mother_tongue_percent. Vary the color and shape of the points depending on the category of language. You may need to adjust the position of the legend:\n\ncan_lang_percent_plot &lt;- ggplot(can_lang, aes(x = most_at_home,  \n                     y = mother_tongue )) +  \n  geom_point(aes(color = category, shape=category), alpha=0.5) +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(legend.position = \"top\", legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)\n\ncan_lang_percent_plot"
-  },
-  {
-    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#using-ggrepel",
-    "href": "courses/stat0118/118_F_ggplot_3_notes.html#using-ggrepel",
-    "title": "Customizing Plots",
-    "section": "Using ggrepel",
-    "text": "Using ggrepel\n\n\n\nArtwork by @allisonhorst\n\n\n\nlibrary(ggrepel)\n\ncan_lang_percent_plot"
-  },
-  {
-    "objectID": "courses/stat0118/118_F_ggplot_3_notes.html#subset-the-labels",
-    "href": "courses/stat0118/118_F_ggplot_3_notes.html#subset-the-labels",
-    "title": "Customizing Plots",
-    "section": "Subset the labels",
-    "text": "Subset the labels\nCreate a new column for the labels. Use case_when (or ifelse) to only use the official language names and not to put a label for other language categories.\n\ncan_lang &lt;- can_lang %&gt;% \n  mutate(official_languages = case_when(category == \"Official languages\" ~ language, TRUE ~ NA ))\n\n\ncan_lang_percent_plot \n\n\n\n\n\n# We need to redo the base plot with the new can_lang dataset with the new official_languages column in it \ncan_lang_percent_plot &lt;- ggplot(can_lang, aes(x = most_at_home_percent,  y = mother_tongue_percent)) +\n  geom_point(aes(color = category, shape=category)) +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(legend.position = \"top\", legend.direction = \"vertical\") + \n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)"
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) #this is a package needed so R can work with sf objects\nlibrary(maps)\n\n\n\nUsing the maps package\n\n\n1.\nUse the maps package to create a map of New Zealand. To access map data for New Zealand use the code: nz_maps &lt;- map_data(\"world\", region = \"New Zealand\"). You may need to subset the latitude and longitude coordinates to get a great map of New Zealand. The land should be some shade of orange.\n\n\nUse the sf package\n\n\nCode\n#LOAD DATA\nlibrary(spData) #this packages contains the dataset (with sf objects) that we will be using today\ndata(\"nz\")\ndata(\"us_states\")\ndata(\"us_counties\")\n\n\n\n\n2.\nUse the sf package to create a map of New Zealand. To access sf geometries for New Zealand use the “nz” dataset loaded above. The land should be some shade of orange.\n\n\n3.\nName two differences between the two New Zealand maps you created above.\n\n\n4.\nUse the us_states dataset from above to create a map of the US States. All the land map should be some shade of red.\n\n\n5.\nThe us_states dataset has a column REGION which indicates whether the state is “Northeast”, “Midwest”, “South”, or “West”. Create a map which shades each state depending on the REGION it is located in.\n\n\n6.\nCreate a cloropleth map which colors each state depending on the total population of that state in 2015 (total_pop_15 column in the us_states dataset).\nSuppose we wish to incorporate data from another source on each state. This will require us to join the sf data with another dataset (remember joins from before?).\n\n\nCode\n#dataset which contains information about each state\ndata(state) \nstate_data &lt;- data.frame(state.x77)\n#weirdly, the state names are listed as row names instead of in their own column. The below code fixes this. \nstate_data$NAME &lt;- rownames(state_data)\n\n\n\n\n7.\nJoin together the state_data dataset with the sf data housed in us_states into a new dataset called states_map_data. The key variable is the state name.\n\n\n8.\nNote that in the previous step we lost one data row. What was it?\n\n\n9.\nIgnoring the fact that we lost one row, use your new dataset states_map_data (from 7) to create a cloropleth map which colors each state depending on the illiteracy rate in 1970 as a percent of the population (Illiteracy). Use any color palette you like."
   },
   {
     "objectID": "courses/stat0118/118_B_wrangling_notes.html",

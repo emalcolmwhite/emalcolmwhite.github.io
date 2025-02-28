@@ -84,7 +84,7 @@ website:
         - text: "🗺️  <b> Maps </b>"
           class: sidebar-item-group
         - text: "Chlorepleth Maps"
-          href: courses/stat0118/118_K_Maps1.qmd
+          href: courses/stat0118/118_G_maps.qmd
         - text: "Points on Maps"
           href: courses/stat0118/118_L_Maps2.qmd
           
