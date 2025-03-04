@@ -33,7 +33,7 @@ Create a basic map of the countries of the world. To access `sf` geometries for 
 
 # 2. 
 
-Use the columns `pop_year` and `gdp_year` to create a new column called `gdp_per_cap` which contains the GDP per capita for each country in the world in this dataset. 
+Use the columns `pop_est` and `gdp_md` to create a new column called `gdp_per_cap` which contains the GDP per capita for each country in the world in this dataset. 
 
 
 
