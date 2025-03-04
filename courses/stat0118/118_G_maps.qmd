@@ -220,3 +220,20 @@ map +
   geom_sf_text(aes(label = NAME), size = 1)
 ```
 
+
+:::{.callout-warning}
+
+Since population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.
+
+![XKCD](images/maps_careful.png)
+
+🔴 **Correlation doesn't imply causation!** Just because two variables show similar patterns doesn’t mean one causes the other.
+
+✅ Use rates, percentages, or per capita values rather than absolute numbers.
+Example: Instead of showing total website users per state, show website users per 100,000 residents.
+
+✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations.
+Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average.
+
+
+:::

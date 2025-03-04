@@ -249,14 +249,14 @@
     "href": "courses/stat0118/118_G_maps_notes.html#diverging-color-palettes",
     "title": "Maps with maps and sf",
     "section": "Diverging Color Palettes",
-    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n🔴 Avoid: Using blue for land in maps"
+    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n✅ If the data is skewed, consider using the scales package to log -scale.\n🔴 Avoid: Using blue for land in maps"
   },
   {
     "objectID": "courses/stat0118/118_G_maps_notes.html#adding-labels-with-geom_sf_text",
     "href": "courses/stat0118/118_G_maps_notes.html#adding-labels-with-geom_sf_text",
     "title": "Maps with maps and sf",
     "section": "Adding labels with geom_sf_text()",
-    "text": "Adding labels with geom_sf_text()"
+    "text": "Adding labels with geom_sf_text()\n\n\n\n\n\n\nWarning\n\n\n\nSince population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.\n\n\n\nXKCD\n\n\n🔴 Correlation doesn’t imply causation! Just because two variables show similar patterns doesn’t mean one causes the other.\n✅ Use rates, percentages, or per capita values rather than absolute numbers. Example: Instead of showing total website users per state, show website users per 100,000 residents.\n✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations. Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average."
   },
   {
     "objectID": "courses/stat0118/118_KeyboardShortcuts.html",
@@ -508,7 +508,7 @@
     "href": "courses/stat0118/118_G_maps.html#adding-labels-with-geom_sf_text",
     "title": "Maps with maps and sf",
     "section": "Adding labels with geom_sf_text()",
-    "text": "Adding labels with geom_sf_text()\n\nmap + \n  scale_fill_viridis_c(option = \"magma\", direction = -1)+ \n  geom_sf_text(aes(label = NAME), size = 1)"
+    "text": "Adding labels with geom_sf_text()\n\nmap + \n  scale_fill_viridis_c(option = \"magma\", direction = -1)+ \n  geom_sf_text(aes(label = NAME), size = 1)\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nSince population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.\n\n\n\nXKCD\n\n\n🔴 Correlation doesn’t imply causation! Just because two variables show similar patterns doesn’t mean one causes the other.\n✅ Use rates, percentages, or per capita values rather than absolute numbers. Example: Instead of showing total website users per state, show website users per 100,000 residents.\n✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations. Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average."
   },
   {
     "objectID": "courses/stat0118/118_C_aggregating.html",

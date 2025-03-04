@@ -406,7 +406,7 @@ What is a cloropleth map?
 <p>A <strong>choropleth map</strong> is a type of thematic map where areas (such as countries, states, or regions) are shaded or colored based on data values. It’s commonly used to visualize statistical information, such as population density, election results, or income levels, by using different shades or colors to represent varying data ranges.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/maps_federalfunds.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/maps_federalfunds.JPG?raw=true" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">An example from USA Today</figcaption>
 </figure>
 </div>
@@ -565,6 +565,7 @@ Some general guidelines when choosing color palettes:
 <p>✅ Choose colorblind-friendly palettes when designing for general audiences</p>
 <p>✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)</p>
 <p>✅ Consider the meaning of colors in your audience’s cultural context.</p>
+<p>✅ If the data is skewed, consider using the <code>scales</code> package to log -scale.</p>
 <p>🔴 Avoid: Using blue for land in maps</p>
 </div>
 </div>
@@ -577,6 +578,28 @@ Some general guidelines when choosing color palettes:
 </div>
 <section id="adding-labels-with-geom_sf_text" class="level2">
 <h2 data-anchor-id="adding-labels-with-geom_sf_text">Adding labels with <code>geom_sf_text()</code></h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/maps_careful.PNG?raw=true" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">XKCD</figcaption>
+</figure>
+</div>
+<p>🔴 <strong>Correlation doesn’t imply causation!</strong> Just because two variables show similar patterns doesn’t mean one causes the other.</p>
+<p>✅ Use rates, percentages, or per capita values rather than absolute numbers. Example: Instead of showing total website users per state, show website users per 100,000 residents.</p>
+<p>✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations. Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average.</p>
+</div>
+</div>
 
 
 </section>
