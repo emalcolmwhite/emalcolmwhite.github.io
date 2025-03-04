@@ -196,6 +196,8 @@ display_palette(brewer.pal(9, "Spectral"))
 
 ✅ Consider the meaning of colors in your audience’s cultural context.
 
+✅  If the data is skewed, consider using the `scales` package to log -scale. 
+
 🔴 Avoid: Using blue for land in maps
 
 :::
