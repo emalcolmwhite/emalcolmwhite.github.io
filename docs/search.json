@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html",
+    "href": "courses/stat0118/118_H_forcats.html",
+    "title": "forcats: working with categorical data",
+    "section": "",
+    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#categorical-variables",
+    "href": "courses/stat0118/118_H_forcats.html#categorical-variables",
+    "title": "forcats: working with categorical data",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#mpg-data",
+    "href": "courses/stat0118/118_H_forcats.html#mpg-data",
+    "title": "forcats: working with categorical data",
+    "section": "mpg Data",
+    "text": "mpg Data\nWe will play with different functions in the forcats packages using the mpg dataset from earlier in the semester.\n\nlibrary(forcats)\nlibrary(tidyverse)\ndata(\"mpg\")\n\nRecall our side-by-side boxplot:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#reordering-factor-levels",
+    "href": "courses/stat0118/118_H_forcats.html#reordering-factor-levels",
+    "title": "forcats: working with categorical data",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs class a factor?\n\nmpg$class %&gt;% is.factor()\n\n[1] FALSE\n\n\nLet’s make it a factor!\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  as.factor())\n\nLet’s check the levels and their current ordering!\n\nmpg$class %&gt;%  \n  levels()\n\n[1] \"2seater\"    \"compact\"    \"midsize\"    \"minivan\"    \"pickup\"    \n[6] \"subcompact\" \"suv\"       \n\n\nTo reorder the levels with fct_relevel()\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  fct_relevel( \"compact\",\"subcompact\",\"midsize\",\"2seater\",\"minivan\",\"suv\",\"pickup\"))\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"compact\"    \"subcompact\" \"midsize\"    \"2seater\"    \"minivan\"   \n[6] \"suv\"        \"pickup\"    \n\n\nLet’s recreate our side-by-side boxplot now:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()\n\n\n\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria using fct_reorder(). For example:\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;% fct_reorder(hwy, median))\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"pickup\"     \"suv\"        \"minivan\"    \"2seater\"    \"subcompact\"\n[6] \"compact\"    \"midsize\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#renaming-factor-levels",
+    "href": "courses/stat0118/118_H_forcats.html#renaming-factor-levels",
+    "title": "forcats: working with categorical data",
+    "section": "Renaming Factor levels",
+    "text": "Renaming Factor levels\nSometimes you might not like the way the levels are named.\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  fct_recode(\"two-seater\" = \"2seater\"))\n\n## NEW NAME = OLD NAME\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"pickup\"     \"suv\"        \"minivan\"    \"two-seater\" \"subcompact\"\n[6] \"compact\"    \"midsize\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#factor-collapsing",
+    "href": "courses/stat0118/118_H_forcats.html#factor-collapsing",
+    "title": "forcats: working with categorical data",
+    "section": "Factor Collapsing",
+    "text": "Factor Collapsing\nLet’s say we wanted to create only two categories – cars and larger vehicles.\n\nmpg &lt;- mpg %&gt;% \n  mutate(class_two = class %&gt;%  fct_collapse( cars = c(\"compact\", \"subcompact\", \"midsize\", \"two-seater\"), big = c(\"pickup\", \"suv\", \"minivan\")))\n\nmpg$class_two %&gt;% \n  levels()\n\n[1] \"big\"  \"cars\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#lumping-into-an-other-category",
+    "href": "courses/stat0118/118_H_forcats.html#lumping-into-an-other-category",
+    "title": "forcats: working with categorical data",
+    "section": "Lumping into an other category",
+    "text": "Lumping into an other category\n\nfct_lump_min(): lumps levels that appear fewer than min times.\nfct_lump_prop(): lumps levels that appear in fewer than (or equal to) prop * n times.\nfct_lump_n() lumps all levels except for the n most frequent (or least frequent if n &lt; 0)\n\n\nmpg %&gt;% \n  count(manufacturer)\n\n# A tibble: 15 × 2\n   manufacturer     n\n   &lt;chr&gt;        &lt;int&gt;\n 1 audi            18\n 2 chevrolet       19\n 3 dodge           37\n 4 ford            25\n 5 honda            9\n 6 hyundai         14\n 7 jeep             8\n 8 land rover       4\n 9 lincoln          3\n10 mercury          4\n11 nissan          13\n12 pontiac          5\n13 subaru          14\n14 toyota          34\n15 volkswagen      27\n\n\nLet’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:\n\nmpg &lt;- mpg %&gt;% \n  mutate(class_lumped = class %&gt;% fct_lump_min(15))\n\nmpg$manufacturer %&gt;% \n  levels()\n\nNULL\n\n\nCreate a table using kableExtra:\n\nlibrary(kableExtra)\n\nmpg %&gt;% \n  count(manufacturer) %&gt;% \n  kbl() %&gt;% \n  kable_styling()\n\n\n\n\nmanufacturer\nn\n\n\n\n\naudi\n18\n\n\nchevrolet\n19\n\n\ndodge\n37\n\n\nford\n25\n\n\nhonda\n9\n\n\nhyundai\n14\n\n\njeep\n8\n\n\nland rover\n4\n\n\nlincoln\n3\n\n\nmercury\n4\n\n\nnissan\n13\n\n\npontiac\n5\n\n\nsubaru\n14\n\n\ntoyota\n34\n\n\nvolkswagen\n27"
+  },
+  {
+    "objectID": "CV/index.html",
+    "href": "CV/index.html",
+    "title": "Curriculum vitae",
+    "section": "",
+    "text": "Download current CV"
+  },
+  {
+    "objectID": "courses/math103/index.html",
+    "href": "courses/math103/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/math103/index.html#math-103-functions",
+    "href": "courses/math103/index.html#math-103-functions",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2_homework.html",
+    "href": "courses/stat0118/118_E_ggplot_2_homework.html",
+    "title": "STAT 118: Homework E",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\nTo the best of your ability, recreate the following plots from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.\n\n1. Iris Side-by-Side Boxplot\n\n\n\nCode\n#load the iris dataset\ndata(\"iris\")\n\n\n\n\n2. Gapminder Barplot\n\n\n\nCode\n#load the gapminder dataset\nlibrary(gapminder)\ndata(\"gapminder\")\n\n\n\n\n3. Gapminder Line Graph\n\n\n\nCode\nlibrary(ggthemes) # you might need this to help with the theme... \n\n\n\n\n4. Penguins Histogram\n\n\n\nCode\n#Load Penguins Data\nlibrary(palmerpenguins)\ndata(\"penguins\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_janitor.html",
+    "href": "courses/stat0118/118_janitor.html",
+    "title": "Cleaning data using janitor",
+    "section": "",
+    "text": ":::call-out tip Data scientists, according to interviews and expert estimates, spend from 50 percent to 80 percent of their time mired in this more mundane labor of collecting and preparing unruly digital data, before it can be explored for useful nuggets.\n– “For Big-Data Scientists, ‘Janitor Work’ Is Key Hurdle to Insight” (New York Times, 2014) :::\n\n\n\nArtwork by @allisonhorst\n\n\nMore Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_P_webscraping_text.html",
+    "href": "courses/stat0118/118_P_webscraping_text.html",
+    "title": "Webscraping Text",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(rvest)"
+  },
+  {
+    "objectID": "courses/stat0118/118_P_webscraping_text.html#titles",
+    "href": "courses/stat0118/118_P_webscraping_text.html#titles",
+    "title": "Webscraping Text",
+    "section": "Titles",
+    "text": "Titles\nFor example, check out the first few lines of html code for Oppenheimer:\n&lt;h3 class=\"lister-item-header\"&gt;\n        &lt;span class=\"lister-item-index unbold text-primary\"&gt;1.&lt;/span&gt;\n    &lt;a href=\"/title/tt15398776/?ref_=adv_li_tt\"\n&gt;Oppenheimer&lt;/a&gt;\n    &lt;span class=\"lister-item-year text-muted unbold\"&gt;(2023)&lt;/span&gt;\n&lt;/h3&gt;\nIn this case, we want to look for the class lister-item-header AND then pull the text inside the &lt;a&gt; (link) tag.\nhtml_elements(\".lister-item-header a\")\n\n\n\n\n\n\nTip\n\n\n\nIn this case, we want ALL titles so we used html_elements(). If we had only wanted the first title we would have used html_element()\n\n\nScrape IMBD for the titles of the 50 most popular feature films in the first 7 months of 2023.\n\n# title_data &lt;- URL %&gt;%\n#   html_elements(\".lister-item-header a\") %&gt;%\n#   html_text()\n# \n# title_data"
+  },
+  {
+    "objectID": "courses/stat0118/118_P_webscraping_text.html#runtime",
+    "href": "courses/stat0118/118_P_webscraping_text.html#runtime",
+    "title": "Webscraping Text",
+    "section": "Runtime",
+    "text": "Runtime\nScrape IMBD for the runtime of the 50 most popular feature films so far in 2023.\nCheck out the relevant HTML code for Oppenheimer:\n    &lt;p class=\"text-muted \"&gt;\n            &lt;span class=\"certificate\"&gt;R&lt;/span&gt;\n                 &lt;span class=\"ghost\"&gt;|&lt;/span&gt; \n                 &lt;span class=\"runtime\"&gt;180 min&lt;/span&gt;\n                 &lt;span class=\"ghost\"&gt;|&lt;/span&gt; \n            &lt;span class=\"genre\"&gt;\nBiography, Drama, History            &lt;/span&gt;\n    &lt;/p&gt;\nIn this case, we need to reference the class text-muted AND the class runtime.\n\n# URL %&gt;%\n#   html_nodes(\".text-muted .runtime\") %&gt;%\n#   html_text() \n\nAlternatively, we could have called class text-muted AND the 3rd span, but it’s easier and likely more accurate to ask for the class runtime in case runtime is missing for some reason.\nMaybe we want to keep the min on the end, but it forces it into being a stringr rather than a number which makes it difficult to sort or filter.\n\nlibrary(readr)\n# need this package for parse_number()\n\n\n\n\nArtwork by @allisonhorst\n\n\n\n# runtime_data &lt;- URL %&gt;%\n#   html_nodes(\".text-muted .runtime\") %&gt;%\n#   html_text() %&gt;%\n#   parse_number() %&gt;% #this picks out only the numbers (and drops characters, in this case, \"mins\")\n#   as.numeric()\n# \n# runtime_data"
+  },
+  {
+    "objectID": "courses/stat0118/118_P_webscraping_text.html#ratings",
+    "href": "courses/stat0118/118_P_webscraping_text.html#ratings",
+    "title": "Webscraping Text",
+    "section": "Ratings",
+    "text": "Ratings\nScrape IMBD for the ratings of the 50 most popular feature films in the first 7 months of 2023.\nCheck out the relevant HTML code for Oppenheimer:\n    &lt;div class=\"inline-block ratings-imdb-rating\" name=\"ir\" data-value=\"8.6\"&gt;\n        &lt;span class=\"global-sprite rating-star imdb-rating\"&gt;&lt;/span&gt;\n        &lt;strong&gt;8.6&lt;/strong&gt;\n    &lt;/div&gt;\nLet’s scrape it!\n\n# rating_data &lt;- URL %&gt;%\n#   html_elements(\".ratings-imdb-rating strong\") %&gt;%\n#   html_text() %&gt;%\n#   as.numeric()\n# \n# rating_data\n\n\n\n\n\n\n\nWarning\n\n\n\nNotice that there are only 49 ratings listed, not 50! There is no way to figure out which one is missing besides doing it by hand…\nWhich one is it?\nOnce we figure out which one is it is, we should should add a blank element for the rating for that movie using the append function.\nrating_data &lt;- append(rating_data, values=FALSE, after=11)\n\n\nIt’s Killers of the Flower Moon (#32)!\n\n#rating_data &lt;- append(rating_data, values=NA, after=31)\n\nNotice how it is the correct length (50) now!"
+  },
+  {
+    "objectID": "courses/stat0118/118_P_webscraping_text.html#number-of-votes",
+    "href": "courses/stat0118/118_P_webscraping_text.html#number-of-votes",
+    "title": "Webscraping Text",
+    "section": "Number of Votes",
+    "text": "Number of Votes\nScrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023.\nRelevant code for Oppenheimer:\n        &lt;p class=\"sort-num_votes-visible\"&gt;\n                &lt;span class=\"text-muted\"&gt;Votes:&lt;/span&gt;\n                &lt;span name=\"nv\" data-value=\"391689\"&gt;391,689&lt;/span&gt;\n        &lt;/p&gt;\nLet’s scrape it!\n\n# votes_data &lt;- URL %&gt;%\n#   html_elements(\".sort-num_votes-visible span:nth-child(2)\") %&gt;%\n#   html_text() %&gt;%\n#   parse_number() %&gt;%\n#   as.numeric()\n# \n# votes_data\n\n\n\n\n\n\n\nWarning\n\n\n\nSame issue as before! We were supposed to have 50 but only got 49. It’s Killers of the Flower Moon (#32), again!\n\n#votes_data &lt;- append(votes_data, values=NA, after=31)"
+  },
+  {
+    "objectID": "courses/stat0118/118_P_webscraping_text.html#metascore",
+    "href": "courses/stat0118/118_P_webscraping_text.html#metascore",
+    "title": "Webscraping Text",
+    "section": "Metascore",
+    "text": "Metascore\nScrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023.\nRelevant code for Oppenheimer:\n            &lt;div class=\"inline-block ratings-metascore\"&gt;\n&lt;span class=\"metascore  favorable\"&gt;88        &lt;/span&gt;\n        Metascore\n            &lt;/div&gt;\nLet’s scrape it!\n\n# metascore_data &lt;- URL %&gt;%\n#   html_elements(\".metascore\") %&gt;%\n#   html_text() %&gt;%\n#   parse_number() %&gt;%\n#   as.numeric()\n# \n# metascore_data\n\n\n\n\n\n\n\nWarning\n\n\n\nYikes! Now we only have 41 when we should have 50.\nWe could manually go through and figure out which 9 are missing or we could reassess how important the metascore data is to us…"
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_homework.html",
+    "href": "courses/stat0118/118_H_forcats_homework.html",
+    "title": "Homework H",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(forcats)\n\n#LOAD DATASET\n# This diamonds dataset is built into the tidyverse package\ndata(\"gss_cat\")\n\n\nToday’s dataset, gss_cat, is a sample of data from the General Social Survey, a long-running US survey conducted by the independent research organization NORC at the University of Chicago. The survey has thousands of questions, but gss_cat only contains the 9 variables.\nBegin by reading more about each variable in the dataset by typing ?gss_cat into the console.\n\n1.\nFor each categorical/factor variable in gss_cat identify whether the order of the levels is ordinal or nominal.\nmarital - race - rincome - partyid - relig - denom -\n\n\n2.\nWhat are the levels of the variable partyid? Create a table which displays how many people are in each category of partyid.\n\n\n3.\nConstruct a barplot which displays partyid on the x-axis and the the height of the bars represents the count of how many people fall in each category. What makes the default bar chart hard to understand?\n\n\n4.\nRegroup partyid variable to only contain four groups: “rep”, “ind”, “dem”, and “other”. Recreate the barchart above with your improved groupings.\n\n\n5.\nWhat are the levels of the relig variable? Create a table which counts how many people belong to each religion. Be sure to print out your table is a pretty way using the kableExtra package.\n\n\n6.\nCreate a new variable in the dataset called top_relig which only contains the 5 most popular religions and all other categories are grouped into an “other category”. Create table which counts the number of people in each top_relig category. Be sure to print out your table is a pretty way using the kableExtra package.\n\n\n7.\nExplore the relationship between marital status and the number of TV hours watched. Your results should include an appropriate plot that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way.\n\n\n8.\nExplore the relationship between one of the categorical variables in this dataset over time. Your results should include an appropriate plot that is well-labelled. Pay attention to the ordering of any categorical variables in your plot to ensure they are ordered in an appropriate way."
+  },
+  {
+    "objectID": "courses/stat0118/118_R_lubridate.html",
+    "href": "courses/stat0118/118_R_lubridate.html",
+    "title": "Working with dates using lubridate",
+    "section": "",
+    "text": "Date Formats\nThink of how many different formats you know of to format a date:\n\n2023 07 06\nWed, Jun 7, 2023\n07-06-23\n06-07-23 14:55 ET\n06/07/2023 2:55pm\n\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nLubridate\n\n\n\nArtwork by @allisonhorst\n\n\n\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nSolar Data\nShoal Marine Lab (SML) is a remote field station located on Appledore Island, Maine jointly operated by Cornell University and the University of New Hampshire. The island is powered primarily by solar power.\n\n#read in Data\npower &lt;- read.csv(\"data/power.csv\")\n\nWhat format is the date in?\n\n\n\n\n\n\nWarning\n\n\n\nWhat happens if we try to make a line plot with the date in this format?\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\nYikes!\n\n\nWe need to put it in standardized date format first:\n\npower &lt;- power %&gt;% \n  mutate(Date = mdy_hm(Date))  \n\nStandardized Format helps us to create time series plots very easily!\n\npower %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\n\n\nPicking out information\n\n\n\nArtwork by @allisonhorst\n\n\nSometimes we need to pick out year, month, date so we can filter, sort, etc.\n\npower &lt;- power %&gt;% \n  mutate(Year = year(Date)) %&gt;%   \n  mutate(Month = month(Date)) %&gt;% \n  mutate(Day = day(Date))\n\nSuppose we only want the time series plot for June 1:\n\npower %&gt;% \n  filter(Month == \"6\") %&gt;%\n  filter(Day == \"1\") %&gt;% \n  ggplot(aes(x=Date, y=power_kW)) +\n  geom_line()\n\n\n\n\n\n\nPortal Data\nThe Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\nportal_rodent &lt;- portal_rodent %&gt;% \n  mutate(datetime = make_datetime(year, month, day))"
+  },
+  {
+    "objectID": "courses/stat0118/118_D_ggplot_homework.html",
+    "href": "courses/stat0118/118_D_ggplot_homework.html",
+    "title": "STAT 118: Homework D",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\n\n\n\n\nCode\n#load the gapminder data for this lab\nlibrary(gapminder)\ndata('gapminder')\n\n\n\n1.\nPick a year. Create a dataset which only contains that data for that year and is appropriately labeled. For example, if you choose the year 2007, you might choose to call this new dataset gapminder2007. You will use this dataset for the rest of the assignment.\n\n\n2.\nUsing your dataset you created in 1, create a barplot which displays the GDP per capita of the ten countries with the highest GDP per capita that year. Be sure your axes are appropriately labeled.\n\n\n3.\nPick a continent. Using your dataset you created in 1, create a barplot which displays the life expectancy of all the countries in that continent in that year. You should sort the countries from highest life expectancy to lowest life expectancy. Be sure your axes are appropriately labeled.\n\n\n4.\n\n\nCode\n#Load Penguins Data\nlibrary(palmerpenguins)\ndata(\"penguins\")\n\n\nTo the best of your ability, recreate the following plot from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can. \nThis image will also be available on the Canvas assignment (in case this link/preview don’t work for you)."
+  },
+  {
+    "objectID": "courses/r-by-the-sea/index.html",
+    "href": "courses/r-by-the-sea/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
+  },
+  {
+    "objectID": "courses/r-by-the-sea/index.html#r-by-the-sea",
+    "href": "courses/r-by-the-sea/index.html#r-by-the-sea",
+    "title": "EMW",
+    "section": "",
+    "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
+  },
+  {
+    "objectID": "courses/math102/index.html",
+    "href": "courses/math102/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/math102/index.html#math-102-logs-exponentials-and-their-applications",
+    "href": "courses/math102/index.html#math-102-logs-exponentials-and-their-applications",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#renaming-factor-levels-with-fct_recode",
+    "href": "courses/stat0118/118_H_forcats.html#renaming-factor-levels-with-fct_recode",
+    "title": "forcats: working with categorical data",
+    "section": "Renaming Factor levels with fct_recode",
+    "text": "Renaming Factor levels with fct_recode\nSometimes you might not like the way the levels are named.\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  fct_recode(\"two-seater\" = \"2seater\"))\n\n## NEW NAME = OLD NAME\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"pickup\"     \"suv\"        \"minivan\"    \"two-seater\" \"subcompact\"\n[6] \"compact\"    \"midsize\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#factor-collapsing-with-fct_collapse",
+    "href": "courses/stat0118/118_H_forcats.html#factor-collapsing-with-fct_collapse",
+    "title": "forcats: working with categorical data",
+    "section": "Factor Collapsing with fct_collapse()",
+    "text": "Factor Collapsing with fct_collapse()\nLet’s say we wanted to create only two categories – cars and larger vehicles.\n\nmpg &lt;- mpg %&gt;% \n  mutate(class_two = class %&gt;%  fct_collapse( cars = c(\"compact\", \"subcompact\", \"midsize\", \"two-seater\"), big = c(\"pickup\", \"suv\", \"minivan\")))\n\nmpg$class_two %&gt;% \n  levels()\n\n[1] \"big\"  \"cars\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html",
+    "href": "courses/stat0118/118_H_forcats_notes.html",
+    "title": "forcats: working with categorical data",
+    "section": "",
+    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html#categorical-variables",
+    "href": "courses/stat0118/118_H_forcats_notes.html#categorical-variables",
+    "title": "forcats: working with categorical data",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html#mpg-data",
+    "href": "courses/stat0118/118_H_forcats_notes.html#mpg-data",
+    "title": "forcats: working with categorical data",
+    "section": "mpg Data",
+    "text": "mpg Data\nWe will play with different functions in the forcats packages using the mpg dataset from earlier in the semester.\n\nlibrary(forcats)\nlibrary(tidyverse)\ndata(\"mpg\")\n\nRecall our side-by-side boxplot:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html#reordering-factor-levels",
+    "href": "courses/stat0118/118_H_forcats_notes.html#reordering-factor-levels",
+    "title": "forcats: working with categorical data",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs class a factor?\nLet’s make it a factor!\nLet’s check the levels and their current ordering!\nTo reorder the levels with fct_relevel()\nLet’s recreate our side-by-side boxplot now:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()\n\n\n\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria using fct_reorder(). For example:"
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html#renaming-factor-levels-with-fct_recode",
+    "href": "courses/stat0118/118_H_forcats_notes.html#renaming-factor-levels-with-fct_recode",
+    "title": "forcats: working with categorical data",
+    "section": "Renaming Factor levels with fct_recode",
+    "text": "Renaming Factor levels with fct_recode\nSometimes you might not like the way the levels are named."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html#factor-collapsing-with-fct_collapse",
+    "href": "courses/stat0118/118_H_forcats_notes.html#factor-collapsing-with-fct_collapse",
+    "title": "forcats: working with categorical data",
+    "section": "Factor Collapsing with fct_collapse()",
+    "text": "Factor Collapsing with fct_collapse()\nLet’s say we wanted to create only two categories – cars and larger vehicles."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats_notes.html#lumping-into-an-other-category",
+    "href": "courses/stat0118/118_H_forcats_notes.html#lumping-into-an-other-category",
+    "title": "forcats: working with categorical data",
+    "section": "Lumping into an other category",
+    "text": "Lumping into an other category\n\nfct_lump_min(): lumps levels that appear fewer than min times.\nfct_lump_prop(): lumps levels that appear in fewer than (or equal to) prop * n times.\nfct_lump_n() lumps all levels except for the n most frequent (or least frequent if n &lt; 0)\n\n\ntable(mpg$manufacturer)\n\n\n      audi  chevrolet      dodge       ford      honda    hyundai       jeep \n        18         19         37         25          9         14          8 \nland rover    lincoln    mercury     nissan    pontiac     subaru     toyota \n         4          3          4         13          5         14         34 \nvolkswagen \n        27 \n\n\nLet’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:\nCreate a table using kableExtra:"
+  }
+]

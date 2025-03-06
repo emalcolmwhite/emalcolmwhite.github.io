@@ -71,7 +71,7 @@ Let's check the levels and their current ordering!
 
 ```
 
-To reorder the levels: 
+To reorder the levels with `fct_relevel()`
 
 ```{r}
 
@@ -85,14 +85,14 @@ mpg %>%
   geom_boxplot()
 ```
 
-Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example: 
+Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria using `fct_reorder()`. For example: 
 
 ```{r}
 
 ```
 
 
-## Renaming Factor levels
+## Renaming Factor levels with `fct_recode`
 
 Sometimes you might not like the way the levels are named. 
 
@@ -100,7 +100,7 @@ Sometimes you might not like the way the levels are named.
 
 ```
 
-## Factor Collapsing
+## Factor Collapsing with `fct_collapse()`
 
 Let's say we wanted to create only two categories -- cars and larger vehicles. 
 
@@ -127,5 +127,10 @@ Let's say we wanted only the manufacturers with at least 15 cars produced. Every
 
 ```
 
+Create a table using kableExtra: 
+
+```{r}
+
+```
 
 

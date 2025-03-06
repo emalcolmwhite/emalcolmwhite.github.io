@@ -64,7 +64,7 @@ What are the levels of the `relig` variable? Create a table which counts how man
 ```
 
 # 6. 
-Create a new variable in the dataset called `top_relig` which only contains the 5 most popular religions and all other categories are grouped into an "other category". Create table which counts the number of people in each `top_relig` category. Be sure to print out your table is a pretty way using the `xtable` package.  
+Create a new variable in the dataset called `top_relig` which only contains the 5 most popular religions and all other categories are grouped into an "other category". Create table which counts the number of people in each `top_relig` category. Be sure to print out your table is a pretty way using the `kableExtra` package.  
 
 ```{r}
 

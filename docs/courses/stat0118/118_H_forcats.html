@@ -4466,6 +4466,231 @@ vertical-align: -.125em;
   }
 }</script>
 
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
 
 <style type="text/css">
 .navbar-brand {
@@ -4782,8 +5007,8 @@ border-radius: 5px;
   <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link active" data-scroll-target="#categorical-variables">Categorical Variables</a></li>
   <li><a href="#mpg-data" id="toc-mpg-data" class="nav-link" data-scroll-target="#mpg-data"><code>mpg</code> Data</a></li>
   <li><a href="#reordering-factor-levels" id="toc-reordering-factor-levels" class="nav-link" data-scroll-target="#reordering-factor-levels">Reordering Factor Levels</a></li>
-  <li><a href="#renaming-factor-levels" id="toc-renaming-factor-levels" class="nav-link" data-scroll-target="#renaming-factor-levels">Renaming Factor levels</a></li>
-  <li><a href="#factor-collapsing" id="toc-factor-collapsing" class="nav-link" data-scroll-target="#factor-collapsing">Factor Collapsing</a></li>
+  <li><a href="#renaming-factor-levels-with-fct_recode" id="toc-renaming-factor-levels-with-fct_recode" class="nav-link" data-scroll-target="#renaming-factor-levels-with-fct_recode">Renaming Factor levels with <code>fct_recode</code></a></li>
+  <li><a href="#factor-collapsing-with-fct_collapse" id="toc-factor-collapsing-with-fct_collapse" class="nav-link" data-scroll-target="#factor-collapsing-with-fct_collapse">Factor Collapsing with <code>fct_collapse()</code></a></li>
   <li><a href="#lumping-into-an-other-category" id="toc-lumping-into-an-other-category" class="nav-link" data-scroll-target="#lumping-into-an-other-category">Lumping into an other category</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/edit/main/courses/stat0118/118_H_forcats.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/118_H_forcats.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="118_H_forcats.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -4850,39 +5075,32 @@ border-radius: 5px;
 <p>One of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.</p>
 <p>Is <code>class</code> a factor?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.factor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> <span class="fu">is.factor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
 <p>Let’s make it a factor!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.factor</span>()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.factor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span>  <span class="fu">as.factor</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s check the levels and their current ordering!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span>  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;2seater&quot;    &quot;compact&quot;    &quot;midsize&quot;    &quot;minivan&quot;    &quot;pickup&quot;    
 [6] &quot;subcompact&quot; &quot;suv&quot;       </code></pre>
 </div>
 </div>
-<p>To reorder the levels:</p>
+<p>To reorder the levels with <code>fct_relevel()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class  <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_relevel</span>(<span class="st">&quot;compact&quot;</span>,<span class="st">&quot;subcompact&quot;</span>,<span class="st">&quot;midsize&quot;</span>,<span class="st">&quot;2seater&quot;</span>,<span class="st">&quot;minivan&quot;</span>,<span class="st">&quot;suv&quot;</span>,<span class="st">&quot;pickup&quot;</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span>  <span class="fu">fct_relevel</span>( <span class="st">&quot;compact&quot;</span>,<span class="st">&quot;subcompact&quot;</span>,<span class="st">&quot;midsize&quot;</span>,<span class="st">&quot;2seater&quot;</span>,<span class="st">&quot;minivan&quot;</span>,<span class="st">&quot;suv&quot;</span>,<span class="st">&quot;pickup&quot;</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;compact&quot;    &quot;subcompact&quot; &quot;midsize&quot;    &quot;2seater&quot;    &quot;minivan&quot;   
 [6] &quot;suv&quot;        &quot;pickup&quot;    </code></pre>
@@ -4890,54 +5108,52 @@ border-radius: 5px;
 </div>
 <p>Let’s recreate our side-by-side boxplot now:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data:image/png;base64,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WgVEXRAgQIAAAQIECBAgQIAAAQIECBAgkKeAADTPeVEVAQIECBAgQIAAAQIECBAgQIAAAQJVEBCAVgFRFwQIECBAgAABAgQIECBAgAABAgQI5CkgAM1zXlRFgAABAgQIECBAgAABAgQIECBAgEAVBASgVUDUBQECBAgQIECAAAECBAgQIECAAAECeQoIQPOcF1URIECAAAECBAgQIECAAAECBAgQIFAFAQFoFRB1QYAAAQIECBAgQIAAAQIECBAgQIBAngIC0DznRVUECBAgQIAAAQIECBAgQIAAAQIECFRBQABaBURdECBAgAABAgQIECBAgAABAgQIECCQp4AANM95URUBAgQIECBAgAABAgQIECBAgAABAlUQaK5CH7ogUFMC69evj4cffjhefPHFGDRoUEycODHGjBlTU2NQbGMJPPvss/Gb3/wm1q1bF+PGjYsdd9wx+vTx71eN9SowWgIECBAgQIAAAQIECBCoVEAAWqmc/WpSYPbs2fGDH/wgXn755Xb1H3TQQfGZz3wmdtppp3brPSHQmwLz5s2LSy+9NB5//PF2ZWy33XZxyimnxBFHHNFuvScECBAgQIAAAQIECBAgQIDA5gJOIdrcxJo6Ffjnf/7nIkzqGH6m4T7wwANx6qmnxhNPPFGnozesWhO4995747TTTtss/EzjWLRoUcycOTOuuOKKWhuWegkQIECAAAECBAgQIECAQI8LCEB7nNwBe0Mgnfl5yy23dHroVatWxVlnnRXpt4VAbwosXrw4zj///Ehf19DZctVVV8V//dd/ddbENgIECBAgQIAAAQIECBAg0PACAtCGfwnUP0AKkb7//e+XNdCXXnoprrvuurLaakSguwR+/OMfx+rVq8vq/rvf/W5Z7TQiQIAAAQIECBAgQIAAAQKNKiAAbdSZb6Bxp8valy9fXvaI77nnnrLbakigOwS68hr84x//GAsWLOiOMvRJgAABAgQIECBAgAABAgTqQkAAWhfTaBCdCXQ1HHrhhRc66842At0qsHHjxli4cGGXjuE12yUujQkQIECAAAECBAgQIECgwQQEoA024Y043EGDBnVp2AMHDuxSe40JVFOgT58+MWDAgC516TXbJS6NCRAgQIAAAQIECBAgQKDBBASgDTbhjTjcPfbYo0vD7mr7LnWuMYEyBLryGuzXr1/suuuuZfSqCQECBAgQIECAAAECBAgQaEwBAWhjzntDjXr8+PFxwAEHlD3mGTNmlN1WQwLdIfDud7+77G6POOKI6OpZzmV3riEBAgQIECBAgAABAgQIEKgDAQFoHUyiIWxd4PTTTy8rJDrqqKNi//3333qHWhDoRoEUak6dOnWrRxgzZkycdNJJW22nAQECBAgQIECAAAECBAgQaGQBAWgjz34DjX2XXXaJr33tazFq1KgtjjqFn//4j/+4xe02EOgpgaampjj//PNj+vTpWzzkDjvsEBdffHGkENRCgAABAgQIECBAgAABAgQIbFmgecubbCFQXwJ77bVXXHXVVXHttdfGAw88EM8//3wMHjw4Jk+eHEcffbQzP+trumt+NOm1+dWvfjXuvvvumDNnTjz99NOxbt262HHHHePggw+OdJl8//79a36cBkCAAAECBAgQIECAAAECBLpboGnT/yzdfZBG7n/p0qXx6quvNjJBlmMfOXJk6yXxixcvjvXr12dZp6IIJIF0V/jRo0cXGCtXrowVK1aAIZC1QPru5T59+sTGjRtj4cKFWdeqOALDhg2LoUOHFhBLliyJNWvWQCGQrUBzc3OMGzeuqG/16tWxbNmybGtVGIEkMHbs2Eg37UzLggULit/+QyBXgSFDhsTw4cOL8tL7a3qfteQlMHHixIoLcgl8xXR2JECAAAECBAgQIECAAAECBAgQIEAgdwEBaO4zpD4CBAgQIECAAAECBAgQIECAAAECBCoWEIBWTGdHAgQIECBAgAABAgQIECBAgAABAgRyFxCA5j5D6iNAgAABAgQIECBAgAABAgQIECBAoGIBAWjFdHYkQIAAAQIECBAgQIAAAQIECBAgQCB3AQFo7jOkPgIECBAgQIAAAQIECBAgQIAAAQIEKhYQgFZMZ0cCBAgQIECAAAECBAgQIECAAAECBHIXEIDmPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchcQgOY+Q+ojQIAAAQIECBAgQIAAAQIECBAgQKBiAQFoxXR2JECAAAECBAgQIECAAAECBAgQIEAgdwEBaO4zpD4CBAgQIECAAAECBAgQIECAAAECBCoWEIBWTGdHAgQIECBAgAABAgQIECBAgAABAgRyFxCA5j5D6iNAgAABAgQIECBAgAABAgQIECBAoGIBAWjFdHYkQIAAAQIECBAgQIAAAQIECBAgQCB3AQFo7jOkPgIECBAgQIAAAQIECBAgQIAAAQIEKhYQgFZMZ0cCBAgQIECAAAECBAgQIECAAAECBHIXEIDmPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchcQgOY+Q+ojQIAAAQIECBAgQIAAAQIECBAgQKBiAQFoxXR2JECAAAECBAgQIECAAAECBAgQIEAgdwEBaO4zpD4CBAgQIECAAAECBAgQIECAAAECBCoWEIBWTGdHAgQIECBAgAABAgQIECBAgAABAgRyFxCA5j5D6iNAgAABAgQIECBAgAABAgQIECBAoGIBAWjFdHYkQIAAAQIECBAgQIAAAQIECBAgQCB3AQFo7jOkPgIECBAgQIAAAQIECBAgQIAAAQIEKhYQgFZMZ0cCBAgQIECAAAECBAgQIECAAAECBHIXEIDmPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchcQgOY+Q+ojQIAAAQIECBAgQIAAAQIECBAgQKBiAQFoxXR2JECAAAECBAgQIECAAAECBAgQIEAgdwEBaO4zpD4CBAgQIECAAAECBAgQIECAAAECBCoWEIBWTGdHAgQIECBAgAABAgQIECBAgAABAgRyFxCA5j5D6iNAgAABAgQIECBAgAABAgQIECBAoGIBAWjFdHYkQIAAAQIECBAgQIAAAQIECBAgQCB3AQFo7jOkPgIECBAgQIAAAQIECBAgQIAAAQIEKhYQgFZMZ0cCBAgQIECAAAECBAgQIECAAAECBHIXEIDmPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchcQgOY+Q+ojQIAAAQIECBAgQIAAAQIECBAgQKBiAQFoxXR2JECAAAECBAgQIECAAAECBAgQIEAgdwEBaO4zpD4CBAgQIECAAAECBAgQIECAAAECBCoWEIBWTGdHAgQIECBAgAABAgQIECBAgAABAgRyFxCA5j5D6iNAgAABAgQIECBAgAABAgQIECBAoGIBAWjFdHYkQIAAAQIECBAgQIAAAQIECBAgQCB3AQFo7jOkPgIECBAgQIAAAQIECBAgQIAAAQIEKhYQgFZMZ0cCBAgQIECAAAECBAgQIECAAAECBHIXEIDmPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchcQgOY+Q+ojQIAAAQIECBAgQIAAAQIECBAgQKBigeaK97QjAQIECHSrwMaNG+O2226LOXPmxFNPPRXr1q2LHXfcMd785jfH+9///hg8eHC3Hl/nBAgQIECAAAECBAgQIECgHgQEoPUwi8ZAgEDdCSxfvjzOPvvseOSRR9qN7Q9/+EOkn+uuuy5mzZoVkydPbrfdEwIECBAgQIAAAQIECBAgQKC9gEvg23t4RoAAgV4X2LBhQ3z5y1/eLPxsW9jixYvj85//fCxatKjtao8JECBAgAABAgQIECBAgACBDgIC0A4gnhIgQKC3BW655ZZ49NFHt1rGyy+/HN/61re22k4DAgQIECBAgAABAgQIECDQyAIC0EaefWMnQCBLgRtvvLHsuu68885YtWpV2e01JECAAAECBAgQIECAAAECjSYgAG20GTdeAgSyF5g/f37ZNa5fvz6eeeaZsttrSIAAAQIECBAgQIAAAQIEGk1AANpoM268BAhkLbBp06bibu9dKXLNmjVdaa4tAQIECBAgQIAAAQIECBBoKAEBaENNt8ESIJC7QFNTU0yYMKFLZW6//fZdaq8xAQIECBAgQIAAAQIECBBoJAEBaCPNtrESIFATAoccckjZde6+++4xfvz4sttrSIAAAQIECBAgQIAAAQIEGk1AANpoM268BAhkL/CRj3wkhg4dWladJ598clntNCJAgAABAgQIECBAgAABAo0qIABt1Jk3bgIEshUYPXp0nH/++TFgwIBOazzppJNi2rRpnbaxkQABAgQIECBAgAABAgQINLqAALTRXwHGT4BAlgJvfOMb45vf/GYceOCBm9W38847x1e+8pU44YQTNttmBQECBAgQIECAAAECBAgQINBeoLn9U88IECBAIBeBSZMmxYUXXhgrVqyIRYsWxdq1a2PcuHExduzYXEpUBwECBAgQIECAAAECBAgQyF5AAJr9FCmQAIFGF0iB55QpUwqGlStXFoFoo5sYPwECBAgQIECAAAECBAgQKFfAJfDlSmlHgAABAgQIECBAgAABAgQIECBAgEDNCQhAa27KFEyAAAECBAgQIECAAAECBAgQIECAQLkCAtBypbQjQIAAAQIECBAgQIAAAQIECBAgQKDmBASgNTdlCiZAgAABAgQIECBAgAABAgQIECBAoFwBAWi5UtoRIECAAAECBAgQIECAAAECBAgQIFBzAgLQmpsyBRMgQIAAAQIECBAgQIAAAQIECBAgUK6AALRcKe0IECBAgAABAgQIECBAgAABAgQIEKg5AQFozU2ZggkQIECAAAECBAgQIECAAAECBAgQKFdAAFqulHYECBAgQIAAAQIECBAgQIAAAQIECNScQHPNVdzFgh9++OG4/PLLY9q0aXHyySeX3HvNmjXx85//PB588MFYunRpTJ48Ofbbb7846qijom/fviX3sZIAAQIECBAgQIAAAQIECBAgQIAAgfwF6joAXbFiRcycOTMWLVoUO+20U8nZWLZsWXz605+OZ599ttg+evTouPnmm4ufe+65J84555zo379/yX2tJECAAAECBAgQIECAAAECBAgQIEAgb4G6vgT+oosuKsLPzqbgggsuKMLPdIboDTfcENddd1385Cc/id122y3uuuuuuPTSSzvb3TYCBAgQIECAAAECBAgQIECAAAECBDIWqNsAdM6cOXHbbbfFyJEjt8j/xBNPxAMPPBCDBg0qzhQdMWJE0XaHHXaIiy++uLj8/aabbop0JqmFAAECBAgQIECAAAECBAgQIECAAIHaE6jLAPSFF14oAswUZH70ox/d4qzceeedxbbDDjssBg4c2K5duhT+oIMOirVr10YKQS0ECBAgQIAAAQIECBAgQIAAAQIECNSeQN0FoBs3bizO5ly9enWcddZZmwWbbafo8ccfL56my99LLSkATcujjz5aarN1BAgQIECAAAECBAgQIECAAAECBAhkLlB3N0G6+uqr43e/+12ceOKJsddee8W8efO2OAXPPfdcsW1Ll8m3rG+5QdKWOkrHSmeKllrSnecPOeSQUpus60WBvn37th49zfOmTZtan3tAIDeBpqam1pLSV3a4MVsrhweZCrS8ZtPvMWPGZFqlsgj8r0DbzwTDhg2LoUOHoiGQrUDL+2sqMH0e8B6b7VQp7P8E2r7Her16WeQu0KfPa+cIps8DgwcPzr1k9XVBoK4C0BR2fvvb34499tgjPvGJT2yV4ZVXXinatASdHXcYPnx4saqlXcftLc8ffvjhWLNmTcvTdr9ffvllYUU7kfye9OvXL7+iVERgCwLpQ2TbD5JbaGY1gSwE0l/UBfZZTIUiyhTwmaBMKM2yEPCZIItpUEQXBHwm6AKWpr0u0NxcV3FZr3vmUMBr8XYO1WxDDSmAPP/884tgIF36vrUXa7pU/tVXXy2OmP61v9TScgbAlsLNUvtYR4AAAQIECBAgQIAAAQIECBAgQIBAPgJ1E2lffvnl8ec//zk++9nPxi677LJV4XRqc7qUNH1X6JYCzpb1W/uXqrvuumuLl1CvW7cu0k2ZLHkJjBgxopj/VNWLL74Y69evz6tA1RBoIzBgwIAYNWpUsSadkb5ixYo2Wz0kkJ/AdtttF+nP2fSPjYsWLcqvQBURaCOQ/iF8yJAhxZolS5Zs8WuN2uziIYFeE0gneYwdO7Y4fvp7TLrazEIgZ4F02XvL2fX+XpzzTKktCaRL3luuBE7vr+l91pKXwIQJEyouqC4C0HvvvTd++ctfxtSpU+MDH/hA2Rjpw0P6fs8thQkt61s+FG+p4y1dQp/aL126tPVM0y3tb33vCqTv//QdoL07B47euUDb16fXa+dWtuYn0Pb1m191KiIQm30G8Jr1qshZoOPrs+PznGtXGwGvV6+BWhJIr1ev2Vqasa3XWhcB6LXXXluM9Iknnoj3vve97Ubdchbn3Llz4z3veU+kM/+uvPLKos3WAtDly5cX7VrOvGrXsScECBAgQIAAAQIECBAgQIAAAQIECGQvUBcBaMsXgKewsyXwbJFvSezTJc7pjM62Nw9Jl+il5emnn47p06e37NL6O61Py5577tm6zgMCBAgQIECAAAECBAgQIECAAAECBGpHoC4C0FmzZm1RfPbs2XHJJZfE29/+9jjnnHPatUvrbrnllrj11lvjuOOOa7ctfW/Z7bffXqzbb7/92m3zhAABAgQIECBAgAABAgQIECBAgACB2hCom7vAV8KdzvrcddddY/78+XHTTTe16+Kqq66Kl156qbih0rRp09pt84QAAQIECBAgQIAAAQIECBAgQIAAgdoQqIszQCulbmpqipNPPjnOPvvsSGeRppspTZ48OX7/+98Xj9Pd6s4444xI7SwECBAgQIAAAQIECBAgQIAAAQIECNSeQEOfAZqm69BDDy0ukZ8wYULccccd8a1vfasIP9OZoV/72tdi3333rb1ZVTEBAgQIECBAgAABAgQIECBAgAABAoVA3Z8B+v73vz/ST2fL/vvvH9dcc01xyfuzzz4b6eZIKRDt06fh8+HO2GwjQIAAAQIECBAgQIAAAQIECBAgkL1A3QegXZmBMWPGRPqxECBAgAABAgQIECBAgAABAgQIECBQHwJOcayPeTQKAgQIECBAgAABAgQIECBAgAABAgRKCAhAS6BYRYAAAQIECBAgQIAAAQIECBAgQIBAfQgIQOtjHo2CAAECBAgQIECAAAECBAgQIECAAIESAgLQEihWESBAgAABAgQIECBAgAABAgQIECBQHwIC0PqYR6MgQIAAAQIECBAgQIAAAQIECBAgQKCEgAC0BIpVBAgQIECAAAECBAgQIECAAAECBAjUh4AAtD7m0SgIECBAgAABAgQIECBAgAABAgQIECghIAAtgWIVAQIECBAgQIAAAQIECBAgQIAAAQL1ISAArY95NAoCBAgQIECAAAECBAgQIECAAAECBEoICEBLoFhFgAABAgQIECBAgAABAgQIECBAgEB9CAhA62MejYIAAQIECBAgQIAAAQIECBAgQIAAgRICAtASKFYRIECAAAECBAgQIECAAAECBAgQIFAfAgLQ+phHoyBAgAABAgQIECBAgAABAgQIECBAoISAALQEilUECBAgQIAAAQIECBAgQIAAAQIECNSHgAC0PubRKAgQIECAAAECBAgQIECAAAECBAgQKCEgAC2BYhUBAgQIECBAgAABAgQIECBAgAABAvUhIACtj3k0CgIECBAgQIAAAQIECBAgQIAAAQIESggIQEugWEWAAAECBAgQIECAAAECBAgQIECAQH0ICEDrYx6NggABAgQIECBAgAABAgQIECBAgACBEgIC0BIoVhEgQIAAAQIECBAgQIAAAQIECBAgUB8CAtD6mEejIECAAAECBAgQIECAAAECBAgQIECghIAAtASKVQQIECBAgAABAgQIECBAgAABAgQI1IeAALQ+5tEoCBAgQIAAAQIECBAgQIAAAQIECBAoISAALYFiFQECBAgQIECAAAECBAgQIECAAAEC9SEgAK2PeTQKAgQIECBAgAABAgQIECBAgAABAgRKCAhAS6BYRYAAAQIECBAgQIAAAQIECBAgQIBAfQgIQOtjHo2CAAECBAgQIECAAAECBAgQIECAAIESAgLQEihWESBAgAABAgQIECBAgAABAgQIECBQHwIC0PqYR6MgQIAAAQIECBAgQIAAAQIECBAgQKCEgAC0BIpVBAgQIECAAAECBAgQIECAAAECBAjUh4AAtD7m0SgIECBAgAABAgQIECBAgAABAgQIECghIAAtgWIVAQIECBAgQIAAAQIECBAgQIAAAQL1ISAArY95NAoCBAgQIECAAAECBAgQIECAAAECBEoICEBLoFhFgAABAgQIECBAgAABAgQIECBAgEB9CAhA62MejYIAAQIECBAgQIAAAQIECBAgQIAAgRICAtASKFYRIECAAAECBAgQIECAAAECBAgQIFAfAgLQ+phHoyBAgAABAgQIECBAgAABAgQIECBAoISAALQEilUECBAgQIAAAQIECBAgQIAAAQIECNSHgAC0PubRKAgQIECAAAECBAgQIECAAAECBAgQKCEgAC2BYhUBAgQIECBAgAABAgQIECBAgAABAvUhIACtj3k0CgIECBAgQIAAAQIECBAgQIAAAQIESggIQEugWEWAAAECBAgQIECAAAECBAgQIECAQH0ICEDrYx6NggABAgQIECBAgAABAgQIECBAgACBEgIC0BIoVhEgQIAAAQIECBAgQIAAAQIECBAgUB8CAtD6mEejIECAAAECBAgQIECAAAECBAgQIECghIAAtASKVQQIECBAgAABAgQIECBAgAABAgQI1IeAALQ+5tEoCBAgQIAAAQIECBAgQIAAAQIECBAoISAALYFiFQECBAgQIECAAAECBAgQIECAAAEC9SEgAK2PeTQKAgQIECBAgAABAgQIECBAgAABAgRKCAhAS6BYRYAAAQIECBAgQIAAAQIECBAgQIBAfQgIQOtjHo2CAAECBAgQIECAAAECBAgQIECAAIESAgLQEihWESBAgAABAgQIECBAgAABAgQIECBQHwIC0PqYR6MgQIAAAQIECBAgQIAAAQIECBAgQKCEgAC0BIpVBAgQIECAAAECBAgQIECAAAECBAjUh4AAtD7m0SgIECBAgAABAgQIECBAgAABAgQIECghIAAtgWJVYwisXLky1q1b1xiDNUoCBAgQIECAAAECBAgQIECAQIMKNDfouA27QQWeffbZ+NGPfhT33ntvrFixolCYPHlyzJgxI9797ndHc7P/JRr0pWHYBAgQIECAAAECBAgQIECAQJ0KOAO0TifWsDYXuO222+Jv//ZvY86cOa3hZ2o1f/78+PrXvx5///d/H8uXL998R2sIECBAgAABAgQIECBAgAABAgRqVkAAWrNTp/CuCDz66KPxla98pdNL3h977LE499xzY9OmTV3pWlsCBAgQIECAAAECBAgQIECAAIGMBQSgGU+O0qoncOmll8bGjRu32uFDDz0Uc+fO3Wo7DQgQIECAAAECBAgQIECAAAECBGpDQABaG/Okym0QeOaZZ+LJJ58su4df/epXZbfVkAABAgQIECBAgAABAgQIECBAIG8BAWje86O6Kgj88Y9/7FIvXW3fpc41JkCAAAECBAgQIECAAAECBAgQ6FEBAWiPcjtYbwhs2LChS4ftavsuda4xAQIECBAgQIAAAQIECBAgQIBAjwoIQHuU28F6Q2CnnXbq0mG72r5LnWtMgAABAgQIECBAgAABAgQIECDQowIC0B7ldrDeEJgyZUpMnDix7EMffvjhZbfVkAABAgQIECBAgAABAgQIECBAIG8BAWje86O6Kgg0NTXF3/3d35XV06RJk+Koo44qq61GBAgQIECAAAECBAgQIECAAAEC+QsIQPOfIxVWQeDQQw+Nk08+udOett9++5g1a1Y0Nzd32s5GAgQIECBAgAABAgQIECBAgACB2hGQ9NTOXKl0GwWOP/74eN3rXhff/e534/HHH2/tbejQofGud70rPv7xj8ewYcNa13tAgAABAgQIECBAgAABAgQIECBQ+wIC0NqfQyPogsABBxwQ6WfTpk2xdOnSGDRoUPHThS40JUCAAAECBAgQIECAAAECBAgQqCEBAWgNTZZSqycwatSoSJe8p2Xx4sWxfv366nWuJwIECBAgQIAAAQIECBAgQIAAgWwEfAdoNlOhEAIECBAgQIAAAQIECBAgQIAAAQIEqi0gAK22qP4IECBAgAABAgQIECBAgAABAgQIEMhGQACazVQohAABAgQIECBAgAABAgQIECBAgACBagsIQKstqj8CBAgQIECAAAECBAgQIECAAAECBLIREIBmMxUKIUCAAAECBAgQIECAAAECBAgQIECg2gIC0GqL6o8AAQIECBAgQIAAAQIECBAgQIAAgWwEBKDZTIVCCBAgQIAAAQIECBAgQIAAAQIECBCotoAAtNqi+iNAgAABAgQIECBAgAABAgQIECBAIBsBAWg2U6EQAgQIECBAgAABAgQIECBAgAABAgSqLSAArbao/ggQIECAAAECBAgQIECAAAECBAgQyEZAAJrNVCiEAAECBAgQIECAAAECBAgQIECAAIFqCwhAqy2qPwIECBAgQIAAAQIECBAgQIAAAQIEshEQgGYzFQohQIAAAQIECBAgQIAAAQIECBAgQKDaAgLQaovqjwABAgQIECBAgAABAgQIECBAgACBbAQEoNlMhUIIECBAgAABAgQIECBAgAABAgQIEKi2gAC02qL6I0CAAAECBAgQIECAAAECBAgQIEAgG4HmbCpRCAECBAiUFHjuuedi9uzZxbbdd9899thjj5LtrCRAgAABAgQIECBAgAABAgQ2FxCAbm5iDQECBLISeOaZZ+LCCy8sajr++OMFoFnNjmIIECBAgAABAgQIECBAIHcBl8DnPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchcQgOY+Q+ojQIAAAQIECBAgQIAAAQIECBAgQKBiAQFoxXR2JECAAAECBAgQIECAAAECBAgQIEAgdwEBaO4zpD4CBAgQIECAAAECBAgQIECAAAECBCoWEIBWTGdHAgQIECBAgAABAgQIECBAgAABAgRyFxCA5j5D6iNAgAABAgQIECBAgAABAgQIECBAoGIBAWjFdHYkQIAAAQIECBAgQIAAAQIECBAgQCB3AQFo7jOkPgIECBAgQIAAAQIECBAgQIAAAQIEKhYQgFZMZ0cCBAgQIECAAAECBAgQIECAAAECBHIXEIDmPkPqI0CAAAECBAgQIECAAAECBAgQIECgYgEBaMV0diRAgAABAgQIECBAgAABAgQIECBAIHcBAWjuM6Q+AgQIECBAgAABAgQIECBAgAABAgQqFhCAVkxnRwIECBAgQIAAAQIECBAgQIAAAQIEchdozr1A9RHoDoHVq1fH/PnzY9SoUTFw4MDuOIQ+CRAgQIAAAQIECBAgQIAAAQIEMhAQgGYwCUroOYHbbrstLr/88liyZEnrQfv27RtvfOMb4+yzz45hw4a1rveAAAECBAgQIECAAAECBAgQIECg9gVcAl/7c2gEZQrMmjUrLrjggnbhZ9p1w4YN8Zvf/CY+8IEPxNNPP11mb5oRIECAAAECBAgQIECAAAECBAjUgoAAtBZmSY3bLHD11VfHnDlzOu1n7dq1cdppp8X69es7bWcjAQIECBAgQIAAAQIECBAgQIBA7QgIQGtnrlS6DQLf+973yto7fTfoZZddVlZbjQgQIECAAAECBAgQIECAAAECBPIXEIDmP0cq3EaBO++8M9atW1d2L6m9hQABAgQIECBAgAABAgQIECBAoD4E3ASpm+exX79+MWjQoG4+iu47E5g3b15nmzfbtmLFiuLu8JttsIJALwkMHDiw9cjNzc1en60aHuQq0NTUVJSWfo8aNSrXMtVFoBBI76sty9ChQ2Pw4MEtT/0mkJ1Ay/trKqx///7eY7ObIQV1FEg3nG1ZfCZokfA7V4G2r9chQ4ZE27+H5VqzusoXeO0TX/n7aNlFgbYfVLq4q+a9JGDOegneYUsKdHw9dnxecicrCWQi4PWayUQooyyB9Hr1mi2LSqNeEuj4+uz4vJfKclgCZQl4vZbFpFEvCnR8jXZ83oulOXQVBASgVUDsrIt06XU6o9DSewK77757lw6ezv5YsmRJl/bRmEB3CqTvpm1Z0k26vD5bNPzOVWD8+PFFiLRp0yav11wnSV2tAsOGDYv0Z39a0me2NWvWtG7zgEBuAumM5XHjxhVlpRt4Llu2LLcS1UOgncDYsWOjT5///eY9n2Hb0XiSoUA663P48OFFZa+88kq0/XtYhuU2ZEkTJ06seNy+A7RiOjvWisDb3/72aHt529bqfstb3rK1JrYTIECAAAECBAgQIECAAAECBAjUiIAAtEYmSpnbJvCxj32srA7Sd3ycfvrpZbXViAABAgQIECBAgAABAgQIECBAIH8BAWj+c6TCKgiceOKJcfjhh3faU7ph1aWXXlp8oXynDW0kQIAAAQIECBAgQIAAAQIECBCoGQEBaM1MlUK3VeDcc8+NL3zhCzFixIh2XaXvpHnDG94QP/vZz2LKlCnttnlCgAABAgQIECBAgAABAgQIECBQ2wJuglTb86f6LgrMmDEj0k9a/vSnPxVfcJy+SD7dWMZCgAABAgQIECBAgAABAgQIECBQfwIC0PqbUyMqQ2DkyJHRcvewxYsXl7GHJgQIECBAgAABAgQIECBAgAABArUo4BL4Wpw1NRMgQIAAAQIECBAgQIAAAQIECBAgUJaAALQsJo0IECBAgAABAgQIECBAgAABAgQIEKhFAQFoLc6amgkQIECAAAECBAgQIECAAAECBAgQKEtAAFoWk0YECBAgQIAAAQIECBAgQIAAAQIECNSigAC0FmdNzQQIECBAgAABAgQIECBAgAABAgQIlCUgAC2LSSMCBAgQIECAAAECBAgQIECAAAECBGpRQABai7OmZgIECBAgQIAAAQIECBAgQIAAAQIEyhIQgJbFpBEBAgQIECBAgAABAgQIECBAgAABArUoIACtxVlTMwECBAgQIECAAAECBAgQIECAAAECZQkIQMti0ogAAQIECBAgQIAAAQIECBAgQIAAgVoUEIDW4qypmQABAgQIECBAgAABAgQIECBAgACBsgQEoGUxaUSAAAECBAgQIECAAAECBAgQIECAQC0KCEBrcdbUTIAAAQIECBAgQIAAAQIECBAgQIBAWQIC0LKYNCJAgAABAgQIECBAgAABAgQIECBAoBYFBKC1OGtqJkCAAAECBAgQIECAAAECBAgQIECgLAEBaFlMGhEgQIAAAQIECBAgQIAAAQIECBAgUIsCAtBanDU1EyBAgAABAgQIECBAgAABAgQIECBQloAAtCwmjQgQIECAAAECBAgQIECAAAECBAgQqEUBAWgtzpqaCRAgQIAAAQIECBAgQIAAAQIECBAoS0AAWhaTRgQIECBAgAABAgQIECBAgAABAgQI1KKAALQWZ03NBAgQIECAAAECBAgQIECAAAECBAiUJSAALYtJIwIECBAgQIAAAQIECBAgQIAAAQIEalFAAFqLs6ZmAgQIECBAgAABAgQIECBAgAABAgTKEhCAlsWkEQECBAgQIECAAAECBAgQIECAAAECtSggAK3FWVMzAQIECBAgQIAAAQIECBAgQIAAAQJlCQhAy2LSiAABAgQIECBAgAABAgQIECBAgACBWhQQgNbirKmZAAECBAgQIECAAAECBAgQIECAAIGyBASgZTFpRIAAAQIECBAgQIAAAQIECBAgQIBALQoIQGtx1tRMgAABAgQIECBAgAABAgQIECBAgEBZAgLQspg0IkCAAAECBAgQIECAAAECBAgQIECgFgUEoLU4a2omQIAAAQIECBAgQIAAAQIECBAgQKAsAQFoWUwaESBAgAABAgQIECBAgAABAgQIECBQiwIC0FqcNTUTIECAAAECBAgQIECAAAECBAgQIFCWgAC0LCaNCBAgQIAAAQIECBAgQIAAAQIECBCoRQEBaC3OmpoJECBAgAABAgQIECBAgAABAgQIEChLQABaFpNGBAgQIECAAAECBAgQIECAAAECBAjUooAAtBZnTc0ECBAgQIAAAQIECBAgQIAAAQIECJQlIAAti0kjAgQIECBAgAABAgQIECBAgAABAgRqUUAAWouzpmYCBAgQIECAAAECBAgQIECAAAECBMoSEICWxaQRAQIECBAgQIAAAQIECBAgQIAAAQK1KNBci0WrmcC2Cqxbt661i02bNrU+9oAAAQIECBAgQIAAAQIECBAgQKC+BJwBWl/zaTRlCpx55pmx3377FT9PPvlkmXtpRoAAAQIECBAgQIAAAQIECBAgUGsCAtBamzH1EiBAgAABAgQIECBAgAABAgQIECBQtoAAtGwqDQkQIECAAAECBAgQIECAAAECBAgQqDUBAWitzZh6CRAgQIAAAQIECBAgQIAAAQIECBAoW0AAWjaVhgQIECBAgAABAgQIECBAgAABAgQI1JqAALTWZky9BAgQIECAAAECBAgQIECAAAECBAiULSAALZtKQwIECBAgQIAAAQIECBAgQIAAAQIEak1AAFprM6ZeAgQIECBAgAABAgQIECBAgAABAgTKFhCAlk2lIQECBAgQIECAAAECBAgQIECAAAECtSYgAK21GVMvAQIECBAgQIAAAQIECBAgQIAAAQJlCwhAy6bSkAABAgQIECBAgAABAgQIECBAgACBWhMQgNbajKmXAAECBAgQIECAAAECBAgQIECAAIGyBQSgZVNpSIAAAQIECBAgQIAAAQIECBAgQIBArQkIQGttxtRLgAABAgQIECBAgAABAgQIECBAgEDZAgLQsqk0JECAAAECBAgQIECAAAECBAgQIECg1gQEoLU2Y+olQIAAAQIECBAgQIAAAQIECBAgQKBsAQFo2VQaEiBAgAABAgQIECBAgAABAgQIECBQawIC0FqbMfUSIECAAAECBAgQIECAAAECBAgQIFC2gAC0bCoNCRAgQIAAAQIECBAgQIAAAQIECBCoNQEBaK3NmHoJECBAgAABAgQIECBAgAABAgQIEChbQABaNpWGBAgQIECAAAECBAgQIECAAAECBAjUmoAAtNZmTL0ECBAgQIAAAQIECBAgQIAAAQIECJQtIAAtm0pDAgQIECBAgAABAgQIECBAgAABAgRqTUAAWmszpl4CBAgQIECAAAECBAgQIECAAAECBMoWaC67pYYECBAgQIAAgTIELrnkkli9enUMGjQojjvuuDL20IQAAQIECBAgQIAAAQLdJyAA7T5bPRMgQIAAgYYU+NnPfhbLli2LkSNHCkAb8hVg0AQIECBAgAABAgTyEnAJfF7zoRoCBAgQIECAAAECBAgQIECAAAECBKooIACtIqauCBAgQIAAAQIECBAgQIAAAQIECBDIS0AAmtd8qIYAAQIECBAgQIAAAQIECBAgQIAAgSoKCECriKkrAgQIECBAgAABAgQIECBAgAABAgTyEhCA5jUfqiFAgAABAgQIECBAgAABAgQIECBAoIoCAtAqYuqKAAECBAgQIECAAAECBAgQIECAAIG8BASgec2HaggQIECAAAECBAgQIECAAAECBAgQqKKAALSKmLoiQIAAAQIECBAgQIAAAQIECBAgQCAvAQFoXvOhGgIECBAgQIAAAQIECBAgQIAAAQIEqiggAK0ipq4IECBAgAABAgQIECBAgAABAgQIEMhLQACa13yohgABAgQIECBAgAABAgQIECBAgACBKgoIQKuIqSsCBAgQIECAAAECBAgQIECAAAECBPISEIDmNR+qIUCAAAECBAgQIECAAAECBAgQIECgigIC0Cpi6ooAAQIECBAgQIAAAQIECBAgQIAAgbwEBKB5zYdqCBAgQIAAAQIECBAgQIAAAQIECBCoooAAtIqYuiJAgAABAgQIECBAgAABAgQIECBAIC8BAWhe86EaAgQIECBAgAABAgQIECBAgAABAgSqKCAArSKmrggQIECAAAECBAgQIECAAAECBAgQyEtAAJrXfKiGAAECBAgQIECAAAECBAgQIECAAIEqCghAq4ipKwIECBAgQIAAAQIECBAgQIAAAQIE8hIQgOY1H6ohQIAAAQIECBAgQIAAAQIECBAgQKCKAgLQKmLqigABAgQIECBAgAABAgQIECBAgACBvAQEoHnNh2oIECBAgAABAgQIECBAgAABAgQIEKiigAC0ipi6IkCAAAECBAgQIECAAAECBAgQIEAgLwEBaF7zoRoCBAgQIECAAAECBAgQIECAAAECBKooIACtIqauCBAgQIAAAQIECBAgQIAAAQIECBDIS0AAmtd8qIYAAQIECBAgQIAAAQIECBAgQIAAgSoKCECriKkrAgQIECBAgAABAgQIECBAgAABAgTyEhCA5jUfqiFAgAABAgQIECBAgAABAgQIECBAoIoCAtAqYuqKAAECBAgQIECAAAECBAgQIECAAIG8BASgec2HaggQIECAAAECBAgQIECAAAECBAgQqKKAALSKmLoiQIAAAQIECBAgQIAAAQIECBAgQCAvAQFoXvOhGgIECBAgQIAAAQIECBAgQIAAAQIEqijQXMW+dEWAAIFuEfjtb38b69ev75a+a6HT+fPnt5b5/PPPx/3339/6vBEf7LPPPjF48OBGHLoxEyBAgAABAgQIECBAgEAFAgLQCtDsQoBAzwqcc845sXLlyp49aKZHu+OOOyL9NPJyxRVXxOTJkxuZwNgJECBAgAABAgQIECBAoAsCLoHvApamBAgQIECAAAECBAgQIECAAAECBAjUloAzQGtrvlRLoKEFBgwYEB/5yEca2qBRBz937tx45plnGnX4xk2AAAECBAgQIECAAAEC2yAgAN0GPLsSINCzAul7H//f//t/PXtQR8tCYPHixQLQLGZCEQQIECBAgAABAgQIEKg9AZfA196cqZgAAQIECBAgQIAAAQIECBAgQIAAgTIF6u4M0BdffDGuvvrqSHdNXr16dey1116x//77x+GHH75FkjVr1sTPf/7zePDBB2Pp0qXFzTX222+/OOqoo6Jv375b3M8GAgQIECBAgAABAgQIECBAgAABAgTyFqirAPT++++PL3/5y/Hqq68W6sOGDYt58+bF7Nmz4+ijj44zzjhjs0Bz2bJl8elPfzqeffbZYp/Ro0fHzTffXPzcc889ke4+3b9//7xnUXUECBAgQIAAAQIECBAgQIAAAQIECJQUqJtL4BctWhTnnXdeEX5+8IMfjJ/+9Kdx/fXXx4UXXhi77rpr3HjjjfGNb3xjM4QLLrigCD+nTZsWN9xwQ1x33XXxk5/8JHbbbbe466674tJLL91sHysIECBAgAABAgQIECBAgAABAgQIEKgNgboJQNNZmytWrIgddtghPvOZz8T2229fnO05ffr0+PjHP17Mxp133tluVp544ol44IEHYtCgQTFz5swYMWJEsT31cfHFFxf733TTTUW/7Xb0hAABAgQIECBAgAABAgQIECBAgACBmhComwA0Xe5+0EEHFWFnnz7th/WWt7ylmIyFCxcW3/HZMjMtgehhhx0WAwcObFld/E6Xwqf+1q5dGykEtRAgQIAAAQIECBAgQIAAAQIECBAgUHsC7ZPC2qu/teJjjz02LrroouK7PltX/t+Dp59+uniUzgodNWpU6+bHH3+8eJwufy+1pAA0LY8++mipzdYRIECAAAECBAgQIECAAAECBAgQIJC5QF3dBKmjdbq7+8MPPxxf//rXi00pJG27PPfcc8XTkSNHtl3d+rhlfcsNklo3dHiwatWq2LRpU4e1//t0/fr10dTUVHKblXkIpPkxR3nMhSoIlCPg/9lylPJp4/01n7lQSWmBjq/Rjs9L72Utgd4R6Pj67Pi8d6pyVALlCXi9luekVR4C6fXqNZvHXFSriroNQL/2ta8Vl66nS9j79u0bZ555Zhx11FHt3F555ZXieUvQ2W7j/zwZPnx4saqlXcftLc/T94ymsLXU8tWvfjU6Bq+l2lnXswLpNdGypLOCJ0yY0PLU7wwFOn6tRYYlKqkHBcaOHev/2R703pZDpQ+N3l+3RdC+PS2QvgLJQqBWBNJ9DNKPhUCtCPhMUCszpc4kkO4R03KfGCL1IVA3l8B3nI6HHnoo0l+Sm5ubY8OGDZG+7/OFF15obbZx48bijvFpRfr+0FLL0KFDi9VbCjdL7WMdAQIECBAgQIAAAQIECBAgQIAAAQL5CNTtGaBXXXVVcbryunXr4oc//GF8//vfjwcffDAuueSS2GeffSKdUZb+xXT16tVbPHuzJfjs379/pzO29957b7GPFK6ms1AteQm0/cqC9BoxR3nNj2oIdCbg/9nOdPLalt5rvb/mNSeq2VwgXRXScmVIen9p+xlh89bWEOhdgXRmfb9+/Yoi0kke6cdCIGeBdEJSy9VcPhPkPFNqSwLptZpes2lJX2eYTpyz5CWwtXyus2rrNgBt+a6G9AHhk5/8ZDz//PMxZ86c+MEPfhDp8vi0pDNE0/d7rlixoqRRy/ohQ4aU3N6y8uqrr255uNnvpUuXxksvvbTZeit6V6DtG1maZ3PUu/OxtaO3na+ttbW9/gWWLVvm/9kammbvrzU0WQ1aavrH6parftJngpZ/AG9QDsPOXCD9xXzcuHFFlSlMSn8mWgjkLJD+zt0SgPpMkPNMqS0JpOyn5asQV65cWZwwRyYvgYkTJ1ZcUN1eAt9R5K1vfWuxat68ea2b0ptxWlqCztYN//dg+fLlxaO2d47v2MZzAgQIECBAgAABAgQIECBAgAABAgTyFaibADSd2Tlz5sxYuHBhSe2WS0VaTmdOjbbbbrui7dNPP11yn5b1e+65Z8ntVhIgQIAAAQIECBAgQIAAAQIECBAgkLdA3QSgDzzwQNxyyy0xd+7ckuIPP/xwsX7KlCmt29/+9rcXj2+99dbWdS0P0iW3t99+e/F0v/32a1ntNwECBAgQIECAAAECBAgQIECAAAECNSRQNwFoS5i6oJpAAABAAElEQVSZzgR97rnn2k1BCj9/+tOfFuuOPfbY1m3Tp0+PXXfdNebPnx833XRT6/r0IN1EKX1HyS677BLTpk1rt80TAgQIECBAgAABAgQIECBAgAABAgRqQ6BuboKUgs377rsv7r333jjuuONi6tSpsf/++8eTTz5ZnMmZ7uj513/915FCz5Yl3Sjp5JNPjrPPPjtmzZpV7Dt58uT4/e9/XzxOl82fccYZxd3kW/bxmwABAgQIECBAgAABAgQIECBAgACB2hGomwA0hZnpO0B//OMfx49+9KNIl8Snn7Sk7/r8zGc+E4cffnjxvO1/Dj300LjkkkuKAPSOO+6I9JOWdGboP/zDP8S+++7btrnHBAgQIECAAAECBAgQIECAAAECBAjUkEDdBKDJvH///nHiiSfG8ccfH3/5y19i6dKlsfPOO8eYMWM6nZJ0pug111xTXPL+7LPPFoHphAkTok+fuvmGgE7HbyMBAgQIECBAgAABAgQIECBAgACBehWoqwC0ZZLSnd7TGZzppytLCkq3FpZ2pT9tCRAgQIAAAQIECBAgQIAAAQIECBDoXQGnOPauv6MTIECAAAECBAgQIECAAAECBAgQINCNAgLQbsTVNQECBAgQIECAAAECBAgQIECAAAECvSsgAO1df0cnQIAAAQIECBAgQIAAAQIECBAgQKAbBQSg3YirawIECBAgQIAAAQIECBAgQIAAAQIEeldAANq7/o5OgAABAgQIECBAgAABAgQIECBAgEA3CghAuxFX1wQIECBAgAABAgQIECBAgAABAgQI9K6AALR3/R2dAAECBAgQIECAAAECBAgQIECAAIFuFBCAdiOurgkQIECAAAECBAgQIECAAAECBAgQ6F0BAWjv+js6AQIECBAgQIAAAQIECBAgQIAAAQLdKCAA7UZcXRMgQIAAAQIECBAgQIAAAQIECBAg0LsCAtDe9Xd0AgQIECBAgAABAgQIECBAgAABAgS6UUAA2o24uiZAgAABAgQIECBAgAABAgQIECBAoHcFmqt9+Iceeij22muvGDBgQLW71l+VBJ5++um4/vrrq9RbbXbzhz/8obXwK6+8MoYPH976vNEejBkzJk444YRGG7bxEug2gblz58YjjzzSbf3XQserVq0qyky//+3f/q0WSu62Gvfff/849NBDu61/HRMgQIAAAQIECBAgsHWBqgegZ511Vtx3333x0Y9+NE488cQ48MADt16FFj0q8MILL8Qvf/nLHj1mzge77bbbci6v22ubNGmSALTblR2gkQQeffRR77H/N+Fr165teIvm5mYBaCO9ARgrAQIECBAgQIBAlgLdcgn8kiVL4vLLL4+DDjqoOBv0wgsvjAULFmQJoCgCBAgQIECAAAECBAgQIECAAAECBOpXoOpngJ5zzjkxceLEuOaaa2L58uXxxBNPxBlnnBH/9E//FO985zvjE5/4RBxzzDEukc/kNXXkkUfGRz7ykUyqUUZPCaxbty5OOeWUnjqc4xBoWIHPfe5zsc8++zTs+Bt14Oks4EsuuaRRh2/cBAgQIECAAAECBLITqHoAms76TD///u//Htddd1388Ic/jDlz5sSGDRvipptuKn5GjRpVhG7pEvlp06Zlh9JIBe2www5x8MEHN9KQjfV/BFIAaiFAoPsF9txzT++x3c+c3RG8x2Y3JQoiQIAAAQIECBBocIFuuQQ+mQ4aNKgIOW+88cb4y1/+EhdddFG84Q1vKLiXLl0a3/jGN2L69Onx+te/Pv7lX/4lnn/++QafCsMnQIAAAQIECBAgQIAAAQIECBAgQKDaAt0WgLYtdMKECZEuA0x3xf3d735XXA6f7hSflnQ37i996Uux8847x7ve9a7i0vl00wQLAQIECBAgQIAAAQIECBAgQIAAAQIEtlWgRwLQtkXuu+++MWvWrHjssceKS+RT8JmWdIn8zTffHB/+8Idjxx13jPRdosuWLWu7q8cECBAgQIAAAQIECBAgQIAAAQIECBDokkCPB6C//e1vi5siTZkypbgZ0p///OfWgtO6pqamWLx4cZx//vlx4IEHxrx581q3e0CAAAECBAgQIECAAAECBAgQIECAAIGuCFT9JkilDv7MM8/EVVddFVdeeWX893//d7sm6SY86WZI6e7wkydPjhSIfuc73ym+M/TJJ58svic03Uk+3VneQoAAAQIECBAgQIAAAQIECBAgQIAAga4IdFsAumTJkuL7PFPoeffdd8emTZta6xowYEC8733vi7/5m7+Jd7zjHdGnz2snoqZL4s8777wi+Dz66KOLy+DTjZQ++clPtu7vAQECBAgQIECAAAECBAgQIECAAAECBMoRqHoAeuutt8bll18eKbTseDOjqVOnFqHnRz/60Rg1alSn9aUbIqU26Y7x9957rwC0Uy0bCRAgQIAAAQIECBAgQIAAAQIECBAoJVD1APSSSy4pws+Wg2233XZxwgknFMHn3nvv3bK6rN/9+vUr2u26665ltdeIAAECBAgQIECAAAECBAgQIECAAAECbQWqHoCmzpubm2PGjBlF6Jl+p+ddXdJd4S+44IJIl8SnmyFZCBAgQIAAAQIECBAgQIAAAQIECBAg0FWBrieTWznC6aefHt/73vcinfm5LUvfvn3jlFNO2ZYu7EuAAAECBAgQIECAAAECBAgQIECAQIMLVD0APfLIIxuc1PAJECBAgAABAgQIECBAgAABAgQIEMhFoOoB6Kmnnhr9+/cv7vJ+2GGHVXT5ey446iBAgAABAgQIECBAgAABAgQIECBAoLYF+lS7/L/85S9x2WWXxRFHHFFcBv+xj30sfvGLX8Qrr7xS7UPpjwABAgQIECBAgAABAgQIECBAgAABAp0KVD0APfTQQ2PChAnFQZcuXRpXXnllfPCDH4yxY8fGe97znvjOd74Tixcv7rQoGwkQIECAAAECBAgQIECAAAECBAgQIFANgaoHoF/84hfj+eefjwceeCDOOeecOOCAA6KpqSle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06dPj6VLl1apN90QINCoAukfPZuammLTpk1lEbzpTW8qq51GBAgQqIaAALQaivogQKBHBEaMGBHXX399jxzLQfISOPfcc+P222/PqyjVECBAgAABAgQItApMmDAhZsyYETfccEPrui09mDJlSrz5zW/e0mbrCRAgUHUBAWjVSXVIgEB3CaS707pUprt0/z979wJv2Vg3DvyZqzEM434XReSWS0Uv0hWlCKk3lVIkuVRE13+KQiRS3rxKLpWEbiQKUSqliyS6yC0x1TAmzIzLmPnv33pbp3327HPO3vvsfc5aa3+fz+ecvfe6Ps/3efbaa/3Ws9Yq9nKnTZtW7AzKHQECBAgQIECAQDr00EPTnXfemW677bYhNVZaaaX0sY99LOstOuRERhAgQKDLAh6C1GVQiyNAgAABAgQIECBAgAABAv0oECetTz311LTPPvukyZOX7G/1whe+MJ111llpjTXW6EceZSZAYBwFltwijWNmrJoAAQIECBAgQIAAAQIECBAor8BSSy2VDjnkkLT//vunu+66K82ZMyfFrazWWmutFL0/JQIECIyHgADoeKhbJwECBAgQIECAAAECBAgQqLDA9OnT00477ZSmTJmSlXLWrFkVLq2iESBQdAGXwBe9huSPAAECBAgQIECAAAECBAgQIECAAIGOBQRAO6YzIwECBAgQIECAAAECBAgQIECAAAECRRcQAC16DckfAQIECBAgQIAAAQIECBAgQIAAAQIdCwiAdkxnRgIECBAgQIAAAQIECBAgQIAAAQIEii4gAFr0GpI/AgQIECBAgAABAgQIECBAgAABAgQ6FhAA7ZjOjAQIECBAgAABAgQIECBAgAABAgQIFF1AALToNSR/BAgQIECAAAECBAgQIECAAAECBAh0LCAA2jGdGQkQIECAAAECBAgQIECAAAECBAgQKLqAAGjRa0j+CBAgQIAAAQIECBAgQIAAAQIECBDoWEAAtGM6MxIgQIAAAQIECBAgQIAAAQIECBAgUHSByUXPoPwRIECAAAECBAgQIECAAAEC5RKYPXt2+trXvpb+/ve/pxVXXDFtv/32aYMNNihXIeSWAIHKCAiAVqYqFYQAAQIECBAgQIAAAQIECIyvwMMPP5yOPPLIdPvttw/KyDnnnJNWWWWVdMIJJwiEDpLxgQCBsRBwCfxYKFsHAQIECBAgQIAAAQIECBCouMBDDz2UXvva1y4R/MyLHb1CDzzwwHTzzTfng7wSIEBgTAT0AB0TZishQIAAAQIECBRbYMGCBdllisXOpdz1QmDRokW9WKxlEiDQhwKHH354euyxx4Yt+eLFi9PRRx+drrjiijRxoj5Zw2IZSYBA1wQEQLtGaUEECBAgQIAAgfIK/PCHP0zxJxEgQIAAgU4EbrnllnTvvfe2NOvjjz+ezj777Kw3aEszmIgAAQKjFHC6ZZSAZidAgAABAgQIECBAgAABAv0u8K1vfastgh//+MdtTW9iAgQIjEZAD9DR6LUw71JLLZVmzpzZwpQmGUuB+kstVlhhhbT66quP5eqtq02B+vpqc1aTV1Bg5ZVX9p0tUb3avha7sh588MFiZ1DuxlQgfm99Z8eUfFQrmzZtmvoalaCZuy0wZ86cthYZD0uyzWmLzMRjKLD88sun+JOqIyAA2uO6XLhwYXrkkUd6vBaLb1cg7juTp7jnmTrKNYr5Wl9fxcyhXI2lwLx583xnxxJ8lOuyfR0lYI9nnz9/fo/XYPFlEojfW9/ZYtdYBKmXXXbZLJNxnBH7sRKBoghMnTq1raxMmTLFNqctMRP3WiDacJxcihT3sn3yySd7vUrLb1NgueWWa3OO/0wuAPofi568e+qpp0a8CXRPVmyhwwrUB9RiwxYBFam4AvX1VdxcytlYCcTBnu/sWGmPfj3qavSGvVyC4Ekvdcu37Pi99Z0tdr1Nnjx5UABUfRW7vvotd1tuuWW68cYbWy72+uuvb5vTspYJx0ogD4DGfWrtJ42VeuvrEQBt3cqUBAgQIECAAAECTQSe9rSnpR122KHJGIOqLnDJJZekONCTCBAgMBqBvffeO3uwUXQCaiW97W1va2Uy0xAgQKArAnqAdoXRQggQIECAAAEC5RbYbLPN0kc+8pFyF0LuOxL43ve+JwDakZyZCBCoF4jnX7zjHe9IZ5xxRv3gpu/jhNvGG2/cdJyBBAgQ6IWAp8D3QtUyCRAgQIAAAQIECBAgQIBAnwnss88+6Y1vfOOwpd52223Txz/+8WGnMZIAAQLdFtADtNuilkeAAAECBAgQIECAAAECBPpU4IADDkg777xzOvXUU9Of//zn7JkY8cCjtddeO7397W9Pz3ve8/pURrEJEBhPAQHQ8dS3bgIECBAgQIAAAQIECBAgUDGBddddNwuArrzyyimCn5FmzZpVsVIqDgECZRJwCXyZakteCRAgQIAAAQIECBAgQIAAAQIECBBoS0AAtC0uExMgQIAAAQIECBAgQIAAAQIECBAgUCYBAdAy1Za8EiBAgAABAgQIECBAgAABAgQIECDQloB7gLbFZWICBMZT4PHHH09f+tKXxjML1j1OAnfeeec4rdlqCRAgQIAAAQIECBAgQKDsAgKgZa9B+SfQRwLz589Pn/zkJ/uoxIpKgAABAgQIECBAgAABAgQIjFbAJfCjFTQ/AQIECBAgQIAAAQIECBAgQIAAAQKFFdADtLBVI2MECOQChx12WHryySfzj333es8996SLL744K/e2226bdtxxx74zqC/wqquuWv/RewIECBAgQIAAAQIECBAgMKyAAOiwPEYSIFAEgV122aUI2Ri3PPzqV78aCIBusMEG6ZWvfOW45cWKCRAgQIAAAQIECBAgQIBA2QRcAl+2GpNfAgQIECBAgAABAgQIECBAgAABAgRaFhAAbZnKhAQIECBAgAABAgQIECBAgAABAgQIlE1AALRsNSa/BAgQIECAAAECBAgQIECAAAECBAi0LOAeoC1TmZAAAQIECBAgQIAAAQIECBAYSeAf//hHuuSSS9JNN92UHnjggbTccsulTTbZJO25555po402Gml24wkQINB1AQHQrpNaIAECBAgQIECAAAECBAgQ6E+Bq666Kp100knpySefHACYO3du+utf/5quvPLK9IY3vCEdeOCBA+O8IUCAwFgIuAR+LJStgwABAgQIECBAgAABAgQIVFzg5z//eTr++OMHBT8bi/zVr341ffnLX24c7DMBAgR6KiAA2lNeCydAgAABAgQIECBAgAABAtUXiB6fp556alq8ePGIhT3vvPPSrFmzRpzOBAQIEOiWgEvguyVpOQQIECBAgACBEgvE5Yk333xziUsg650K1F+m2ukyxmq+O+64Iz3++ONjtbrCrWfSpElphRVWyPIVDo888kjh8jiWGVpnnXXSjBkzxnKV1jWMwG9+85sU9/5sJS1cuDDFpfL77bdfK5ObhgABAqMWEAAdNaEFECBAgAABAgTKL/DTn/40xZ9EoMgCxx13XLr77ruLnEV5G0OBE088MW233XZjuEarGk7gT3/603Cjlxj35z//eYlhBhAgQKBXAi6B75Ws5RIgQIAAAQIECBAgQIAAgT4RaLd39mOPPdYnMopJgEARBPQALUItyAMBAgQIECBAYBwElltuubTLLruMw5qLs8rogXTXXXdlGXrOc56TVlpppeJkboxzsvTSS4/xGke3uj322CNNmDBhdAsxd+kEbrnllhS3QpCKJ7D66qu3lak11lijrelNTIAAgdEICICORs+8BAgQIECAAIESC8TB6gc+8IESl2D0WT/rrLMGAqD77rtv2nrrrUe/UEsYE4F40vTkyQ5nxgS7QCuJy94FQAtUIXVZidsRTJw4MS1atKhu6NBvd9hhh6FHGkOAAIEuC7gEvsugFkeAAAECBAgQIECAAAECBPpNYJVVVkmvfvWrWyr2ZpttlrbddtuWpjURAQIEuiEgANoNRcsgQIAAAQIECBAgQIAAAQJ9LvCOd7wjbbXVVsMqrLnmmumjH/3osNMYSYAAgW4LCIB2W9TyCBAgQIAAAQIECBAgQIBAHwpMnTo1nXzyyWn//fdP06dPHyQQt6zYbbfd0plnnplWXnnlQeN8IECAQK8F3DSn18KWT4AAAQIECBAgQIAAAQIE+kQgAp1vfvObU9xX+f77709z5sxJyy+/fFpttdXSMsss0ycKikmAQNEEBECLViPyQ4AAAQIECBAgQIAAAQIESi4wZcqUtM0226R4jTRr1qySl0j2CRAos4BL4Mtce/JOgAABAgQIECBAgAABAgQIECBAgMCwAgKgw/IYSYAAAQIECBAgQIAAAQIECBAgQIBAmQUEQMtce/JOgAABAgQIECBAgAABAgQIECBAgMCwAgKgw/IYSYAAAQIECBAgQIAAAQIECBAgQIBAmQUEQMtce/JOgAABAgQIECBAgAABAgQIECBAgMCwAgKgw/IYSYAAAQIECBAgQIAAAQIECBAgQIBAmQUEQMtce/JOgAABAgQIECBAgAABAgQIECBAgMCwAgKgw/IYSYAAAQIECBAgQIAAAQIECBAgQIBAmQUEQMtce/JOgAABAgQIECBAgAABAgQIECBAgMCwAgKgw/IYSYAAAQIECBAgQIAAAQIECBAgQIBAmQUmlznz8k6AAAECBAgQIECAAAECBAgUT+DBBx9Mv/jFL1K8Lr/88mnddddN66yzTvEyKkcECPSFgABoX1SzQhIgQIAAAQIECBAgQIAAgd4LzJ8/P33uc59LV155ZVq0aNGgFT73uc9NRxxxRFpjjTUGDfeBAAECvRZwCXyvhS2fAAECBAgQIECAAAECBAj0gcCjjz6aDjnkkPS9731vieBnFP+Xv/xlOuigg9I999zTBxqKSIBAkQT0AC1SbcgLAQIECBAgQIAAAQItCfzlL39Jkyc7nGkJq0ITzZ07t0KlqV5RTjvttHTXXXcNW7CHH344HXPMMenss89OkyZNGnZaIwkQINAtAXsM3ZK0HAIECBAgQIAAAQIExkxgjz32GLN1WREBAiML3Hfffenqq68eecLaFHfffXe6/vrr0wtf+MKWpjcRAQIERivgEvjRCpqfAAECBAgQIECAAAECBAj0ucCNN97YlkA8IEkiQIDAWAnoATpW0tZTKIHNN988LV68OMvTjBkzCpU3mSFAgEDZBaI3x7x589IyyyxT9qLIfx8IbLjhhullL3tZVtIVV1yxD0qsiAQIEOiNwOzZs9ta8D//+c+2pjcxAQIERiMgADoaPfOWVuBNb3pTWnrppbP8xw/1woULS1sWGSdAgEDRBE444YQ0ceLE7OEH//jHP4qWPfkhMEhg9913T/vuu282bM6cOenxxx8fNN4HAgQIEGhNYPr06a1N+O+pnChti8vEBAiMUsAl8KMENDsBAgQIECBAgAABAgQIEOh3gU033bQtgnanb2vhJiZAgECDgB6gDSA+EiBAgAABAgQIECBQfIEDDzww621e/JzKYTcFbrjhhvS73/2um4u0rC4JbLHFFmm99dbLHnA00iKnTZs2cPuRkaY1ngABAt0QEADthqJlECBAgAABAgQIECAwpgLvfve70+TJDmfGFL0AKzvxxBMFQAtQD82yMGnSpHTUUUeld73rXSPeYuzQQw9N7rvcTNEwAgR6JeAS+F7JWi4BAgQIECBAgAABAgQIEOgjgbis/aSTTkozZ85sWuopU6akI444Ir3yla9sOt5AAgQI9ErAKdNeyVouAQIECBAgQIAAAQIECBDoM4Gtt946XXDBBenyyy9PN998c3rggQfS8ssvnzbaaKMs8Lnqqqv2mYjiEiBQBAEB0CLUgjwQIECAAAECBAgQIECAAIGKCMQT4ffZZ5908MEHp+j1GWnWrFkVKZ1iECBQRgGXwJex1uSZAAECBAgQIECAAAECBAgQIECAAIGWBARAW2IyEQECBAgQIECAAAECBAgQIECAAAECZRQQAC1jrckzAQIECBAgQIAAAQIECBAgQIAAAQItCQiAtsRkIgIECBAgQIAAAQIECBAgQIAAAQIEyiggAFrGWpNnAgQIECBAgAABAgQIECBAgAABAgRaEhAAbYnJRAQIECBAgAABAgQIECBAgAABAgQIlFFAALSMtSbPBAgQIECAAAECBAgQIECAAAECBAi0JCAA2hKTiQgQIECAAAECBAgQIECAAAECBAgQKKOAAGgZa02eCRAgQIAAAQIECBAgQIAAAQIECBBoSUAAtCUmExEgQIAAAQIECBAgQIAAAQIECBAgUEYBAdAy1po8EyBAgAABAgQIECBAgAABAgQIECDQksDklqYyEQECBAgQIECAAAECBAgQIECAAIGKCTz22GPpW9/6VrruuuvSPffckyZMmJDWX3/99OIXvzjtvvvuaerUqRUrcX8WRwC0P+tdqQkQIECAAAECBAgQIECAAAECfS0QAc8PfOAD6f777x/kcNttt6X4++53v5tOOOGEtMYaawwa70P5BFwCX746k2MCBAgQIECAAAECBAgQIECAAIFRCPzrX/9KRx111BLBz/pF3n333enoo49O8+fPrx/sfQkFBEBLWGmyTIAAAQIECBAgQIAAAQIECBAg0LnA+eefn/75z3+OuIB77703XXTRRSNOZ4JiC7gEvtj1I3cECBAgQIAAAQIECDQR+NnPfpYmTZrUZIxBVRa47777qlw8ZSNAYIwEnnrqqXTVVVe1vLYrr7wyveUtb2l5ehMWT0AAtHh1IkcECBAgQIAAAQIECIwgcOCBB44whdEECBAgQKC5QPT8fPjhh5uPbDL073//e3r00UfTsssu22SsQWUQEAAtQy3JIwECBAgQIECAAAECBAgQKJnAoYcemuIeipG++MUvpsmThSAyDP/GXeDJJ59sOw+dzNP2SszQMwFbn57RWjABAgQIECBAgAABAt0UeOlLX5rmzJnTzUWWalnxwI5rrrkmy/O6666bnvOc55Qq/93O7Oqrr97tRVpelwXilgV5ALTLi7Y4AqMSWHXVVbOA/MKFC1tazvTp09PMmTNbmtZExRQQAC1mvcgVAQIECBAgQIAAAQINAm984xsbhvTXx7vuumsgAPqsZz0rHX744f0FoLQECBDoksC0adPSc5/73HTDDTe0tMQddtghTZgwoaVpTVRMAU+BL2a9yBUBAgQIECBAgAABAgQIECBAgECPBN761re2dFuGqVOnpv32269HubDYsRIQAB0raeshQIAAAQIECBAgQIAAAQIECBAohMCGG26Yjj766DRx4tChsSlTpqSPfOQjae211y5EnmWicwGXwHduZ04CBAgQIECAAAECBAgQIECAAIGSCuy8885prbXWSmeeeWa65ZZbBpVi6623TgcffHCKQKlUfgEB0PLXoRIQIECAAAECBAgQIECAAAECBAh0ILDpppumz372s2nevHlp9uzZ2b0+V1lllRQPPpKqIyAAWp26VBICBAgQIECAAAECBAgQIECAAIEOBOLJ8BtssEE259y5c9OCBQs6WIpZiiow9I0Oippj+SJAgAABAgQIECBAgAABAgQIECBAgECLAgKgLUKZjAABAgQIECBAgAABAgQIECBAgACB8gkIgJavzuSYAAECBAgQIECAAAECBAgQIECAAIEWBQRAW4QyGQECBAgQIECAAAECBAgQIECAAAEC5RMQAC1fnckxAQIECBAgQIAAAQIECBAgQIAAAQItCgiAtghlMgIECBAgQIAAAQIECBAgQIAAAQIEyicgAFq+OpNjAgQIECBAgAABAgQIECBAgAABAgRaFBAAbRHKZAQIECBAgAABAgQIECBAgAABAgQIlE9AALR8dSbHBAgQIECAAAECBAgQIECAAAECBAi0KCAA2iKUyQgQIECAAAECBAgQIECAAAECBAgQKJ+AAGj56kyOCRAgQIAAAQIECBAgQIAAAQIECBBoUUAAtEUokxEgQIAAAQIECBAgQIAAAQIECBAgUD4BAdDy1ZkcEyBAgAABAgQIECBAgAABAgQIECDQooAAaItQJiNAgAABAgQIECBAgAABAgQIECBAoHwCAqDlqzM5JkCAAAECBAgQIECAAAECBAgQIECgRQEB0BahTEaAAAECBAgQIECAAAECBAgQIECAQPkEJpcvy3JMgAABAgQIECBAgACB/hNYbrnl0p577pkVfJNNNuk/ACUmQIAAAQIdCgiAdghnNgIECBAgQIAAAQIECIylwGqrrZZOPPHEbJULFixIc+fOHcvVWxcBAgQIECitgEvgS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCAqAjCRlPgAABAgQIECBAgAABAgQIECBAgEBpBQRAS1t1Mk6AAAECBAgQIECAAAECBAgQIECAwEgCk0eaoGzjH3zwwXTRRRelO+64I/3jH/9Iq666alp//fXT6173urTKKqs0Lc7jjz+eLrnkkvSrX/0qPfTQQ2nDDTdMW265Zdp1113TpEmTms5jIAECBAgQIECAAAECBAgQIECAAAECxReoVAD0uuuuS8cff3xasGBBFrhcaaWV0q9//et04403pksvvTS9733vSy95yUsG1crcuXPTO9/5znTvvfdmw1dcccV05ZVXZn8/+9nP0jHHHJOmTp06aB4fCBAgQIAAAQIECBAgQIAAAQIECBAoh0BlLoG/7777BoKf+++/f/r+97+fvvGNb2Sv++23XxYUPfHEEwcCnXn1HHfccdmwbbfdNn33u99N3/nOd9KFF16YnvGMZ6Qf//jH6fTTT88n9UqAAAECBAgQIECAAAECBAgQIECAQMkEKhMAveyyy7Ig50tf+tL01re+NS211FJZVcTrgQcemF74whemxx57LMV0ebrtttuy3qFLL710+vjHP56WX375bNRaa62VPv3pT2e9SK+44or0yCOP5LN4JUCAAAECBAgQIECAAAECBAgQIECgRAKVCYDedNNNGfuOO+7YlD96eEb6y1/+MjA+LpmPtNNOO6Vp06Zl7/N/cSn88573vPTEE0+kCIJKBAgQIECAAAECBAgQIECAAAECBAiUT6AyAdC4VP3rX/962m677ZrWwpw5c7LhM2fOHBh/6623Zu/z4OjAiH+/iQBopN/97nf/HuKFAAECBAgQIECAAAECBAgQIECAAIEyCVTmIUhxqfuaa67Z1H7hwoUDvTg33XTTgWnivqGR6oOiAyPrhucPSKofV//+qquuSk899VT9oIH3T3/604d8+vzARN6MucCkSZMG1hltZ/LkynwVBsrlTXUE6tvnxIkTl+ixXp2SKkkVBRqvsKhiGZWp3AL129gpU6akCRMmlLtAcl9pgfp92HhvG1vp6q5c4aK91m9zK1dABSq9QH37jH2CxYsXl75MCvAfgb6I+vzv//5v+tvf/pbi3p677bbbQOnnzZuXvR8qALrccstl4/PpBmZseHPkkUemxx9/vGHo/32MBy/tueeeTccZWAyBvJ6LkRu5ILCkQNynOE/xo7zCCivkH70SKLRABOy110JXkcw1CMyYMaNhiI8EiiswderUFH8SgSIL1J9UiuPuCCpJBMogsMwyy6T4k6ojUPkAaDzRPf7iIOyDH/zgwFnSRYsWZQ9Fiqocamd32WWXzWp6qOBmdZqBkhAgUGSB//qv/0o//elPsyzWB0OLnGd5I0CAAAECBAgQIECAQJkELrjggnTGGWdkWf7ABz6QXvnKV5Yp+/I6gkClA6BnnXVW+vKXv5wFPz/84Q+nLbbYYoAjAqIRSFiwYMGQvTfzwOdIZ1bjKfNxmX2z9LSnPc1T5JvBjPOwuPwiP/sYPXwjIC4RKKpAXOK28sorZ9mLB7M98sgjRc2qfBHIBOIEYvT4iG3rSFdRICMw3gJxK5x8X2/+/PlD3tZovPNp/QRCII5h8h5JTz755ECHDjoEiipQfwnxo48+6hL4olaUfGUCDz/8cHrggQcG3jvuKl7DGKoDYys5rWQANHYG4tLzH/zgB9kO7Uc+8pHsSe+NIBFQiPt7DtWo8+H5Tkbj/Pnnww47LH+7xOtDDz2UYkMvFUsgLiPOA6BxsDNUALtYuZabfhWIg/Pp06dnxY8AqG1Kv7aE8pQ7fjfzS9601/LUW7/mNNpqHgB97LHHhjwx3q8+yl0sgdiHzY9NYv/VNrZY9SM3wwtEe62/x+LwUxtLYOwF6p/tEnEl29ixr4OR1jiaAGhlngKfI0XQMu7JGcHPuLfjaaed1jT4GdPnParyQGe+jPw1ov+R3L8sF/FKgAABAgQIECBAgAABAgQIECBAoFwClQqARsAyemPedNNNae21105nnnlm2nzzzYeskVVXXTUbd+eddzadJh/+rGc9q+l4AwkQIECAAAECBAgQIECAAAECBAgQKLZAZQKgcW+R97///emOO+5IG220URb8XGeddYbVf8lLXpKNv/rqq5eYLu5b9sMf/jAbvuWWWy4x3gACBAgQIECAAAECBAgQIECAAAECBIovUJkA6GWXXZZuueWW7LL2k08+OS2//PIj6m+33XZpvfXWS7fffnu64oorBk3/1a9+NT344IMpHmK07bbbDhrnAwECBAgQIECAAAECBAgQIECAAAEC5RCoxEOQ4mntcbl7pHhi15577jmk/gYbbJC++MUvZuPjpvfxBPd4SNLxxx+fbrjhhrThhhtmgdR4Hw/JOfroowce5DDkQo0gQIAAAQIECBAgQIAAAQIECBAgQKCQApUIgN51112DnuRe/+SuRvXGp32/4AUvSKeeemoWAL322mtT/EWKnqHvec970hZbbNG4CJ8JECBAgAABAgQIECBAgAABAgQIECiJQCUCoBtvvHG6/vrrOybfaqut0sUXX5xd8n7vvfemeDjS6quvniZOrMwdAjq2MSMBAgQIECBAgAABAgQIECBAgACBMgtUIgDarQpYaaWVUvxJBAgQIECAAAECBAgQIECAAAECBAhUQ0AXx2rUo1IQIECAAAECBAgQIECAAAECBAgQINBEQAC0CYpBBAgQIECAAAECBAgQIECAAAECBAhUQ0AAtBr1qBQECBAgQIAAAQIECBAgQIAAAQIECDQREABtgmIQAQIECBAgQIAAAQIECBAgQIAAAQLVEBAArUY9KgUBAgQIECBAgAABAgQIECBAgAABAk0EBECboBhEgAABAgQIECBAgAABAgQIECBAgEA1BARAq1GPSkGAAAECBAgQIECAAAECBAgQIECAQBMBAdAmKAYRIECAAAECBAgQIECAAAECBAgQIFANAQHQatSjUhAgQIAAAQIECBAgQIAAAQIECBAg0ERAALQJikEECBAgQIAAAQIECBAgQIAAAQIECFRDQAC0GvWoFAQIECBAgAABAgQIECBAgAABAgQINBEQAG2CYhABAgQIECBAgAABAgQIECBAgAABAtUQmFyNYigFAQIECBAgQIAAAQIECBAojsBll12WLrzwwuJkaBxy8s9//nNgrfvtt1+aMGHCwOd+e7Pddtulww47rN+KrbwECiMgAFqYqpARAgQIECBAgAABAgQIEKiKwKOPPpruu+++qhRn1OW4//77R72MMi/gwQcfLHP25Z1A6QUEQEtfhQpAgAABAgQIECBAgAABAkUX6Ofej0Wvm17mb/Hixb1cvGUTINCigABoi1AmI0CAAAECBAgQIECAAAECnQh84hOfSK95zWs6mdU8JRb44x//mPbYY48Sl0DWCVRHwEOQqlOXSkKAAAECBAgQIECAAAECBAgQIECAQIOAAGgDiI8ECBAgQIAAAQIECBAgQIAAAQIECFRHQAC0OnWpJAQIECBAgAABAgQIECBAgAABAgQINAgIgDaA+EiAAAECBAgQIECAAAECBAgQIECAQHUEBECrU5dKQoAAAQIECBAgQIAAAQIECBAgQIBAg4AAaAOIjwQIECBAgAABAgQIECBAgAABAgQIVEdAALQ6dakkBAgQIECAAAECBAgQIECAAAECBAg0CAiANoD4SIAAAQIECBAgQIAAAQIECBAgQIBAdQQEQKtTl0pCgAABAgQIECBAgAABAgQIECBAgECDgABoA4iPBAgQIECAAAECBAgQIECAAAECBAhUR0AAtDp1qSQECBAgQIAAAQIECBAgQIAAAQIECDQICIA2gPhIgAABAgQIECBAgAABAgQIECBAgEB1BARAq1OXSkKAAAECBAgQIECAAAECBAgQIECAQIOAAGgDiI8ECBAgQIAAAQIECBAgQIAAAQIECFRHQAC0OnWpJAQIECBAgAABAgQIECBAgAABAgQINAgIgDaA+EiAAAECBAgQIECAAAECBAgQIECAQHUEBECrU5dKQoAAAQIECBAgQIAAAQIECBAgQIBAg4AAaAOIjwQIECBAgAABAgQIECBAgAABAgQIVEdAALQ6dakkBAgQIECAAAECBAgQIECAAAECBAg0CAiANoD4SIAAAQIECBAgQIAAAQIECBAgQIBAdQQmV6coSkKAAAECBAgQIECAAAECBAgQINCuwOOPP56uueaadmer1PS33nrrQHluvvnmtHDhwoHP/fhm1113TRMnVqffpABoP7ZiZSZAgAABAgQIECBAgAABAgQI/Ftg3rx56aSTTuLxb4HLL788xV8/p5e+9KVp6tSplSGoTii3MlWiIAQIECBAgAABAgQIECBAgAABAgQIdEtAD9BuSVoOAQIECBAgQIAAAQIECBAgQKDkAmuvvXZ6/etfX/JSyH4nAueee26aPXt2J7MWfh4B0MJXkQwSIECAAAECBAgQIECAAAECBMZGYI011kgHHHDA2KzMWgolcOmll1Y2AOoS+EI1NZkhQIAAAQIECBAgQIAAAQIECBAgQKCbAgKg3dS0LAIECBAgQIAAAQIECBAgQIAAAQIECiUgAFqo6pAZAgQIECBAgAABAgQIECBAgAABAgS6KSAA2k1NyyJAgAABAgQIECBAgAABAgQIECBAoFACAqCFqg6ZIUCAAAECBAgQIECAAAECBAgQIECgmwICoN3UtCwCBAgQIECAAAECBAgQIECAAAECBAolMLlQuZEZAgQIECBAgAABAgQIECBQMYHLLrss/eEPf6hYqRRnJIGHHnpopEmMJ0BgjAQEQMcI2moIECBAgAABAgQIECBAoD8Ffv7zn6f4kwgQIEBgfARcAj8+7tZKgAABAgQIECBAgAABAgQIECBAgMAYCAiAjgGyVRAgQIAAAQIECBAgQIAAAQIECBAgMD4CAqDj426tBAgQIECAAAECBAgQIECAAAECBAiMgYAA6BggWwUBAgQIECBAgAABAgQIECBAgAABAuMj4CFI4+NurQQIECBAgAABAgQIECDQJwJHHXVUesUrXtEnpVXMXOCOO+5IBxxwQP7RKwEC4yggADqO+FZNgAABAgQIECBAgAABAtUXmDlzZlpzzTWrX1AlHCTw8MMPD/rsAwEC4yfgEvjxs7dmAgQIECBAgAABAgQIECBAgAABAgR6LKAHaI+BLZ4AAQIECBAgQIAAAQKjFZg3b1762c9+lu655560YMGCtNpqq6WtttoqbbjhhqNdtPkJECBAgEDlBQRAK1/FCkiAAAECBAgQIECAQJkFop/sEgAAQABJREFUrr766vSZz3wmPfLII0sUY8cdd0xHH310mjFjxhLjDCBAgAABAgT+T8Al8FoCAQIECBAgQIAAAQIECipw6aWXpo9//ONNg5+R5euvvz69613vSvPnzy9oCWSLAAECBAiMv4AeoONfB3JAgAABAgQIECBAgACBJQTuv//+dPrppy8xvHHAnXfemb74xS+mww8/vHGUzwQIEGhbYM6cOemKK65oez4zlF+g2ZUG5S/V/5VAALQqNakcBAgQIECAAAECBAhUSuCb3/xmWrhwYUtlip6iBxxwQJo+fXpL05uIAAECQwnccccd6d3vfvdQow0nUEoBAdBSVptMEyBAgAABAgQIECBQdYHf/OY3LRcxAqW///3v0/Oe97yW5zHh2Akcf/zx6ZRTThm7FVpTIQSeeuqpQuRDJggQSEkAVCsgQIAAAQIECBAgQIBAAQXmzp3bVq4eeuihtqY38dgJzJs3L8WfRIAAAQLjIyAAOj7u1kqAAAECBAgQIECAAIFhBWbOnJniXnytppheKo7A1KlT07LLLlucDI1DTuLhXIsWLcrW3O8WSy+99DjUgFUSIJALCIDmEl4JECBAgAABAgQIECBQIIEtt9wyxQOOWkmTJ09Om222WSuTmmaMBPbee+8Uf/2cDjzwwHT77bdnBN/+9rdTtFOJAAEC4yFg6zMe6tZJgAABAgQIECBAgACBEQT22muv9J3vfCe1ch/B3XbbLS2zzDIjLNFoAgQIjCzw9Kc/Pb3zne8ceUJTVE4g7lU8a9asypUrCiQAWslqVSgCBAgQIECAAAECBMousPbaa6dDDz00feYznxm2KOutt1466KCDhp3GSAIECLQqsNJKK6VXvepVrU5uugoJfOELX6hsAHRihepJUQgQIECAAAECBAgQIFApgT333DO9//3vH/Jeks9//vPT6aefnqZPn16pcisMAQIECBDopoAeoN3UtCwCBAgQIECAAAECBAh0WWDXXXdN22+/ffrJT36S7r777vTYY4+lVVddNW2zzTZp44037vLaLI4AAQIECFRPQAC0enWqRAQIECBAgAABAgQIVExgxowZ2SWpq6yySlayBQsWpLlz51aslIpDgAABAgR6I+AS+N64WioBAgQIECBAgAABAgQIECBAgAABAgUQEAAtQCXIAgECBAgQIECAAAECBAgQIECAAAECvREQAO2Nq6USIECAAAECBAgQIECAAAECBAgQIFAAAQHQAlSCLBAgQIAAAQIECBAgQIAAAQIECBAg0BsBAdDeuFoqAQIECBAgQIAAAQIECBAgQIAAAQIFEBAALUAlyAIBAgQIECBAgAABAgQIECBAgAABAr0READtjaulEiBAgAABAgQIECBAgAABAgQIECBQAAEB0AJUgiwQIECAAAECBAgQIECAAAECBAgQINAbAQHQ3rhaKgECBAgQIECAAAECBAgQIECAAAECBRAQAC1AJcgCAQIECBAgQIAAAQIECBAgQIAAAQK9ERAA7Y2rpRIgQIAAAQIECBAgQIAAAQIECBAgUAABAdACVIIsECBAgAABAgQIECBAgAABAgQIECDQGwEB0N64WioBAgQIECBAgAABAgQIECBAgAABAgUQEAAtQCXIAgECBAgQIECAAAECBAgQIECAAAECvREQAO2Nq6USIECAAAECBAgQIECAAAECBAgQIFAAgckFyIMsECBAgAABAgQIECBAgAABAgQIFEDg73//ezr33HMLkBNZGGuBhx56aKxXOWbrEwAdM2orIkCAAAECBAgQIECAAAECBAgUW+Dee+9NJ5xwQrEzKXcE2hRwCXybYCYnQIAAAQIECBAgQIAAAQIECBAgQKA8AnqAlqeu5JQAAQIECBAgQIAAAQIECBAg0HWBZZZZJh1xxBFdX26ZFnjTTTela6+9NsvyrrvumjbZZJMyZb/reZ08uVohw2qVpuvVbYEECBAgQIAAAQIECBAgQIAAgWoLLLXUUmn33XevdiFHKN3ChQsHAqBbb7112nnnnUeYw+gyCbgEvky1Ja8ECBAgQIAAAQIECBAgQIAAAQIECLQlIADaFpeJCRAgQIAAAQIECBAgQIAAAQIECBAok4AAaJlqS14JECBAgAABAgQIECBAgAABAgQIEGhLQAC0LS4TEyBAgAABAgQIECBAgAABAgQIECBQJgEB0DLVlrwSIECAAAECBAgQIECAAAECBAgQINCWgABoW1wmJkCAAAECBAgQIECAAAECBAgQIECgTAICoGWqLXklQIAAAQIECBAgQIAAAQIECBAgQKAtAQHQtrhMTIAAAQIECBAgQIAAAQIECBAgQIBAmQQEQMtUW/JKgAABAgQIECBAgAABAgQIECBAgEBbAgKgbXGZmAABAgQIECBAgAABAgQIECBAgACBMgkIgJaptuSVAAECBAgQIECAAAECBAgQIECAAIG2BARA2+IyMQECBAgQIECAAAECBAgQIECAAAECZRIQAC1TbckrAQIECBAgQIAAAQIECBAgQIAAAQJtCQiAtsVlYgIECBAgQIAAAQIECBAgQIAAAQIEyiQgAFqm2pJXAgQIECBAgAABAgQIECBAgAABAgTaEhAAbYvLxAQIECBAgAABAgQIECBAgAABAgQIlElAALRMtSWvBAgQIECAAAECBAgQIECAAAECBAi0JSAA2haXiQkQIECAAAECBAgQIECAAAECBAgQKJOAAGiZakteCRAgQIAAAQIECBAgQIAAAQIECBBoS0AAtC0uExMgQIAAAQIECBAgQIAAAQIECBAgUCaByWXKbBnzOmHChDR16tQyZr3SeZ448T+x/ylTpqT6z5UuuMKVUmDy5P9sqidNmmSbUspa7N9M+w3s37ovS8lju5qn2N4uXrw4/+iVQOEE6ttr7L/axhauimRoGIFor/X7tcNMahSBcRGojws47hqXKujpSv9zVN3T1fTvwmMjP3369P4FKEHJZ86cWYJcyiKB/xNYeumlU/xJBMogEDuRK620UhmyKo8EMoHllluOBIHSCCy11FIp/iQCRRaIDkF5WnHFFVN0PpEIFFVghx12GDix9NznPtd+bFErqsN8CYB2CNfqbE888USaN29eq5ObbowEZsyYkaZNm5atbc6cOempp54aozVbDYH2BeJEyvLLL5/NOH/+fNuU9gnNMcYCEfSM4OeiRYvSgw8+OMZrtzoC7Qkss8wyAyer//Wvf6XYd5MIFFUgeiRFECnSY489lh555JGiZlW+CGQC9b3qH3jgAT1AtYtCC6y//vpp8803z/IY29fZs2cXOr/9mLlVVlml42ILgHZM19qMscFfuHBhaxObaswE6n+II/ipjsaM3oo6EKi/3C0CStprB4hmGTcB7XXc6K24RYHYrubJPkEu4bUMAo4zylBL8lgvYJ+gXsP7IgrYJyhirXQvT/+5EWL3lmlJBAgQIECAAAECBAgQIECAAAECBAgQKISAAGghqkEmCBAgQIAAAQIECBAgQIAAAQIECBDohYAAaC9ULZMAAQIECBAgQIAAAQIECBAgQIAAgUIICIAWohpkggABAgQIECBAgAABAgQIECBAgACBXggIgPZC1TIJECBAgAABAgQIECBAgAABAgQIECiEgABoIapBJggQIECAAAECBAgQIECAAAECBAgQ6IWAAGgvVC2TAAECBAgQIECAAAECBAgQIECAAIFCCAiAFqIaZIIAAQIECBAgQIAAAQIECBAgQIAAgV4ICID2QtUyCRAgQIAAAQIECBAgQIAAAQIECBAohIAAaCGqQSYIECBAgAABAgQIECBAgAABAgQIEOiFgABoL1QtkwABAgQIECBAgAABAgQIECBAgACBQggIgBaiGmSCAAECBAgQIECAAAECBAgQIECAAIFeCAiA9kLVMgkQIECAAAECBAgQIECAAAECBAgQKISAAGghqkEmCBAgQIAAAQIECBAgQIAAAQIECBDohYAAaC9ULZMAAQIECBAgQIAAAQIECBAgQIAAgUIICIAWohpkggABAgQIECBAgAABAgQIECBAgACBXggIgPZC1TIJECBAgAABAgQIECBAgAABAgQIECiEgABoIapBJggQIECAAAECBAgQIECAAAECBAgQ6IWAAGgvVC2TAAECBAgQIECAAAECBAgQIECAAIFCCAiAFqIaZIIAAQIECBAgQIAAAQIECBAgQIAAgV4ICID2QtUyCRAgQIAAAQIECBAgQIAAAQIECBAohMDkQuRCJggQIECAAAECBAgQIECAAIFKCcyYMSPNnDmzUmVSGAIEyikgAFrOepNrAgQIECBAgAABAgQIECBQaIHzzz8/TZkyJcvjrFmzCp1XmSNAoNoCLoGvdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhYQAO3r6ld4AgQIECBAgAABAgQIECBAgAABAtUWEACtdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhYQAO3r6ld4AgQIECBAgAABAgQIECBAgAABAtUWEACtdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhYQAO3r6ld4AgQIECBAgAABAgQIECBAgAABAtUWEACtdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhYQAO3r6ld4AgQIECBAgAABAgQIECBAgAABAtUWEACtdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhYQAO3r6ld4AgQIECBAgAABAgQIECBAgAABAtUWEACtdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhYQAO3r6ld4AgQIECBAgAABAgQIECBAgAABAtUWEACtdv0qHQECBAgQIECAAAECBAgQIECAAIG+FhAA7evqV3gCBAgQIECAAAECBAgQIECAAAEC1RYQAK12/SodAQIECBAgQIAAAQIECBAgQIAAgb4WEADt6+pXeAIECBAgQIAAAQIECBAgQIAAAQLVFhAArXb9Kh0BAgQIECBAgAABAgQIECBAgACBvhaY3NelV3gCBAgQIECAAAECBAgQIECg6wKLFi1K1157bfrrX/+aVl999bTpppumadOmdX09FkigWwK/+tWv0s9//vM0YcKEtMMOO6QNNtigW4u2nAIICIAWoBJkgQABAgQIECBAgAABAgQIVEEgAp/HHnts+vGPf5zifX3aZJNN0ic+8Ym0wgor1A/2nsC4CpxzzjnpK1/5SnrqqacG8nHuueemyZMnp4MOOijts88+A8O9Ka+AS+DLW3dyToAAAQIECBAgQIAAAQIECiPwxBNPZMGi6667bongZ2TytttuS6973evSvffeW5g8y0h/Cxx11FHpvPPOGxT8zEUWLlyYzjjjjHTcccflg7yWWEAAtMSVJ+sECBAgQIAAAQIECBAgQKAoAu95z3vSgw8+OGx2Ikh6yCGHDDuNkQTGQuDCCy9Mv/zlL0dc1TXXXJOuuuqqEaczQbEFBECLXT9yR4AAAQIECBAgQIAAAQIECi9w1113pVtvvbWlfD788MPpoosuamlaExHolcDZZ5/d8qJPPfXUlqc1YTEFBECLWS9yRYAAAQIECBAgQIAAAQIESiNw8cUXt5XXK664oq3pTUygmwKzZ89OTz75ZMuLnD9/ftPL5FtegAnHXUAAdNyrQAYIECBAgAABAgQIECBAgEC5BeJp7+2kOXPmtDO5aQl0VeDGG29se3m///3v257HDMUREAAtTl3ICQECBAgQIECAAAECBAgQKKXAlClT2sr3xInCEW2BmbirAtOnT297ecstt1zb85ihOAK2OMWpCzkhQIAAAQIECBAgQIAAAQKlFNhkk03ayvc666zT1vQmJtBNge22267txa2//vptz2OG4ggIgBanLuSEAAECBAgQIECAAAECBAiUUuB1r3tdmjBhQst5f8Mb3tDytCYk0G2BpZdeOrXTo3PVVVftdhYsb4wFBEDHGNzqCBAgQIAAAQIECBAgQIBA1QQimLTXXnu1VKyNN944bbvtti1NayICvRI44YQTWl70Kaec0vK0JiymgABoMetFrggQIECAAAECBAgQIECAQKkEDjvssLTTTjsNm+enPe1p6XOf+9yw0xhJYCwENt100xRtdqT0oQ99KLllw0hKxR8vAFr8OpJDAgQIECBAgAABAgQIECBQCoGPfexj6dhjj01rrLHGoEviV1hhhfT2t789nXfeeWny5MmlKItMVl9g7733Tl/5ylfSmmuuOai9xu0c1l133XTxxRenl73sZdWH6IMS2ur0QSUrIgECBAgQIECAAAECBAgQGCuBF7zgBSn+Vl555TRp0qQUT3yfNWvWWK3eegi0JbD22munCy64IC2zzDLZX7TZuXPnpgULFrS1HBMXW0AP0GLXj9wRIECAAAECBAgQIECAAIHSCkTwUyJQFoEIfkrVFLAlqma9KhUBAgQIECBAgAABAgQIECBAgAABAjUBAVDNgAABAgQIECBAgAABAgQIECBAgACBygoIgFa2ahWMAAECBAgQIECAAAECBAgQIECAAAEBUG2AAAECBAgQIECAAAECBAgQIECAAIHKCgiAVrZqFYwAAQIECBAgQIAAAQIECBAgQIAAAQFQbYAAAQIECBAgQIAAAQIECBAgQIAAgcoKCIBWtmoVjAABAgQIECBAgAABAgQIECBAgAABAVBtgAABAgQIECBAgAABAgQIECBAgACBygoIgFa2ahWMAAECBAgQIECAAAECBAgQIECAAAEBUG2AAAECBAgQIECAAAECBAgQIECAAIHKCgiAVrZqFYwAAQIECBAgQIAAAQIECBAgQIAAAQFQbYAAAQIECBAgQIAAAQIECBAgQIAAgcoKCIBWtmoVjAABAgQIECBAgAABAgQIECBAgAABAVBtgAABAgQIECBAgAABAgQIECBAgACBygoIgFa2ahWMAAECBAgQIECAAAECBAgQIECAAAEBUG2AAAECBAgQIECAAAECBAgQIECAAIHKCgiAVrZqFYwAAQIECBAgQIAAAQIECBAgQIAAAQFQbYAAAQIECBAgQIAAAQIECBAgQIAAgcoKCIBWtmoVjAABAgQIECBAgAABAgQIECBAgAABAVBtgAABAgQIECBAgAABAgQIECBAgACBygoIgFa2ahWMAAECBAgQIECAAAECBAgQIECAAAEBUG2AAAECBAgQIECAAAECBAgQIECAAIHKCgiAVrZqFYwAAQIECBAgQIAAAQIECBAgQIAAAQFQbYAAAQIECBAgQIAAAQIECBAgQIAAgcoKCIBWtmoVjAABAgQIECBAgAABAgQIECBAgAABAVBtgAABAgQIECBAgAABAgQIECBAgACBygoIgFa2ahWMAAECBAgQIECAAAECBAgQIECAAAEBUG2AAAECBAgQIECAAAECBAgQIECAAIHKCgiAVrZqFYwAAQIECBAgQIAAAQIECBAgQIAAAQFQbYAAAQIECBAgQIAAAQIECBAgQIAAgcoKCIBWtmoVjAABAgQIECBAgAABAgQIECBAgACByQh6K7DCCiv0dgWW3pHAkUcemb7//e9n837jG99IG220UUfLMROBsRD40Y9+lA455JBsVW9+85vTUUcdNRartQ4CHQvssMMOae7cuSl+A6+//vqOl2NGAmMhcNJJJ6Xzzz8/W9XnP//5tOOOO47Faq2DQEcCf/zjH9OLXvSibN6Xv/zl6eSTT+5oOWYiMFYCe+65Z7r99tuz1f32t79NkycLQYyVvfW0L3DOOeekU045JZvx2GOPTXvttVf7CzFHYQVsfQpbNTLWS4GnnnoqPfnkk9kqFi9e3MtVWTaBUQtEG83ba7RdiUDRBaK95n9Fz6v8EajfJ1i0aBEQAoUWqN8nWLhwYaHzKnMEQiDaab4f67hLmyi6QOwH5O3VcVfRa6v9/LkEvn0zcxAgQIAAAQIECBAgQIAAAQIECBAgUBIBAdCSVJRsEiBAgAABAgQIECBAgAABAgQIECDQvoAAaPtm5iBAgAABAgQIECBAgAABAgQIECBAoCQCAqAlqSjZJECAAAECBAgQIECAAAECBAgQIECgfQEB0PbNzEGAAAECBAgQIECAAAECBAgQIECAQEkEJtSexOYR2CWpLNnsnsDNN9+cZs2alS1w++23TzNmzOjewi2JQJcFZs+enX79619nS11vvfXSxhtv3OU1WByB7gr88Ic/TE888USaOnVqevGLX9zdhVsagS4L/PGPf0x33313ttRtttkmrbLKKl1eg8UR6J7AI488kn76059mC1xjjTXSs5/97O4t3JII9EAg2mu020i77LJLmjBhQg/WYpEEuiNw1113pT/96U/ZwjbbbLO09tprd2fBllIIAQHQQlSDTBAgQIAAAQIECBAgQIAAAQIECBAg0AsBl8D3QtUyCRAgQIAAAQIECBAgQIAAAQIECBAohIAAaCGqQSYIECBAgAABAgQIECBAgAABAgQIEOiFgABoL1QtkwABAgQIECBAgAABAgQIECBAgACBQggIgBaiGmSCAAECBAgQIECAAAECBAgQIECAAIFeCAiA9kLVMgl0SeCpp55K999/f5eWZjHtCBx88MHpgAMOSP/617/amc20XRLQ9rsE2eZirrrqqqzdn3POOS3P+dnPfjab5+c//3nL8zRO2Ml6G5fhc/kErr322nTsscemt7/97VkbivfRFsqWbK/KVmPjk99ubucOO+yw7Dvz4IMPjk9hrJUAAQIFE+jGNrYbyygYi+w0CAiANoD4SKAoAn/84x/T2972tnTNNdcUJUt9lY8///nP6U9/+lN68skn+6rcRSistj9+tTBnzpys3f/9739vORN/+9vfsnkeeeSRludpnLCT9TYuw+fyCDz++OPp8MMPTx/5yEeygOd9992XZs2alb2PIGgEdxYsWFCKAtlelaKaCpHJbm7n8n2UhQsXFqJsMkGAAIHxFujGNrYbyxhvB+sfXkAAdHgfYwmMm8AVV1yR7rjjjnFbvxUTGC8BbX+85FN65jOfmfbee++0zTbbjGkmxmu9Y1pIKxsQOOOMM9JNN92U1ltvvfTFL34xXX755dnf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e3pWijOL79wx3Ej0FtnVd8vWXYkj/dcFyjyj9HRtvX0G6amO7rb19hmzr7GH7o4rf/cEBEB3z8veFRTo/EOogpfokggUCnT+clG4k0wCBAgQIECAAAECBAi0SKDKzyhiDy36EHVzGJMgdQMjmwABAgQIECBAgAABAgQIECBAgACBPV9AAHTPv4eugAABAgQIECBAgAABAgQIECBAgACBbgR2zrjSzQ6yCVRdIGbjjvEajQ9X9Tvt+joLxPizMYh3W1tb503WCRAgQIAAAQIECBAg0HKBKj+jiD20/OPU4YDGAO3AYYUAAQIECBAgQIAAAQIECBAgQIAAgSoJ6AJfpbvpWggQIECAAAECBAgQIECAAAECBAgQ6CAgANqBwwoBAgQIECBAgAABAgQIECBAgAABAlUSEACt0t10LQQIECBAgAABAgQIECBAgAABAgQIdBAQAO3AYYUAAQIECBAgQIAAAQIECBAgQIAAgSoJCIBW6W66FgIECBAgQIAAAQIECBAgQIAAAQIEOggIgHbgsEKAAAECBAgQIECAAAECBAgQIECAQJUEBECrdDddCwECBAgQIECAAAECBAgQIECAAAECHQQEQDtwWCFAgAABAgQIENiTBNauXZv69euXX4sXL96TTt25EiBAgAABAgQItEhAALRF0A5DgAABAgQIECBAgAABAgQIECBAgEDrBQRAW2/uiAQIECBAgAABAgQIECBAgAABAgQItEhAALRF0A5DgAABAgQIECBAgAABAgQIECBAgEDrBQRAW2/uiAQIECBAgAABAgQIECBAgAABAgQItEhgYIuO4zAECBAgQIAAAQIEeiWwcePG9Morr6Svvvoqbdu2LY0bNy6dcMIJafz48b0qX7TT1q1b0+rVq9Nnn32W2tvb05AhQ9KECRPy64gjjkj9+3ffLuCPP/5Iy5cvT2vWrEkbNmxIY8eOTVEmXvvtt1/R4ep5ZcrWK7FAgAABAgQIECBQSkAAtBSfwgQIECBAgAABAs0S+OWXX9KcOXPS448/nn7//fcO1UaAcvr06Slmej/wwAM7bNvVygMPPJDmzp2bov6iFMHVBx98ME2aNKnL5sceeyzNmzcvrV+/vp2kz28AAAofSURBVMu2fffdN91xxx3p0ksv7bItMsqULaxQJgECBAgQIECAQJ8EBED7xKYQAQIECBAgQIBAMwWi1edpp52WVq1alasdOXJkOv7449PAgQPTsmXLckD00Ucfza04ozVmtODcVdqxY0c666yzcvnY96CDDkonnnhiOuCAA3JA87333kvff/99evfdd9NJJ52U1q1bl4YPH16vdunSpeniiy9O27dvz/mnn356LhvlPvrooxxQnTlzZj7nCIQ2pjJlG+uxTIAAAQIECBAgUF6g399fDHeUr0YNBAgQIECAAAECBPoucNFFF6UIcEaaNWtWuvPOO+tBzs2bN+cWnNFKM9J1112XFixYkJfXrl2bxowZk5cXLVqU98srf//z8ssv5wBorM+ePTu31hw0aFBtcw5gXnHFFemRRx7JeQsXLkzXXHNNffvEiRNzl/no8v7xxx+nffbZp74tWoROnjw5xfEj/9tvv03RIrSWypSt1eGdAAECBAgQIECgOQLdD3bUnPrVQoAAAQIECBAgQKBHgRhbsxb8jFaWS5YsqQc/o+D++++fu76PGDEi1xNdy3vzN/y77ror7z9q1KgUy43Bz9gQAct77rkntzKN9WgJWkvRMjTGC40UQdLG4GfkRWvSm266Ke21114p6l+xYkVk51SmbK0O7wQIECBAgAABAs0T0AW+eZZqIkCAAAECBAgQ6IPACy+8UC81f/78+nLjQgRB77///twSs62tLcXkQhF87CndeuuteXzOYcOGpQEDBhTuGoHNCGDGhEuNY4QOHTo0Bz23bNmSnnnmmTRjxozc/b2xkmnTpqULL7ywywRKZco21m+ZAAECBAgQIECgOQICoM1xVAsBAgQIECBAgEAfBd5+++1cMiY6irE4u0tTp05N8eptOuaYY1K8ilJ0q49u7a+++mqK8Ucj/fXXX/VdBw8enKI16ksvvZTefPPNdNhhh6Vzzz03nXHGGWnKlCl5TNB+/fqleHVOZcp2rss6AQIECBAgQIBAeQFjgJY3VAMBAgQIECBAgEAJgZNPPjm99dZbuVv5N998s1s19TQGaK2iCHA+9dRTaeXKlXnCovb29rRhw4ba5vp7TMIUAdFa+u6779I555yTYtKjxhStSWMypQiIXnDBBWn06NGNm/NymbJdKpNBgAABAgQIECBQSsAYoKX4FCZAgAABAgQIECgr8PPPP+cqYnb2Zqdrr702HXLIIenyyy/PXehff/31evBzwoQJac6cOSlmnC9KkR8zzt98883p8MMP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" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example:</p>
+<p>Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria using <code>fct_reorder()</code>. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_reorder</span>(mpg<span class="sc">$</span>cty, median)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span> <span class="fu">fct_reorder</span>(hwy, median))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;suv&quot;        &quot;pickup&quot;     &quot;2seater&quot;    &quot;minivan&quot;    &quot;midsize&quot;   
-[6] &quot;subcompact&quot; &quot;compact&quot;   </code></pre>
+<pre><code>[1] &quot;pickup&quot;     &quot;suv&quot;        &quot;minivan&quot;    &quot;2seater&quot;    &quot;subcompact&quot;
+[6] &quot;compact&quot;    &quot;midsize&quot;   </code></pre>
 </div>
 </div>
 </section>
-<section id="renaming-factor-levels" class="level2">
-<h2 data-anchor-id="renaming-factor-levels">Renaming Factor levels</h2>
+<section id="renaming-factor-levels-with-fct_recode" class="level2">
+<h2 data-anchor-id="renaming-factor-levels-with-fct_recode">Renaming Factor levels with <code>fct_recode</code></h2>
 <p>Sometimes you might not like the way the levels are named.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class  <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_recode</span>(<span class="st">&quot;two-seater&quot;</span> <span class="ot">=</span> <span class="st">&quot;2seater&quot;</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## NEW NAME = OLD NAME</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span>  <span class="fu">fct_recode</span>(<span class="st">&quot;two-seater&quot;</span> <span class="ot">=</span> <span class="st">&quot;2seater&quot;</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">## NEW NAME = OLD NAME</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;suv&quot;        &quot;pickup&quot;     &quot;two-seater&quot; &quot;minivan&quot;    &quot;midsize&quot;   
-[6] &quot;subcompact&quot; &quot;compact&quot;   </code></pre>
+<pre><code>[1] &quot;pickup&quot;     &quot;suv&quot;        &quot;minivan&quot;    &quot;two-seater&quot; &quot;subcompact&quot;
+[6] &quot;compact&quot;    &quot;midsize&quot;   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Check out the change in the mpg dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="factor-collapsing" class="level2">
-<h2 data-anchor-id="factor-collapsing">Factor Collapsing</h2>
+<section id="factor-collapsing-with-fct_collapse" class="level2">
+<h2 data-anchor-id="factor-collapsing-with-fct_collapse">Factor Collapsing with <code>fct_collapse()</code></h2>
 <p>Let’s say we wanted to create only two categories – cars and larger vehicles.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class_two <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_collapse</span>(<span class="at">cars =</span> <span class="fu">c</span>(<span class="st">&quot;compact&quot;</span>, <span class="st">&quot;subcompact&quot;</span>, <span class="st">&quot;midsize&quot;</span>, <span class="st">&quot;two-seater&quot;</span>),</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">big =</span> <span class="fu">c</span>(<span class="st">&quot;pickup&quot;</span>, <span class="st">&quot;suv&quot;</span>, <span class="st">&quot;minivan&quot;</span>))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class_two <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class_two =</span> class <span class="sc">%&gt;%</span>  <span class="fu">fct_collapse</span>( <span class="at">cars =</span> <span class="fu">c</span>(<span class="st">&quot;compact&quot;</span>, <span class="st">&quot;subcompact&quot;</span>, <span class="st">&quot;midsize&quot;</span>, <span class="st">&quot;two-seater&quot;</span>), <span class="at">big =</span> <span class="fu">c</span>(<span class="st">&quot;pickup&quot;</span>, <span class="st">&quot;suv&quot;</span>, <span class="st">&quot;minivan&quot;</span>)))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class_two <span class="sc">%&gt;%</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;big&quot;  &quot;cars&quot;</code></pre>
 </div>
@@ -4951,26 +5167,121 @@ border-radius: 5px;
 <li><p><code>fct_lump_n()</code> lumps all levels except for the n most frequent (or least frequent if n &lt; 0)</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg<span class="sc">$</span>manufacturer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(manufacturer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-      audi  chevrolet      dodge       ford      honda    hyundai       jeep 
-        18         19         37         25          9         14          8 
-land rover    lincoln    mercury     nissan    pontiac     subaru     toyota 
-         4          3          4         13          5         14         34 
-volkswagen 
-        27 </code></pre>
+<pre><code># A tibble: 15 × 2
+   manufacturer     n
+   &lt;chr&gt;        &lt;int&gt;
+ 1 audi            18
+ 2 chevrolet       19
+ 3 dodge           37
+ 4 ford            25
+ 5 honda            9
+ 6 hyundai         14
+ 7 jeep             8
+ 8 land rover       4
+ 9 lincoln          3
+10 mercury          4
+11 nissan          13
+12 pontiac          5
+13 subaru          14
+14 toyota          34
+15 volkswagen      27</code></pre>
 </div>
 </div>
 <p>Let’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer <span class="ot">&lt;-</span> mpg<span class="sc">$</span>manufacturer <span class="sc">%&gt;%</span>   <span class="fu">fct_lump_min</span>(<span class="dv">15</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class_lumped =</span> class <span class="sc">%&gt;%</span> <span class="fu">fct_lump_min</span>(<span class="dv">15</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;audi&quot;       &quot;chevrolet&quot;  &quot;dodge&quot;      &quot;ford&quot;       &quot;toyota&quot;    
-[6] &quot;volkswagen&quot; &quot;Other&quot;     </code></pre>
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<p>Create a table using kableExtra:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(manufacturer) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">manufacturer</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">audi</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chevrolet</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dodge</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ford</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">honda</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hyundai</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">jeep</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">land rover</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lincoln</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mercury</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nissan</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pontiac</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">subaru</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">toyota</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">volkswagen</td>
+<td style="text-align: right;">27</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 
@@ -5322,170 +5633,176 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb23" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &#39;`forcats`: working with categorical data&#39;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &#39;Emily Malcolm-White&#39;</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: TRUE</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: false</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-annotations: hover</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>The R package <span class="in">`forcats`</span> is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we&#39;ll cover the basics of the <span class="in">`forcats`</span> package and some of its most useful functions.</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://forcats.tidyverse.org/logo.png)</span>{width=30%}</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Variables</span></span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>Let&#39;s review what categorical data is. Categorical data is a type of data that consists of categories or labels.</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>Examples of categorical data include:</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Colors (red, blue, green, etc.)</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Types of vehicles (sedan, SUV, truck)</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Educational degrees (high school, college, graduate school)</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>Categorical data can be further divided into two types: *nominal* and *ordinal*. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced.</span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## `mpg` Data</span></span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>We will play with different functions in the <span class="in">`forcats`</span> packages using the <span class="in">`mpg`</span> dataset from earlier in the semester. </span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mpg&quot;</span>)</span>
-<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>Recall our side-by-side boxplot: </span>
-<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reordering Factor Levels</span></span>
-<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>One of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.</span>
-<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>Is <span class="in">`class`</span> a factor?  </span>
-<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.factor</span>()</span>
-<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>Let&#39;s make it a factor! </span>
-<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.factor</span>()</span>
-<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.factor</span>()</span>
-<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>Let&#39;s check the levels and their current ordering! </span>
-<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
-<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>To reorder the levels: </span>
-<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class  <span class="sc">%&gt;%</span> </span>
-<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_relevel</span>(<span class="st">&quot;compact&quot;</span>,<span class="st">&quot;subcompact&quot;</span>,<span class="st">&quot;midsize&quot;</span>,<span class="st">&quot;2seater&quot;</span>,<span class="st">&quot;minivan&quot;</span>,<span class="st">&quot;suv&quot;</span>,<span class="st">&quot;pickup&quot;</span>)</span>
-<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
-<span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a>Let&#39;s recreate our side-by-side boxplot now: </span>
-<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a>Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example: </span>
-<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_reorder</span>(mpg<span class="sc">$</span>cty, median)</span>
-<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
-<span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Renaming Factor levels</span></span>
-<span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-131"><a href="#cb23-131" aria-hidden="true" tabindex="-1"></a>Sometimes you might not like the way the levels are named. </span>
-<span id="cb23-132"><a href="#cb23-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class  <span class="sc">%&gt;%</span> </span>
-<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_recode</span>(<span class="st">&quot;two-seater&quot;</span> <span class="ot">=</span> <span class="st">&quot;2seater&quot;</span>)</span>
-<span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a><span class="do">## NEW NAME = OLD NAME</span></span>
-<span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-142"><a href="#cb23-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
-<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a><span class="co">#Check out the change in the mpg dataset</span></span>
-<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Factor Collapsing</span></span>
-<span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a>Let&#39;s say we wanted to create only two categories -- cars and larger vehicles. </span>
-<span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class_two <span class="ot">&lt;-</span> mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
-<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_collapse</span>(<span class="at">cars =</span> <span class="fu">c</span>(<span class="st">&quot;compact&quot;</span>, <span class="st">&quot;subcompact&quot;</span>, <span class="st">&quot;midsize&quot;</span>, <span class="st">&quot;two-seater&quot;</span>),</span>
-<span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a>               <span class="at">big =</span> <span class="fu">c</span>(<span class="st">&quot;pickup&quot;</span>, <span class="st">&quot;suv&quot;</span>, <span class="st">&quot;minivan&quot;</span>))</span>
-<span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class_two <span class="sc">%&gt;%</span> </span>
-<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
-<span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lumping into an other category</span></span>
-<span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_lump_min()`</span>: lumps levels that appear fewer than min times.</span>
-<span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_lump_prop()`</span>: lumps levels that appear in fewer than (or equal to) prop * n times.</span>
-<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_lump_n()`</span> lumps all levels except for the n most frequent (or least frequent if n &lt; 0)</span>
-<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg<span class="sc">$</span>manufacturer)</span>
-<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a>Let&#39;s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other: </span>
-<span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer <span class="ot">&lt;-</span> mpg<span class="sc">$</span>manufacturer <span class="sc">%&gt;%</span>   <span class="fu">fct_lump_min</span>(<span class="dv">15</span>)</span>
-<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-184"><a href="#cb23-184" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer <span class="sc">%&gt;%</span> </span>
-<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
-<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &#39;`forcats`: working with categorical data&#39;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &#39;Emily Malcolm-White&#39;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: TRUE</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: false</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-annotations: hover</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>The R package <span class="in">`forcats`</span> is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we&#39;ll cover the basics of the <span class="in">`forcats`</span> package and some of its most useful functions.</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://forcats.tidyverse.org/logo.png)</span>{width=30%}</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Variables</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>Let&#39;s review what categorical data is. Categorical data is a type of data that consists of categories or labels.</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>Examples of categorical data include:</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Colors (red, blue, green, etc.)</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Types of vehicles (sedan, SUV, truck)</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Educational degrees (high school, college, graduate school)</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>Categorical data can be further divided into two types: *nominal* and *ordinal*. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced.</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## `mpg` Data</span></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>We will play with different functions in the <span class="in">`forcats`</span> packages using the <span class="in">`mpg`</span> dataset from earlier in the semester. </span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mpg&quot;</span>)</span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>Recall our side-by-side boxplot: </span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reordering Factor Levels</span></span>
+<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>One of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.</span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>Is <span class="in">`class`</span> a factor?  </span>
+<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> <span class="fu">is.factor</span>()</span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>Let&#39;s make it a factor! </span>
+<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span>  <span class="fu">as.factor</span>())</span>
+<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>Let&#39;s check the levels and their current ordering! </span>
+<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span>  </span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a>To reorder the levels with <span class="in">`fct_relevel()`</span> </span>
+<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span>  <span class="fu">fct_relevel</span>( <span class="st">&quot;compact&quot;</span>,<span class="st">&quot;subcompact&quot;</span>,<span class="st">&quot;midsize&quot;</span>,<span class="st">&quot;2seater&quot;</span>,<span class="st">&quot;minivan&quot;</span>,<span class="st">&quot;suv&quot;</span>,<span class="st">&quot;pickup&quot;</span>))</span>
+<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
+<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
+<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>Let&#39;s recreate our side-by-side boxplot now: </span>
+<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-113"><a href="#cb22-113" aria-hidden="true" tabindex="-1"></a>Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria using <span class="in">`fct_reorder()`</span>. For example: </span>
+<span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span> <span class="fu">fct_reorder</span>(hwy, median))</span>
+<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
+<span id="cb22-122"><a href="#cb22-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
+<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## Renaming Factor levels with `fct_recode`</span></span>
+<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a>Sometimes you might not like the way the levels are named. </span>
+<span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-133"><a href="#cb22-133" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-134"><a href="#cb22-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class =</span> class <span class="sc">%&gt;%</span>  <span class="fu">fct_recode</span>(<span class="st">&quot;two-seater&quot;</span> <span class="ot">=</span> <span class="st">&quot;2seater&quot;</span>))</span>
+<span id="cb22-135"><a href="#cb22-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-136"><a href="#cb22-136" aria-hidden="true" tabindex="-1"></a><span class="do">## NEW NAME = OLD NAME</span></span>
+<span id="cb22-137"><a href="#cb22-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-138"><a href="#cb22-138" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class <span class="sc">%&gt;%</span> </span>
+<span id="cb22-139"><a href="#cb22-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
+<span id="cb22-140"><a href="#cb22-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-141"><a href="#cb22-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-142"><a href="#cb22-142" aria-hidden="true" tabindex="-1"></a><span class="fu">## Factor Collapsing with `fct_collapse()`</span></span>
+<span id="cb22-143"><a href="#cb22-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-144"><a href="#cb22-144" aria-hidden="true" tabindex="-1"></a>Let&#39;s say we wanted to create only two categories -- cars and larger vehicles. </span>
+<span id="cb22-145"><a href="#cb22-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-148"><a href="#cb22-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-149"><a href="#cb22-149" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-150"><a href="#cb22-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class_two =</span> class <span class="sc">%&gt;%</span>  <span class="fu">fct_collapse</span>( <span class="at">cars =</span> <span class="fu">c</span>(<span class="st">&quot;compact&quot;</span>, <span class="st">&quot;subcompact&quot;</span>, <span class="st">&quot;midsize&quot;</span>, <span class="st">&quot;two-seater&quot;</span>), <span class="at">big =</span> <span class="fu">c</span>(<span class="st">&quot;pickup&quot;</span>, <span class="st">&quot;suv&quot;</span>, <span class="st">&quot;minivan&quot;</span>)))</span>
+<span id="cb22-151"><a href="#cb22-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-152"><a href="#cb22-152" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>class_two <span class="sc">%&gt;%</span> </span>
+<span id="cb22-153"><a href="#cb22-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
+<span id="cb22-154"><a href="#cb22-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-155"><a href="#cb22-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lumping into an other category</span></span>
+<span id="cb22-158"><a href="#cb22-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-159"><a href="#cb22-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_lump_min()`</span>: lumps levels that appear fewer than min times.</span>
+<span id="cb22-160"><a href="#cb22-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_lump_prop()`</span>: lumps levels that appear in fewer than (or equal to) prop * n times.</span>
+<span id="cb22-162"><a href="#cb22-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_lump_n()`</span> lumps all levels except for the n most frequent (or least frequent if n &lt; 0)</span>
+<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-167"><a href="#cb22-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(manufacturer)</span>
+<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a>Let&#39;s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other: </span>
+<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-176"><a href="#cb22-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-177"><a href="#cb22-177" aria-hidden="true" tabindex="-1"></a>mpg <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">class_lumped =</span> class <span class="sc">%&gt;%</span> <span class="fu">fct_lump_min</span>(<span class="dv">15</span>))</span>
+<span id="cb22-179"><a href="#cb22-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>manufacturer <span class="sc">%&gt;%</span> </span>
+<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span>
+<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-184"><a href="#cb22-184" aria-hidden="true" tabindex="-1"></a>Create a table using kableExtra: </span>
+<span id="cb22-185"><a href="#cb22-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-188"><a href="#cb22-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-189"><a href="#cb22-189" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(manufacturer) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span>
+<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

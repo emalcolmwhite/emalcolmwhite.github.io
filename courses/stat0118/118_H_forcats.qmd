@@ -60,32 +60,29 @@ One of the most useful functions is fct_relevel(), which allows you to reorder t
 Is `class` a factor?  
 
 ```{r}
-mpg$class %>% 
-  is.factor()
+mpg$class %>% is.factor()
 ```
 
 Let's make it a factor! 
 
 ```{r}
-mpg$class <- mpg$class %>% 
-  as.factor()
+mpg <- mpg %>% 
+  mutate(class = class %>%  as.factor())
 
-mpg$class %>% 
-  is.factor()
 ```
 
 Let's check the levels and their current ordering! 
 
 ```{r}
-mpg$class %>% 
+mpg$class %>%  
   levels()
 ```
 
-To reorder the levels: 
+To reorder the levels with `fct_relevel()` 
 
 ```{r}
-mpg$class <- mpg$class  %>% 
-  fct_relevel("compact","subcompact","midsize","2seater","minivan","suv","pickup")
+mpg <- mpg %>% 
+  mutate(class = class %>%  fct_relevel( "compact","subcompact","midsize","2seater","minivan","suv","pickup"))
 
 mpg$class %>% 
   levels()
@@ -99,41 +96,38 @@ mpg %>%
   geom_boxplot()
 ```
 
-Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example: 
+Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria using `fct_reorder()`. For example: 
 
 ```{r}
-mpg$class <- mpg$class %>% 
-  fct_reorder(mpg$cty, median)
+mpg <- mpg %>% 
+  mutate(class = class %>% fct_reorder(hwy, median))
 
 mpg$class %>% 
   levels()
 ```
 
 
-## Renaming Factor levels
+## Renaming Factor levels with `fct_recode`
 
 Sometimes you might not like the way the levels are named. 
 
 ```{r}
-mpg$class <- mpg$class  %>% 
-  fct_recode("two-seater" = "2seater")
+mpg <- mpg %>% 
+  mutate(class = class %>%  fct_recode("two-seater" = "2seater"))
 
 ## NEW NAME = OLD NAME
 
 mpg$class %>% 
   levels()
-
-#Check out the change in the mpg dataset
 ```
 
-## Factor Collapsing
+## Factor Collapsing with `fct_collapse()`
 
 Let's say we wanted to create only two categories -- cars and larger vehicles. 
 
 ```{r}
-mpg$class_two <- mpg$class %>% 
-  fct_collapse(cars = c("compact", "subcompact", "midsize", "two-seater"),
-               big = c("pickup", "suv", "minivan"))
+mpg <- mpg %>% 
+  mutate(class_two = class %>%  fct_collapse( cars = c("compact", "subcompact", "midsize", "two-seater"), big = c("pickup", "suv", "minivan")))
 
 mpg$class_two %>% 
   levels()
@@ -149,17 +143,29 @@ mpg$class_two %>%
 - `fct_lump_n()` lumps all levels except for the n most frequent (or least frequent if n < 0)
 
 ```{r}
-table(mpg$manufacturer)
+mpg %>% 
+  count(manufacturer)
 ```
 
 Let's say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other: 
 
 ```{r}
-mpg$manufacturer <- mpg$manufacturer %>%   fct_lump_min(15)
+mpg <- mpg %>% 
+  mutate(class_lumped = class %>% fct_lump_min(15))
 
 mpg$manufacturer %>% 
   levels()
 ```
 
+Create a table using kableExtra: 
+
+```{r}
+library(kableExtra)
+
+mpg %>% 
+  count(manufacturer) %>% 
+  kbl() %>% 
+  kable_styling()
+```
 
 
