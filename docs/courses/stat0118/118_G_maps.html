@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EMW - Maps with maps and sf</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bar_chart.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/custom.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">EMW</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../courses/stat0118/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">STAT 118: Data Science</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../courses/stat0116/index.html" rel="" target="">
+ <span class="menu-text">STAT 116: Stats</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../courses/r-by-the-sea/index.html" rel="" target="">
+ <span class="menu-text">R by the Sea</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:emalcolmwhite@middlebury.edu" rel="" target=""><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="menu-text">Email</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../courses/stat0118/118_G_maps.html">Chlorepleth Maps</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../courses/stat0118/images/stat0118_hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STAT 118 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🚀 <b> Getting Started </b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_A_intro_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R &amp; RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto &amp; Markdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🛠️ <b> Data Wrangling</b> </span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wrangling with <code>dplyr</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_C_aggregating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aggregating Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_I_joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joining Tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_J_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pivoting with <code>tidyr</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">📊 <b> Visualization</b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_D_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Barplots and Scatterplots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_E_ggplot_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histograms, Boxplots, Linegraphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_F_ggplot_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customizing Plots: <code>scales</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🧰 <b> Specialized Tools </b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_H_forcats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical Data: <code>forcats</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_Q_stringr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with Text: <code>stringr</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_R_lubridate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Date-Time Data: <code>lubridate</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_janitor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Cleaning: <code>janitor</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_gganimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Animated Plots: <code>gganimate</code></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🗺️  <b> Maps </b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_G_maps.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Chlorepleth Maps</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_L_Maps2.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Points on Maps</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🌐️ <b>  Webscraping</b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_O_webscraping_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../courses/stat0118/118_P_webscraping_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">text</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#before-we-get-started-some-context" id="toc-before-we-get-started-some-context" class="nav-link active" data-scroll-target="#before-we-get-started-some-context">Before we get started, some context:</a></li>
+  <li><a href="#using-the-sf-package" id="toc-using-the-sf-package" class="nav-link" data-scroll-target="#using-the-sf-package">Using the <code>sf</code> package</a></li>
+  <li><a href="#cloropleth-maps" id="toc-cloropleth-maps" class="nav-link" data-scroll-target="#cloropleth-maps">Cloropleth maps</a></li>
+  <li><a href="#color-palettes" id="toc-color-palettes" class="nav-link" data-scroll-target="#color-palettes">Color Palettes</a>
+  <ul class="collapse">
+  <li><a href="#qualitative-color-palettes" id="toc-qualitative-color-palettes" class="nav-link" data-scroll-target="#qualitative-color-palettes">Qualitative Color Palettes</a></li>
+  <li><a href="#sequential-color-palettes" id="toc-sequential-color-palettes" class="nav-link" data-scroll-target="#sequential-color-palettes">Sequential Color Palettes</a></li>
+  <li><a href="#diverging-color-palettes" id="toc-diverging-color-palettes" class="nav-link" data-scroll-target="#diverging-color-palettes">Diverging Color Palettes</a></li>
+  </ul></li>
+  <li><a href="#customizing-cholepleth-maps" id="toc-customizing-cholepleth-maps" class="nav-link" data-scroll-target="#customizing-cholepleth-maps">Customizing Cholepleth maps</a>
+  <ul class="collapse">
+  <li><a href="#adding-labels-with-geom_sf_text" id="toc-adding-labels-with-geom_sf_text" class="nav-link" data-scroll-target="#adding-labels-with-geom_sf_text">Adding labels with <code>geom_sf_text()</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/edit/main/courses/stat0118/118_G_maps.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/118_G_maps.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Maps with <code>maps</code> and <code>sf</code></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="before-we-get-started-some-context" class="level3">
+<h3 data-anchor-id="before-we-get-started-some-context">Before we get started, some context:</h3>
+<ul>
+<li><code>R</code> is <strong><em>fantastic</em></strong> for spacial analysis (not covered in this class… look for classes related to spacial statistics)</li>
+<li><code>R</code> is <em>great</em> for interactive data visualization (via <code>leaflet</code> or <code>shiny</code>… more on this on Thursday)</li>
+<li><code>R</code> is <em>okay</em> at spacial data visualization (creating maps).
+<ul>
+<li>There are many different packages in <code>R</code> for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.</li>
+<li>If you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like <code>sp</code>, <code>rgdal</code> and <code>rgeos</code>) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-the-sf-package" class="level1">
+<h1>Using the <code>sf</code> package</h1>
+<p>Vector data for maps are typically encoded using the “simple features” standard produced by the Open Geospatial Consortium. The <code>sf</code> package developed by Edzer Pebesma provides an excellent toolset for working with such data, and the <code>geom_sf()</code> and <code>coord_sf()</code> functions in ggplot2 are designed to work together with the <code>sf</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("sf") - note some students are getting a pop-up when they install the sf package for the first time. Select the "no" option when it pops up in your console. </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#some students are needing into install the rgeos package seperately as well</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#library(rgeos)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For our first example, we will be working with a dataset of North Carolina that is built in to the <code>sf</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(nc, <span class="at">ask =</span> <span class="cn">FALSE</span>, <span class="at">echo =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should notice that the <code>nc</code> dataset is now saved in your R environment. This dataset contains information about Sudden Infant Death Syndrome (SIDS) for North Carolina counties, over two time periods (1974-78 and 1979-84). Let’s take a look at that dataset.</p>
+<p>Each row represents a county in North Carolina. This data frame contains the following columns:</p>
+<ul>
+<li><code>AREA</code> County polygon areas in degree units</li>
+<li><code>PERIMETER</code> County polygon perimeters in degree units</li>
+<li><code>CNTY_</code> Internal county ID</li>
+<li><code>NAME</code> County names</li>
+<li><code>FIPS</code> County ID</li>
+<li><code>FIPSNO</code> County ID</li>
+<li><code>CRESS_ID</code> Cressie papers ID</li>
+<li><code>BIR74</code> births, 1974-78</li>
+<li><code>SID74</code> SID deaths, 1974-78</li>
+<li><code>NWBIR74</code> non-white births, 1974-78</li>
+<li><code>BIR79</code> births, 1979-84</li>
+<li><code>SID79</code> SID deaths, 1979-84</li>
+<li><code>NWBIR79</code> non-white births, 1979-84</li>
+<li><code>geom</code> information needed to plot the map for each county</li>
+</ul>
+<p>Let’s begin by simply plotting the map using <code>geom_sf</code>. Note that you don’t need to specify the x- or y-axes – sf figures that out for you.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nc <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Let’s pretty it up:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nc <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">col=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"North Carolina Counties"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="cloropleth-maps" class="level1">
+<h1>Cloropleth maps</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a cloropleth map?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>choropleth map</strong> is a type of thematic map where areas (such as countries, states, or regions) are shaded or colored based on data values. It’s commonly used to visualize statistical information, such as population density, election results, or income levels, by using different shades or colors to represent varying data ranges.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/maps_federalfunds.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">An example from USA Today</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Suppose we want to shade each of these counties, based on the number of births in 1974.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> nc <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>( <span class="fu">aes</span>(<span class="at">fill =</span> BIR74), <span class="at">col =</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()<span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"North Carolina, Birth Rates in 1974"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>map</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="color-palettes" class="level1">
+<h1>Color Palettes</h1>
+<section id="qualitative-color-palettes" class="level2">
+<h2 data-anchor-id="qualitative-color-palettes">Qualitative Color Palettes</h2>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Best for…</strong></td>
+<td>Categories (unordered)</td>
+</tr>
+<tr class="even">
+<td><strong>Examples</strong></td>
+<td>Species, Groups, Brands</td>
+</tr>
+<tr class="odd">
+<td><strong><code>RColorBrewer</code> Palettes</strong></td>
+<td><code>"Set1"</code>, <code>"Dark2"</code>, <code>"Paired"</code></td>
+</tr>
+<tr class="even">
+<td>Example R Code</td>
+<td><code>scale_fill_brewer(palette = "Set1")</code></td>
+</tr>
+<tr class="odd">
+<td><strong><code>wesanderson</code> Palettes</strong></td>
+<td><code>"GrandBudapest1"</code>, <code>"Darjeeling1"</code>, <code>"Moonrise2"</code></td>
+</tr>
+<tr class="even">
+<td>Example R Code</td>
+<td><code>scale_fill_manual(values = wes_palette("GrandBudapest1"))</code></td>
+</tr>
+</tbody>
+</table>
+<div class="cell quarto-layout-panel" data-fig.ncol="2">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sequential-color-palettes" class="level2">
+<h2 data-anchor-id="sequential-color-palettes">Sequential Color Palettes</h2>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Best for…</strong></td>
+<td>Ordered, continuous data</td>
+</tr>
+<tr class="even">
+<td><strong>Examples</strong></td>
+<td>Temperature, Population Density</td>
+</tr>
+<tr class="odd">
+<td><strong><code>RColorBrewer</code> Palettes</strong></td>
+<td><code>"Blues"</code>, <code>"Reds"</code>, <code>"Greens"</code></td>
+</tr>
+<tr class="even">
+<td>Example R Code</td>
+<td><code>scale_fill_brewer(palette = "Blues")</code></td>
+</tr>
+<tr class="odd">
+<td><strong><code>viridis</code> Palettes</strong></td>
+<td><code>"viridis"</code>, <code>"magma"</code>, <code>"plasma"</code>, <code>"cividis"</code></td>
+</tr>
+<tr class="even">
+<td>Example R Code</td>
+<td><code>scale_fill_viridis_c(option = "magma")</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Build your Own</strong></td>
+<td><code>scale_fill_gradientn(c("red", "yellow"))</code></td>
+</tr>
+</tbody>
+</table>
+<div class="cell quarto-layout-panel" data-fig.ncol="2">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<p><strong>Note</strong>: Be sure that higher values are encoded with the darkest colors!</p>
+</section>
+<section id="diverging-color-palettes" class="level2">
+<h2 data-anchor-id="diverging-color-palettes">Diverging Color Palettes</h2>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Best for…</strong></td>
+<td>Data with a central midpoint</td>
+</tr>
+<tr class="even">
+<td><strong>Examples</strong></td>
+<td>Election Results, Anomaly Detection</td>
+</tr>
+<tr class="odd">
+<td><strong><code>RColorBrewer</code> Palettes</strong></td>
+<td><code>"RdBu"</code>, <code>"Spectral"</code></td>
+</tr>
+<tr class="even">
+<td>Example R Code</td>
+<td><code>scale_fill_brewer(palette = "RdBu")</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Build your Own</strong></td>
+<td><code>scale_fill_manual(values = c("red", "orange"))</code></td>
+</tr>
+</tbody>
+</table>
+<div class="cell quarto-layout-panel" data-fig.ncol="2">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some general guidelines when choosing color palettes:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>✅ Match palette type to data type</p>
+<p>✅ Choose colorblind-friendly palettes when designing for general audiences</p>
+<p>✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)</p>
+<p>✅ Consider the meaning of colors in your audience’s cultural context.</p>
+<p>✅ If the data is skewed, consider using the <code>scales</code> package to log -scale.</p>
+<p>🔴 Avoid: Using blue for land in maps</p>
+</div>
+</div>
+</section>
+</section>
+<section id="customizing-cholepleth-maps" class="level1">
+<h1>Customizing Cholepleth maps</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="adding-labels-with-geom_sf_text" class="level2">
+<h2 data-anchor-id="adding-labels-with-geom_sf_text">Adding labels with <code>geom_sf_text()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)<span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> NAME), <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="118_G_maps_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/maps_careful.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">XKCD</figcaption>
+</figure>
+</div>
+<p>🔴 <strong>Correlation doesn’t imply causation!</strong> Just because two variables show similar patterns doesn’t mean one causes the other.</p>
+<p>✅ Use rates, percentages, or per capita values rather than absolute numbers. Example: Instead of showing total website users per state, show website users per 100,000 residents.</p>
+<p>✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations. Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

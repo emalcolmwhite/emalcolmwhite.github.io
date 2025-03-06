@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.3.450" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Emily Malcolm-White" />
+
+<title>EMW – Customizing Plots</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/custom.css" />
+</head>
+
+<body>
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="/index.html">
+    <span class="navbar-title">EMW</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/courses/stat0118/index.html" rel="" target="">
+ <span class="menu-text">STAT 118: Data Science</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/courses/stat0116/index.html" rel="" target="">
+ <span class="menu-text">STAT 116: Stats</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/courses/r-by-the-sea/index.html" rel="" target="">
+ <span class="menu-text">R by the Sea</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:emalcolmwhite@middlebury.edu" rel="" target=""><i 
+  class="bi bi-envelope" 
+  role="img" 
+>
+</i> 
+ <span class="menu-text">Email</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="/index.html" class="sidebar-logo-link">
+      <img src="/courses/stat0118/images/stat0118_hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"/>
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STAT 118 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🚀 <b> Getting Started </b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_A_intro_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R & RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto & Markdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🛠️ <b> Data Wrangling</b> </span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wrangling with `dplyr`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_C_aggregating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aggregating Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_I_joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joining Tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_J_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pivoting with `tidyr`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">📊 <b> Visualization</b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_D_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Barplots and Scatterplots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_E_ggplot_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histograms, Boxplots, Linegraphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_F_ggplot_3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Customizing Plots: `scales`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🧰 <b> Specialized Tools </b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_H_forcats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical Data: `forcats`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_Q_stringr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with Text: `stringr`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_R_lubridate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Date-Time Data: `lubridate`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_janitor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Cleaning: `janitor`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_gganimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Animated Plots: `gganimate`</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🗺️  <b> Maps </b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_G_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chlorepleth Maps</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_L_Maps2.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Points on Maps</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">🌐️ <b>  Webscraping</b></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_O_webscraping_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/courses/stat0118/118_P_webscraping_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">text</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" ></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Customizing Plots</h1>
+<p class="subtitle lead"><code>scales</code>, labels, <code>facet_wrap()</code></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Emily Malcolm-White </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-starting-graph-scatterplot-of-can_lang" id="toc-a-starting-graph-scatterplot-of-can_lang">A starting graph: scatterplot of <code>can_lang</code></a></li>
+  <li><a href="#axis-display-format-scales-package" id="toc-axis-display-format-scales-package">Axis display format: <code>scales</code> package</a>
+  <ul>
+  <li><a href="#logarithmic-axes-transformations" id="toc-logarithmic-axes-transformations">Logarithmic Axes Transformations</a></li>
+  <li><a href="#using-percents-on-a-log-scale" id="toc-using-percents-on-a-log-scale">Using percents on a log scale</a>
+  <ul>
+  <li><a href="#mutate-to-create-new-columns-with-percentage-of-canadians-who-speak-the-language-as-their-mother-tongue" id="toc-mutate-to-create-new-columns-with-percentage-of-canadians-who-speak-the-language-as-their-mother-tongue"><code>mutate</code> to create new columns with percentage of Canadians who speak the language as their mother tongue:</a></li>
+  <li><a href="#scatterplot-with-percents-and-colors" id="toc-scatterplot-with-percents-and-colors">Scatterplot with Percents and Colors</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#labels" id="toc-labels">Labels</a>
+  <ul>
+  <li><a href="#using-ggrepel" id="toc-using-ggrepel">Using <code>ggrepel</code></a></li>
+  <li><a href="#subset-the-labels" id="toc-subset-the-labels">Subset the labels</a></li>
+  </ul></li>
+  <li><a href="#facet-wrap" id="toc-facet-wrap">Facet Wrap</a></li>
+  </ul>
+</nav>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import the can_lang dataset </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv&quot;</span>)</span></code></pre></div>
+</div>
+<section id="a-starting-graph-scatterplot-of-can_lang" class="level1">
+<h1>A starting graph: scatterplot of <code>can_lang</code></h1>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>can_lang_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x=</span>most_at_home, <span class="at">y=</span>mother_tongue)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>) </span></code></pre></div>
+</div>
+<p>Notice anything weird about this plot?</p>
+</section>
+<section id="axis-display-format-scales-package" class="level1">
+<h1>Axis display format: <code>scales</code> package</h1>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Install the package if needed</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div>
+</div>
+<p>We want to customize how the continuous x and y axes look, so we need to use the argument <code>labels=label_comma()</code> inside a <code>scale_*_continuous()</code> layer:</p>
+<div class="cell">
+<div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode r cell-code code-annotation-code"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>can_lang_plot <span class="sc">+</span></span>
+<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="annotated-cell-5-3"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>())</span></code></pre></div>
+<div class="cell-annotation">
+<dl>
+<dt>Line 2</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="1">numbers on the x-axis are displayed with commas (and not in scientific notation)</span>
+</dd>
+<dt>Line 3</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="2">numbers on the y-axis are displayed with commas (and not in scientific notation)</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+What other formats are available in the <code>scales</code> package?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When passing a formatting function inside <code>scale_*_continuous(labels = ...)</code> you have options!</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 39%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use Case</th>
+<th>Example Input</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>label_comma()</code></td>
+<td>Formats numbers with commas</td>
+<td><code>1234567</code></td>
+<td><code>"1,234,567"</code></td>
+</tr>
+<tr class="even">
+<td><code>label_dollar()</code></td>
+<td>Formats numbers as dollar currency</td>
+<td><code>99.99</code></td>
+<td><code>"$99.99"</code></td>
+</tr>
+<tr class="odd">
+<td><code>label_dollar(prefix = "€")</code></td>
+<td>Formats numbers as euro currency</td>
+<td><code>99.99</code></td>
+<td><code>"99.99€"</code></td>
+</tr>
+<tr class="even">
+<td><code>label_percent()</code></td>
+<td>Converts decimals to percent</td>
+<td><code>0.25</code></td>
+<td><code>"25%"</code></td>
+</tr>
+<tr class="odd">
+<td><code>label_pvalue()</code></td>
+<td>Formats p-values</td>
+<td><code>0.00005</code></td>
+<td><code>"&lt;0.0001"</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Anything else?</p>
+<section id="logarithmic-axes-transformations" class="level2">
+<h2>Logarithmic Axes Transformations</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Applying a Log Transformation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you apply a log transformation to an axis (or both axes) in a plot, you convert values using a logarithmic scale instead of a linear scale. This means:</p>
+<ul>
+<li>Instead of evenly spaced values (1, 2, 3, 4, …), a logarithmic scale spaces values exponentially (1, 10, 100, 1000, …).</li>
+<li>The distance between ticks represents a multiplicative factor instead of an additive one.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="1152" /></p>
+</div>
+</div>
+<p>See how much more clearly we can see all the points!</p>
+</div>
+</div>
+<p>For you to do this yourself, you need to use <code>scale_*_log10()</code> instead of <code>scale_*_continuous()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="annotated-cell-6"><pre class="sourceCode r cell-code code-annotation-code"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a>can_lang_plot <span class="sc">+</span></span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>())</span></code></pre></div>
+<div class="cell-annotation">
+<dl>
+<dt>Line 2</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="2" data-code-annotation="1">converts x-axis to a log-scale</span>
+</dd>
+<dt>Line 3</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="3" data-code-annotation="2">converts y-axis to a log-scale</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Use ✅ <code>scale_*_log10()</code> instead of 🚫<code>log(variable)</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-percents-on-a-log-scale" class="level2">
+<h2>Using percents on a log scale</h2>
+<section id="mutate-to-create-new-columns-with-percentage-of-canadians-who-speak-the-language-as-their-mother-tongue" class="level3">
+<h3><code>mutate</code> to create new columns with percentage of Canadians who speak the language as their mother tongue:</h3>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> can_lang <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mother_tongue_percent =</span> (mother_tongue <span class="sc">/</span> <span class="dv">35151728</span>) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">most_at_home_percent =</span> (most_at_home <span class="sc">/</span> <span class="dv">35151728</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+</section>
+<section id="scatterplot-with-percents-and-colors" class="level3">
+<h3>Scatterplot with Percents and Colors</h3>
+<p>Create a scatterplot with <code>most_at_home_percent</code> and <code>mother_tongue_percent</code>. Vary the color and shape of the points depending on the category of language. You may need to adjust the position of the legend:</p>
+<div class="cell">
+<div class="sourceCode" id="annotated-cell-8"><pre class="sourceCode r cell-code code-annotation-code"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home_percent,</span>
+<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> mother_tongue_percent )) <span class="sc">+</span></span>
+<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category, <span class="at">shape=</span>category), <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-8-5"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-8-6"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="at">legend.direction =</span> <span class="st">&quot;vertical&quot;</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-8-7"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="annotated-cell-8-8"><a href="#annotated-cell-8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> comma)</span>
+<span id="annotated-cell-8-9"><a href="#annotated-cell-8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-8-10"><a href="#annotated-cell-8-10" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot </span></code></pre></div>
+<div class="cell-annotation">
+<dl>
+<dt>Line 1</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1">Use <code>most_at_home_percent</code> as the x-axis</span>
+</dd>
+<dt>Line 2</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="2" data-code-annotation="2">Use <code>mother_tongue_percent</code> as as the y-axis</span>
+</dd>
+<dt>Line 3</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="3">vary the shape and the color based on the category of language. Note this is included in the aesthetics of the points. It also would have been okay to put these directly inside the global aesthetics (<code>ggplot(aes(...))</code>) so that these characteristics apply to any layers.<br />
+</span>
+</dd>
+<dt>Line 6</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="6" data-code-annotation="4">Adjusts the position of the legend</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="labels" class="level1">
+<h1>Labels</h1>
+<p>Adding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labeling outliers and other important points is very useful.</p>
+<p>A add label for each language in this dataset using <code>geom_text(aes(label = language))</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot  <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>language), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">nudge_x =</span> <span class="fl">0.25</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">nudge_y=</span><span class="fl">0.25</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+<p>Yikes! This is way too much going on in one plot. A few options to try when this happens:</p>
+<ul>
+<li>Decrease the font size of the labels (using the <code>size=</code> argument inside <code>geom_text</code>).</li>
+<li>Use the <code>ggrepel</code> package to spread out the labels a bit more</li>
+<li>Pick out only a subset of the points to label</li>
+</ul>
+<section id="using-ggrepel" class="level2">
+<h2>Using <code>ggrepel</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/874dedf0-55d1-4cdd-a390-45b8376d2fc2_rw_1920.png?h=39c69f525af3256f7096f510bafb0913" class="img-fluid" style="width:50.0%" /></p>
+<figcaption>Artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>language), <span class="at">max.overlaps =</span> <span class="cn">Inf</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+</section>
+<section id="subset-the-labels" class="level2">
+<h2>Subset the labels</h2>
+<p>Create a new column for the labels. Use <code>case_when</code> (or <code>ifelse</code>) to only use the official language names and not to put a label for other language categories.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> can_lang <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">official_languages =</span> <span class="fu">case_when</span>(category <span class="sc">==</span> <span class="st">&quot;Official languages&quot;</span> <span class="sc">~</span> language, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span> ))</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="annotated-cell-12"><pre class="sourceCode r cell-code code-annotation-code"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to redo the base plot with the new can_lang dataset with the new official_languages column in it </span></span>
+<span id="annotated-cell-12-2"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home_percent,  <span class="at">y =</span> mother_tongue_percent)) <span class="sc">+</span></span>
+<span id="annotated-cell-12-3"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category, <span class="at">shape=</span>category)) <span class="sc">+</span></span>
+<span id="annotated-cell-12-4"><a href="#annotated-cell-12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-12-5"><a href="#annotated-cell-12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-12-6"><a href="#annotated-cell-12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="at">legend.direction =</span> <span class="st">&quot;vertical&quot;</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-12-7"><a href="#annotated-cell-12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="annotated-cell-12-8"><a href="#annotated-cell-12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> comma)</span>
+<span id="annotated-cell-12-9"><a href="#annotated-cell-12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-12-10"><a href="#annotated-cell-12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-12-11"><a href="#annotated-cell-12-11" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="sc">+</span> </span>
+<span id="annotated-cell-12-12"><a href="#annotated-cell-12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>official_languages, <span class="at">min.segment.length=</span><span class="dv">0</span>, <span class="at">box.padding=</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+</section>
+</section>
+<section id="facet-wrap" class="level1">
+<h1>Facet Wrap</h1>
+<p><code>facet_wrap()</code> is a function in the <code>ggplot2</code> package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable.</p>
+<p>Create separate side-by-side plots for each different category of language.</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>category)  </span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="118_F_ggplot_3_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672" /></p>
+</div>
+</div>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">STAT 118: Intro to Data Science</span> <span class="hidden" data-render-id="quarto-int-navbar-title">EMW</span> <span class="hidden" data-render-id="quarto-int-next">Categorical Data: <code>forcats</code></span> <span class="hidden" data-render-id="quarto-int-prev">Histograms, Boxplots, Linegraphs</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/index.html">STAT 118 Home</span> <span class="hidden" data-render-id="quarto-int-sidebar:undefined">🌐️ <b> Webscraping</b></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_A_intro_quarto.html">R &amp; RStudio</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_A_intro.html">Quarto &amp; Markdown</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_B_wrangling.html">Wrangling with <code>dplyr</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_C_aggregating.html">Aggregating Data</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_I_joining.html">Joining Tables</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_J_pivoting.html">Pivoting with <code>tidyr</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_D_ggplot.html">Barplots and Scatterplots</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_E_ggplot_2.html">Histograms, Boxplots, Linegraphs</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_F_ggplot_3.html">Customizing Plots: <code>scales</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_H_forcats.html">Categorical Data: <code>forcats</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_Q_stringr.html">Working with Text: <code>stringr</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_R_lubridate.html">Date-Time Data: <code>lubridate</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_janitor.html">Data Cleaning: <code>janitor</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_gganimate.html">Animated Plots: <code>gganimate</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_G_maps.html">Chlorepleth Maps</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_L_Maps2.qmd">Points on Maps</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_O_webscraping_tables.html">tables</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_P_webscraping_text.html">text</span> <span class="hidden" data-render-id="quarto-int-navbar:STAT 118: Data Science">STAT 118: Data Science</span> <span class="hidden" data-render-id="quarto-int-navbar:/courses/stat0118/index.html">/courses/stat0118/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:STAT 116: Stats">STAT 116: Stats</span> <span class="hidden" data-render-id="quarto-int-navbar:/courses/stat0116/index.html">/courses/stat0116/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:R by the Sea">R by the Sea</span> <span class="hidden" data-render-id="quarto-int-navbar:/courses/r-by-the-sea/index.html">/courses/r-by-the-sea/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Email">Email</span> <span class="hidden" data-render-id="quarto-int-navbar:mailto:emalcolmwhite@middlebury.edu">mailto:emalcolmwhite@middlebury.edu</span> <span class="hidden" data-render-id="quarto-breadcrumbs-da6c08f0597ad4d070012c6af1f35db4">Customizing Plots: <code>scales</code></span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">EMW - Customizing Plots</span> <span class="hidden" data-render-id="quarto-twittercardtitle">EMW - Customizing Plots</span> <span class="hidden" data-render-id="quarto-ogcardtitle">EMW - Customizing Plots</span> <span class="hidden" data-render-id="quarto-metasitename">EMW</span> <span class="hidden" data-render-id="quarto-twittercarddesc"><code>scales</code>, labels, <code>facet_wrap()</code></span> <span class="hidden" data-render-id="quarto-ogcardddesc"><code>scales</code>, labels, <code>facet_wrap()</code></span></p>
+</div>
+<!-- -->
+<div class="quarto-embedded-source-code">
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &#39;Customizing Plots&#39;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> &#39;`scales`, labels, `facet_wrap()`&#39;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &#39;Emily Malcolm-White&#39;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: TRUE</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: false</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-annotations: hover</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: FALSE</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: FALSE</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="co">#Import the can_lang dataset </span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv&quot;</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="fu"># A starting graph: scatterplot of `can_lang`</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>can_lang_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x=</span>most_at_home, <span class="at">y=</span>mother_tongue)) <span class="sc">+</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>) </span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>Notice anything weird about this plot? </span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="fu"># Axis display format: `scales` package</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a> <span class="co"># Install the package if needed</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>We want to customize how the continuous x and y axes look, so we need to use the argument <span class="in">`labels=label_comma()`</span> inside a <span class="in">`scale_*_continuous()`</span> layer: </span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>can_lang_plot <span class="sc">+</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span> <span class="co">#&lt;1&gt; </span></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="co">#&lt;2&gt; </span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>numbers on the x-axis are displayed with commas (and not in scientific notation)</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>numbers on the y-axis are displayed with commas (and not in scientific notation)</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>:::{.callout-note}</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="fu"># What other formats are available in the `scales` package?</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>When passing a formatting function inside <span class="in">`scale_*_continuous(labels = ...)`</span> you have options! </span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>| Function           | Use Case                              | Example Input  | Example Output  |</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>|-------------------|---------------------------------|---------------|----------------|</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>| <span class="in">`label_comma()`</span>  | Formats numbers with commas    | <span class="in">`1234567`</span>     | <span class="in">`&quot;1,234,567&quot;`</span>  |</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>| <span class="in">`label_dollar()`</span> | Formats numbers as dollar currency   | <span class="in">`99.99`</span>       | <span class="in">`&quot;$99.99&quot;`</span>     |</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>| <span class="in">`label_dollar(prefix = &quot;€&quot;)`</span> | Formats numbers as euro currency   | <span class="in">`99.99`</span>       | <span class="in">`&quot;99.99€&quot;`</span>     </span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>| <span class="in">`label_percent()`</span> | Converts decimals to percent | <span class="in">`0.25`</span>        | <span class="in">`&quot;25%&quot;`</span>        |</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>| <span class="in">`label_pvalue()`</span> | Formats p-values              | <span class="in">`0.00005`</span>     | <span class="in">`&quot;&lt;0.0001&quot;`</span>    |</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>Anything else? </span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logarithmic Axes Transformations</span></span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>:::{.callout-note}</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a><span class="fu">#  Applying a Log Transformation</span></span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>When you apply a log transformation to an axis (or both axes) in a plot, you convert values using a logarithmic scale instead of a linear scale. This means:</span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Instead of evenly spaced values (1, 2, 3, 4, ...), a logarithmic scale spaces values exponentially (1, 10, 100, 1000, ...).</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The distance between ticks represents a multiplicative factor instead of an additive one.</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: FALSE</span></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 12</span></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 6</span></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="do">### ALL OF THIS IS SUPER SPICY 🌶️🌶️️ and beyond what I would expect of you in this course...</span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to generate breaks for log10 scale</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>minor_log_breaks <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(<span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)))  <span class="co"># Generates minor breaks at 1.1, 1.2, ..., 9, 10, 20, 30...</span></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="co"># Define major log breaks for both plots (powers of 10)</span></span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>major_log_breaks <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)  <span class="co"># 1, 10, 100, 1000, ..., 1,000,000</span></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a><span class="co"># Define linear breaks for both plots (powers of 10)</span></span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>major_linear_breaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30000000</span>, <span class="dv">5000000</span>)</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>minor_linear_breaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30000000</span>, <span class="dv">1000000</span>)</span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with Linear Scale</span></span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home, <span class="at">y =</span> mother_tongue)) <span class="sc">+</span></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> major_linear_breaks, </span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">label_comma</span>(), </span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> minor_linear_breaks) <span class="sc">+</span></span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> major_linear_breaks,</span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">label_comma</span>(), </span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> minor_linear_breaks) <span class="sc">+</span></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>,</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>,</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Linear Scale on x- and y-axis&quot;</span>, </span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;the next break on a linear scale can be found my ADDING&quot;</span></span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>), <span class="co"># Light blue for major grid lines</span></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;#D6EBF2&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>)</span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract breaks from the linear scale plot</span></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>p1_build <span class="ot">&lt;-</span> <span class="fu">ggplot_build</span>(p1)</span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>extracted_linear_breaks <span class="ot">&lt;-</span> p1_build<span class="sc">$</span>layout<span class="sc">$</span>panel_params[[<span class="dv">1</span>]]<span class="sc">$</span>x<span class="sc">$</span>breaks</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove zeros (log10(0) is undefined)</span></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>extracted_linear_breaks <span class="ot">&lt;-</span> extracted_linear_breaks[extracted_linear_breaks <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform breaks for log scale</span></span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a>log_breaks <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">floor</span>(<span class="fu">log10</span>(extracted_linear_breaks))  <span class="co"># Round to nearest power of 10</span></span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom function to format numbers as scientific notation (10^x)</span></span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>format_scientific <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">parse</span>(<span class="at">text =</span> <span class="fu">paste0</span>(<span class="st">&quot;10^&quot;</span>, <span class="fu">log10</span>(x)))  <span class="co"># Converts numbers into properly formatted exponents</span></span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with Log Scale</span></span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home, <span class="at">y =</span> mother_tongue)) <span class="sc">+</span></span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(</span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="fu">minor_log_breaks</span>(),</span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> major_log_breaks,  <span class="co"># Use manually defined major breaks</span></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">label_comma</span>(),</span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> .,  </span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>                        <span class="at">breaks =</span> major_log_breaks,  </span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> format_scientific,  <span class="co"># Scientific notation labels</span></span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="cn">NULL</span>)  </span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(</span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="fu">minor_log_breaks</span>(),</span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> major_log_breaks,  </span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">label_comma</span>(),</span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> .,  </span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>                        <span class="at">breaks =</span> major_log_breaks,  </span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> format_scientific,  <span class="co"># Scientific notation labels</span></span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="cn">NULL</span>)  </span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (number of Canadian residents, log scale)&quot;</span>,</span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (number of Canadian residents, log scale)&quot;</span>,</span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Log Scale on x- and y-axis (log-log scale)&quot;</span>, </span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;The next break on a log scale can be found by MULTIPLYING&quot;</span></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>),  <span class="co"># Light blue for minor grid lines</span></span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;darkred&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>),  <span class="co"># Dark red dotted for major grid lines</span></span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x.bottom =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>)),</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x.top =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">5</span>)),</span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.left =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>)),  <span class="co"># Add space for primary y-axis</span></span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y.right =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">l =</span> <span class="dv">5</span>))  <span class="co"># Add space for secondary y-axis</span></span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a><span class="co"># Display both plots side by side</span></span>
+<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a>See how much more clearly we can see all the points! </span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a>For you to do this yourself, you need to use <span class="in">`scale_*_log10()`</span> instead of <span class="in">`scale_*_continuous()`</span>: </span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a>can_lang_plot <span class="sc">+</span></span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span> <span class="co">#&lt;1&gt; </span></span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="co">#&lt;2&gt;</span></span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>converts x-axis to a log-scale</span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>converts y-axis to a log-scale</span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a><span class="fu"># Use ✅ `scale_*_log10()` instead of 🚫`log(variable)`</span></span>
+<span id="cb10-225"><a href="#cb10-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-226"><a href="#cb10-226" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-227"><a href="#cb10-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-228"><a href="#cb10-228" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-229"><a href="#cb10-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: FALSE</span></span>
+<span id="cb10-230"><a href="#cb10-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-231"><a href="#cb10-231" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with Log Scale (Recommended)</span></span>
+<span id="cb10-232"><a href="#cb10-232" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home, <span class="at">y =</span> mother_tongue)) <span class="sc">+</span></span>
+<span id="cb10-233"><a href="#cb10-233" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-234"><a href="#cb10-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span> </span>
+<span id="cb10-235"><a href="#cb10-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span> </span>
+<span id="cb10-236"><a href="#cb10-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-237"><a href="#cb10-237" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Recommended Approach&quot;</span>, </span>
+<span id="cb10-238"><a href="#cb10-238" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Use `scale_*_log10()`&quot;</span>,</span>
+<span id="cb10-239"><a href="#cb10-239" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span>  <span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>,</span>
+<span id="cb10-240"><a href="#cb10-240" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span></span>
+<span id="cb10-241"><a href="#cb10-241" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-242"><a href="#cb10-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-243"><a href="#cb10-243" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-244"><a href="#cb10-244" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>), </span>
+<span id="cb10-245"><a href="#cb10-245" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;sans&quot;</span>)  <span class="co"># Ensures emoji support in most environments</span></span>
+<span id="cb10-246"><a href="#cb10-246" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-247"><a href="#cb10-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-248"><a href="#cb10-248" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with Manual Log Transform (Not Recommended)</span></span>
+<span id="cb10-249"><a href="#cb10-249" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(most_at_home), <span class="at">y =</span> <span class="fu">log</span>(mother_tongue))) <span class="sc">+</span></span>
+<span id="cb10-250"><a href="#cb10-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-251"><a href="#cb10-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span> </span>
+<span id="cb10-252"><a href="#cb10-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span> </span>
+<span id="cb10-253"><a href="#cb10-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-254"><a href="#cb10-254" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Not recommended&quot;</span>, </span>
+<span id="cb10-255"><a href="#cb10-255" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">&quot;Manually Transforming the Data (log(variable))&quot;</span>,</span>
+<span id="cb10-256"><a href="#cb10-256" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span>  <span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span>,</span>
+<span id="cb10-257"><a href="#cb10-257" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (number of Canadian residents)&quot;</span></span>
+<span id="cb10-258"><a href="#cb10-258" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-259"><a href="#cb10-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-260"><a href="#cb10-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-261"><a href="#cb10-261" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>), </span>
+<span id="cb10-262"><a href="#cb10-262" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;sans&quot;</span>)  </span>
+<span id="cb10-263"><a href="#cb10-263" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-264"><a href="#cb10-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-265"><a href="#cb10-265" aria-hidden="true" tabindex="-1"></a><span class="co"># Display both plots side by side</span></span>
+<span id="cb10-266"><a href="#cb10-266" aria-hidden="true" tabindex="-1"></a>gridExtra<span class="sc">::</span><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb10-267"><a href="#cb10-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-268"><a href="#cb10-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-269"><a href="#cb10-269" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-270"><a href="#cb10-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-271"><a href="#cb10-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-272"><a href="#cb10-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using percents on a log scale</span></span>
+<span id="cb10-273"><a href="#cb10-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-274"><a href="#cb10-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### `mutate` to create new columns with percentage of Canadians who speak the language as their mother tongue: </span></span>
+<span id="cb10-275"><a href="#cb10-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-276"><a href="#cb10-276" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-277"><a href="#cb10-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-278"><a href="#cb10-278" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-279"><a href="#cb10-279" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> can_lang <span class="sc">%&gt;%</span></span>
+<span id="cb10-280"><a href="#cb10-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-281"><a href="#cb10-281" aria-hidden="true" tabindex="-1"></a>    <span class="at">mother_tongue_percent =</span> (mother_tongue <span class="sc">/</span> <span class="dv">35151728</span>) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb10-282"><a href="#cb10-282" aria-hidden="true" tabindex="-1"></a>    <span class="at">most_at_home_percent =</span> (most_at_home <span class="sc">/</span> <span class="dv">35151728</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-284"><a href="#cb10-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-285"><a href="#cb10-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-286"><a href="#cb10-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### Scatterplot with Percents and Colors</span></span>
+<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-288"><a href="#cb10-288" aria-hidden="true" tabindex="-1"></a>Create a scatterplot with <span class="in">`most_at_home_percent`</span> and <span class="in">`mother_tongue_percent`</span>. Vary the color and shape of the points depending on the category of language. You may need to adjust the position of the legend: </span>
+<span id="cb10-289"><a href="#cb10-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-290"><a href="#cb10-290" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-291"><a href="#cb10-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-292"><a href="#cb10-292" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-293"><a href="#cb10-293" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home_percent, <span class="co">#&lt;1&gt; </span></span>
+<span id="cb10-294"><a href="#cb10-294" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> mother_tongue_percent )) <span class="sc">+</span>  <span class="co">#&lt;2&gt; </span></span>
+<span id="cb10-295"><a href="#cb10-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category, <span class="at">shape=</span>category), <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-296"><a href="#cb10-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-297"><a href="#cb10-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-298"><a href="#cb10-298" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="at">legend.direction =</span> <span class="st">&quot;vertical&quot;</span>) <span class="sc">+</span> <span class="co">#&lt;4&gt;</span></span>
+<span id="cb10-299"><a href="#cb10-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb10-300"><a href="#cb10-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> comma)</span>
+<span id="cb10-301"><a href="#cb10-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-302"><a href="#cb10-302" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot </span>
+<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-304"><a href="#cb10-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Use <span class="in">`most_at_home_percent`</span> as the x-axis</span>
+<span id="cb10-306"><a href="#cb10-306" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use <span class="in">`mother_tongue_percent`</span> as as the y-axis</span>
+<span id="cb10-307"><a href="#cb10-307" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>vary the shape and the color based on the category of language. Note this is included in the aesthetics of the points. It also would have been okay to put these directly inside the global aesthetics (<span class="in">`ggplot(aes(...))`</span>) so that these characteristics apply to any layers.  </span>
+<span id="cb10-308"><a href="#cb10-308" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Adjusts the position of the legend</span>
+<span id="cb10-309"><a href="#cb10-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-310"><a href="#cb10-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-311"><a href="#cb10-311" aria-hidden="true" tabindex="-1"></a><span class="fu"># Labels</span></span>
+<span id="cb10-312"><a href="#cb10-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-313"><a href="#cb10-313" aria-hidden="true" tabindex="-1"></a>Adding text to a plot is one of the most common forms of annotation. Most plots will not benefit from adding text to every single observation on the plot, but labeling outliers and other important points is very useful. </span>
+<span id="cb10-314"><a href="#cb10-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-315"><a href="#cb10-315" aria-hidden="true" tabindex="-1"></a>A add label for each language in this dataset using <span class="in">`geom_text(aes(label = language))`</span>: </span>
+<span id="cb10-316"><a href="#cb10-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-317"><a href="#cb10-317" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-318"><a href="#cb10-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-319"><a href="#cb10-319" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-320"><a href="#cb10-320" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot  <span class="sc">+</span> </span>
+<span id="cb10-321"><a href="#cb10-321" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>language), </span>
+<span id="cb10-322"><a href="#cb10-322" aria-hidden="true" tabindex="-1"></a>              <span class="at">nudge_x =</span> <span class="fl">0.25</span>, </span>
+<span id="cb10-323"><a href="#cb10-323" aria-hidden="true" tabindex="-1"></a>              <span class="at">nudge_y=</span><span class="fl">0.25</span>)</span>
+<span id="cb10-324"><a href="#cb10-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-325"><a href="#cb10-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-326"><a href="#cb10-326" aria-hidden="true" tabindex="-1"></a>Yikes! This is way too much going on in one plot. A few options to try when this happens: </span>
+<span id="cb10-327"><a href="#cb10-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-328"><a href="#cb10-328" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Decrease the font size of the labels (using the <span class="in">`size=`</span> argument inside <span class="in">`geom_text`</span>).</span>
+<span id="cb10-329"><a href="#cb10-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the <span class="in">`ggrepel`</span> package to spread out the labels a bit more </span>
+<span id="cb10-330"><a href="#cb10-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pick out only a subset of the points to label</span>
+<span id="cb10-331"><a href="#cb10-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-332"><a href="#cb10-332" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using `ggrepel`</span></span>
+<span id="cb10-333"><a href="#cb10-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-334"><a href="#cb10-334" aria-hidden="true" tabindex="-1"></a><span class="al">![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/874dedf0-55d1-4cdd-a390-45b8376d2fc2_rw_1920.png?h=39c69f525af3256f7096f510bafb0913)</span>{width=50%}</span>
+<span id="cb10-335"><a href="#cb10-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-336"><a href="#cb10-336" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-337"><a href="#cb10-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-338"><a href="#cb10-338" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-339"><a href="#cb10-339" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb10-340"><a href="#cb10-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-341"><a href="#cb10-341" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="sc">+</span> </span>
+<span id="cb10-342"><a href="#cb10-342" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>language), <span class="at">max.overlaps =</span> <span class="cn">Inf</span>)</span>
+<span id="cb10-343"><a href="#cb10-343" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-344"><a href="#cb10-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-345"><a href="#cb10-345" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subset the labels</span></span>
+<span id="cb10-346"><a href="#cb10-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-347"><a href="#cb10-347" aria-hidden="true" tabindex="-1"></a>Create a new column for the labels. Use <span class="in">`case_when`</span> (or <span class="in">`ifelse`</span>) to only use the official language names and not to put a label for other language categories. </span>
+<span id="cb10-348"><a href="#cb10-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-349"><a href="#cb10-349" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-350"><a href="#cb10-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-351"><a href="#cb10-351" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-352"><a href="#cb10-352" aria-hidden="true" tabindex="-1"></a>can_lang <span class="ot">&lt;-</span> can_lang <span class="sc">%&gt;%</span> </span>
+<span id="cb10-353"><a href="#cb10-353" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">official_languages =</span> <span class="fu">case_when</span>(category <span class="sc">==</span> <span class="st">&quot;Official languages&quot;</span> <span class="sc">~</span> language, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span> ))</span>
+<span id="cb10-354"><a href="#cb10-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-355"><a href="#cb10-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-356"><a href="#cb10-356" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-357"><a href="#cb10-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-358"><a href="#cb10-358" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-359"><a href="#cb10-359" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to redo the base plot with the new can_lang dataset with the new official_languages column in it </span></span>
+<span id="cb10-360"><a href="#cb10-360" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(can_lang, <span class="fu">aes</span>(<span class="at">x =</span> most_at_home_percent,  <span class="at">y =</span> mother_tongue_percent)) <span class="sc">+</span> <span class="co">#&lt;2&gt; </span></span>
+<span id="cb10-361"><a href="#cb10-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category, <span class="at">shape=</span>category)) <span class="sc">+</span></span>
+<span id="cb10-362"><a href="#cb10-362" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Language spoken most at home </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-363"><a href="#cb10-363" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Mother tongue </span><span class="sc">\n</span><span class="st"> (percentage of Canadian residents)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-364"><a href="#cb10-364" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="at">legend.direction =</span> <span class="st">&quot;vertical&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb10-365"><a href="#cb10-365" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb10-366"><a href="#cb10-366" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> comma)</span>
+<span id="cb10-367"><a href="#cb10-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-368"><a href="#cb10-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-369"><a href="#cb10-369" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="sc">+</span> </span>
+<span id="cb10-370"><a href="#cb10-370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label=</span>official_languages, <span class="at">min.segment.length=</span><span class="dv">0</span>, <span class="at">box.padding=</span><span class="dv">1</span>))</span>
+<span id="cb10-371"><a href="#cb10-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-372"><a href="#cb10-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-373"><a href="#cb10-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-374"><a href="#cb10-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-375"><a href="#cb10-375" aria-hidden="true" tabindex="-1"></a><span class="fu"># Facet Wrap</span></span>
+<span id="cb10-376"><a href="#cb10-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-377"><a href="#cb10-377" aria-hidden="true" tabindex="-1"></a><span class="in">`facet_wrap()`</span> is a function in the <span class="in">`ggplot2`</span> package that allows you to create a multi-panel plot showing a similar plot over different subsets of the data, usually different values of a categorical variable. </span>
+<span id="cb10-378"><a href="#cb10-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-379"><a href="#cb10-379" aria-hidden="true" tabindex="-1"></a>Create separate side-by-side plots for each different category of language. </span>
+<span id="cb10-380"><a href="#cb10-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-381"><a href="#cb10-381" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb10-382"><a href="#cb10-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-383"><a href="#cb10-383" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb10-384"><a href="#cb10-384" aria-hidden="true" tabindex="-1"></a>can_lang_percent_plot <span class="sc">+</span> </span>
+<span id="cb10-385"><a href="#cb10-385" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>category)  </span>
+<span id="cb10-386"><a href="#cb10-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+</body>
+
+</html>

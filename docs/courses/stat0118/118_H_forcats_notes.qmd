@@ -1,0 +1,131 @@
+---
+title: '`forcats`: working with categorical data'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+The R package `forcats` is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we'll cover the basics of the `forcats` package and some of its most useful functions.
+
+
+## Categorical Variables
+
+Let's review what categorical data is. Categorical data is a type of data that consists of categories or labels.
+
+Examples of categorical data include:
+
+- Colors (red, blue, green, etc.)
+- Types of vehicles (sedan, SUV, truck)
+- Educational degrees (high school, college, graduate school)
+
+Categorical data can be further divided into two types: *nominal* and *ordinal*. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced.
+
+## `mpg` Data
+
+We will play with different functions in the `forcats` packages using the `mpg` dataset from earlier in the semester. 
+
+```{r}
+library(forcats)
+library(tidyverse)
+data("mpg")
+```
+
+Recall our side-by-side boxplot: 
+
+```{r}
+mpg %>% 
+  ggplot(aes(x=class, y=hwy)) +
+  geom_boxplot()
+```
+
+## Reordering Factor Levels
+
+One of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.
+
+Is `class` a factor?  
+
+```{r}
+
+```
+
+Let's make it a factor! 
+
+```{r}
+
+```
+
+Let's check the levels and their current ordering! 
+
+```{r}
+
+```
+
+To reorder the levels: 
+
+```{r}
+
+```
+
+Let's recreate our side-by-side boxplot now: 
+
+```{r}
+mpg %>% 
+  ggplot(aes(x=class, y=hwy)) +
+  geom_boxplot()
+```
+
+Rather than reordering them manually by typing the order, you could also re-level by some numeric criteria. For example: 
+
+```{r}
+
+```
+
+
+## Renaming Factor levels
+
+Sometimes you might not like the way the levels are named. 
+
+```{r}
+
+```
+
+## Factor Collapsing
+
+Let's say we wanted to create only two categories -- cars and larger vehicles. 
+
+```{r}
+
+```
+
+
+## Lumping into an other category
+
+- `fct_lump_min()`: lumps levels that appear fewer than min times.
+
+- `fct_lump_prop()`: lumps levels that appear in fewer than (or equal to) prop * n times.
+
+- `fct_lump_n()` lumps all levels except for the n most frequent (or least frequent if n < 0)
+
+```{r}
+table(mpg$manufacturer)
+```
+
+Let's say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other: 
+
+```{r}
+
+```
+
+
+
