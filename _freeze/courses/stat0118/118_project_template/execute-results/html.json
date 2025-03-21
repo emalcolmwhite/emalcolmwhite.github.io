@@ -1,0 +1,14 @@
+{
+  "hash": "b4df4736ac5703442199ae1c523db742",
+  "result": {
+    "markdown": "---\ntitle: \"YOUR WITTY TITLE HERE\"\nauthor: \"YOUR NAME(S) HERE\"\nformat:\n  html:\n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\nexecute: \n  warning: false\n  message: false\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#LOAD PACKAGES\nlibrary(tidyverse)\n```\n:::\n\n\n# Introduction\n\n# Results\n\n# Discussion\n\n# Author Contributions\n\n# References\n\n# Supplemental Materials",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

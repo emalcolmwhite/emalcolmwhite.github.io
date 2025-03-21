@@ -1,0 +1,31 @@
+---
+title: "YOUR WITTY TITLE HERE"
+author: "YOUR NAME(S) HERE"
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+execute: 
+  warning: false
+  message: false
+---
+
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+```
+
+# Introduction
+
+# Results
+
+# Discussion
+
+# Author Contributions
+
+# References
+
+# Supplemental Materials
