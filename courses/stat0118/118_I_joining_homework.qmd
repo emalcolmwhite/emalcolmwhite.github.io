@@ -69,7 +69,7 @@ What columns does `gapminder` have that `co2` doesn't?
 What columns does `co2` have that `gapminder` doesn't? 
 
 # 10. 
-Create a new table called `gapminder_joined`, which includes all rows from both tables joined together by their common variable keys (use `inner_join()`). Make a note of how many rows you have in the new table, and compare it with the original tables.
+Create a new table called `gapminder_joined`, which includes only *complete* rows from data from both tables joined together by their common variable keys (use `inner_join()`). Make a note of how many rows you have in the new table, and compare it with the original tables.
 
 ```{r}
 
