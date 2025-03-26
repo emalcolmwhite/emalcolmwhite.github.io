@@ -17,6 +17,9 @@ execute:
   warning: FALSE
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
 ![](https://tidyr.tidyverse.org/logo.png){width=30%}
 
 The goal of `tidyr` is to help you create tidy data. 
@@ -36,93 +39,64 @@ Data frames are often described as wide or long.
 
 [Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.001.jpeg?raw=true)
 
-# `canlang` dataset 
+![](https://datacarpentry.org/R-ecology-lesson/fig/tidyr-pivot_wider_longer.gif)
+
+# `portal` dataset 
 
 ```{r}
 #LOAD PACKAGES
 library(tidyverse)
 
 #LOAD DATA
-lang_wide <- read.csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_wide.csv")
+portal_rodent <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv")
 ```
 
-# Pivot Longer
-
-[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.003.jpeg?raw=true)
-
-[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_longer.jpeg?raw=true)
 
 ```{r}
-lang_mother_tidy <- pivot_longer(lang_wide,
-  cols = Toronto:Edmonton,
-  names_to = "region",
-  values_to = "mother_tongue"
-)
+portal_wgt_summary <- portal_rodent %>%
+  filter(!is.na(wgt)) %>%
+  group_by(plot, species) %>%
+  summarize(mean_wgt = mean(wgt))
 
-lang_mother_tidy
+portal_wgt_summary
 ```
-
-The data above is now tidy because all three criteria for tidy data have now been met:
-
-- All the variables (category, language, region and mother_tongue) are now their own columns in the data frame.
-- Each observation, (i.e., each language in a region) is in a single row.
-- Each value is a single cell, i.e., its row, column position in the data frame is not shared with another value.
 
 # Pivot Wider
 
+![](https://datacarpentry.org/R-ecology-lesson/fig/pivot_wider_graphic.png)
+
+Practicing transforming this data from long to wide format: 
+
 ```{r}
-lang_long <- read.csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_long.csv")
+wide <- portal_wgt_summary %>% 
+  pivot_wider(names_from = species, values_from = mean_wgt)
+
+wide
 ```
 
 
-[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.004.jpeg?raw=true)
 
-[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_wider.jpeg?raw=true)
+# Pivot Longer
 
-```{r}
-lang_home_tidy <- pivot_wider(lang_long,
-  names_from = type,
-  values_from = count
-)
-lang_home_tidy
-```
+![](https://datacarpentry.org/R-ecology-lesson/fig/pivot_longer_graphic.png)
 
-[gif](https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif)
-
-# Gapminder
+Practicing transforming this data from wide to long format: 
 
 ```{r}
-library(gapminder)
-data("gapminder")
+wide %>% 
+  pivot_longer(names_to = "species", values_to = "mean_wgt", cols=2:28)
+
+# or cols = - plot_id
 ```
 
-Let’s say we’d like to look at `LifeExp` over time for all the countries in Asia in our dataset. 
+# Challenge
+
+Reshape the rodents data frame with year as columns, plot as rows, and the number of species per plot as the values. You will need to summarize before reshaping, and use the function `n_distinct()` to get the number of unique species within a particular chunk of data. It’s a powerful function! See ?n_distinct for more.
 
 ```{r}
-# Create a dataset called asia with the data we need
-asia <- gapminder %>% 
-  filter(continent == "Asia") %>% 
-  select(country, year, lifeExp)
+portal_rodent %>% 
+  group_by(year, plot) %>% 
+  summarize(unique_species = n_distinct(species)) %>% 
+  pivot_wider(names_from = year, values_from = unique_species)
+
 ```
-
-We can create a wide version of our table, where each row is a country and each column a year, with values of `lifeExp` in each cell of the table.
-
-```{r}
-lifeExp_wide <- asia %>% 
-  pivot_wider(names_from = "year",  #<1>
-              names_prefix = "yr", #<2> 
-              values_from = "lifeExp")
-lifeExp_wide
-```
-
-1. use pivot_wider to go from long to wide format
-2. Adds the pre-fix "yr" to all the column names -- it’s a good idea to avoid column names that start with a number. 
-
-
-:::callout
-# External Resources
-
-- [R for Data Science, Data Tidying](https://r4ds.hadley.nz/data-tidy)
-
-:::
-
