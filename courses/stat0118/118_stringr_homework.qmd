@@ -86,7 +86,7 @@ Which class(es) offer(s) the most number of sections?
 
 # 9. 
 
-A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements. Create a list of all the unicorn classes offered in Fall 2025.
+A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Fall 2025.
 
 ```{r}
 

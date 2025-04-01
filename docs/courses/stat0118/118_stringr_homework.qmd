@@ -1,0 +1,93 @@
+---
+title: "STAT 118: Homework"
+subtitle: "Working with text with `stringr`"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+
+#LOAD DATA
+courses <- read_csv("data/courses.csv")
+courses <- courses %>%
+  mutate(isCW = str_extract(distros, "CW")) %>%
+  mutate(distros = str_remove(distros, "CW"))
+```
+
+# 1.
+Create new column called `isDED` which indicates courses which have "DED" listed inside the `distros` column. 
+
+```{r}
+
+```
+
+
+# 2.
+
+Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. STAT0118B-S25) into three separate pieces (ie. STAT, 0118, and A). 
+
+```{r}
+
+```
+
+# 3.
+
+How many classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).
+
+```{r}
+
+```
+
+
+# 4.
+How many *unique* classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).
+
+```{r}
+
+```
+
+
+# 5.
+Suppose you really love taking classes with an instructor with the first name "Emily". Which classes will be offered in Fall 2025 by someone with the first name "Emily"?
+
+```{r}
+
+```
+
+
+# 6.
+Suppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc. 
+
+```{r}
+
+```
+
+
+# 7.
+Which class(es) offer(s) the most number of sections? 
+
+```{r}
+
+```
+
+# 8.
+"The" is the most popular word in the English language. Count the number of times the word "the" appears in the description of each course. Which course(s) uses the word "the" the most? 
+
+```{r}
+
+```
+
+# 9. 
+
+A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements. Create a list of all the unicorn classes offered in Fall 2025.
+
+```{r}
+
+```

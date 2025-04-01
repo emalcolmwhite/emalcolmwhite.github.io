@@ -1,0 +1,14 @@
+{
+  "hash": "35bc231a0c3fc74c5d4b17616a06e7bb",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework\"\nsubtitle: \"Working with text with `stringr`\"\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n#LOAD DATA\ncourses <- read_csv(\"data/courses.csv\")\ncourses <- courses %>%\n  mutate(isCW = str_extract(distros, \"CW\")) %>%\n  mutate(distros = str_remove(distros, \"CW\"))\n```\n:::\n\n\n# 1.\nCreate new column called `isDED` which indicates courses which have \"DED\" listed inside the `distros` column. \n\n\n::: {.cell}\n\n:::\n\n\n\n# 2.\n\nCreate a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. STAT0118B-S25) into three separate pieces (ie. STAT, 0118, and A). \n\n\n::: {.cell}\n\n:::\n\n\n# 3.\n\nHow many classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).\n\n\n::: {.cell}\n\n:::\n\n\n\n# 4.\nHow many *unique* classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).\n\n\n::: {.cell}\n\n:::\n\n\n\n# 5.\nSuppose you really love taking classes with an instructor with the first name \"Emily\". Which classes will be offered in Fall 2025 by someone with the first name \"Emily\"?\n\n\n::: {.cell}\n\n:::\n\n\n\n# 6.\nSuppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc. \n\n\n::: {.cell}\n\n:::\n\n\n\n# 7.\nWhich class(es) offer(s) the most number of sections? \n\n\n::: {.cell}\n\n:::\n\n\n# 8.\n\"The\" is the most popular word in the English language. Count the number of times the word \"the\" appears in the description of each course. Which course(s) uses the word \"the\" the most? \n\n\n::: {.cell}\n\n:::\n\n\n# 9. \n\nA \"unicorn class\" is defined as a course which is able to satisfy three different distribution requirements. Create a list of all the unicorn classes offered in Fall 2025.\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
