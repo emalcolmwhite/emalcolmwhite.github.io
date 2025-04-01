@@ -1,0 +1,132 @@
+---
+title: "Making plots  with ggplot2: histograms, boxplots, line graphs"
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+```{r}
+# load packages
+library(tidyverse)
+```
+
+
+# `possum` data
+
+The possum data frame consists of nine morphometric measurements on each of 104 mountain brushtail possums, trapped at seven Australian sites from Southern Victoria to central Queensland.
+
+There are two different populations (`pop`):  `Vic` (Victoria) and `other` (New South Wales or Queensland)
+
+
+```{r}
+#Import the possum data again
+library(DAAG)
+data("possum")
+```
+
+
+
+# Histograms
+
+:::callout-tip
+Histograms are great for looking at the distributions of numeric variables
+:::
+
+A boxplot for the foot length of all possums in this dataset: 
+
+
+```{r}
+
+```
+
+
+You can also customize by color: 
+
+
+```{r}
+
+```
+
+
+
+Some people prefer to use `geom_density` for a smoother effect: 
+
+
+```{r}
+
+```
+
+
+# Boxplots
+
+:::callout-tip
+Boxplots are good for displaying the spread, central tendency, and distribution of one numeric variable. 
+:::
+
+![Credit: Michael Galarnyk](https://miro.medium.com/max/9000/1*2c21SkzJMf3frPXPAR_gZA.png)
+
+A lone box-plot for one numeric variable (foot length) with some custom colors: 
+
+
+```{r}
+
+```
+
+
+:::{callout-tip}
+
+If only one boxplot, it puts weird numbers on the x axis, you may want to use the theme to hide these numbers. 
+
+
+```{r}
+ggplot(possum, aes(y = footlgth)) +
+  geom_boxplot(color = "blue", fill = "lightblue") +
+  theme(
+    axis.text.x = element_blank(),  # Hide text
+    axis.ticks.x = element_blank(), # Hide tick marks
+    axis.title.x = element_blank()  # Hide axis title
+  )
+```
+
+
+:::
+
+:::callout-tip
+Side-by-side boxplots are good for displaying one categorical variable and one numeric variable. One advantage of boxplots over bar plots is that they are able to show a bit about the spread and distribution of the numeric variable! 
+:::
+
+A side-by-side boxplot to compare the foot lengths between the two populations of possums: 
+
+
+```{r}
+# same color for both boxplots
+
+
+# different color for both boxplots
+
+```
+
+
+# Line Graph
+
+This dataset was produced from US economic time series data available from [https://fred.stlouisfed.org/](https://fred.stlouisfed.org/). Type `? economics` to learn more. 
+
+
+```{r}
+data("economics")
+```
+
+
+Create a line plot with the unemployment rate of the US over time: 
+
+
+```{r}
+
+```
+

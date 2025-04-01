@@ -1,0 +1,14 @@
+{
+  "hash": "e263182e31db527ea08c5d680bf76ccf",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework J\"\nsubtitle: 'reshaping data with `pivot_longer()` and `pivot_wider()`'\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#LOAD PACKAGES \nlibrary(tidyverse)\n```\n:::\n\n\n# Religious Income Data\n\nThe Pew Religious Income Survey, conducted in 2007 and 2014, surveys more than 35,000 Americans from all 50 states about their religious affiliations, beliefs and practices, and social and political views. This data comes from 2009.\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndata(\"relig_income\") # contained in tidyverse package\n```\n:::\n\n\nThis dataset contains three variables:\n\n-   religion of the surveyee\n-   the annual income bracket of the surveyee\n-   the count (number of surveyees)\n\n# 1.\n\nIs this data in wide or long format?\n\n# 2.\n\nPivot the data (If it's in long format, make it wide. If it's in wide format, make it long).\n\n\n::: {.cell}\n\n:::\n\n\n# Fish Encounters Dataset\n\nThe `fish_encounters` dataset contains information about fish swimming down a river. Each station recorded if a tagged fish was observed at its monitor stations. Fish travel is one direction (migrating downstream).\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndata(\"fish_encounters\") # contained in tidyverse package\n```\n:::\n\n\nThe dataset contains three variables:\n\n-   fish, the fish identifier,\n-   station, the measurement stations\n-   seen = 1 if the fish was seen\n\n# 3.\n\nIs this data in wide or long format?\n\n# 4.\n\nPivot the data (If it's in long format, make it wide. If it's in wide format, make it long).\n\n\n::: {.cell}\n\n:::\n\n\n# 5.\n\nYou might notice that there are a lot of NA or missing values after pivoting wider. This is means that the fish was not observed at that given station. Let's replace the NA values with 0s. Repeat your pivot in the previous problem but, add the following to your pivot_wider() function call: `values_fill = 0`.\n\n\n::: {.cell}\n\n:::\n\n\n# `gapminder` Data\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(gapminder)\ndata('gapminder')\n```\n:::\n\n\n# 6.\n\nRecreate the following table from the `gapminder` dataset. Focus on the content first. If you have time, you can try to match the styling.\n\n![](https://github.com/emalcolmwhite/STAT0118/blob/main/J_Pivoting/images/gapminder_us_table.png?raw=true)\n\n# 7.\n\nRecreate the following table from the `gapminder` dataset. Focus on the content first. If you have time, you can try to match the styling.\n\n![](https://github.com/emalcolmwhite/STAT0118/blob/main/J_Pivoting/images/gapminder_table.jpg?raw=true)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

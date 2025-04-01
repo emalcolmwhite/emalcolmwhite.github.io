@@ -1,0 +1,121 @@
+---
+title: 'reshaping data with `tidyr`'
+author: 'Emily Malcolm-White'
+institute: 'Middlebury College'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+---
+
+
+![](https://tidyr.tidyverse.org/logo.png){width=10%}
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
+
+
+![](https://media.tenor.com/jy6WGzwRKlsAAAAC/ross-pivot-friends.gif)
+
+# Reshaping with Pivoting -- Why? 
+
+Data frames are often described as wide or long. 
+
+*Wide* when a row has more than one observation, and the units of observation are on one row each
+
+*Long* when a row has only one observation, but the units of observation are repeated down the column
+
+![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.001.jpeg?raw=true)
+
+# `canlang` dataset 
+
+
+```{r}
+#LOAD PACKAGES
+library(tidyverse)
+
+#LOAD DATA
+lang_wide <- read.csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_wide.csv")
+```
+
+
+# Pivot Longer
+
+![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.003.jpeg?raw=true)
+![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_longer.jpeg?raw=true)
+
+```{r}
+lang_mother_tidy <- pivot_longer(lang_wide,
+  cols = Toronto:Edmonton,
+  names_to = "region",
+  values_to = "mother_tongue"
+)
+
+lang_mother_tidy
+```
+
+
+
+The data above is now tidy because all three criteria for tidy data have now been met:
+
+- All the variables (category, language, region and mother_tongue) are now their own columns in the data frame.
+- Each observation, (i.e., each language in a region) is in a single row.
+- Each value is a single cell, i.e., its row, column position in the data frame is not shared with another value.
+
+# Pivot Wider
+
+
+```{r}
+lang_long <- read.csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/master/data/region_lang_top5_cities_long.csv")
+```
+
+
+
+![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.004.jpeg?raw=true)
+![Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_wider.jpeg?raw=true)
+
+
+```{r}
+lang_home_tidy <- pivot_wider(lang_long,
+  names_from = type,
+  values_from = count
+)
+lang_home_tidy
+```
+
+
+# Gapminder
+
+
+```{r}
+library(gapminder)
+data("gapminder")
+```
+
+
+Let’s say we’d like to look at `LifeExp` over time for all the countries in Asia in our dataset. 
+
+
+```{r}
+# Create a dataset called asia with the data we need
+asia <- gapminder %>% 
+  filter(continent == "Asia") %>% 
+  select(country, year, lifeExp)
+```
+
+
+We can create a wide version of our table, where each row is a country and each column a year, with values of `lifeExp` in each cell of the table.
+
+
+```{r}
+lifeExp_wide <- asia %>% 
+  # use pivot_wider to go from long to wide format
+  pivot_wider(names_from = "year", 
+              names_prefix = "yr", #it’s a good idea to avoid column names that start with a number
+              values_from = "lifeExp")
+lifeExp_wide
+```
+

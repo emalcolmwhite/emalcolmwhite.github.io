@@ -1,0 +1,95 @@
+---
+title: "STAT 118: Homework E"
+subtitle: "Making plots  with ggplot2: histograms, boxplots, jitter, labels"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+
+To the best of your ability, recreate the following plots from the penguins dataset. Focus your efforts on getting the content correct. If you have time at the end, as a bonus, you can try to match the styling as closely as you can.
+
+
+# 1. Iris Side-by-Side Boxplot
+
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/iris_boxplot.jpg?raw=true)
+
+
+```{r}
+#load the iris dataset
+data("iris")
+```
+
+```{r}
+
+```
+
+
+# 2. Gapminder Barplot
+
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/gapminder_country_barplot.png?raw=true)
+
+
+```{r}
+#load the gapminder dataset
+library(gapminder)
+data("gapminder")
+```
+
+```{r}
+
+```
+
+
+# 3. Gapminder Line Graph
+
+![]()
+
+
+```{r}
+library(ggthemes) # you might need this to help with the theme... 
+```
+
+```{r}
+# Filter data for selected countries
+selected_countries <- gapminder %>%
+  filter(country %in% c("United States", "China", "India", "Germany", "Brazil"))
+
+# Create the line graph
+ggplot(selected_countries, aes(x = year, y = lifeExp, color = country)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Life Expectancy Over Time",
+    x = "Year",
+    y = "Life Expectancy",
+    color = "Country",
+    caption = "Source: Gapminder Dataset"
+  ) +
+  theme_economist()  # Apply the Economist theme
+```
+
+
+# 4. Penguins Histogram
+
+![]()
+
+
+```{r}
+#Load Penguins Data
+library(palmerpenguins)
+data("penguins")
+```
+
+```{r}
+
+```
+

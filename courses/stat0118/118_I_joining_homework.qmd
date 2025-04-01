@@ -91,7 +91,7 @@ Use the `anti_join()` function to identify which rows (if any) in the `co2` data
 
 
 # 13.
-Use `gapminder_joined` to create a scatterplot of  `gdpPercap` vs. `co2_emissions_pc`. 
+Use `gapminder_joined` to create a scatterplot of  `gdpPercap` vs. `co2_emissions_pc` for any one year. 
 
 ```{r}
 

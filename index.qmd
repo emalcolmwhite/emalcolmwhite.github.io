@@ -25,10 +25,10 @@ sidebar: false
 
 **Hi there!** 👋
 
-I’m an educator and student support specialist with a passion for teaching and developing quantitative skills for students from a wide variety of backgrounds. I’m deeply committed to creating an inclusive and equitable learning environment where all students can thrive.
+I’m an educator who believes every student — especially those unsure they belong — deserves to feel seen, supported, and capable. I use creativity, care, and intentionality to make math and computing more approachable and human. I create learning experiences and systems that are welcoming, empowering, and help students see what’s possible for themselves. 
 
-At Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a new initiative dedicated to supporting Middlebury students in developing quantitative skills.
+At Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a growing initiative dedicated to supporting Middlebury students in developing the quantitative skills they need to thrive - in the classroom and beyond.
 
-Every year, I co-teach [“R by the Sea”](r-by-the-sea.html), a hands-on data science workshop for marine ecologists. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology. 
+Every year, I co-teach [“R by the Sea”](r-by-the-sea.html), a hands-on data science workshop for marine ecologists. It's a great way to connect data science with real-world questions in marine ecology. 
 
 

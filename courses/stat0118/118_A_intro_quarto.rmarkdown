@@ -1,0 +1,132 @@
+---
+title: "Intro to Quarto"
+author: "Emily Malcolm-White"
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+# Install R and R Studio
+
+You will need to follow the directions available at <https://posit.co/download/rstudio-desktop/> to download both R and RStudio.
+
+![Credit: moderndive](images/R_vs_RStudio.png)
+
+**R (The brain behind it all)**
+
+-   R is the actual programming language and the computational engine that performs all the calculations, data analysis, and visualizations.
+-   Without R, there’s no way to run your code or perform any data analysis tasks.
+-   Working in base R is possible, but it's
+
+**RStudio (The interface you work with)**
+
+RStudio is an IDE (Integrated Development Environment) that gives you a user-friendly interface to write and run your R code.
+
+::: callout-tip
+Think of it like this:[^1]
+
+-   R is the engine of a car that powers the vehicle,
+-   RStudio is the dashboard, steering wheel, and GPS that help you control and navigate the car.
+-   You need both for a smooth ride! 🚗
+:::
+
+[^1]: https://moderndive.com/1-getting-started.html
+
+When you open RStudio, you should see something similar to this:
+
+![](images/RStudio_interface.png){width="40%"}
+
+# Create a STAT 118 Folder for your work
+
+Create a folder on your computer somewhere called "STAT0118" where you can put all the resources from this course. It is recommended that you set up the file structure in the following way:
+
+![](images/file_structure.png){width="80%"}
+
+::: callout-tip
+To make your computer easier to organize, I *highly recommend* changing the settings on your web browser to ask you where you want to save files when you download (instead of just always downloading to your "Downloads" folder).
+
+The process will vary from browser to browser, but guidelines for commonly used browsers are given below:
+
+**Google Chrome:**
+
+1.  Go to the three-dot menu (top-right corner) → Settings.
+
+2.  Scroll down and click Downloads.
+
+3.  Toggle on “Ask where to save each file before downloading.”
+
+**Firefox:**
+
+1.  Click the three-line menu (top-right corner) → Settings.
+
+2.  In the General section, under Files and Applications, select: “Always ask you where to save files.”
+
+**Safari (Mac):**
+
+1.  Go to Safari \> Preferences \> General.
+
+2.  Under File download location, select: “Ask for each download.”
+:::
+
+# Rendering your .qmd file into a pretty .html file
+
+## 1️⃣ Open Your .qmd File in RStudio
+
+Navigate to the file on your local computer and click to open it!
+
+-   Some folks prefer to use the "Files" tab within RStudio to navigate to the file
+-   Other folks prefer to interact with their files in their typical way (Using Finder on Mac or File Explorer on PC)
+
+Either way works just fine!
+
+## 2️⃣ Install Quarto in RStudio
+
+**Option 1: Using the RStudio Interface**
+
+-   Go to the Packages pane in RStudio (bottom-right by default),
+-   Click Install,
+-   In the box that appears:
+    -   Enter the package name (`quarto`),
+        -   Make sure Install dependencies is checked,
+        -   Click Install.
+
+**Option 2: Using R Code in the Console**
+
+
+```{r}
+#| eval: FALSE
+install.packages("quarto")
+```
+
+
+## 3️⃣ Render and Preview
+
+Click the Render button (![](images/Render.png){width="20"}) at the top-right of your RStudio editor window.
+
+Tada! You now have created a .html file!
+
+The file has been created in the same folder as your .qmd file: ![](images/file_structure_with_html.png){width="80%"}
+
+When you render, a preview of the document will show up!
+
+::: callout-tip
+By default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I'm working at a computer station with multiple monitors.
+
+However, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I'm just working on just my laptop.
+
+Click on the "gear button" ![](images/gear.png){width="20"} and select "Preview in Viewer Pane"
+:::
+
+The preview will update whenever you re-render the document.
+

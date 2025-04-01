@@ -91,10 +91,16 @@ website:
         # Group 6: Webscraping:
         - text: "🌐️ <b>  Webscraping</b>"   
           class: sidebar-item-group
-        - text: "tables"
+        - text: "Tables"
           href: courses/stat0118/118_O_webscraping_tables.qmd
-        - text: "text"
+        - text: "Text"
           href: courses/stat0118/118_P_webscraping_text.qmd
+          
+        # Group 7: Important Considerations
+        - text: "💭️ <b> Important Considerations</b>"   
+          class: sidebar-item-group
+        - text: "Missing Data"
+          href: courses/stat0118/118_missing_data.qmd
 
 back-to-top-navigation: true
 page-footer: 
@@ -108,7 +114,7 @@ format:
     anchor-sections: false
   
 execute:
-  freeze: auto
+  freeze: true
   warning: false
   message: false
   setup: |

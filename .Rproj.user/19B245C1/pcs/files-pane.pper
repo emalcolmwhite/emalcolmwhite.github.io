@@ -2,6 +2,10 @@
     "sortOrder": [
         {
             "columnIndex": 2,
+            "ascending": false
+        },
+        {
+            "columnIndex": 3,
             "ascending": true
         },
         {
@@ -9,5 +13,5 @@
             "ascending": true
         }
     ],
-    "path": "~/Desktop/STAT0118B"
+    "path": "~/Library/CloudStorage/OneDrive-MiddleburyCollege/emalcolmwhite.github.io/courses/stat0118"
 }
