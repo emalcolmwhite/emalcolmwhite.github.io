@@ -1,7 +1,6 @@
 ---
-title: 'Math 118: Notes Q'
+title: 'working with text with `stringr`'
 subtitle: |
-  | Introducing `stringr`
   | ![](https://stringr.tidyverse.org/logo.png){width=10%}
 author: 'Violet Ross'
 institute: 'Middlebury College'
