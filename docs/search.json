@@ -235,14 +235,14 @@
     "href": "courses/stat0118/118_G_maps_notes.html#diverging-color-palettes",
     "title": "Maps with maps and sf",
     "section": "Diverging Color Palettes",
-    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n✅ If the data is skewed, consider using the scales package to log -scale.\n🔴 Avoid: Using blue for land in maps"
+    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n🔴 Avoid: Using blue for land in maps"
   },
   {
     "objectID": "courses/stat0118/118_G_maps_notes.html#adding-labels-with-geom_sf_text",
     "href": "courses/stat0118/118_G_maps_notes.html#adding-labels-with-geom_sf_text",
     "title": "Maps with maps and sf",
     "section": "Adding labels with geom_sf_text()",
-    "text": "Adding labels with geom_sf_text()\n\n\n\n\n\n\nWarning\n\n\n\nSince population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.\n\n\n\nXKCD\n\n\n🔴 Correlation doesn’t imply causation! Just because two variables show similar patterns doesn’t mean one causes the other.\n✅ Use rates, percentages, or per capita values rather than absolute numbers. Example: Instead of showing total website users per state, show website users per 100,000 residents.\n✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations. Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average."
+    "text": "Adding labels with geom_sf_text()"
   },
   {
     "objectID": "courses/stat0118/118_O_webscraping_tables.html",
@@ -656,5 +656,54 @@
     "title": "EMW",
     "section": "",
     "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html",
+    "href": "courses/stat0118/118_stringr_notes.html",
+    "title": "working with text with stringr",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(stringr)"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#a-few-basics",
+    "href": "courses/stat0118/118_stringr_notes.html#a-few-basics",
+    "title": "working with text with stringr",
+    "section": "A few basics",
+    "text": "A few basics\nWhat is a string?\nA string is a data type used to represent text. In R, we indicate that something is a string by referring to it with quotes.\nExamples of strings:\n\n\n\n\n\nNOT a string:\n\n\n\nWhat is  stringr ?\nstringr is a package containing a bunch of functions that help us work with strings.\nstringr cheat sheet"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_detect",
+    "href": "courses/stat0118/118_stringr_notes.html#str_detect",
+    "title": "working with text with stringr",
+    "section": "str_detect",
+    "text": "str_detect\ninputs:\n\na string (or a column of strings) to search from\n\na string to search for\n\noutput: boolean value (TRUE or FALSE)\nlittle example:\nI only want to take classes in Warner! Let’s filter for rows where we detect the word “Warner” in the location column.\nSuppose I don’t want any classes on Friday. Let’s use str_detect to find our options.\nPerhaps I’m interested in artificial intelligence. We can use str_detect to find course descriptions that mention artificial intelligence.\nThe regex function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.\nFor now, we will only use regex to ignore capitalization. If you’re interested in using regular expressions at some point, this regex cheat sheet will be super helpful."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_extract-and-str_remove",
+    "href": "courses/stat0118/118_stringr_notes.html#str_extract-and-str_remove",
+    "title": "working with text with stringr",
+    "section": "str_extract and str_remove",
+    "text": "str_extract and str_remove\nstr_extract inputs:\n\na string (or a column of strings) to extract from\n\na string to extract\n\nstr_extract output: the string you wanted to extract OR nothing\nstr_remove inputs:\n\na string (or a column of strings) to remove stuff from\n\na string to remove\n\nstr_remove output: the first input string with the second input removed\nlittle example:\nCW is part of the distribution requirement column. I want CW to be its own column.\nFirst we can create a new column called isCW by extracting instances of “CW” from the distros column in each row.\nThen we can remove all instances of “CW” from the distros column."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_sub",
+    "href": "courses/stat0118/118_stringr_notes.html#str_sub",
+    "title": "working with text with stringr",
+    "section": "str_sub",
+    "text": "str_sub\nstr_sub inputs:\n\na string (or a column of strings) take substrings of\n\nwhere the substring should start\nwhere the substring should end\n\nstr_sub output: the substring\nlittle example:\nMaybe I only want 200 level math and stats classes.\nFirst we filter for just math/stats classes. Then we can create a new column called level that contains only the sixth character from the courses column.\nWe can then filter our level column for specific course levels."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_count",
+    "href": "courses/stat0118/118_stringr_notes.html#str_count",
+    "title": "working with text with stringr",
+    "section": "str_count",
+    "text": "str_count\nlittle example:\nstr_count inputs:\n\na string (or a column of strings) to count from\n\na string you want to count the number of instances of\n\nstr_count output: the number of times the second string occurs in your first string\nMaybe I only want my classes to meet twice a week. Let’s count how many times “day” appears in the meet column and put this value in a new column called dayCount. dayCount represents how many days a week a class meets.\nLet’s visualize this data."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_homework.html",
+    "href": "courses/stat0118/118_stringr_homework.html",
+    "title": "STAT 118: Homework",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n#LOAD DATA\ncourses &lt;- read_csv(\"data/courses.csv\")\ncourses &lt;- courses %&gt;%\n  mutate(isCW = str_extract(distros, \"CW\")) %&gt;%\n  mutate(distros = str_remove(distros, \"CW\"))\n\n\n\n1.\nCreate new column called isDED which indicates courses which have “DED” listed inside the distros column.\n\n\n2.\nCreate a new column(s) called courseDEPT and courseCODE and courseSECT which seperate the the department course identifier (ie. STAT0118B-S25) into three separate pieces (ie. STAT, 0118, and A).\n\n\n3.\nHow many classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).\n\n\n4.\nHow many unique classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).\n\n\n5.\nSuppose you really love taking classes with an instructor with the first name “Emily”. Which classes will be offered in Fall 2025 by someone with the first name “Emily”?\n\n\n6.\nSuppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc.\n\n\n7.\nWhich class(es) offer(s) the most number of sections?\n\n\n8.\n“The” is the most popular word in the English language. Count the number of times the word “the” appears in the description of each course. Which course(s) uses the word “the” the most?\n\n\n9.\nA “unicorn class” is defined as a course which is able to satisfy three different distribution requirements. Create a list of all the unicorn classes offered in Fall 2025."
   }
 ]
