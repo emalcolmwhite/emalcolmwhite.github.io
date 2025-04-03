@@ -57,7 +57,7 @@ Let's look at the course catalog!
 
 Read in the courses data.
 ```{r, message=FALSE, warning=FALSE}
-courses <- read_csv("data/Fall23courses.csv")
+courses <- read_csv("data/courses.csv")
 ```
     
 ## `str_detect` 
@@ -207,7 +207,7 @@ Let's visualize this data.
 ```{r}
 courses %>% 
   ggplot() + 
-  geom_bar(aes(x=dayCount), fill="blue") + 
+  geom_bar(aes(x=dayCount %>% as.factor()), fill="blue") + 
   xlab("Number of Days Class Meets") + 
   ylab("Number of Classes") + 
   labs(title="How many Days a Week do Classes at Middlebury Meet?")+
