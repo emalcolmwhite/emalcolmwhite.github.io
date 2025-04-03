@@ -2,7 +2,8 @@ project:
   type: website
   output-dir: docs
   resources: 
-  - courses/stat0118/*.qmd
+    - courses/stat0118/*.qmd
+  
 
 website:
   title: "EMW"
@@ -72,13 +73,9 @@ website:
         - text: "Categorical Data: `forcats`"
           href: courses/stat0118/118_H_forcats.qmd
         - text: "Working with Text: `stringr`"
-          href: courses/stat0118/118_Q_stringr.qmd
+          href: courses/stat0118/118_stringr.qmd
         - text: "Date-Time Data: `lubridate`"
           href: courses/stat0118/118_R_lubridate.qmd
-        - text: "Data Cleaning: `janitor`"
-          href: courses/stat0118/118_janitor.qmd
-        - text: "Animated Plots: `gganimate`"
-          href: courses/stat0118/118_gganimate.qmd
   
         # Group 5: Maps
         - text: "🗺️  <b> Maps </b>"
@@ -96,11 +93,6 @@ website:
         - text: "Text"
           href: courses/stat0118/118_P_webscraping_text.qmd
           
-        # Group 7: Important Considerations
-        - text: "💭️ <b> Important Considerations</b>"   
-          class: sidebar-item-group
-        - text: "Missing Data"
-          href: courses/stat0118/118_missing_data.qmd
 
 back-to-top-navigation: true
 page-footer: 
