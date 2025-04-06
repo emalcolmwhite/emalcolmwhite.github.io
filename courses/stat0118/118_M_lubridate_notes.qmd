@@ -1,0 +1,144 @@
+---
+title: 'Working with dates using `lubridate`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+  pdf: default
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+![](https://lubridate.tidyverse.org/logo.png){width=20%}
+
+Dates and times are everywhere in data: timestamps on social media posts, transaction dates in sales records, birthdates in survey data. But unlike numbers or strings, dates are tricky—you can’t just subtract them like normal numbers, and parsing them from messy formats can be a headache.
+
+# Date Formats
+
+Think of how many different formats you know of to format a date: 
+
+- 2023 07 06 
+- Wed, Jun 7, 2023
+- 07-06-23
+- 06-07-23 14:55 ET
+- 06/07/2023 2:55pm
+
+Yikes! 
+
+# Date, Time, and Datetime
+
+Date/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:
+
+1. Date - only has the date (e.g. 2020-05-15) 
+2. Time - only has the time (e.g. 20:45:00) 
+3. Datetime - has both the date and time (e.g. 2020-05-15 20:45:00)
+
+# `Lubridate`
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce){width=50%}
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+#LOAD PACKAGES 
+library(tidyverse)
+library(lubridate)
+```
+
+# Standard Date Format
+
+The `ymd()` function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day. 
+
+```{r}
+ymd("06 02 04")
+ymd("06/02/04")
+ymd("20060204")  # works as well
+ymd("2006 2 4")
+ymd(060204)  # works with numbers
+```
+
+`mdy()` (month day year) and `dmy()` (day month year) formats also exist. 
+
+```{r}
+ymd_hms("2020-04-01 10:30:13")
+ymd_hm("2020/04/01 10.30")
+```
+
+# Extracting Components
+
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/3017cf57-d7d9-4f73-9b66-f2be0ebf2489_rw_1920.png?h=2cdd179bc087c56b43f8aa6ea849ca1a){width=50%}
+
+Once you have a date object, you can easily extract parts of it: 
+
+```{r}
+birthday <- ymd("1998-09-27")
+
+year(birthday)      # 1998
+month(birthday)     # 9
+month(birthday, label = TRUE)  # "Sep"
+day(birthday)       # 27
+wday(birthday, label = TRUE)   # "Sun"
+```
+
+
+# Doing Math with Dates
+
+Set up the object `today` as today's date:  
+
+```{r}
+today <- Sys.Date()
+```
+
+Calculate the age based on today's date and your birthday: 
+
+```{r}
+
+```
+
+What is will be the date 28 days from now? 
+
+```{r}
+
+```
+
+# Some real life examples: 
+
+Recall the Portal Project --  a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.
+
+```{r}
+#LOAD DATA
+portal_rodent <- read.csv("https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv")
+```
+
+Unfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function `make_datetime()`
+
+```{r}
+
+```
+
+A line plot showing the number of rodents captured per day over time: 
+
+```{r}
+ 
+```
+Use the `floor_date` function to round each date down to the first day of the month, which is great for time series grouping. 
+
+```{r}
+
+```
+
+Alternatively, use the `floor_date` function to round each date down to first day of the year: 
+
+```{r}
+
+```
+
+

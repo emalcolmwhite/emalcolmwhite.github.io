@@ -1,0 +1,92 @@
+---
+title: "STAT 118: Homework R"
+subtitle: 'Lubridate'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(lubridate)
+
+#LOAD DATA
+library(nycflights23)
+data("flights")
+```
+
+
+# 1.
+Create a new column in the flights dataset called `departure_datetime` which displays the departure datetime (for example, 2023-01-01 05:15:00)
+
+```{r}
+
+```
+
+
+# 2. 
+Create a new column in the flights dataset called  `sched_departure_datetime` which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)
+
+```{r}
+
+```
+
+# 3.
+Use an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called `calc_dep_delay`. Note that your new column `calc_dep_delay` should have the same values as `dep_delay`.  
+
+```{r}
+
+```
+
+# 4. 
+Create a new column that extracts the day of the week from the scheduled departure time. Call this column weekday. The output should be the name of the weekday (e.g., Monday, Tuesday, etc.). You may need to look into the `wday` function and what options there are for arguments. 
+
+```{r}
+
+```
+
+
+# 5.
+Create a new column called `overnight` which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time. 
+
+```{r}
+
+```
+
+
+# 6.
+Which hour of the day has the longest average departure delay? What do you think might cause this? Hint: You may want to make a column for the scheduled departure hour. 
+
+```{r}
+
+```
+
+# 7. 
+
+Create a calendar-style heatmap of average departure delays using weekday and week.
+
+(a) Create a new column that rounds the sched_departure_datetime down to the nearest week  (use `floor_date()`)
+(b) Extract the weekday from sched_departure_datetime
+(c) Summarize the average delay for each week and weekday
+(d) Create a heatmap using `ggplot` and  `geom_tile`. Feel free to look online for whatever information you might need to learn about to use `geom_tile()`. 
+
+```{r}
+flights %>% 
+  mutate(sched_departure_datetime = make_datetime(year, month, day, hour = sched_dep_time %/% 100, min = sched_dep_time %% 100)) %>% 
+  mutate(week = floor_date(sched_departure_datetime, "week")) |>
+  mutate(weekday = wday(sched_departure_datetime, label = TRUE, abbr = FALSE)) |>
+  group_by(weekday, week) |>
+  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) |>
+  ggplot(aes(x = week, y = fct_rev(weekday), fill = avg_delay)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  labs(title = "Calendar Heatmap of Avg Departure Delays",
+       x = "Week", y = "Weekday") +
+  theme_minimal()
+```
+

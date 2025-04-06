@@ -75,7 +75,7 @@ website:
         - text: "Working with Text: `stringr`"
           href: courses/stat0118/118_stringr.qmd
         - text: "Date-Time Data: `lubridate`"
-          href: courses/stat0118/118_R_lubridate.qmd
+          href: courses/stat0118/118_M_lubridate.qmd
   
         # Group 5: Maps
         - text: "🗺️  <b> Maps </b>"
