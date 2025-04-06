@@ -1,0 +1,14 @@
+{
+  "hash": "53a4e7f065f47e82314fff3754a4a0e4",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: Homework R\"\nsubtitle: 'Lubridate'\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n#LOAD DATA\nlibrary(nycflights23)\ndata(\"flights\")\n```\n:::\n\n\n\n# 1.\nCreate a new column in the flights dataset called `departure_datetime` which displays the departure datetime (for example, 2023-01-01 05:15:00)\n\n\n::: {.cell}\n\n:::\n\n\n\n# 2. \nCreate a new column in the flights dataset called  `sched_departure_datetime` which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)\n\n\n::: {.cell}\n\n:::\n\n\n# 3.\nUse an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called `calc_dep_delay`. Note that your new column `calc_dep_delay` should have the same values as `dep_delay`.  \n\n\n::: {.cell}\n\n:::\n\n\n# 4. \nCreate a new column that extracts the day of the week from the scheduled departure time. Call this column weekday. The output should be the name of the weekday (e.g., Monday, Tuesday, etc.). You may need to look into the `wday` function and what options there are for arguments. \n\n\n::: {.cell}\n\n:::\n\n\n\n# 5.\nCreate a new column called `overnight` which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time. \n\n\n::: {.cell}\n\n:::\n\n\n\n# 6.\nWhich hour of the day has the longest average departure delay? What do you think might cause this? Hint: You may want to make a column for the scheduled departure hour. \n\n\n::: {.cell}\n\n:::\n\n\n# 7. \n\nCreate a calendar-style heatmap of average departure delays using weekday and week.\n\n(a) Create a new column that rounds the sched_departure_datetime down to the nearest week  (use `floor_date()`)\n(b) Extract the weekday from sched_departure_datetime\n(c) Summarize the average delay for each week and weekday\n(d) Create a heatmap using `ggplot` and  `geom_tile`. Feel free to look online for whatever information you might need to learn about to use `geom_tile()`. \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
