@@ -25,7 +25,10 @@ data("flights")
 Create a new column in the flights dataset called `departure_datetime` which displays the departure datetime (for example, 2023-01-01 05:15:00)
 
 ```{r}
-
+flights <- flights %>% 
+  mutate(dep_hour = dep_time %/%  100) %>%   # "500" %/% 100 ---> "5" 
+  mutate(dep_minute = dep_time %% 100) %>%  # "500" %% 100 --> "00"
+  mutate(departure_datetime = make_datetime(year, month, day, dep_hour, dep_minute)) 
 ```
 
 
@@ -33,7 +36,20 @@ Create a new column in the flights dataset called `departure_datetime` which dis
 Create a new column in the flights dataset called  `sched_departure_datetime` which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)
 
 ```{r}
+# hour == sched departure hour "5"
+# minute == sched departure minute "00"
 
+flights <- flights %>% 
+  mutate(sched_departure_datetime = make_datetime(year, month, day ,hour, minute)) %>% 
+  mutate(sched_departure_datetime = case_when(
+    sched_dep_time == dep_time ~ sched_departure_datetime, #case where flight is exactly on time
+    sched_dep_time > dep_time & dep_delay > 0 ~ sched_departure_datetime - days(1), #case where flight delayed to next day
+    sched_dep_time < dep_time & dep_delay >= 0 ~ sched_departure_datetime, #case where flight delayed, no day change
+    sched_dep_time > dep_time & dep_delay <= 0 ~ sched_departure_datetime, #case where flight early, no day change
+    sched_dep_time < dep_time & dep_delay < 0 ~ sched_departure_datetime + days(1), #case where flight early, day earlier! 
+    TRUE ~ NA
+    )
+  )
 ```
 
 # 3.

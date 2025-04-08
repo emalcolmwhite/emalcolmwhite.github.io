@@ -1,0 +1,155 @@
+---
+title: 'Cleaning and tidying data using `janitor`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+\n
+
+> Data scientists, according to interviews and expert estimates, spend from 50 percent to 80 percent of their time mired in this more mundane labor of collecting and preparing unruly digital data, before it can be explored for useful nuggets. \n - “For Big-Data Scientists, ‘Janitor Work’ Is Key Hurdle to Insight” (New York Times, 2014)
+
+`janitor` helps clean data quickly and consistently.
+
+![](https://sfirke.github.io/janitor/reference/figures/logo_small.png){width=20%}
+
+```{r}
+# Load Packages
+library(tidyverse)
+library(readxl)
+library(janitor)
+```
+
+```{r}
+#| echo: FALSE
+library(DT)
+```
+
+
+Here is some messy data to start: 
+
+```{r}
+roster_raw <- read_excel("data/raw_roster.xlsx")
+```
+
+```{r}
+#| echo: FALSE
+roster_raw %>% 
+  datatable( options = list(searching = FALSE, 
+                            lengthChange = FALSE,
+                            buttons = c('copy', 'csv', 'excel')),
+          extensions = 'Buttons'
+  )
+```
+# Column Names
+
+`row_to_names(row_number = 1)`
+
+- Uses the first row of the table as the column names
+
+`clean_names()`
+
+- Converts all column names to snake_case
+- Removes special characters and extra spaces
+
+```{r}
+roster <- roster_raw %>%
+  row_to_names(row_number = 1) %>%  
+  clean_names()
+```
+
+:::{.callout-tip}
+# A note about reproducibility
+
+While you can edit a file in Excel *before* importing it into RStudio, it’s important to consider whether you’ll need to repeat this analysis in the future.
+
+If you’re only uploading the file once, making a few edits in Excel may be fine.
+
+However, if you’re working with recurring reports—such as monthly data updates—it’s worth investing the effort upfront to automate the cleaning in R. This way, you can simply upload each new file without needing to manually clean it every time.
+
+:::
+
+# Remove any weird columns you don't need or want
+
+```{r}
+roster <- roster %>% 
+  select(-do_not_edit)
+```
+
+
+# Remove empty rows or columns with remove_empty()
+
+Excel files often include blank rows or columns that sneak into your dataset. Cleaning them helps avoid weird bugs. This doesn't happen so often with .csv files. 
+
+```{r}
+roster <- roster %>% 
+  remove_empty("rows") %>% 
+  remove_empty("cols")
+```
+
+# Missing data NA
+
+```{r}
+
+```
+
+
+**Be explicit about your choices with NAs**
+Don’t just drop them silently—use `drop_na()` or `replace_na()`. If you choose to drop missing rows, you need to explain why.
+
+#  Identify duplicate rows with `get_dupes()`
+
+```{r}
+roster %>% 
+  get_dupes()
+```
+
+
+:::{.callout-note}
+
+| Function     | Purpose                                | Output                                          |
+|--------------|----------------------------------------|-------------------------------------------------|
+| `get_dupes()`| Find and display duplicated rows       | Only the duplicated rows (plus a `dupe_count`)  |
+| `distinct()` | Remove duplicates (keep unique rows only) | A cleaned dataset with no duplicates         |
+
+:::
+
+In this case, it looks appropriate to drop all the duplicated rows (since the student_id is being repeated)
+
+```{r}
+roster <- roster %>% 
+  distinct()
+```
+
+
+# `tably`
+
+```{r}
+roster %>%
+  tabyl(subject) %>% 
+  adorn_totals("row") %>%  
+  adorn_percentages("col") %>%  
+  adorn_pct_formatting()
+```
+
+```{r}
+#roster %>%
+#  filter(hire_date > as.Date("1950-01-01")) %>%
+#  tabyl(employee_status, full_time)
+```
+
+:::{.callout-note}
+**Clean first → Analyze second**
+:::
+
