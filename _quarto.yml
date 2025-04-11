@@ -89,9 +89,9 @@ website:
         - text: "🌐️ <b>  Webscraping</b>"   
           class: sidebar-item-group
         - text: "Tables"
-          href: courses/stat0118/118_O_webscraping_tables.qmd
+          href: courses/stat0118/118_N_webscraping_tables.qmd
         - text: "Text"
-          href: courses/stat0118/118_P_webscraping_text.qmd
+          href: courses/stat0118/118_O_webscraping_text.qmd
           
 
 back-to-top-navigation: true
