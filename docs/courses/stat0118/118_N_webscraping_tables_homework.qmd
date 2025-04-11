@@ -1,0 +1,62 @@
+---
+title: "STAT 118: Homework N"
+subtitle: 'Webscraping Tables'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r, warning=FALSE, message=FALSE}
+#make sure the package is installed on your computer or this won't run! 
+library(tidyverse)
+library(rvest)
+```
+
+
+# 1. 
+Use `read_html` to read in all the HTML tables from [Vermont's Wikipedia Page](https://en.wikipedia.org/wiki/Vermont). Save this HTML code as `VT_html`
+
+```{r}
+
+```
+
+
+# 2. 
+Use the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name `Vermont_Table1`. Don't worry about cleaning it up.
+
+```{r}
+
+```
+
+
+# 4. 
+Use the appropriate code to scrape the table labelled [The population of Vermont by race: 2000–2021](https://en.wikipedia.org/wiki/Middlebury_College#Admissions). Save this table as tibble named `VT_population`
+
+
+```{r}
+
+```
+
+# 5. 
+
+Use the table above to recreate the table below. *Hint: You may need to revisit our lesson on pivoting!* 
+
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/vt_demographics_long.png?raw=true)
+	
+
+```{r}
+
+```
+
+# 6.
+
+Scrape a table of your choice from Wikipedia. Try to pick a simple table with one header, unless you are feeling up for a challenge.  Be sure to print out the table for the grader to see. 
+
+```{r}
+
+```
+

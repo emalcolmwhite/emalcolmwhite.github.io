@@ -1,0 +1,74 @@
+---
+title: "STAT 118: Homework F"
+subtitle: "Customizing Plots: `scales`, labels, `facet_wrap()`"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r}
+# load packages
+library(tidyverse)
+
+# load data
+library(gapminder)
+```
+
+# 1. Gapminder Scatterplot
+
+- For the year 2007, plot GDP per capita (x-axis) vs. life expectancy (y-axis).
+- Format large numbers as numbers with commas (not scientific notation)
+- color points by continent
+- Be sure your axes are clearly labelled for a general audience
+
+```{r}
+
+```
+
+
+# 2. Log-Transformed Gapminder Scatterplot
+
+Take your scatterplot from the previous problem. Log-transform the GDP per capita axis. Explain why a log-transformed x-axis is useful here. 
+
+```{r}
+
+```
+
+# 3. Gapminder Scatterplot with labels
+
+Take your scatterplot from the previous problem. Use `geom_text_repel()` to label the subset of countres which have a GDP per capita over over $40,000. 
+
+```{r}
+
+```
+
+
+# 4. Gapminder Scatterplot over the years
+
+Repeat this plot for all years in the dataset. Hint: you'll need to make sure you are using the full dataset for all years (not just 2007 like in the previous plots) AND you can use a nifty function that we talked about to repeat the analysis for all years in only one line of code! 
+
+```{r}
+
+```
+
+# 5. Gapminder US Time Series
+
+- Create a time-series line plot for GDP per capita in the United States
+- Label the highest and lowest years using geom_text_repel(). 
+- Be sure that the axis showing the GDP per capita is shown in currency format (with dollar signs!)
+- Be sure your axes are clearly labelled for a general audience
+
+```{r}
+
+```
+
+# 6. Explain using Gapminder US Time Series
+
+How has GDP per capita in the U.S. changed over time? What major historical events might explain large shifts?
+
+
+
