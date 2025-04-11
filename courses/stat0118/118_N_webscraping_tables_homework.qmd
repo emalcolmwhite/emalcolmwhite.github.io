@@ -16,8 +16,9 @@ library(tidyverse)
 library(rvest)
 ```
 
+
 # 1. 
-Use `read_html` to read in all the HTML code from [Middlebury Colleges's wikipedia page](https://en.wikipedia.org/wiki/Middlebury_College). Save this HTML code as `Midd_html`
+Use `read_html` to read in all the HTML tables from [Vermont's Wikipedia Page](https://en.wikipedia.org/wiki/Vermont). Save this HTML code as `VT_html`
 
 ```{r}
 
@@ -25,23 +26,15 @@ Use `read_html` to read in all the HTML code from [Middlebury Colleges's wikiped
 
 
 # 2. 
-Use the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name `Midd_Table1`. Don't worry about cleaning it up. 
+Use the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name `Vermont_Table1`. Don't worry about cleaning it up.
 
 ```{r}
 
 ```
 
-
-# 3. 
-Use the appropriate code to save the ALL the tables on this wikipedia page as `Midd_Tables`. Don't worry about cleaning it up. 
-
-```{r}
-
-```
 
 # 4. 
-Use the appropriate code to scrape the [Admission Statistics table in the Admissions section](https://en.wikipedia.org/wiki/Middlebury_College#Admissions). Save this table as tibble named `Midd_Admissions`
-
+Use the appropriate code to scrape the table labelled [The population of Vermont by race: 2000–2021](https://en.wikipedia.org/wiki/Middlebury_College#Admissions). Save this table as tibble named `VT_population`
 
 
 ```{r}
@@ -50,22 +43,9 @@ Use the appropriate code to scrape the [Admission Statistics table in the Admiss
 
 # 5. 
 
-Use `Midd_Admissions` you create above to recreate the following table below which shows the number of Applicants, Admits, and Enrolled in each year. *Hint: You may need to revisit our lesson on pivoting!* 
+Use the table above to recreate the table below. *Hint: You may need to revisit our lesson on pivoting!* 
 
-	year	Applicants	Admits	Enrolled
-	2023	13,297	1,462	630
-	2022	13,028	1,955	640
-	2021	11,906	1,601	680
-	2020	9,174	2,022	602
-	2019	9,754	1,498	605
-	2018	9,227	1,542	628
-	2017	8,909	1,523	635
-	2016	8,819	1,423	606
-	2015	8,891	1,551	589
-	2014	8,195	1,407	580
-	2013	9,109	1,595	625
-	
-It is totally okay if your years are not displaying properly. For example, `2023` may display as `2023_74` or `x2023_74` or something similar. You don't need to fix this in order to get full marks. If you are feeling up for a challenge, you could check out `stringr::str_sub` as a way to fix this.  
+![](https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/images/vt_demographics_long.png?raw=true)
 	
 
 ```{r}
