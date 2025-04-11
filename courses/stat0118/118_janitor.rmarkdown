@@ -1,0 +1,131 @@
+---
+title: 'Cleaning and tidying data using `janitor`'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+  pdf: default
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+
+
+> Data scientists, according to interviews and expert estimates, spend from 50 percent to 80 percent of their time mired in this more mundane labor of collecting and preparing unruly digital data, before it can be explored for useful nuggets. - “For Big-Data Scientists, ‘Janitor Work’ Is Key Hurdle to Insight” (New York Times, 2014)
+
+`janitor` helps clean data quickly and consistently.
+
+![](https://sfirke.github.io/janitor/reference/figures/logo_small.png){width=20%}
+
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+
+Here is some messy data to start: 
+
+
+```{r}
+data <- read.csv("data/messy_student_survey.csv")
+```
+
+
+# Clean column names with `clean_names()`
+
+clean_names():
+
+- Converts all column names to snake_case
+- Removes special characters and extra spaces
+
+
+```{r}
+data <- data %>% 
+  clean_names()
+
+names(data)
+```
+
+
+
+# Remove empty rows or columns with remove_empty()
+
+Excel files often include blank rows or columns that sneak into your dataset. Cleaning them helps avoid weird bugs. This doesn't happen so often with .csv files. 
+
+
+```{r}
+data <- data %>% 
+  remove_empty("rows") %>% 
+  remove_empty("cols")
+```
+
+
+# Missing data NA
+
+
+```{r}
+
+```
+
+
+
+**Be explicit about your choices with NAs**
+Don’t just drop them silently—use `drop_na()` or `replace_na()`. If you choose to drop missing rows, you need to explain why.
+
+#  Identify duplicate rows with `get_dupes()`
+
+
+```{r}
+data %>% 
+  get_dupes()
+```
+
+
+
+:::{.callout-note}
+
+| Function     | Purpose                                | Output                                          |
+|--------------|----------------------------------------|-------------------------------------------------|
+| `get_dupes()`| Find and display duplicated rows       | Only the duplicated rows (plus a `dupe_count`)  |
+| `distinct()` | Remove duplicates (keep unique rows only) | A cleaned dataset with no duplicates         |
+
+:::
+
+In this case, it looks appropriate to drop all the duplicated rows (since the student_id is being repeated)
+
+
+```{r}
+data <- data %>% 
+  distinct()
+```
+
+
+
+# `tably`
+
+
+```{r}
+data %>% 
+  tabyl(year_level) %>% 
+  adorn_totals("row") %>%  
+  adorn_percentages("col") %>%  
+  adorn_pct_formatting()
+```
+
+
+
+🧠 Tips janitor would approve of
+
+- Clean first → Analyze second
+(clean_names(), remove_empty(), get_dupes() first)
+
+

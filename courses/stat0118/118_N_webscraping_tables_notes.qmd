@@ -26,44 +26,52 @@ library(tidyverse)
 
 Data doesn't just magically appear on your computer you need to get it from somewhere. 
 
-Often times, we download data (.csv files or other) and save it locally on our computer. 
-
-Other times, we download it from R packages (like we did with the gapminder dataset). 
+Sometimes we download data files (`.csv`, `.xlsx`, etc.) and save them locally. Other times, we use datasets that come bundled with R packages (like the `gapminder` dataset).
 
 # Obtaining Data From The Web
 
-For example, maybe we are interested in renting an apartment or house in Vermont (or studying the rental market in Vermont). You might navigate to Craigslist to get some information: [https://vermont.craigslist.org/search/apa](https://vermont.craigslist.org/search/apa)
+Say you're interested in renting an apartment in Vermont—or studying the rental market. You might browse Craigslist's Vermont rental listings.
 
-We could spend many hours writing down and creating a spreadsheet with the information about each available apartment... or... 
+You could spend hours copying and pasting each listing... or you could write code that extracts the data for you.
 
-When you enter a URL into your browser, your browser connects to the web server at that URL and asks for the *source code* for that website. We can view the source code in a web brower by clicking on *view source*. 
+When you visit a website, your browser loads the HTML source code, which includes the structure and content of the page—like headings, tables, and links. We can use R to read that code and extract specific content. This is called web scraping.
 
-Web scraping is a process by which we can use R (or other software) to systematically go through the source code to extract content and data. 
+# 🛑 Should we be scraping this data? 
 
-# STOP: Should we be scraping this data? 
+Before scraping, always ask:
 
-*Before* scraping data from the web, you should always check whether or not you *should* scrape it.
+- Is it legal?
+- Can your specific use case violate the rules?
+- Even if legal, is it ethical?
 
-*Is it legal?*
-*Can your specific use case violate the rules?*
-*Even if legal, is it ethical?*
+In the U.S., scraping public data is typically legal if:
 
-In the US, publicly available information on the web is legal as long as the scraped data is not:  
+- It's not used for harmful purposes
+- It doesn't interfere with a website's business
+- It excludes personally identifiable information (PII)
 
-- used for any harmful purpose
-- used to directly harm the scraped website's business of operations
-- including personally identifiable information (PII)
+# Case Law Examples
 
-There are some very interesting cases which help to define the above precedent that you might want to read about: [eBay vs. Bidder's Edge (2000)](https://en.wikipedia.org/wiki/EBay_v._Bidder's_Edge#Order), [Facebook vs. Power Venures (2009)](https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling) and [Linkedin vs. hiQ Labs (2019)](https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn)
+- [eBay vs. Bidder's Edge (2000) ](https://en.wikipedia.org/wiki/EBay_v._Bidder's_Edge#Order): Bots restricted from overloading systems
+- [Facebook vs. Power Venures (2009)](https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling): Logging in on others' behalf violated terms
+- [Linkedin vs. hiQ Labs (2019)](https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn): Scraping public profiles ruled permissible
 
-Websites sometimes outline the use of webscraping in their Terms of Use. There are two places you can look: the `robots.txt` file and the Terms of Service Document. For example, in the the Craigslist terms of service document, we find the following text *"You agree not to copy/collect CL content via robots, spiders, scripts, scrapers, crawlers, or any automated or manual equivalent (e.g. by hand).* Wikipedia on the other hand, doesn't explicit state that web scraping is disallowed so I will encourage us to use that website for many of our examples this week. 
+Websites often describe scraping policies in two places:
 
-# First, a bit about html code and html tables
+1. Their robots.txt file (e.g., craigslist.org/robots.txt)
+2. Their Terms of Service (TOS) document
 
-## Basics of HTML
+Craigslist explicitly forbids scraping. Wikipedia does not.
 
-- HTML stands for Hyper Text Markup Language and is the standard markup language for creating webpages
-- HTML code consists of a series of elements 
+::: {.callout-note}
+Why might Craigslist restrict scraping, while Wikipedia allows it?
+:::
+
+
+
+# How does HTML work? 
+
+HTML (HyperText Markup Language) is the language used to create web pages. HTML uses tags (like `<table>`, `<tr>`, `<td>`) to define page elements. If we understand this structure, we can write code that extracts tables and other elements from the page.
 
 :::callout-tip
 Typically, an HTML element is defined by a start tag, some content, and an end tag
@@ -188,11 +196,7 @@ Suppose we want to scrape this data to use in R.
 - `html_table` formats a scraped html table as a tibble (R table)
 
 ```{r}
-youtube_videos <- read_html("https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos") %>%
-  html_element(".wikitable") %>%
-  html_table() 
 
-youtube_videos
 ```
 
 
@@ -205,11 +209,7 @@ If we did this, it would have pulled all the `<table>` elements from the page.
 - If you want a specific table that isn't the first table, scrape all the tables and apply `html_table()`. Then take that new object of the tables and add `[[n]]` to get the $n^{th}$ table. For example to call the $2^{nd}$ table, 
 
 ```{}
-tables <- html %>% 
-  html_elements("table") %>%
-  html_table() 
-  
-tables[[2]]
+
 ```
 
 - In this case, we used `html_elements(".wikitable")`
@@ -230,63 +230,35 @@ library(janitor)
 ![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce){width=50%}
 
 Clean up the names of the header: 
-```{r warning=FALSE}
-youtube_videos <- clean_names(youtube_videos)
-```
-
-Remove the last row:
 ```{r}
-# youtube_videos <- youtube_videos %>% 
-#   filter(no != "As of August 8, 2023")
+
 ```
 
 Format the views as a number using `as.numeric`:
 ```{r}
-youtube_videos <- youtube_videos %>% 
-  mutate(views_billions = as.numeric(views_billions))
+
 ```
-
-
 
 What are the top 10 most viewed YouTube Videos? 
 
 ```{r}
-top10 <- youtube_videos %>%
-  arrange(desc(views_billions)) %>%
-  slice(1:10)
 
-top10
 ```
 
 Once we have this data, we can make cool plots!
 
-```{r message=FALSE, warning=FALSE}
-top10 %>% 
-  ggplot( aes(x=views_billions, y=reorder(video_name, views_billions))) +
-    geom_bar(stat="identity") +
-    xlab("Views (in billions)") +
-    ylab("Videos") +
-    ggtitle("Top 10 Most Watched YouTube Videos of All Time") +
-    theme_minimal()
+```{r}
+
 ```
 
 
-:::callout-tip
 In this case, the list of the names is still not displaying very neatly. For example, rather than `"Baby Shark Dance"[6]` I might want it to just say `Baby Shark Dance`. 
 
 We can use the `stringr` package to remove symbols and numbers from the video names. We will be talking more about `stringr` later this semester and it's not something I expect you to be able to do at this point in the semester. 
 
-```{r message=FALSE, warning=FALSE}
-library(stringr)
+```{r}
+#mutate(video_name=str_replace_all(video_name, "[^[:alpha:]]", " ")) %>% 
 
-top10 %>% 
-  mutate(video_name=str_replace_all(video_name, "[^[:alpha:]]", " ")) %>% 
-  ggplot(aes(x=views_billions, y=reorder(video_name, views_billions))) +
-    geom_bar(stat="identity") +
-    xlab("Views (in billions)") +
-    ylab("Videos") +
-    ggtitle("Top 10 Most Watched YouTube Videos of All Time") +
-    theme_minimal()
 ```
 
 
