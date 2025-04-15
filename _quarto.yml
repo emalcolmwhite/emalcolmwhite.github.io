@@ -93,6 +93,14 @@ website:
         - text: "Text"
           href: courses/stat0118/118_O_webscraping_text.qmd
           
+        # Group 7: Formatting
+        - text: "📝 ️ <b> Formatting Quarto Documents</b>"   
+          class: sidebar-item-group
+        - text: "Figures"
+          href: courses/stat0118/118_formatting_figures.qmd
+        - text: "References"
+          href: courses/stat0118/118_formatting_references.qmd
+          
 
 back-to-top-navigation: true
 page-footer: 
