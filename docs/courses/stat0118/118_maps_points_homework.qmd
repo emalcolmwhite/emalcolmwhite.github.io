@@ -1,5 +1,5 @@
 ---
-title: "STAT 118: Homework L"
+title: "STAT 118: Homework"
 subtitle: 'Plotting Points on Maps'
 author: "YOUR NAME HERE"
 format:
