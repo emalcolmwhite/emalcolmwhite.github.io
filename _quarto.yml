@@ -83,7 +83,7 @@ website:
         - text: "Chlorepleth Maps"
           href: courses/stat0118/118_G_maps.qmd
         - text: "Points on Maps"
-          href: courses/stat0118/118_L_Maps2.qmd
+          href: courses/stat0118/118_maps_points.qmd
           
         # Group 6: Webscraping:
         - text: "🌐️ <b>  Webscraping</b>"   

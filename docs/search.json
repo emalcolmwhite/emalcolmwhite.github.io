@@ -768,5 +768,19 @@
     "title": "EMW",
     "section": "",
     "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_maps_points.html",
+    "href": "courses/stat0118/118_maps_points.html",
+    "title": "Plotting Points on Maps",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) #this is a package needed so R can work with sf objects\n\n#LOAD DATA\nlibrary(spData) #this packages contains the dataset (with sf objects) that we will be using today\ndata(\"us_states\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_maps_points.html#using-openstreet-maps",
+    "href": "courses/stat0118/118_maps_points.html#using-openstreet-maps",
+    "title": "Plotting Points on Maps",
+    "section": "Using OpenStreet Maps",
+    "text": "Using OpenStreet Maps\nA simple map of Warner Hall:\n\nleaflet() %&gt;%\n  addTiles() %&gt;%  \n  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-73.175, lat=44.010, popup=\"Warner Hall\")\n\n\n\n\n\nA map of all airports in the USA:\n\nleaflet(data=airports_count) %&gt;%\n  addTiles() %&gt;% # Add default OpenStreetMap map tiles\n  addMarkers(lng=~lon, lat=~lat, popup=~faa)\n\n\n\n\n\nor using Circle Markers:\n\nleaflet(data=airports_count) %&gt;%\n  addTiles() %&gt;%# Add default OpenStreetMap map tiles\n  addCircleMarkers(lng=~lon, lat=~lat, popup=~faa, radius = ~count/1000, stroke =FALSE, fillOpacity =0.5)"
   }
 ]

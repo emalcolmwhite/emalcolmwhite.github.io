@@ -34,7 +34,7 @@ Use the appropriate code to save the 1st table on this wikipedia page as a tibbl
 
 
 # 4. 
-Use the appropriate code to scrape the table labelled [The population of Vermont by race: 2000–2021](https://en.wikipedia.org/wiki/Middlebury_College#Admissions). Save this table as tibble named `VT_population`
+Use the appropriate code to scrape the table labelled [The population of Vermont by race: 2000–2021](https://en.wikipedia.org/wiki/Vermont). Save this table as tibble named `VT_population`
 
 
 ```{r}
