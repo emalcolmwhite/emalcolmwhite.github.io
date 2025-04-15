@@ -1,0 +1,97 @@
+---
+title: "STAT 118: Homework G"
+subtitle: 'Maps with `maps` and `sf`'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(sf) #this is a package needed so R can work with sf objects
+```
+
+```{r}
+#LOAD DATA
+library(spData) #this packages contains the dataset (with sf objects) that we will be using today
+data("us_states")
+
+library(rnaturalearth)
+world <- ne_countries(scale = "medium", returnclass = "sf")
+africa <- world[world$continent == "Africa", ]
+
+```
+
+# 1.
+Create a basic map of the countries of the world. To access `sf` geometries for the world use the `world` dataset loaded above. The land should be some shade of green. 
+
+
+# 2. 
+
+Use the columns `pop_est` and `gdp_md` to create a new column called `gdp_per_cap` which contains the GDP per capita for each country in the world in this dataset. 
+
+
+
+# 3.
+Create a cloropleth map which colors each country depending on the GDP per capita. 
+
+- Utilize an appropriate color palette for this data
+- Add a theme
+- make sure the legend labels are clear to a general audience (you might need to research this a bit...)
+- the country borders should be "black"
+
+```{r}
+
+```
+
+# 4.
+Create a cloropleth map which colors each country based on their economy type (`economy`). 
+
+- Utilize an appropriate color palette for this data
+- Add a theme
+- make sure the legend labels are clear to a general audience (you might need to research this a bit...)
+- the country borders should be "grey"
+
+```{r}
+
+```
+`
+# 5. 
+
+Create a cloropleth map of Africa based on the population in each country. 
+Use `scale_fill_viridis_c(option = "viridis")`. 
+
+```{r}
+
+```
+
+
+
+# 6. 
+
+Create a cloropleth map of Africa based on the population in each country. 
+Use `scale_fill_viridis_c(option = "viridis", trans = "log")`. 
+
+```{r}
+
+```
+
+# 7. 
+
+Why is the trans = "log" transformation applied? 
+
+
+# 8. 
+
+Add country names to your map from #6. 
+
+```{r}
+
+```
+
+

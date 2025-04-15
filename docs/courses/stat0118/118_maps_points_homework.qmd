@@ -1,0 +1,64 @@
+---
+title: "STAT 118: Homework L"
+subtitle: 'Plotting Points on Maps'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+library(sf) 
+library(leaflet)
+library(spData)
+```
+
+Choose one of the datasets provided which displays the latitude and longitude of many locations. Your job will be to create a map which displays the locations of the items on an appropriate map.
+
+- Dunkin Donuts Locations 
+https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/dunkin_stores.csv
+- Farmers Markets in the USA https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/farmers_markets_from_usda.csv
+
+
+# 1.
+Use the space below to import in your dataset of choice 
+
+**Keep in mind that you may want to work with ALL locations in the dataset OR you may wish to work with a subset of the locations -- totally your choice.**
+
+```{r}
+
+```
+
+# 2.
+Find an appropriate `sf` dataset for the locations of your data. Recall the `spData` package contains many different `sf` objects, so you might be able to find an appropriate map there. 
+
+```{r}
+
+```
+
+# 3.
+Create an `ggplot` map (using `sf` objects) which displays the locations from your dataset as points on the map. All points should be the same size (choose an appropriate size and color). Your plot should include a title and appropriate colors. 
+
+```{r}
+
+```
+
+# 4.
+Create an `ggplot` map (using `sf` objects) which displays the locations from your dataset as points on the map. Your points should vary in size depending on a quantitative variable in your data OR vary in color depending on a categorical variable in your data. Your plot should include a title and appropriate colors.
+
+```{r}
+
+```
+
+# 5.
+Create a `leaflet` map which displays the locations from your dataset as well-labeled markers on a map. 
+
+```{r}
+
+```
+

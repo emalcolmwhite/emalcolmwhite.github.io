@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "courses/stat0118/118_maps_points_homework.html",
+    "href": "courses/stat0118/118_maps_points_homework.html",
+    "title": "STAT 118: Homework L",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) \nlibrary(leaflet)\nlibrary(spData)\n\n\nChoose one of the datasets provided which displays the latitude and longitude of many locations. Your job will be to create a map which displays the locations of the items on an appropriate map.\n\nDunkin Donuts Locations https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/dunkin_stores.csv\nFarmers Markets in the USA https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/farmers_markets_from_usda.csv\n\n\n1.\nUse the space below to import in your dataset of choice (choices are on the Canvas Assignment page).\nKeep in mind that you may want to work with ALL locations in the dataset OR you may wish to work with a subset of the locations – totally your choice.\n\n\n2.\nFind an appropriate sf dataset for the locations of your data. Recall the spData package contains many different sf objects, so you might be able to find an appropriate map there.\n\n\n3.\nCreate an ggplot map (using sf objects) which displays the locations from your dataset as points on the map. All points should be the same size (choose an appropriate size and color). Your plot should include a title and appropriate colors.\n\n\n4.\nCreate an ggplot map (using sf objects) which displays the locations from your dataset as points on the map. Your points should vary in size depending on a quantitative variable in your data OR vary in color depending on a categorical variable in your data. Your plot should include a title and appropriate colors.\n\n\n5.\nCreate a leaflet map which displays the locations from your dataset as well-labeled markers on a map."
+  }
+]

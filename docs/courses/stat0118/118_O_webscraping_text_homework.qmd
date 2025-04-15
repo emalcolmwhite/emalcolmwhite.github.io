@@ -1,0 +1,105 @@
+---
+title: "STAT 118: Homework O"
+subtitle: 'Webscraping Text with `rvest`'
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r}
+#make sure the package is installed on your computer or this won't run! 
+library(tidyverse)
+```
+
+
+# 1. 
+The following problems will involve scraping data from [https://www.scrapethissite.com/pages/simple/](https://www.scrapethissite.com/pages/simple/). 
+
+
+## a) 
+scrape the names of all the countries *Hint: use .country-name*
+
+```{r}
+
+```
+
+
+## b) 
+Scrape the names of each country's capital. *Hint: use .country-capital* 
+
+```{r}
+
+```
+
+## c) 
+Scrape the population of each country. No hints this time. 
+
+```{r}
+
+```
+
+## d) 
+Scrape the area of each country. No hints this time. 
+
+```{r}
+
+```
+
+## e) 
+Combine the information you've scraped in a) - d) and combine it together into one dataframe called `countries`. Give each of the columns appropriate names.
+
+```{r}
+
+```
+
+## f) 
+Create a new column called `Density` in the dataframe `countries` which contains the population density of each country. *Hint: Population Density is calculated as Population divided by area*
+
+```{r}
+
+```
+
+## g) 
+Create a barplot which displays the top 10 countries with the highest population density. Be sure you axes are appropriately labeled. 
+
+```{r}
+
+```
+
+# 2. 
+Consider three famous cases which helped to define data privacy and data regulation around webscraping in the US. 
+
+- [eBay vs. Bidder's Edge (2000)](https://en.wikipedia.org/wiki/EBay_v._Bidder's_Edge#Order)
+- [Facebook vs. Power Venures (2009)](https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling) 
+- [Linkedin vs. hiQ Labs (2019)](https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn)
+
+Choose ONE of the above case studies to read about on Wikipedia and elsewhere. If you read elsewhere, include a link or citation at the end of this assignment. 
+
+*Keep in mind that I am not expecting you to totally understand all the details about this case from a legal perspective. I am asking that you read about these cases and think about the implications of them as both a consumer and a potential data scientist.* 
+
+## a) 
+Who is the plantiff (The party that brought the legal action)? 
+
+
+## b) 
+Who is the defendent (The party that is being sued)? 
+
+
+## c) 
+Briefly describe who and what data was webscraped and what they did with that data (1-4 sentences or bullet points).  
+
+
+## d) 
+In your personal opinion, was the webscraping harmful to the business? (1-4 sentences or bullet points) *There is no right answer here. Your opinion may be different than the official ruling. Keep in mind that any harm you allege may or may not rise to the level harm which requires financial compensation -- I'm not asking you to make that determination*
+
+## e) 
+If some of your **public** information had been webscraped (ie. your public profile, your public sale, etc), how would you feel about that information being webscraped and being used for the purpose that the defendant used it for? (1-4 sentences or bullet points) *There is no right answer here. This is your personal opinion.*
+
+# Sources
+If you looked at any information other than the Wikipedia link above, include either web links or citations here. 
+
+

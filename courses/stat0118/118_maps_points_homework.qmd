@@ -20,8 +20,13 @@ library(spData)
 
 Choose one of the datasets provided which displays the latitude and longitude of many locations. Your job will be to create a map which displays the locations of the items on an appropriate map.
 
+- Dunkin Donuts Locations 
+https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/dunkin_stores.csv
+- Farmers Markets in the USA https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/farmers_markets_from_usda.csv
+
+
 # 1.
-Use the space below to import in your dataset of choice (choices are on the Canvas Assignment page). 
+Use the space below to import in your dataset of choice 
 
 **Keep in mind that you may want to work with ALL locations in the dataset OR you may wish to work with a subset of the locations -- totally your choice.**
 

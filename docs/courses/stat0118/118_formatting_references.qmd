@@ -1,0 +1,20 @@
+---
+title: 'Formatting References'
+author: 'Emily Malcolm-White'
+format:
+  html: 
+    toc: TRUE
+    code-overflow: wrap
+    embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+  pdf: default
+execute: 
+  message: FALSE
+  warning: FALSE
+---
+
+Coming soon!
