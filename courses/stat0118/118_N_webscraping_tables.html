@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.3.450" />
 
-<meta name="author" content="Emily Malcolm-White">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-<title>EMW - Webscraping Tables</title>
+<meta name="author" content="Emily Malcolm-White" />
+
+<title>EMW – Webscraping Tables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,23 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../images/bar_chart.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,10 +93,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 
-<link rel="stylesheet" href="../../styles/custom.css">
+<link rel="stylesheet" href="../../styles/custom.css" />
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body>
 
 
 <div id="quarto-search-results"></div>
@@ -118,32 +104,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="/index.html">
     <span class="navbar-title">EMW</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../courses/stat0118/index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="/courses/stat0118/index.html" rel="" target="">
  <span class="menu-text">STAT 118: Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../courses/stat0116/index.html" rel="" target="">
+    <a class="nav-link" href="/courses/stat0116/index.html" rel="" target="">
  <span class="menu-text">STAT 116: Stats</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../courses/r-by-the-sea/index.html" rel="" target="">
+    <a class="nav-link" href="/courses/r-by-the-sea/index.html" rel="" target="">
  <span class="menu-text">R by the Sea</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="mailto:emalcolmwhite@middlebury.edu" rel="" target=""><i class="bi bi-envelope" role="img">
+    <a class="nav-link" href="mailto:emalcolmwhite@middlebury.edu" rel="" target=""><i 
+  class="bi bi-envelope" 
+  role="img" 
+>
 </i> 
  <span class="menu-text">Email</span></a>
   </li>  
@@ -155,11 +146,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../courses/stat0118/118_N_webscraping_tables.html">Tables</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
   </nav>
@@ -169,15 +165,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../courses/stat0118/images/stat0118_hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="/index.html" class="sidebar-logo-link">
+      <img src="/courses/stat0118/images/stat0118_hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"/>
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/index.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STAT 118 Home</span></a>
   </div>
 </li>
@@ -186,14 +182,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_A_intro_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R &amp; RStudio</span></a>
+  <a href="/courses/stat0118/118_A_intro_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R & RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto &amp; Markdown</span></a>
+  <a href="/courses/stat0118/118_A_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto & Markdown</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -201,26 +197,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Wrangling with <code>dplyr</code></span></a>
+  <a href="/courses/stat0118/118_B_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wrangling with `dplyr`</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_C_aggregating.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_C_aggregating.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aggregating Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_I_joining.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_I_joining.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Joining Tables</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_J_pivoting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pivoting with <code>tidyr</code></span></a>
+  <a href="/courses/stat0118/118_J_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pivoting with `tidyr`</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,20 +224,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_D_ggplot.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_D_ggplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Barplots and Scatterplots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_E_ggplot_2.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_E_ggplot_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Histograms, Boxplots, Linegraphs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_F_ggplot_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Customizing Plots: <code>scales</code></span></a>
+  <a href="/courses/stat0118/118_F_ggplot_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customizing Plots: `scales`</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -249,20 +245,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_H_forcats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Categorical Data: <code>forcats</code></span></a>
+  <a href="/courses/stat0118/118_H_forcats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical Data: `forcats`</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_stringr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Working with Text: <code>stringr</code></span></a>
+  <a href="/courses/stat0118/118_stringr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with Text: `stringr`</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_M_lubridate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Date-Time Data: <code>lubridate</code></span></a>
+  <a href="/courses/stat0118/118_M_lubridate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Date-Time Data: `lubridate`</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -270,13 +266,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_G_maps.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_G_maps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chlorepleth Maps</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_maps_points.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_maps_points.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Points on Maps</span></a>
   </div>
 </li>
@@ -285,13 +281,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_N_webscraping_tables.html" class="sidebar-item-text sidebar-link active">
+  <a href="/courses/stat0118/118_N_webscraping_tables.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_O_webscraping_text.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_O_webscraping_text.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Text</span></a>
   </div>
 </li>
@@ -300,49 +296,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_formatting_figures.html" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_formatting_figures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Figures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/stat0118/118_foramtting_references.qmd" class="sidebar-item-text sidebar-link">
+  <a href="/courses/stat0118/118_formatting_references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" ></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#obtaining-data-from-the-web" id="toc-obtaining-data-from-the-web" class="nav-link active" data-scroll-target="#obtaining-data-from-the-web">Obtaining Data From The Web</a></li>
-  <li><a href="#should-we-be-scraping-this-data" id="toc-should-we-be-scraping-this-data" class="nav-link" data-scroll-target="#should-we-be-scraping-this-data">🛑 Should we be scraping this data?</a></li>
-  <li><a href="#case-law-examples" id="toc-case-law-examples" class="nav-link" data-scroll-target="#case-law-examples">Case Law Examples</a></li>
-  <li><a href="#how-does-html-work" id="toc-how-does-html-work" class="nav-link" data-scroll-target="#how-does-html-work">How does HTML work?</a>
-  <ul class="collapse">
-  <li><a href="#html-tables" id="toc-html-tables" class="nav-link" data-scroll-target="#html-tables">HTML Tables</a></li>
-  <li><a href="#html-class" id="toc-html-class" class="nav-link" data-scroll-target="#html-class">HTML class</a></li>
-  </ul></li>
-  <li><a href="#web-scraping-using-rvest" id="toc-web-scraping-using-rvest" class="nav-link" data-scroll-target="#web-scraping-using-rvest">Web Scraping using <code>rvest</code></a>
-  <ul class="collapse">
-  <li><a href="#viewing-raw-html-from-a-website" id="toc-viewing-raw-html-from-a-website" class="nav-link" data-scroll-target="#viewing-raw-html-from-a-website">Viewing Raw HTML from a website</a></li>
-  <li><a href="#webscraping-tables-from-wikipedia" id="toc-webscraping-tables-from-wikipedia" class="nav-link" data-scroll-target="#webscraping-tables-from-wikipedia">Webscraping Tables from Wikipedia</a></li>
-  <li><a href="#cleaning-up-with-janitor" id="toc-cleaning-up-with-janitor" class="nav-link" data-scroll-target="#cleaning-up-with-janitor">Cleaning up with <code>janitor</code></a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/edit/main/courses/stat0118/118_N_webscraping_tables.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/118_N_webscraping_tables.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/emalcolmwhite/emalcolmwhite.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="118_N_webscraping_tables.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+        <div id="quarto-toc-target"></div>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Webscraping Tables</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<h1 class="title">Webscraping Tables</h1>
 </div>
 
 
@@ -362,11 +339,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header>
-
-<p><img src="https://rvest.tidyverse.org/logo.png" class="img-fluid" style="width:30.0%"></p>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#obtaining-data-from-the-web" id="toc-obtaining-data-from-the-web">Obtaining Data From The Web</a></li>
+  <li><a href="#should-we-be-scraping-this-data" id="toc-should-we-be-scraping-this-data">🛑 Should we be scraping this data?</a></li>
+  <li><a href="#case-law-examples" id="toc-case-law-examples">Case Law Examples</a></li>
+  <li><a href="#how-does-html-work" id="toc-how-does-html-work">How does HTML work?</a>
+  <ul>
+  <li><a href="#html-tables" id="toc-html-tables">HTML Tables</a></li>
+  <li><a href="#html-class" id="toc-html-class">HTML class</a></li>
+  </ul></li>
+  <li><a href="#web-scraping-using-rvest" id="toc-web-scraping-using-rvest">Web Scraping using <code>rvest</code></a>
+  <ul>
+  <li><a href="#viewing-raw-html-from-a-website" id="toc-viewing-raw-html-from-a-website">Viewing Raw HTML from a website</a></li>
+  <li><a href="#webscraping-tables-from-wikipedia" id="toc-webscraping-tables-from-wikipedia">Webscraping Tables from Wikipedia</a></li>
+  <li><a href="#cleaning-up-with-janitor" id="toc-cleaning-up-with-janitor">Cleaning up with <code>janitor</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
+<p><img src="https://rvest.tidyverse.org/logo.png" class="img-fluid" style="width:30.0%" /></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <p>Data doesn’t just magically appear on your computer you need to get it from somewhere.</p>
 <p>Sometimes we download data files (<code>.csv</code>, <code>.xlsx</code>, etc.) and save them locally. Other times, we use datasets that come bundled with R packages (like the <code>gapminder</code> dataset).</p>
@@ -394,9 +390,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="case-law-examples" class="level1">
 <h1>Case Law Examples</h1>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/EBay_v._Bidder's_Edge#Order">eBay vs.&nbsp;Bidder’s Edge (2000)</a>: Bots restricted from overloading systems</li>
-<li><a href="https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling">Facebook vs.&nbsp;Power Venures (2009)</a>: Logging in on others’ behalf violated terms</li>
-<li><a href="https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn">Linkedin vs.&nbsp;hiQ Labs (2019)</a>: Scraping public profiles ruled permissible</li>
+<li><a href="https://en.wikipedia.org/wiki/EBay_v._Bidder&#39;s_Edge#Order">eBay vs. Bidder’s Edge (2000)</a>: Bots restricted from overloading systems</li>
+<li><a href="https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling">Facebook vs. Power Venures (2009)</a>: Logging in on others’ behalf violated terms</li>
+<li><a href="https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn">Linkedin vs. hiQ Labs (2019)</a>: Scraping public profiles ruled permissible</li>
 </ul>
 <p>Websites often describe scraping policies in two places:</p>
 <ol type="1">
@@ -407,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -424,7 +420,7 @@ Note
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -449,7 +445,7 @@ Tip
 &lt;/html&gt;</code></pre>
 <p>There are many, many different possible tag elements. In this class, it’s not important that you know the specifics of what each element is. It’s useful for you to understand the basic structure.</p>
 <section id="html-tables" class="level2">
-<h2 data-anchor-id="html-tables">HTML Tables</h2>
+<h2>HTML Tables</h2>
 <p>An HTML table is used to represent data in a structured way</p>
 <ul>
 <li><code>&lt;table&gt;</code> Defines a table</li>
@@ -483,7 +479,7 @@ Tip
 <p>Here is how the HTML displays in a web browser:</p>
 
 <table>
-<tbody><tr>
+<tr>
 <th>
 Name
 </th>
@@ -528,14 +524,14 @@ Canada
 </td>
 </tr>
 
-</tbody></table>
+</table>
 <p>Today’s class will focus on scraping data from HTML tables!</p>
 </section>
 <section id="html-class" class="level2">
-<h2 data-anchor-id="html-class">HTML class</h2>
+<h2>HTML class</h2>
 <p>The <code>class</code> attribute can be added to any HTML element. Often it is used to help customize the styling of the element (among other things).</p>
-<pre><code>&lt;h2 class="city"&gt;Middlebury&lt;/h2&gt;
-&lt;p class="city"&gt;Middlebury is a town in Vermont&lt;/p&gt;</code></pre>
+<pre><code>&lt;h2 class=&quot;city&quot;&gt;Middlebury&lt;/h2&gt;
+&lt;p class=&quot;city&quot;&gt;Middlebury is a town in Vermont&lt;/p&gt;</code></pre>
 <p>This can be particularly useful in web scraping – we can ask to scrape particular elements, particular classes, or both!</p>
 </section>
 </section>
@@ -543,10 +539,10 @@ Canada
 <h1>Web Scraping using <code>rvest</code></h1>
 <p>We need the package <a href="https://rvest.tidyverse.org/"><code>rvest</code></a> to help us with this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code></pre></div>
 </div>
 <section id="viewing-raw-html-from-a-website" class="level2">
-<h2 data-anchor-id="viewing-raw-html-from-a-website">Viewing Raw HTML from a website</h2>
+<h2>Viewing Raw HTML from a website</h2>
 <p>You can inspect the source code of any webpage by using a web browser like Firefox or Chrome.</p>
 <ul>
 <li>On Firefox, navigate to the “Tools” menu item in the top menu and click on “Web Developer/Page Source”. You can also use the shortcut <code>Command + U</code></li>
@@ -554,7 +550,7 @@ Canada
 </ul>
 </section>
 <section id="webscraping-tables-from-wikipedia" class="level2">
-<h2 data-anchor-id="webscraping-tables-from-wikipedia">Webscraping Tables from Wikipedia</h2>
+<h2>Webscraping Tables from Wikipedia</h2>
 <p>Check out the information on the (List of the Most Viewed YouTube Videos on Wikipedia)[https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos]. Suppose we want to scrape this data to use in R.</p>
 <ul>
 <li><code>read_html</code> scrapes the raw html from the webpage as text</li>
@@ -562,25 +558,25 @@ Canada
 <li><code>html_table</code> formats a scraped html table as a tibble (R table)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="st">".wikitable"</span>) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="st">&quot;.wikitable&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>() </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>youtube_videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>youtube_videos</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 31 × 6
    `Video name`                    Uploader `Views (billions)` Date  Notes ``   
    &lt;chr&gt;                           &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
- 1 Baby Shark Dance[7]             Pinkfon… 15.65              June… "[A]" &lt;NA&gt; 
- 2 Despacito[10]                   Luis Fo… 8.66               Janu… "[B]" &lt;NA&gt; 
- 3 Wheels on the Bus[18]           Cocomel… 7.17               May … ""    &lt;NA&gt; 
- 4 Johny Johny Yes Papa[19]        LooLoo … 7.02               Octo… ""    &lt;NA&gt; 
- 5 Bath Song[20]                   Cocomel… 7.01               May … ""    &lt;NA&gt; 
- 6 See You Again[21]               Wiz Kha… 6.58               Apri… "[C]" &lt;NA&gt; 
- 7 Shape of You[26]                Ed Shee… 6.42               Janu… "[D]" &lt;NA&gt; 
- 8 Phonics Song with Two Words[29] ChuChu … 6.31               Marc… ""    &lt;NA&gt; 
- 9 Uptown Funk[30]                 Mark Ro… 5.49               Nove… ""    &lt;NA&gt; 
-10 Gangnam Style[31]               Psy      5.48               July… "[E]" &lt;NA&gt; 
+ 1 Baby Shark Dance[7]             Pinkfon… 15.65              June… &quot;[A]&quot; &lt;NA&gt; 
+ 2 Despacito[10]                   Luis Fo… 8.66               Janu… &quot;[B]&quot; &lt;NA&gt; 
+ 3 Wheels on the Bus[18]           Cocomel… 7.17               May … &quot;&quot;    &lt;NA&gt; 
+ 4 Johny Johny Yes Papa[19]        LooLoo … 7.02               Octo… &quot;&quot;    &lt;NA&gt; 
+ 5 Bath Song[20]                   Cocomel… 7.01               May … &quot;&quot;    &lt;NA&gt; 
+ 6 See You Again[21]               Wiz Kha… 6.58               Apri… &quot;[C]&quot; &lt;NA&gt; 
+ 7 Shape of You[26]                Ed Shee… 6.42               Janu… &quot;[D]&quot; &lt;NA&gt; 
+ 8 Phonics Song with Two Words[29] ChuChu … 6.31               Marc… &quot;&quot;    &lt;NA&gt; 
+ 9 Uptown Funk[30]                 Mark Ro… 5.49               Nove… &quot;&quot;    &lt;NA&gt; 
+10 Gangnam Style[31]               Psy      5.48               July… &quot;[E]&quot; &lt;NA&gt; 
 # ℹ 21 more rows</code></pre>
 </div>
 </div>
@@ -590,7 +586,7 @@ Canada
 <li><p>If you want a specific table that isn’t the first table, scrape all the tables and apply <code>html_table()</code>. Then take that new object of the tables and add <code>[[n]]</code> to get the <span class="math inline">\(n^{th}\)</span> table. For example to call the <span class="math inline">\(2^{nd}\)</span> table,</p></li>
 </ul>
 <pre><code>tables &lt;- html %&gt;% 
-  html_elements("table") %&gt;%
+  html_elements(&quot;table&quot;) %&gt;%
   html_table() 
   
 tables[[2]]</code></pre>
@@ -600,7 +596,7 @@ tables[[2]]</code></pre>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Warning
@@ -612,83 +608,83 @@ Warning
 </div>
 </section>
 <section id="cleaning-up-with-janitor" class="level2">
-<h2 data-anchor-id="cleaning-up-with-janitor">Cleaning up with <code>janitor</code></h2>
+<h2>Cleaning up with <code>janitor</code></h2>
 <p>Web scraping doesn’t always format perfectly. Let’s clean it up!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">Artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
+<figure>
+<p><img src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce" class="img-fluid" style="width:50.0%" /></p>
+<figcaption>Artwork by <span class="citation" data-cites="allisonhorst">@allisonhorst</span></figcaption>
 </figure>
 </div>
 <p>Clean up the names of the header:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(youtube_videos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(youtube_videos)</span></code></pre></div>
 </div>
 <p>Format the views as a number using <code>as.numeric</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">views_billions =</span> <span class="fu">as.numeric</span>(views_billions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">views_billions =</span> <span class="fu">as.numeric</span>(views_billions))</span></code></pre></div>
 </div>
 <p>What are the top 10 most viewed YouTube Videos?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(views_billions)) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>top10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>top10</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
    video_name                      uploader     views_billions date  notes x    
    &lt;chr&gt;                           &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
- 1 Baby Shark Dance[7]             Pinkfong Ba…          15.6  June… "[A]" &lt;NA&gt; 
- 2 Despacito[10]                   Luis Fonsi             8.66 Janu… "[B]" &lt;NA&gt; 
- 3 Wheels on the Bus[18]           Cocomelon -…           7.17 May … ""    &lt;NA&gt; 
- 4 Johny Johny Yes Papa[19]        LooLoo Kids…           7.02 Octo… ""    &lt;NA&gt; 
- 5 Bath Song[20]                   Cocomelon -…           7.01 May … ""    &lt;NA&gt; 
- 6 See You Again[21]               Wiz Khalifa            6.58 Apri… "[C]" &lt;NA&gt; 
- 7 Shape of You[26]                Ed Sheeran             6.42 Janu… "[D]" &lt;NA&gt; 
- 8 Phonics Song with Two Words[29] ChuChu TV N…           6.31 Marc… ""    &lt;NA&gt; 
- 9 Uptown Funk[30]                 Mark Ronson            5.49 Nove… ""    &lt;NA&gt; 
-10 Gangnam Style[31]               Psy                    5.48 July… "[E]" &lt;NA&gt; </code></pre>
+ 1 Baby Shark Dance[7]             Pinkfong Ba…          15.6  June… &quot;[A]&quot; &lt;NA&gt; 
+ 2 Despacito[10]                   Luis Fonsi             8.66 Janu… &quot;[B]&quot; &lt;NA&gt; 
+ 3 Wheels on the Bus[18]           Cocomelon -…           7.17 May … &quot;&quot;    &lt;NA&gt; 
+ 4 Johny Johny Yes Papa[19]        LooLoo Kids…           7.02 Octo… &quot;&quot;    &lt;NA&gt; 
+ 5 Bath Song[20]                   Cocomelon -…           7.01 May … &quot;&quot;    &lt;NA&gt; 
+ 6 See You Again[21]               Wiz Khalifa            6.58 Apri… &quot;[C]&quot; &lt;NA&gt; 
+ 7 Shape of You[26]                Ed Sheeran             6.42 Janu… &quot;[D]&quot; &lt;NA&gt; 
+ 8 Phonics Song with Two Words[29] ChuChu TV N…           6.31 Marc… &quot;&quot;    &lt;NA&gt; 
+ 9 Uptown Funk[30]                 Mark Ronson            5.49 Nove… &quot;&quot;    &lt;NA&gt; 
+10 Gangnam Style[31]               Psy                    5.48 July… &quot;[E]&quot; &lt;NA&gt; </code></pre>
 </div>
 </div>
 <p>Once we have this data, we can make cool plots!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>views_billions, <span class="at">y=</span><span class="fu">reorder</span>(video_name, views_billions))) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Views (in billions)"</span>) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Videos"</span>) <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Top 10 Most Watched YouTube Videos of All Time"</span>) <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Views (in billions)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Videos&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;Top 10 Most Watched YouTube Videos of All Time&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="118_N_webscraping_tables_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="118_N_webscraping_tables_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672" /></p>
 </div>
 </div>
 <p>In this case, the list of the names is still not displaying very neatly. For example, rather than <code>"Baby Shark Dance"[6]</code> I might want it to just say <code>Baby Shark Dance</code>.</p>
 <p>We can use the <code>stringr</code> package to remove symbols and numbers from the video names. We will be talking more about <code>stringr</code> later this semester and it’s not something I expect you to be able to do at this point in the semester.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">video_name=</span><span class="fu">str_replace_all</span>(video_name, <span class="st">"[^[:alpha:]]"</span>, <span class="st">" "</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">video_name=</span><span class="fu">str_replace_all</span>(video_name, <span class="st">&quot;[^[:alpha:]]&quot;</span>, <span class="st">&quot; &quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>views_billions, <span class="at">y=</span><span class="fu">reorder</span>(video_name, views_billions))) <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Views (in billions)"</span>) <span class="sc">+</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Videos"</span>) <span class="sc">+</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Top 10 Most Watched YouTube Videos of All Time"</span>) <span class="sc">+</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Views (in billions)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Videos&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;Top 10 Most Watched YouTube Videos of All Time&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="118_N_webscraping_tables_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="118_N_webscraping_tables_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672" /></p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class='callout-icon no-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 External Resources
@@ -700,15 +696,329 @@ External Resources
 </ul>
 </div>
 </div>
-
-
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">STAT 118: Intro to Data Science</span> <span class="hidden" data-render-id="quarto-int-navbar-title">EMW</span> <span class="hidden" data-render-id="quarto-int-next">Text</span> <span class="hidden" data-render-id="quarto-int-prev">Points on Maps</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/index.html">STAT 118 Home</span> <span class="hidden" data-render-id="quarto-int-sidebar:undefined">📝 ️ <b> Formatting Quarto Documents</b></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_A_intro_quarto.html">R &amp; RStudio</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_A_intro.html">Quarto &amp; Markdown</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_B_wrangling.html">Wrangling with <code>dplyr</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_C_aggregating.html">Aggregating Data</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_I_joining.html">Joining Tables</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_J_pivoting.html">Pivoting with <code>tidyr</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_D_ggplot.html">Barplots and Scatterplots</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_E_ggplot_2.html">Histograms, Boxplots, Linegraphs</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_F_ggplot_3.html">Customizing Plots: <code>scales</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_H_forcats.html">Categorical Data: <code>forcats</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_stringr.html">Working with Text: <code>stringr</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_M_lubridate.html">Date-Time Data: <code>lubridate</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_G_maps.html">Chlorepleth Maps</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_maps_points.html">Points on Maps</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_N_webscraping_tables.html">Tables</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_O_webscraping_text.html">Text</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_formatting_figures.html">Figures</span> <span class="hidden" data-render-id="quarto-int-sidebar:/courses/stat0118/118_formatting_references.html">References</span> <span class="hidden" data-render-id="quarto-int-navbar:STAT 118: Data Science">STAT 118: Data Science</span> <span class="hidden" data-render-id="quarto-int-navbar:/courses/stat0118/index.html">/courses/stat0118/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:STAT 116: Stats">STAT 116: Stats</span> <span class="hidden" data-render-id="quarto-int-navbar:/courses/stat0116/index.html">/courses/stat0116/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:R by the Sea">R by the Sea</span> <span class="hidden" data-render-id="quarto-int-navbar:/courses/r-by-the-sea/index.html">/courses/r-by-the-sea/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Email">Email</span> <span class="hidden" data-render-id="quarto-int-navbar:mailto:emalcolmwhite@middlebury.edu">mailto:emalcolmwhite@middlebury.edu</span> <span class="hidden" data-render-id="quarto-breadcrumbs-651ae5789ab776f2fcaf80b5e62801dc">Tables</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">EMW - Webscraping Tables</span> <span class="hidden" data-render-id="quarto-twittercardtitle">EMW - Webscraping Tables</span> <span class="hidden" data-render-id="quarto-ogcardtitle">EMW - Webscraping Tables</span> <span class="hidden" data-render-id="quarto-metasitename">EMW</span> <span class="hidden" data-render-id="quarto-twittercarddesc"></span> <span class="hidden" data-render-id="quarto-ogcardddesc"></span></p>
+</div>
 <!-- -->
-
+<div class="quarto-embedded-source-code">
+<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &#39;Webscraping Tables&#39;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &#39;Emily Malcolm-White&#39;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: TRUE</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: false</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-annotations: hover</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://rvest.tidyverse.org/logo.png)</span>{width=30%}</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>Data doesn&#39;t just magically appear on your computer you need to get it from somewhere. </span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>Sometimes we download data files (<span class="in">`.csv`</span>, <span class="in">`.xlsx`</span>, etc.) and save them locally. Other times, we use datasets that come bundled with R packages (like the <span class="in">`gapminder`</span> dataset).</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Obtaining Data From The Web</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>Say you&#39;re interested in renting an apartment in Vermont—or studying the rental market. You might browse Craigslist&#39;s Vermont rental listings.</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>You could spend hours copying and pasting each listing... or you could write code that extracts the data for you.</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>When you visit a website, your browser loads the HTML source code, which includes the structure and content of the page—like headings, tables, and links. We can use R to read that code and extract specific content. This is called web scraping.</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🛑 Should we be scraping this data? </span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>Before scraping, always ask:</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is it legal?</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Can your specific use case violate the rules?</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Even if legal, is it ethical?</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>In the U.S., scraping public data is typically legal if:</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It&#39;s not used for harmful purposes</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It doesn&#39;t interfere with a website&#39;s business</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It excludes personally identifiable information (PII)</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Case Law Examples</span></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">eBay vs. Bidder&#39;s Edge (2000) </span><span class="co">](https://en.wikipedia.org/wiki/EBay_v._Bidder&#39;s_Edge#Order)</span>: Bots restricted from overloading systems</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Facebook vs. Power Venures (2009)</span><span class="co">](https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling)</span>: Logging in on others&#39; behalf violated terms</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Linkedin vs. hiQ Labs (2019)</span><span class="co">](https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn)</span>: Scraping public profiles ruled permissible</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>Websites often describe scraping policies in two places:</span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Their robots.txt file (e.g., craigslist.org/robots.txt)</span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Their Terms of Service (TOS) document</span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>Craigslist explicitly forbids scraping. Wikipedia does not.</span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>Why might Craigslist restrict scraping, while Wikipedia allows it?</span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a><span class="fu"># How does HTML work? </span></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>HTML (HyperText Markup Language) is the language used to create web pages. HTML uses tags (like <span class="in">`&lt;table&gt;`</span>, <span class="in">`&lt;tr&gt;`</span>, <span class="in">`&lt;td&gt;`</span>) to define page elements. If we understand this structure, we can write code that extracts tables and other elements from the page.</span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>:::callout-tip</span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>Typically, an HTML element is defined by a start tag, some content, and an end tag</span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a><span class="in">`&lt;tagname&gt; ...some content here... &lt;/tagname&gt;`</span></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>For example: </span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;html&gt;</span></span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;head&gt;</span></span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;title&gt;Page Title&lt;/title&gt;</span></span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/head&gt;</span></span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;h1&gt;My First Heading&lt;/h1&gt;</span></span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;My first paragraph.&lt;/p&gt;</span></span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/body&gt;</span></span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/html&gt;</span></span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>There are many, many different possible tag elements. In this class, it&#39;s not important that you know the specifics of what each element is. It&#39;s useful for you to understand the basic structure.  </span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## HTML Tables</span></span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>An HTML table is used to represent data in a structured way</span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;table&gt;`</span> Defines a table</span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;th&gt;`</span>    Defines a header cell in a table</span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;tr&gt;`</span>    Defines a row in a table</span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;td&gt;`</span>    Defines a cell in a table</span>
+<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>Here is the HTML code: </span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table&gt;</span></span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;th&gt;Name&lt;/th&gt;</span></span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;th&gt;Birth Year&lt;/th&gt;  </span></span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;th&gt;Country&lt;/th&gt;</span></span>
+<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Harry Styles&lt;/td&gt;</span></span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Feb 1, 1994&lt;/td&gt;</span></span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Britain&lt;/td&gt;</span></span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Taylor Swift&lt;/td&gt;</span></span>
+<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Dec 13, 1989&lt;/td&gt;</span></span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;USA&lt;/td&gt;</span></span>
+<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
+<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Justin Bieber&lt;/td&gt;</span></span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Mar 1, 1994&lt;/td&gt;</span></span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Canada&lt;/td&gt;</span></span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a>Here is how the HTML displays in a web browser: </span>
+<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Name<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Birth Year<span class="kw">&lt;/th&gt;</span>  </span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Country<span class="kw">&lt;/th&gt;</span></span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Harry Styles<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Feb 1, 1994<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Britain<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Taylor Swift<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Dec 13, 1989<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>USA<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Justin Bieber<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Mar 1, 1994<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Canada<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/table&gt;</span></span>
+<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>Today&#39;s class will focus on scraping data from HTML tables! </span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## HTML class</span></span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a>The <span class="in">`class`</span> attribute can be added to any HTML element. Often it is used to help customize the styling of the element (among other things). </span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;h2 class=&quot;city&quot;&gt;Middlebury&lt;/h2&gt;</span></span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p class=&quot;city&quot;&gt;Middlebury is a town in Vermont&lt;/p&gt;</span></span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a>This can be particularly useful in web scraping -- we can ask to scrape particular elements, particular classes, or both!</span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="fu"># Web Scraping using `rvest`</span></span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>We need the package <span class="co">[</span><span class="ot">`rvest`</span><span class="co">](https://rvest.tidyverse.org/)</span> to help us with this.</span>
+<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Viewing Raw HTML from a website</span></span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>You can inspect the source code of any webpage by using a web browser like Firefox or Chrome. </span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On Firefox, navigate to the “Tools” menu item in the top menu and click on “Web Developer/Page Source”. You can also use the shortcut <span class="in">`Command + U`</span></span>
+<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On Chrome, navigate to the top menu item “View” and click on “Developer/View Source.” You can also use the keyboard shortcut <span class="in">`Option-Command-U`</span>. It also can be useful to use the <span class="co">[</span><span class="ot">SelectorGadget Extension</span><span class="co">](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb/related)</span>. </span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Webscraping Tables from Wikipedia</span></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a>Check out the information on the (List of the Most Viewed YouTube Videos on Wikipedia)<span class="co">[</span><span class="ot">https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos</span><span class="co">]</span>. </span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>Suppose we want to scrape this data to use in R. </span>
+<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`read_html`</span> scrapes the raw html from the webpage as text</span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`html_element`</span> (and <span class="in">`html_elements`</span>) selects particular elements from the HTML code</span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`html_table`</span> formats a scraped html table as a tibble (R table)</span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="st">&quot;.wikitable&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>() </span>
+<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a>youtube_videos</span>
+<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We could have used <span class="in">`html_element(&quot;table&quot;)`</span></span>
+<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a>If we did this, it would have pulled the first <span class="in">`&lt;table&gt;`</span> from the page. </span>
+<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We could have used <span class="in">`html_elements(&quot;table&quot;)`</span></span>
+<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a>If we did this, it would have pulled all the <span class="in">`&lt;table&gt;`</span> elements from the page. </span>
+<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>If you want a specific table that isn&#39;t the first table, scrape all the tables and apply <span class="in">`html_table()`</span>. Then take that new object of the tables and add <span class="in">`[[n]]`</span> to get the $n^{th}$ table. For example to call the $2^{nd}$ table, </span>
+<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
+<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="in">tables &lt;- html %&gt;% </span></span>
+<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="in">  html_elements(&quot;table&quot;) %&gt;%</span></span>
+<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a><span class="in">  html_table() </span></span>
+<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a><span class="in">tables[[2]]</span></span>
+<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In this case, we used <span class="in">`html_elements(&quot;.wikitable&quot;)`</span></span>
+<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a>I choose to use this because the <span class="in">`&lt;table&gt;`</span> was also defined with a unique <span class="in">`class`</span>: <span class="in">`&lt;table class=&quot;wikitable sortable&quot;&gt;`</span></span>
+<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>:::callout-warning</span>
+<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a>Note that if we are using <span class="in">`html_element`</span> to call a class, it is important to add a &quot;<span class="in">`.`</span>&quot; before the class element name. You do not need to do this is you are calling an HTML element (like &quot;table&quot;)</span>
+<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cleaning up with `janitor`</span></span>
+<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a>Web scraping doesn&#39;t always format perfectly. Let&#39;s clean it up!  </span>
+<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
+<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a><span class="al">![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce)</span>{width=50%}</span>
+<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a>Clean up the names of the header: </span>
+<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(youtube_videos)</span>
+<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a>Format the views as a number using <span class="in">`as.numeric`</span>:</span>
+<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span> </span>
+<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">views_billions =</span> <span class="fu">as.numeric</span>(views_billions))</span>
+<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a>What are the top 10 most viewed YouTube Videos? </span>
+<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span></span>
+<span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(views_billions)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a>top10</span>
+<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a>Once we have this data, we can make cool plots!</span>
+<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>views_billions, <span class="at">y=</span><span class="fu">reorder</span>(video_name, views_billions))) <span class="sc">+</span></span>
+<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Views (in billions)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Videos&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;Top 10 Most Watched YouTube Videos of All Time&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a>In this case, the list of the names is still not displaying very neatly. For example, rather than <span class="in">`&quot;Baby Shark Dance&quot;[6]`</span> I might want it to just say <span class="in">`Baby Shark Dance`</span>. </span>
+<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a>We can use the <span class="in">`stringr`</span> package to remove symbols and numbers from the video names. We will be talking more about <span class="in">`stringr`</span> later this semester and it&#39;s not something I expect you to be able to do at this point in the semester. </span>
+<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a>quarto-executable-code-5450563D</span>
+<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">video_name=</span><span class="fu">str_replace_all</span>(video_name, <span class="st">&quot;[^[:alpha:]]&quot;</span>, <span class="st">&quot; &quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>views_billions, <span class="at">y=</span><span class="fu">reorder</span>(video_name, views_billions))) <span class="sc">+</span></span>
+<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Views (in billions)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Videos&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;Top 10 Most Watched YouTube Videos of All Time&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a>:::callout</span>
+<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a><span class="fu"># External Resources</span></span>
+<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R for Data Science, Webscraping</span><span class="co">](https://r4ds.hadley.nz/webscraping)</span></span>
+<span id="cb16-308"><a href="#cb16-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-309"><a href="#cb16-309" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
+</div>
 </section>
 </section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1049,308 +1359,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Webscraping Tables'</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Emily Malcolm-White'</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: TRUE</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: false</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-annotations: hover</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">  message: FALSE</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: FALSE</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://rvest.tidyverse.org/logo.png)</span>{width=30%}</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co">#LOAD PACKAGES </span></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>Data doesn't just magically appear on your computer you need to get it from somewhere. </span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>Sometimes we download data files (<span class="in">`.csv`</span>, <span class="in">`.xlsx`</span>, etc.) and save them locally. Other times, we use datasets that come bundled with R packages (like the <span class="in">`gapminder`</span> dataset).</span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Obtaining Data From The Web</span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>Say you're interested in renting an apartment in Vermont—or studying the rental market. You might browse Craigslist's Vermont rental listings.</span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>You could spend hours copying and pasting each listing... or you could write code that extracts the data for you.</span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>When you visit a website, your browser loads the HTML source code, which includes the structure and content of the page—like headings, tables, and links. We can use R to read that code and extract specific content. This is called web scraping.</span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🛑 Should we be scraping this data? </span></span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>Before scraping, always ask:</span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is it legal?</span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Can your specific use case violate the rules?</span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Even if legal, is it ethical?</span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>In the U.S., scraping public data is typically legal if:</span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It's not used for harmful purposes</span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It doesn't interfere with a website's business</span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It excludes personally identifiable information (PII)</span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Case Law Examples</span></span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">eBay vs. Bidder's Edge (2000) </span><span class="co">](https://en.wikipedia.org/wiki/EBay_v._Bidder's_Edge#Order)</span>: Bots restricted from overloading systems</span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Facebook vs. Power Venures (2009)</span><span class="co">](https://en.wikipedia.org/wiki/Facebook,_Inc._v._Power_Ventures,_Inc.#Ruling)</span>: Logging in on others' behalf violated terms</span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Linkedin vs. hiQ Labs (2019)</span><span class="co">](https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn)</span>: Scraping public profiles ruled permissible</span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>Websites often describe scraping policies in two places:</span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Their robots.txt file (e.g., craigslist.org/robots.txt)</span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Their Terms of Service (TOS) document</span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>Craigslist explicitly forbids scraping. Wikipedia does not.</span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>Why might Craigslist restrict scraping, while Wikipedia allows it?</span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a><span class="fu"># How does HTML work? </span></span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>HTML (HyperText Markup Language) is the language used to create web pages. HTML uses tags (like <span class="in">`&lt;table&gt;`</span>, <span class="in">`&lt;tr&gt;`</span>, <span class="in">`&lt;td&gt;`</span>) to define page elements. If we understand this structure, we can write code that extracts tables and other elements from the page.</span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>:::callout-tip</span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>Typically, an HTML element is defined by a start tag, some content, and an end tag</span>
-<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a><span class="in">`&lt;tagname&gt; ...some content here... &lt;/tagname&gt;`</span></span>
-<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>For example: </span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
-<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;html&gt;</span></span>
-<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;head&gt;</span></span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;title&gt;Page Title&lt;/title&gt;</span></span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/head&gt;</span></span>
-<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
-<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;h1&gt;My First Heading&lt;/h1&gt;</span></span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;My first paragraph.&lt;/p&gt;</span></span>
-<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/body&gt;</span></span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/html&gt;</span></span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>There are many, many different possible tag elements. In this class, it's not important that you know the specifics of what each element is. It's useful for you to understand the basic structure.  </span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## HTML Tables</span></span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>An HTML table is used to represent data in a structured way</span>
-<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;table&gt;`</span> Defines a table</span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;th&gt;`</span>    Defines a header cell in a table</span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;tr&gt;`</span>    Defines a row in a table</span>
-<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`&lt;td&gt;`</span>    Defines a cell in a table</span>
-<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>Here is the HTML code: </span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
-<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table&gt;</span></span>
-<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;th&gt;Name&lt;/th&gt;</span></span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;th&gt;Birth Year&lt;/th&gt;  </span></span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;th&gt;Country&lt;/th&gt;</span></span>
-<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Harry Styles&lt;/td&gt;</span></span>
-<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Feb 1, 1994&lt;/td&gt;</span></span>
-<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Britain&lt;/td&gt;</span></span>
-<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
-<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Taylor Swift&lt;/td&gt;</span></span>
-<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Dec 13, 1989&lt;/td&gt;</span></span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;USA&lt;/td&gt;</span></span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tr&gt;</span></span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Justin Bieber&lt;/td&gt;</span></span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Mar 1, 1994&lt;/td&gt;</span></span>
-<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;td&gt;Canada&lt;/td&gt;</span></span>
-<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tr&gt;</span></span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a>Here is how the HTML displays in a web browser: </span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;table&gt;</span></span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
-<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Name<span class="kw">&lt;/th&gt;</span></span>
-<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Birth Year<span class="kw">&lt;/th&gt;</span>  </span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;th&gt;</span>Country<span class="kw">&lt;/th&gt;</span></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
-<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Harry Styles<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Feb 1, 1994<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Britain<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
-<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Taylor Swift<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Dec 13, 1989<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>USA<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;tr&gt;</span></span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Justin Bieber<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Mar 1, 1994<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;td&gt;</span>Canada<span class="kw">&lt;/td&gt;</span></span>
-<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/tr&gt;</span></span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/table&gt;</span></span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>Today's class will focus on scraping data from HTML tables! </span>
-<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## HTML class</span></span>
-<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a>The <span class="in">`class`</span> attribute can be added to any HTML element. Often it is used to help customize the styling of the element (among other things). </span>
-<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;h2 class="city"&gt;Middlebury&lt;/h2&gt;</span></span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p class="city"&gt;Middlebury is a town in Vermont&lt;/p&gt;</span></span>
-<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a>This can be particularly useful in web scraping -- we can ask to scrape particular elements, particular classes, or both!</span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="fu"># Web Scraping using `rvest`</span></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>We need the package <span class="co">[</span><span class="ot">`rvest`</span><span class="co">](https://rvest.tidyverse.org/)</span> to help us with this.</span>
-<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Viewing Raw HTML from a website</span></span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>You can inspect the source code of any webpage by using a web browser like Firefox or Chrome. </span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On Firefox, navigate to the “Tools” menu item in the top menu and click on “Web Developer/Page Source”. You can also use the shortcut <span class="in">`Command + U`</span></span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On Chrome, navigate to the top menu item “View” and click on “Developer/View Source.” You can also use the keyboard shortcut <span class="in">`Option-Command-U`</span>. It also can be useful to use the <span class="co">[</span><span class="ot">SelectorGadget Extension</span><span class="co">](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb/related)</span>. </span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Webscraping Tables from Wikipedia</span></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a>Check out the information on the (List of the Most Viewed YouTube Videos on Wikipedia)<span class="co">[</span><span class="ot">https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos</span><span class="co">]</span>. </span>
-<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>Suppose we want to scrape this data to use in R. </span>
-<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`read_html`</span> scrapes the raw html from the webpage as text</span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`html_element`</span> (and <span class="in">`html_elements`</span>) selects particular elements from the HTML code</span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`html_table`</span> formats a scraped html table as a tibble (R table)</span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="st">".wikitable"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>() </span>
-<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a>youtube_videos</span>
-<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We could have used <span class="in">`html_element("table")`</span></span>
-<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a>If we did this, it would have pulled the first <span class="in">`&lt;table&gt;`</span> from the page. </span>
-<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We could have used <span class="in">`html_elements("table")`</span></span>
-<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a>If we did this, it would have pulled all the <span class="in">`&lt;table&gt;`</span> elements from the page. </span>
-<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>If you want a specific table that isn't the first table, scrape all the tables and apply <span class="in">`html_table()`</span>. Then take that new object of the tables and add <span class="in">`[[n]]`</span> to get the $n^{th}$ table. For example to call the $2^{nd}$ table, </span>
-<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
-<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="in">tables &lt;- html %&gt;% </span></span>
-<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="in">  html_elements("table") %&gt;%</span></span>
-<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a><span class="in">  html_table() </span></span>
-<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a><span class="in">tables[[2]]</span></span>
-<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In this case, we used <span class="in">`html_elements(".wikitable")`</span></span>
-<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a>I choose to use this because the <span class="in">`&lt;table&gt;`</span> was also defined with a unique <span class="in">`class`</span>: <span class="in">`&lt;table class="wikitable sortable"&gt;`</span></span>
-<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>:::callout-warning</span>
-<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a>Note that if we are using <span class="in">`html_element`</span> to call a class, it is important to add a "<span class="in">`.`</span>" before the class element name. You do not need to do this is you are calling an HTML element (like "table")</span>
-<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cleaning up with `janitor`</span></span>
-<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a>Web scraping doesn't always format perfectly. Let's clean it up!  </span>
-<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
-<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a><span class="al">![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce)</span>{width=50%}</span>
-<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a>Clean up the names of the header: </span>
-<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(youtube_videos)</span>
-<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a>Format the views as a number using <span class="in">`as.numeric`</span>:</span>
-<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a>youtube_videos <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span> </span>
-<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">views_billions =</span> <span class="fu">as.numeric</span>(views_billions))</span>
-<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a>What are the top 10 most viewed YouTube Videos? </span>
-<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">&lt;-</span> youtube_videos <span class="sc">%&gt;%</span></span>
-<span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(views_billions)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a>top10</span>
-<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a>Once we have this data, we can make cool plots!</span>
-<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
-<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>views_billions, <span class="at">y=</span><span class="fu">reorder</span>(video_name, views_billions))) <span class="sc">+</span></span>
-<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Views (in billions)"</span>) <span class="sc">+</span></span>
-<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Videos"</span>) <span class="sc">+</span></span>
-<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Top 10 Most Watched YouTube Videos of All Time"</span>) <span class="sc">+</span></span>
-<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
-<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a>In this case, the list of the names is still not displaying very neatly. For example, rather than <span class="in">`"Baby Shark Dance"[6]`</span> I might want it to just say <span class="in">`Baby Shark Dance`</span>. </span>
-<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a>We can use the <span class="in">`stringr`</span> package to remove symbols and numbers from the video names. We will be talking more about <span class="in">`stringr`</span> later this semester and it's not something I expect you to be able to do at this point in the semester. </span>
-<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a>top10 <span class="sc">%&gt;%</span> </span>
-<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">video_name=</span><span class="fu">str_replace_all</span>(video_name, <span class="st">"[^[:alpha:]]"</span>, <span class="st">" "</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>views_billions, <span class="at">y=</span><span class="fu">reorder</span>(video_name, views_billions))) <span class="sc">+</span></span>
-<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Views (in billions)"</span>) <span class="sc">+</span></span>
-<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Videos"</span>) <span class="sc">+</span></span>
-<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Top 10 Most Watched YouTube Videos of All Time"</span>) <span class="sc">+</span></span>
-<span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
-<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a>:::callout</span>
-<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a><span class="fu"># External Resources</span></span>
-<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R for Data Science, Webscraping</span><span class="co">](https://r4ds.hadley.nz/webscraping)</span></span>
-<span id="cb16-308"><a href="#cb16-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-309"><a href="#cb16-309" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</script>
 </div> <!-- /content -->
 
+</body>
 
-
-</body></html>
+</html>

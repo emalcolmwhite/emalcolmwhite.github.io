@@ -2,7 +2,7 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": true
+            "ascending": false
         },
         {
             "columnIndex": 3,
@@ -13,5 +13,5 @@
             "ascending": true
         }
     ],
-    "path": "~/OneDrive - Middlebury College/emalcolmwhite.github.io"
+    "path": "~/OneDrive - Middlebury College/emalcolmwhite.github.io/courses/stat0118"
 }
