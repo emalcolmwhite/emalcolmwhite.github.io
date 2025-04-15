@@ -1,8 +1,5 @@
 ---
-title: 'STAT 118: Notes P'
-subtitle: |
-  | Webscraping Text with `rvest`
-  | ![](https://rvest.tidyverse.org/logo.png){width=10%}
+title: 'Webscraping Text'
 author: 'Emily Malcolm-White'
 institute: 'Middlebury College'
 format:
@@ -10,9 +7,18 @@ format:
     toc: TRUE
     code-overflow: wrap
     embed-resources: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-annotations: hover
+  pdf: default
 execute: 
-  eval: FALSE
+  message: FALSE
+  warning: FALSE
 ---
+
+![](https://rvest.tidyverse.org/logo.png){width=30%}
 
 ```{r message=FALSE, warning=FALSE}
 #LOAD PACKAGES 
@@ -22,215 +28,166 @@ library(rvest)
 
 # Webscraping Text
 
-Let's look at the [top 50 feature films in the first 7 months of 2023 listed on IMBD](https://www.imdb.com/search/title/?title_type=feature&year=2023-01-01,2023-07-31)
+Let's look at the [Science Books on Good Reads](https://www.goodreads.com/shelf/show/science)
 
 ```{r}
-URL <- read_html("https://www.imdb.com/search/title/?title_type=feature&year=2023-01-01,2023-07-31")
+URL <- read_html("https://www.goodreads.com/shelf/show/science")
 ```
 
 
-Notice that the data for all these films isn't housed inside a `<table>` element! 
+Notice that the data for all these books isn't housed inside a `<table>` element! 
 
 ## Titles
 
-For example, check out the first few lines of html code for Oppenheimer: 
+For example, check out the lines of html code for the book "Sapians": 
 
 ```{}
-<h3 class="lister-item-header">
-        <span class="lister-item-index unbold text-primary">1.</span>
-    <a href="/title/tt15398776/?ref_=adv_li_tt"
->Oppenheimer</a>
-    <span class="lister-item-year text-muted unbold">(2023)</span>
-</h3>
+<div class="elementList" style="padding-top: 10px;">
+<div class="left" style="width: 75%;">
+<a title="Sapiens: A Brief History of Humankind" class="leftAlignedImage" href="/book/show/23692271-sapiens"><img alt="Sapiens: A Brief History of Humankind" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1703329310l/23692271._SY75_.jpg" /></a>
+<a class="bookTitle" href="/book/show/23692271-sapiens">Sapiens: A Brief History of Humankind (Paperback)</a>
+<br />
+<span class='by'>by</span>
+<span itemprop='author' itemscope='' itemtype='http://schema.org/Person'>
+<div class='authorName__container'>
+<a class="authorName" itemprop="url" href="https://www.goodreads.com/author/show/395812.Yuval_Noah_Harari"><span itemprop="name">Yuval Noah Harari</span></a>
+</div>
+</span>
+(shelved 6592 times as <em>science</em>)
+<br />
+<span class="greyText smallText">
+avg rating 4.35 —
+1,168,542 ratings  —
+published 2011
+</span>
+</div>
 ```
 
+## Titles
 
-In this case, we want to look for the class `lister-item-header` AND then pull the text inside the `<a>` (link) tag.
-
-`html_elements(".lister-item-header a")`
+In this case, we want to look for the class `bookTitle` using `html_elements(".bookTitle")`
 
 :::callout-tip
 In this case, we want ALL titles so we used `html_elements()`. If we had only wanted the first title we would have used `html_element()`
 :::
 
-Scrape IMBD for the titles of the 50 most popular feature films in the first 7 months of 2023. 
-
 ```{r}
-title_data <- URL %>%
-  html_elements(".lister-item-header a") %>%
-  html_text()
 
-title_data
 ```
 
-## Runtime
+## Authors
 
-Scrape IMBD for the runtime of the 50 most popular feature films so far in 2023.
+In this case, we want to look for the class `authorName` using `html_elements(".authorName")`
 
-Check out the relevant HTML code for Oppenheimer: 
-```{}
-    <p class="text-muted ">
-            <span class="certificate">R</span>
-                 <span class="ghost">|</span> 
-                 <span class="runtime">180 min</span>
-                 <span class="ghost">|</span> 
-            <span class="genre">
-Biography, Drama, History            </span>
-    </p>
-```
-
-In this case, we need to reference the class `text-muted` AND the class `runtime`. 
-
-```{r}
-URL %>%
-  html_nodes(".text-muted .runtime") %>%
-  html_text() 
-```
-Alternatively, we could have called class `text-muted` AND the 3rd span, but it's easier and likely more accurate to ask for the class `runtime` in case `runtime` is missing for some reason. 
-
-Maybe we want to keep the `min` on the end, but it forces it into being a stringr rather than a number which makes it difficult to sort or filter. 
-
-```{r}
-library(readr)
-# need this package for parse_number()
-```
-
-![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/4fd04f07-7404-4371-832c-c04ff9a6e069_rw_1920.png?h=2bd0f0330dc94ccbbb49766ed7f80b8b){width=50%}
-
-```{r}
-runtime_data <- URL %>%
-  html_nodes(".text-muted .runtime") %>%
-  html_text() %>%
-  parse_number() %>% #this picks out only the numbers (and drops characters, in this case, "mins")
-  as.numeric()
-
-runtime_data
-```
-
-## Ratings
-
-Scrape IMBD for the ratings of the 50 most popular feature films in the first 7 months of 2023. 
-
-Check out the relevant HTML code for Oppenheimer: 
-
-```{}
-    <div class="inline-block ratings-imdb-rating" name="ir" data-value="8.6">
-        <span class="global-sprite rating-star imdb-rating"></span>
-        <strong>8.6</strong>
-    </div>
-```
-
-Let's scrape it! 
-```{r}
-rating_data <- URL %>%
-  html_elements(".ratings-imdb-rating strong") %>%
-  html_text() %>%
-  as.numeric()
-
-rating_data
-```
-
-:::callout-warning
-Notice that there are only 49 ratings listed, not 50! 
-There is no way to figure out which one is missing besides doing it by hand...
-
-Which one is it? 
-
-Once we figure out which one is it is, we should should add a blank element for the rating for that movie using the `append` function.
-
-`rating_data <- append(rating_data, values=FALSE, after=11)`
+:::callout-tip
+In this case, we want ALL titles so we used `html_elements()`. If we had only wanted the first title we would have used `html_element()`
 :::
 
-It's Killers of the Flower Moon (#32)! 
-
 ```{r}
-rating_data <- append(rating_data, values=NA, after=31)
+
 ```
 
-Notice how it is the correct length (50) now! 
+## Other Info
 
-## Number of Votes
 
-Scrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023. 
-
-Relevant code for Oppenheimer: 
 ```{}
-        <p class="sort-num_votes-visible">
-                <span class="text-muted">Votes:</span>
-                <span name="nv" data-value="391689">391,689</span>
-        </p>
+<span class="greyText smallText">
+avg rating 4.35 —
+1,168,542 ratings  —
+published 2011
+</span>
 ```
 
-Let's scrape it! 
-```{r}
-votes_data <- URL %>%
-  html_elements(".sort-num_votes-visible span:nth-child(2)") %>%
-  html_text() %>%
-  parse_number() %>%
-  as.numeric()
-
-votes_data
-```
-:::callout-warning
-Same issue as before! We were supposed to have 50 but only got 49. 
-It's Killers of the Flower Moon (#32), again! 
+In this case, we need to reference the class `greyText` 
 
 ```{r}
-votes_data <- append(votes_data, values=NA, after=31)
-```
-:::
 
-## Metascore
-
-Scrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023. 
-
-Relevant code for Oppenheimer: 
-```{}
-            <div class="inline-block ratings-metascore">
-<span class="metascore  favorable">88        </span>
-        Metascore
-            </div>
 ```
 
-Let's scrape it! 
-```{r}
-metascore_data <- URL %>%
-  html_elements(".metascore") %>%
-  html_text() %>%
-  parse_number() %>%
-  as.numeric()
-
-metascore_data
-```
-
-:::callout-warning
-Yikes! Now we only have 41 when we should have 50. 
-
-We *could* manually go through and figure out which 9 are missing or we could reassess how important the metascore data is to us... 
-:::
-
-# Combining it all together into a data frame! 
-
-We can combine all this data into one data frame: 
+## Putting it all together
 
 ```{r}
-movies <- data.frame(Title = title_data,
-Runtime = runtime_data,
-Rating = rating_data,
-Votes = votes_data
-)
 
-movies
 ```
 
-Make a list OR Make a plot! 
+Oops! They aren't all the same length, so we can't put them in the same dataset. There should be 50 books! We need to look at this by hand... 
+
+The 13th element of `authors` just says "(Contributers)". Let's remove that. 
 
 ```{r}
-ggplot(movies, aes(x=runtime_data, y=rating_data)) +
-  geom_point() +
-  theme_minimal() + 
-  xlab("Runtime (in minutes)") +
-  ylab("IMDB Rating")
+
 ```
 
+
+Our `info` vector has some excessive info (ie. `info[58] = (GoodReads Author)`)
+
+Sometimes webscraping requires some manual massaging. We could try using the full `class = "greyText smallText` but using multiple classes `html_elements(".greyText.smallText")`
+
+```{r}
+
+```
+
+# All Together Now
+
+Now they are all the same length: 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+## Seperating Data in Columns
+
+We will need some help of `regex` (short for regular expression) -- a powerful way to search, match, and extract patterns in text. 
+
+```{r}
+# books <- books %>%
+#   mutate(
+#     # Remove newlines and trim spaces
+#     Info = str_squish(Info),
+#     
+#     # Extract each piece using regex
+#     avg_rating = str_extract(Info, "(?<=avg rating )\\d+\\.\\d+"),   
+#     num_ratings = str_extract(Info, "\\d{1,3}(,\\d{3})*(?= ratings)"),  
+#     yr_published = str_extract(Info, "(?<=published )\\d{4}")
+#   ) %>% 
+#   select(-Info)
+```
+
+🌶️ `regex` expressions can be very challenging depending on the complexity of the text you are trying to format. You are encouraged to use Google and/or generative AI to help you come up with the appropriate expressions. Below is a quick guide to some of the basics: 
+
+```markdown
+| Pattern | Meaning                                     | Example                          |
+|---------|---------------------------------------------|----------------------------------|
+| `.`     | Any character except newline                | `a.b` matches `acb`, `a2b`       |
+| `\d`    | Any digit (0–9)                             | `\d+` matches `2023`, `55`       |
+| `\w`    | Any word character (letter, number, _)      | `\w+` matches `hello`, `abc123`  |
+| `\s`    | Whitespace (space, tab, newline)            | `\s+` matches spaces/tabs        |
+| `+`     | One or more of the preceding                | `a+` matches `a`, `aa`, `aaa`    |
+| `*`     | Zero or more of the preceding               | `a*` matches ``, `a`, `aa`       |
+| `?`     | Optional (zero or one)                      | `colou?r` matches `color`, `colour` |
+| `^`     | Start of line/string                        | `^The` matches lines starting with `The` |
+| `$`     | End of line/string                          | `end$` matches lines ending with `end` |
+| `[]`    | Match one character inside brackets         | `[aeiou]` matches any vowel      |
+| `[^]`   | Match anything **except** what's in brackets | `[^0-9]` matches non-digits      |
+| `()`    | Grouping for extracting or repeating        | `(\d{4})` extracts 4-digit numbers |
+| `|`     | OR                                           | `cat|dog` matches `cat` or `dog` |
+| `{n}`   | Exactly n repetitions                       | `\d{4}` matches exactly four digits |
+```
+
+
+# Formatting Columns
+
+```{r}
+# books <- books %>% 
+#   mutate(
+#     num_ratings = str_remove_all(num_ratings, ",") %>%  as.numeric(),
+#     avg_rating = avg_rating %>%  as.numeric(),
+#     num_ratings = num_ratings %>%  as.numeric(),
+#     yr_published = yr_published %>%  as.numeric()
+#   )
+```
 
