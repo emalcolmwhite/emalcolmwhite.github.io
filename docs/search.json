@@ -1,9 +1,849 @@
 [
   {
+    "objectID": "CV/index.html",
+    "href": "CV/index.html",
+    "title": "Curriculum vitae",
+    "section": "",
+    "text": "Download current CV"
+  },
+  {
+    "objectID": "courses/math103/index.html",
+    "href": "courses/math103/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/math103/index.html#math-103-functions",
+    "href": "courses/math103/index.html#math-103-functions",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_F_ggplot_3.html",
+    "href": "courses/stat0118/118_F_ggplot_3.html",
+    "title": "Customizing Plots",
+    "section": "",
+    "text": "library(tidyverse)\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_F_ggplot_3.html#logarithmic-axes-transformations",
+    "href": "courses/stat0118/118_F_ggplot_3.html#logarithmic-axes-transformations",
+    "title": "Customizing Plots",
+    "section": "Logarithmic Axes Transformations",
+    "text": "Logarithmic Axes Transformations\n\n\n\n\n\n\nApplying a Log Transformation\n\n\n\nWhen you apply a log transformation to an axis (or both axes) in a plot, you convert values using a logarithmic scale instead of a linear scale. This means:\n\nInstead of evenly spaced values (1, 2, 3, 4, …), a logarithmic scale spaces values exponentially (1, 10, 100, 1000, …).\nThe distance between ticks represents a multiplicative factor instead of an additive one.\n\n\n\n\n\n\nSee how much more clearly we can see all the points!\n\n\nFor you to do this yourself, you need to use scale_*_log10() instead of scale_*_continuous():\n\ncan_lang_plot +\n1  scale_x_log10(labels = label_comma()) +\n2  scale_y_log10(labels = label_comma())\n\n\n1\n\nconverts x-axis to a log-scale\n\n2\n\nconverts y-axis to a log-scale\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse ✅ scale_*_log10() instead of 🚫log(variable)"
+  },
+  {
+    "objectID": "courses/stat0118/118_F_ggplot_3.html#using-percents-on-a-log-scale",
+    "href": "courses/stat0118/118_F_ggplot_3.html#using-percents-on-a-log-scale",
+    "title": "Customizing Plots",
+    "section": "Using percents on a log scale",
+    "text": "Using percents on a log scale\n\nmutate to create new columns with percentage of Canadians who speak the language as their mother tongue:\n\ncan_lang &lt;- can_lang %&gt;%\n  mutate(\n    mother_tongue_percent = (mother_tongue / 35151728) * 100,\n    most_at_home_percent = (most_at_home / 35151728) * 100\n  )\n\n\n\nScatterplot with Percents and Colors\nCreate a scatterplot with most_at_home_percent and mother_tongue_percent. Vary the color and shape of the points depending on the category of language. You may need to adjust the position of the legend:\n\n1can_lang_percent_plot &lt;- ggplot(can_lang, aes(x = most_at_home_percent,\n2                     y = mother_tongue_percent )) +\n3  geom_point(aes(color = category, shape=category), alpha=0.5) +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n4  theme(legend.position = \"top\", legend.direction = \"vertical\") +\n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)\n\ncan_lang_percent_plot \n\n\n1\n\nUse most_at_home_percent as the x-axis\n\n2\n\nUse mother_tongue_percent as as the y-axis\n\n3\n\nvary the shape and the color based on the category of language. Note this is included in the aesthetics of the points. It also would have been okay to put these directly inside the global aesthetics (ggplot(aes(...))) so that these characteristics apply to any layers.\n\n\n4\n\nAdjusts the position of the legend"
+  },
+  {
+    "objectID": "courses/stat0118/118_F_ggplot_3.html#using-ggrepel",
+    "href": "courses/stat0118/118_F_ggplot_3.html#using-ggrepel",
+    "title": "Customizing Plots",
+    "section": "Using ggrepel",
+    "text": "Using ggrepel\n\n\n\nArtwork by @allisonhorst\n\n\n\nlibrary(ggrepel)\n\ncan_lang_percent_plot + \n  geom_text_repel(aes(label=language), max.overlaps = Inf)"
+  },
+  {
+    "objectID": "courses/stat0118/118_F_ggplot_3.html#subset-the-labels",
+    "href": "courses/stat0118/118_F_ggplot_3.html#subset-the-labels",
+    "title": "Customizing Plots",
+    "section": "Subset the labels",
+    "text": "Subset the labels\nCreate a new column for the labels. Use case_when (or ifelse) to only use the official language names and not to put a label for other language categories.\n\ncan_lang &lt;- can_lang %&gt;% \n  mutate(official_languages = case_when(category == \"Official languages\" ~ language, TRUE ~ NA ))\n\n\n# We need to redo the base plot with the new can_lang dataset with the new official_languages column in it \ncan_lang_percent_plot &lt;- ggplot(can_lang, aes(x = most_at_home_percent,  y = mother_tongue_percent)) +\n  geom_point(aes(color = category, shape=category)) +\n  xlab(\"Language spoken most at home \\n (percentage of Canadian residents)\") +\n  ylab(\"Mother tongue \\n (percentage of Canadian residents)\") +\n  theme(legend.position = \"top\", legend.direction = \"vertical\") + \n  scale_x_log10(labels = comma) +\n  scale_y_log10(labels = comma)\n\n\ncan_lang_percent_plot + \n  geom_text_repel(aes(label=official_languages, min.segment.length=0, box.padding=1))"
+  },
+  {
+    "objectID": "courses/stat0118/118_project_template.html",
+    "href": "courses/stat0118/118_project_template.html",
+    "title": "YOUR WITTY TITLE HERE",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n\n\nIntroduction\n\n\nResults\n\n\nDiscussion\n\n\nAuthor Contributions\n\n\nReferences\n\n\nSupplemental Materials"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html",
+    "href": "courses/stat0118/118_stringr_notes.html",
+    "title": "working with text with stringr",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(stringr)"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#a-few-basics",
+    "href": "courses/stat0118/118_stringr_notes.html#a-few-basics",
+    "title": "working with text with stringr",
+    "section": "A few basics",
+    "text": "A few basics\nWhat is a string?\nA string is a data type used to represent text. In R, we indicate that something is a string by referring to it with quotes.\nExamples of strings:\n\n\n\n\n\nNOT a string:\n\n\n\nWhat is  stringr ?\nstringr is a package containing a bunch of functions that help us work with strings.\nstringr cheat sheet"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_detect",
+    "href": "courses/stat0118/118_stringr_notes.html#str_detect",
+    "title": "working with text with stringr",
+    "section": "str_detect",
+    "text": "str_detect\ninputs:\n\na string (or a column of strings) to search from\n\na string to search for\n\noutput: boolean value (TRUE or FALSE)\nlittle example:\nI only want to take classes in Warner! Let’s filter for rows where we detect the word “Warner” in the location column.\nSuppose I don’t want any classes on Friday. Let’s use str_detect to find our options.\nPerhaps I’m interested in artificial intelligence. We can use str_detect to find course descriptions that mention artificial intelligence.\nThe regex function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.\nFor now, we will only use regex to ignore capitalization. If you’re interested in using regular expressions at some point, this regex cheat sheet will be super helpful."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_extract-and-str_remove",
+    "href": "courses/stat0118/118_stringr_notes.html#str_extract-and-str_remove",
+    "title": "working with text with stringr",
+    "section": "str_extract and str_remove",
+    "text": "str_extract and str_remove\nstr_extract inputs:\n\na string (or a column of strings) to extract from\n\na string to extract\n\nstr_extract output: the string you wanted to extract OR nothing\nstr_remove inputs:\n\na string (or a column of strings) to remove stuff from\n\na string to remove\n\nstr_remove output: the first input string with the second input removed\nlittle example:\nCW is part of the distribution requirement column. I want CW to be its own column.\nFirst we can create a new column called isCW by extracting instances of “CW” from the distros column in each row.\nThen we can remove all instances of “CW” from the distros column."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_sub",
+    "href": "courses/stat0118/118_stringr_notes.html#str_sub",
+    "title": "working with text with stringr",
+    "section": "str_sub",
+    "text": "str_sub\nstr_sub inputs:\n\na string (or a column of strings) take substrings of\n\nwhere the substring should start\nwhere the substring should end\n\nstr_sub output: the substring\nlittle example:\nMaybe I only want 200 level math and stats classes.\nFirst we filter for just math/stats classes. Then we can create a new column called level that contains only the sixth character from the courses column.\nWe can then filter our level column for specific course levels."
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_notes.html#str_count",
+    "href": "courses/stat0118/118_stringr_notes.html#str_count",
+    "title": "working with text with stringr",
+    "section": "str_count",
+    "text": "str_count\nlittle example:\nstr_count inputs:\n\na string (or a column of strings) to count from\n\na string you want to count the number of instances of\n\nstr_count output: the number of times the second string occurs in your first string\nMaybe I only want my classes to meet twice a week. Let’s count how many times “day” appears in the meet column and put this value in a new column called dayCount. dayCount represents how many days a week a class meets.\nLet’s visualize this data."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro.html",
+    "href": "courses/stat0118/118_A_intro.html",
+    "title": "Quarto & Markdown Formatting",
+    "section": "",
+    "text": "If you type…\nOutput\n\n\n\n\n*italics*\nitalics\n\n\n**bold**\nbold\n\n\n***bold italics***\nbold italics\n\n\n- chai tea\n- green tea\n- earl grey tea\n\nchai tea\ngreen tea\nearl grey tea\n\n\n\n[this is the text that will display](www.google.com)\nthis is the text that will display\n\n\n![a caption here](jellyfish.jpg)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nA comprehensive list of markdown syntax can be found at https://quarto.org/docs/authoring/markdown-basics.html."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
+    "href": "courses/stat0118/118_A_intro.html#centered-and-large-equations",
+    "title": "Quarto & Markdown Formatting",
+    "section": "Centered and large equations",
+    "text": "Centered and large equations\nType in the plain text section:\n$$y=\\frac{x^2}{SE(x^2)} $$\nDisplays as:\n\\[y=\\frac{x^2}{SE(x^2)} \\]\nHint: Some people like to use the visual editor to insert equations"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro.html#inline-equations",
+    "href": "courses/stat0118/118_A_intro.html#inline-equations",
+    "title": "Quarto & Markdown Formatting",
+    "section": "Inline equations",
+    "text": "Inline equations\nType in the plain text section:\nWe take and calculate the standard error $SE(x_1)$.\nDisplays as:\nWe take and calculate the standard error \\(SE(x_1)\\)."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro.html#inline-code",
+    "href": "courses/stat0118/118_A_intro.html#inline-code",
+    "title": "Quarto & Markdown Formatting",
+    "section": "Inline code",
+    "text": "Inline code\nType in the plain text section:\nThis is a sentence. The value of x is `r x`\nDisplays as:\nThis is a sentence. The value of x is 11."
+  },
+  {
+    "objectID": "courses/stat0118/118_M_lubridate.html",
+    "href": "courses/stat0118/118_M_lubridate.html",
+    "title": "Working with dates using lubridate",
+    "section": "",
+    "text": "Dates and times are everywhere in data: timestamps on social media posts, transaction dates in sales records, birthdates in survey data. But unlike numbers or strings, dates are tricky—you can’t just subtract them like normal numbers, and parsing them from messy formats can be a headache.\n\nDate Formats\nThink of how many different formats you know of to format a date:\n\n2023 07 06\nWed, Jun 7, 2023\n07-06-23\n06-07-23 14:55 ET\n06/07/2023 2:55pm\n\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nLubridate\n\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nExtracting Components\n\n\n\nArtwork by @allisonhorst\n\n\nOnce you have a date object, you can easily extract parts of it:\n\nbirthday &lt;- ymd(\"1998-09-27\")\n\nyear(birthday)      # 1998\n\n[1] 1998\n\nmonth(birthday)     # 9\n\n[1] 9\n\nmonth(birthday, label = TRUE)  # \"Sep\"\n\n[1] Sep\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\nday(birthday)       # 27\n\n[1] 27\n\nwday(birthday, label = TRUE)   # \"Sun\"\n\n[1] Sun\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat\n\n\n\n\nDoing Math with Dates\nSet up the object today as today’s date:\n\ntoday &lt;- Sys.Date()\n\nCalculate the age based on today’s date and your birthday:\n\nage &lt;- today - birthday\nage \n\nTime difference of 9688 days\n\ntime_length(age, \"years\" )\n\n[1] 26.5243\n\n\nWhat is will be the date 28 days from now?\n\ntoday + days(28)\n\n[1] \"2025-05-04\"\n\n\n\n\nSome real life examples:\nRecall the Portal Project – a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\n\nportal_rodent &lt;- portal_rodent %&gt;% \n  mutate(date = make_date(year, month, day))\n\nA line plot showing the number of rodents captured per day over time:\n\nportal_rodent %&gt;% \n  count(date) %&gt;% \n  ggplot(aes(x = date, y = n)) +\n  geom_line() \n\n\n\n\nUse the floor_date function to round each date down to the first day of the month, which is great for time series grouping.\n\nportal_rodent %&gt;% \n  mutate(month_floor = floor_date(date, \"month\")) %&gt;% \n  count(month_floor) %&gt;% \n  ggplot(aes(x = month_floor, y = n)) +\n  geom_line() \n\n\n\n\nAlternatively, use the floor_date function to round each date down to first day of the year:\n\nportal_rodent %&gt;% \n  mutate(year_floor = floor_date(date, \"year\")) %&gt;% \n  count(year_floor) %&gt;% \n  ggplot(aes(x = year_floor, y = n)) +\n  geom_line()"
+  },
+  {
+    "objectID": "courses/stat0118/118_B_wrangling.html",
+    "href": "courses/stat0118/118_B_wrangling.html",
+    "title": "Wrangling Basics",
+    "section": "",
+    "text": "Sometimes everything we need (data, functions, etc) are not available in base R. In R, expert users will package up useful things like data and functions into packages that be download and used.\nFirst, you need to download the package from the right hand menu –&gt; You only need to do this once.\nIn each new .qmd document, you need to call any packages you want to use but adding the code library(packagename) inside an R chunk.\n\n\nIn this class we will use the tidyverse package a lot.\n\n1library(tidyverse)\n\n\n1\n\nLoads the tidyverse package\n\n\n\n\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\n\n\n\nCredit: https://uopsych-r-bootcamp-2020.netlify.app/\n\n\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets."
+  },
+  {
+    "objectID": "courses/stat0118/118_B_wrangling.html#the-tidyverse-package",
+    "href": "courses/stat0118/118_B_wrangling.html#the-tidyverse-package",
+    "title": "Wrangling Basics",
+    "section": "",
+    "text": "In this class we will use the tidyverse package a lot.\n\n1library(tidyverse)\n\n\n1\n\nLoads the tidyverse package\n\n\n\n\nThere are actually many commonly used packages wrapped up inside one tidyverse package.\n\n\n\nCredit: https://uopsych-r-bootcamp-2020.netlify.app/\n\n\nToday we are specifically going to be talking about the package dplyr which is useful to manipulating data sets."
+  },
+  {
+    "objectID": "courses/stat0118/index.html",
+    "href": "courses/stat0118/index.html",
+    "title": "STAT 118: Intro to Data Science",
+    "section": "",
+    "text": "Use the sidebar to navigate through course topics and download notes, templates, and homework assignments."
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_notes.html",
+    "href": "courses/stat0118/118_N_webscraping_tables_notes.html",
+    "title": "Webscraping Tables",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nData doesn’t just magically appear on your computer you need to get it from somewhere.\nSometimes we download data files (.csv, .xlsx, etc.) and save them locally. Other times, we use datasets that come bundled with R packages (like the gapminder dataset)."
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_notes.html#html-tables",
+    "href": "courses/stat0118/118_N_webscraping_tables_notes.html#html-tables",
+    "title": "Webscraping Tables",
+    "section": "HTML Tables",
+    "text": "HTML Tables\nAn HTML table is used to represent data in a structured way\n\n&lt;table&gt; Defines a table\n&lt;th&gt; Defines a header cell in a table\n&lt;tr&gt; Defines a row in a table\n&lt;td&gt; Defines a cell in a table\n\nHere is the HTML code:\n&lt;table&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Name&lt;/th&gt;\n    &lt;th&gt;Birth Year&lt;/th&gt;  \n    &lt;th&gt;Country&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Harry Styles&lt;/td&gt;\n    &lt;td&gt;Feb 1, 1994&lt;/td&gt;\n    &lt;td&gt;Britain&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Taylor Swift&lt;/td&gt;\n    &lt;td&gt;Dec 13, 1989&lt;/td&gt;\n    &lt;td&gt;USA&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Justin Bieber&lt;/td&gt;\n    &lt;td&gt;Mar 1, 1994&lt;/td&gt;\n    &lt;td&gt;Canada&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\nHere is how the HTML displays in a web browser:\n\n\n\n\nName\n\n\nBirth Year\n\n\nCountry\n\n\n\n\nHarry Styles\n\n\nFeb 1, 1994\n\n\nBritain\n\n\n\n\nTaylor Swift\n\n\nDec 13, 1989\n\n\nUSA\n\n\n\n\nJustin Bieber\n\n\nMar 1, 1994\n\n\nCanada\n\n\n\n\nToday’s class will focus on scraping data from HTML tables!"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_notes.html#html-class",
+    "href": "courses/stat0118/118_N_webscraping_tables_notes.html#html-class",
+    "title": "Webscraping Tables",
+    "section": "HTML class",
+    "text": "HTML class\nThe class attribute can be added to any HTML element. Often it is used to help customize the styling of the element (among other things).\n&lt;h2 class=\"city\"&gt;Middlebury&lt;/h2&gt;\n&lt;p class=\"city\"&gt;Middlebury is a town in Vermont&lt;/p&gt;\nThis can be particularly useful in web scraping – we can ask to scrape particular elements, particular classes, or both!"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_notes.html#viewing-raw-html-from-a-website",
+    "href": "courses/stat0118/118_N_webscraping_tables_notes.html#viewing-raw-html-from-a-website",
+    "title": "Webscraping Tables",
+    "section": "Viewing Raw HTML from a website",
+    "text": "Viewing Raw HTML from a website\nYou can inspect the source code of any webpage by using a web browser like Firefox or Chrome.\n\nOn Firefox, navigate to the “Tools” menu item in the top menu and click on “Web Developer/Page Source”. You can also use the shortcut Command + U\nOn Chrome, navigate to the top menu item “View” and click on “Developer/View Source.” You can also use the keyboard shortcut Option-Command-U. It also can be useful to use the SelectorGadget Extension."
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_notes.html#webscraping-tables-from-wikipedia",
+    "href": "courses/stat0118/118_N_webscraping_tables_notes.html#webscraping-tables-from-wikipedia",
+    "title": "Webscraping Tables",
+    "section": "Webscraping Tables from Wikipedia",
+    "text": "Webscraping Tables from Wikipedia\nCheck out the information on the (List of the Most Viewed YouTube Videos on Wikipedia)[https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos]. Suppose we want to scrape this data to use in R.\n\nread_html scrapes the raw html from the webpage as text\nhtml_element (and html_elements) selects particular elements from the HTML code\nhtml_table formats a scraped html table as a tibble (R table)\n\n\nWe could have used html_element(\"table\") If we did this, it would have pulled the first &lt;table&gt; from the page.\nWe could have used html_elements(\"table\") If we did this, it would have pulled all the &lt;table&gt; elements from the page.\nIf you want a specific table that isn’t the first table, scrape all the tables and apply html_table(). Then take that new object of the tables and add [[n]] to get the \\(n^{th}\\) table. For example to call the \\(2^{nd}\\) table,\n\n\n\nIn this case, we used html_elements(\".wikitable\") I choose to use this because the &lt;table&gt; was also defined with a unique class: &lt;table class=\"wikitable sortable\"&gt;\n\n\n\n\n\n\n\nWarning\n\n\n\nNote that if we are using html_element to call a class, it is important to add a “.” before the class element name. You do not need to do this is you are calling an HTML element (like “table”)"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_notes.html#cleaning-up-with-janitor",
+    "href": "courses/stat0118/118_N_webscraping_tables_notes.html#cleaning-up-with-janitor",
+    "title": "Webscraping Tables",
+    "section": "Cleaning up with janitor",
+    "text": "Cleaning up with janitor\nWeb scraping doesn’t always format perfectly. Let’s clean it up!\n\nlibrary(janitor)\n\n\n\n\nArtwork by @allisonhorst\n\n\nClean up the names of the header:\nFormat the views as a number using as.numeric:\nWhat are the top 10 most viewed YouTube Videos?\nOnce we have this data, we can make cool plots!\nIn this case, the list of the names is still not displaying very neatly. For example, rather than \"Baby Shark Dance\"[6] I might want it to just say Baby Shark Dance.\nWe can use the stringr package to remove symbols and numbers from the video names. We will be talking more about stringr later this semester and it’s not something I expect you to be able to do at this point in the semester.\n\n#mutate(video_name=str_replace_all(video_name, \"[^[:alpha:]]\", \" \")) %&gt;% \n\n\n\n\n\n\n\nExternal Resources\n\n\n\n\nR for Data Science, Webscraping"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html",
+    "title": "STAT 118: Homework O",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#a",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#a",
+    "title": "STAT 118: Homework O",
+    "section": "a)",
+    "text": "a)\nscrape the names of all the countries Hint: use .country-name"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#b",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#b",
+    "title": "STAT 118: Homework O",
+    "section": "b)",
+    "text": "b)\nScrape the names of each country’s capital. Hint: use .country-capital"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#c",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#c",
+    "title": "STAT 118: Homework O",
+    "section": "c)",
+    "text": "c)\nScrape the population of each country. No hints this time."
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#d",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#d",
+    "title": "STAT 118: Homework O",
+    "section": "d)",
+    "text": "d)\nScrape the area of each country. No hints this time."
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#e",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#e",
+    "title": "STAT 118: Homework O",
+    "section": "e)",
+    "text": "e)\nCombine the information you’ve scraped in a) - d) and combine it together into one dataframe called countries. Give each of the columns appropriate names."
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#f",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#f",
+    "title": "STAT 118: Homework O",
+    "section": "f)",
+    "text": "f)\nCreate a new column called Density in the dataframe countries which contains the population density of each country. Hint: Population Density is calculated as Population divided by area"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#g",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#g",
+    "title": "STAT 118: Homework O",
+    "section": "g)",
+    "text": "g)\nCreate a barplot which displays the top 10 countries with the highest population density. Be sure you axes are appropriately labeled."
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#a-1",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#a-1",
+    "title": "STAT 118: Homework O",
+    "section": "a)",
+    "text": "a)\nWho is the plantiff (The party that brought the legal action)?"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#b-1",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#b-1",
+    "title": "STAT 118: Homework O",
+    "section": "b)",
+    "text": "b)\nWho is the defendent (The party that is being sued)?"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#c-1",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#c-1",
+    "title": "STAT 118: Homework O",
+    "section": "c)",
+    "text": "c)\nBriefly describe who and what data was webscraped and what they did with that data (1-4 sentences or bullet points)."
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#d-1",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#d-1",
+    "title": "STAT 118: Homework O",
+    "section": "d)",
+    "text": "d)\nIn your personal opinion, was the webscraping harmful to the business? (1-4 sentences or bullet points) There is no right answer here. Your opinion may be different than the official ruling. Keep in mind that any harm you allege may or may not rise to the level harm which requires financial compensation – I’m not asking you to make that determination"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_homework.html#e-1",
+    "href": "courses/stat0118/118_O_webscraping_text_homework.html#e-1",
+    "title": "STAT 118: Homework O",
+    "section": "e)",
+    "text": "e)\nIf some of your public information had been webscraped (ie. your public profile, your public sale, etc), how would you feel about that information being webscraped and being used for the purpose that the defendant used it for? (1-4 sentences or bullet points) There is no right answer here. This is your personal opinion."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html",
+    "href": "courses/stat0118/118_A_intro_quarto.html",
+    "title": "Intro to R and RStudio",
+    "section": "",
+    "text": "You will need to follow the directions available at https://posit.co/download/rstudio-desktop/ to download both R and RStudio.\n\n\n\nCredit: moderndive\n\n\nR (The brain behind it all)\n\nR is the actual programming language and the computational engine that performs all the calculations, data analysis, and visualizations.\nWithout R, there’s no way to run your code or perform any data analysis tasks.\nWorking in base R is possible, but it’s\n\nRStudio (The interface you work with)\nRStudio is an IDE (Integrated Development Environment) that gives you a user-friendly interface to write and run your R code.\n\n\n\n\n\n\nTip\n\n\n\nThink of it like this:1\n\nR is the engine of a car that powers the vehicle,\nRStudio is the dashboard, steering wheel, and GPS that help you control and navigate the car.\nYou need both for a smooth ride! 🚗\n\n\n\nWhen you open RStudio, you should see something similar to this:"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
+    "href": "courses/stat0118/118_A_intro_quarto.html#open-your-.qmd-file-in-rstudio",
+    "title": "Intro to R and RStudio",
+    "section": "1️⃣ Open Your .qmd File in RStudio",
+    "text": "1️⃣ Open Your .qmd File in RStudio\nNavigate to the file on your local computer and click to open it!\n\nSome folks prefer to use the “Files” tab within RStudio to navigate to the file\nOther folks prefer to interact with their files in their typical way (Using Finder on Mac or File Explorer on PC)\n\nEither way works just fine!"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
+    "href": "courses/stat0118/118_A_intro_quarto.html#install-quarto-in-rstudio",
+    "title": "Intro to R and RStudio",
+    "section": "2️⃣ Install Quarto in RStudio",
+    "text": "2️⃣ Install Quarto in RStudio\nOption 1: Using the RStudio Interface\n\nGo to the Packages pane in RStudio (bottom-right by default),\nClick Install,\nIn the box that appears:\n\nEnter the package name (quarto),\n\nMake sure Install dependencies is checked,\nClick Install.\n\n\n\nOption 2: Using R Code in the Console\n\ninstall.packages(\"quarto\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
+    "href": "courses/stat0118/118_A_intro_quarto.html#render-and-preview",
+    "title": "Intro to R and RStudio",
+    "section": "3️⃣ Render and Preview",
+    "text": "3️⃣ Render and Preview\nClick the Render button () at the top-right of your RStudio editor window.\nTada! You now have created a .html file!\nThe file has been created in the same folder as your .qmd file: \nWhen you render, a preview of the document will show up!\n\n\n\n\n\n\nTip\n\n\n\nBy default, the preview of .html will pop up in your web browser. This is totally okay. In fact, I tend to prefer this approach when I’m working at a computer station with multiple monitors.\nHowever, you may prefer to have the .html preview in your viewer pane right within RStudio. This is what I prefer when I’m just working on just my laptop.\nClick on the “gear button”  and select “Preview in Viewer Pane”\n\n\nThe preview will update whenever you re-render the document."
+  },
+  {
+    "objectID": "courses/stat0118/118_A_intro_quarto.html#footnotes",
+    "href": "courses/stat0118/118_A_intro_quarto.html#footnotes",
+    "title": "Intro to R and RStudio",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://moderndive.com/1-getting-started.html↩︎"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables.html",
+    "href": "courses/stat0118/118_N_webscraping_tables.html",
+    "title": "Webscraping Tables",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nData doesn’t just magically appear on your computer you need to get it from somewhere.\nSometimes we download data files (.csv, .xlsx, etc.) and save them locally. Other times, we use datasets that come bundled with R packages (like the gapminder dataset)."
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables.html#html-tables",
+    "href": "courses/stat0118/118_N_webscraping_tables.html#html-tables",
+    "title": "Webscraping Tables",
+    "section": "HTML Tables",
+    "text": "HTML Tables\nAn HTML table is used to represent data in a structured way\n\n&lt;table&gt; Defines a table\n&lt;th&gt; Defines a header cell in a table\n&lt;tr&gt; Defines a row in a table\n&lt;td&gt; Defines a cell in a table\n\nHere is the HTML code:\n&lt;table&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Name&lt;/th&gt;\n    &lt;th&gt;Birth Year&lt;/th&gt;  \n    &lt;th&gt;Country&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Harry Styles&lt;/td&gt;\n    &lt;td&gt;Feb 1, 1994&lt;/td&gt;\n    &lt;td&gt;Britain&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Taylor Swift&lt;/td&gt;\n    &lt;td&gt;Dec 13, 1989&lt;/td&gt;\n    &lt;td&gt;USA&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Justin Bieber&lt;/td&gt;\n    &lt;td&gt;Mar 1, 1994&lt;/td&gt;\n    &lt;td&gt;Canada&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\nHere is how the HTML displays in a web browser:\n\n\n\n\nName\n\n\nBirth Year\n\n\nCountry\n\n\n\n\nHarry Styles\n\n\nFeb 1, 1994\n\n\nBritain\n\n\n\n\nTaylor Swift\n\n\nDec 13, 1989\n\n\nUSA\n\n\n\n\nJustin Bieber\n\n\nMar 1, 1994\n\n\nCanada\n\n\n\n\nToday’s class will focus on scraping data from HTML tables!"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables.html#html-class",
+    "href": "courses/stat0118/118_N_webscraping_tables.html#html-class",
+    "title": "Webscraping Tables",
+    "section": "HTML class",
+    "text": "HTML class\nThe class attribute can be added to any HTML element. Often it is used to help customize the styling of the element (among other things).\n&lt;h2 class=\"city\"&gt;Middlebury&lt;/h2&gt;\n&lt;p class=\"city\"&gt;Middlebury is a town in Vermont&lt;/p&gt;\nThis can be particularly useful in web scraping – we can ask to scrape particular elements, particular classes, or both!"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables.html#viewing-raw-html-from-a-website",
+    "href": "courses/stat0118/118_N_webscraping_tables.html#viewing-raw-html-from-a-website",
+    "title": "Webscraping Tables",
+    "section": "Viewing Raw HTML from a website",
+    "text": "Viewing Raw HTML from a website\nYou can inspect the source code of any webpage by using a web browser like Firefox or Chrome.\n\nOn Firefox, navigate to the “Tools” menu item in the top menu and click on “Web Developer/Page Source”. You can also use the shortcut Command + U\nOn Chrome, navigate to the top menu item “View” and click on “Developer/View Source.” You can also use the keyboard shortcut Option-Command-U. It also can be useful to use the SelectorGadget Extension."
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables.html#webscraping-tables-from-wikipedia",
+    "href": "courses/stat0118/118_N_webscraping_tables.html#webscraping-tables-from-wikipedia",
+    "title": "Webscraping Tables",
+    "section": "Webscraping Tables from Wikipedia",
+    "text": "Webscraping Tables from Wikipedia\nCheck out the information on the (List of the Most Viewed YouTube Videos on Wikipedia)[https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos]. Suppose we want to scrape this data to use in R.\n\nread_html scrapes the raw html from the webpage as text\nhtml_element (and html_elements) selects particular elements from the HTML code\nhtml_table formats a scraped html table as a tibble (R table)\n\n\nyoutube_videos &lt;- read_html(\"https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos\") %&gt;%\n  html_element(\".wikitable\") %&gt;%\n  html_table() \n\nyoutube_videos\n\n# A tibble: 31 × 6\n   `Video name`                    Uploader `Views (billions)` Date  Notes ``   \n   &lt;chr&gt;                           &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;\n 1 Baby Shark Dance[7]             Pinkfon… 15.65              June… \"[A]\" &lt;NA&gt; \n 2 Despacito[10]                   Luis Fo… 8.66               Janu… \"[B]\" &lt;NA&gt; \n 3 Wheels on the Bus[18]           Cocomel… 7.17               May … \"\"    &lt;NA&gt; \n 4 Johny Johny Yes Papa[19]        LooLoo … 7.02               Octo… \"\"    &lt;NA&gt; \n 5 Bath Song[20]                   Cocomel… 7.01               May … \"\"    &lt;NA&gt; \n 6 See You Again[21]               Wiz Kha… 6.58               Apri… \"[C]\" &lt;NA&gt; \n 7 Shape of You[26]                Ed Shee… 6.42               Janu… \"[D]\" &lt;NA&gt; \n 8 Phonics Song with Two Words[29] ChuChu … 6.31               Marc… \"\"    &lt;NA&gt; \n 9 Uptown Funk[30]                 Mark Ro… 5.49               Nove… \"\"    &lt;NA&gt; \n10 Gangnam Style[31]               Psy      5.48               July… \"[E]\" &lt;NA&gt; \n# ℹ 21 more rows\n\n\n\nWe could have used html_element(\"table\") If we did this, it would have pulled the first &lt;table&gt; from the page.\nWe could have used html_elements(\"table\") If we did this, it would have pulled all the &lt;table&gt; elements from the page.\nIf you want a specific table that isn’t the first table, scrape all the tables and apply html_table(). Then take that new object of the tables and add [[n]] to get the \\(n^{th}\\) table. For example to call the \\(2^{nd}\\) table,\n\ntables &lt;- html %&gt;% \n  html_elements(\"table\") %&gt;%\n  html_table() \n  \ntables[[2]]\n\nIn this case, we used html_elements(\".wikitable\") I choose to use this because the &lt;table&gt; was also defined with a unique class: &lt;table class=\"wikitable sortable\"&gt;\n\n\n\n\n\n\n\nWarning\n\n\n\nNote that if we are using html_element to call a class, it is important to add a “.” before the class element name. You do not need to do this is you are calling an HTML element (like “table”)"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables.html#cleaning-up-with-janitor",
+    "href": "courses/stat0118/118_N_webscraping_tables.html#cleaning-up-with-janitor",
+    "title": "Webscraping Tables",
+    "section": "Cleaning up with janitor",
+    "text": "Cleaning up with janitor\nWeb scraping doesn’t always format perfectly. Let’s clean it up!\n\nlibrary(janitor)\n\n\n\n\nArtwork by @allisonhorst\n\n\nClean up the names of the header:\n\nyoutube_videos &lt;- clean_names(youtube_videos)\n\nFormat the views as a number using as.numeric:\n\nyoutube_videos &lt;- youtube_videos %&gt;% \n  mutate(views_billions = as.numeric(views_billions))\n\nWhat are the top 10 most viewed YouTube Videos?\n\ntop10 &lt;- youtube_videos %&gt;%\n  arrange(desc(views_billions)) %&gt;%\n  slice(1:10)\n\ntop10\n\n# A tibble: 10 × 6\n   video_name                      uploader     views_billions date  notes x    \n   &lt;chr&gt;                           &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;\n 1 Baby Shark Dance[7]             Pinkfong Ba…          15.6  June… \"[A]\" &lt;NA&gt; \n 2 Despacito[10]                   Luis Fonsi             8.66 Janu… \"[B]\" &lt;NA&gt; \n 3 Wheels on the Bus[18]           Cocomelon -…           7.17 May … \"\"    &lt;NA&gt; \n 4 Johny Johny Yes Papa[19]        LooLoo Kids…           7.02 Octo… \"\"    &lt;NA&gt; \n 5 Bath Song[20]                   Cocomelon -…           7.01 May … \"\"    &lt;NA&gt; \n 6 See You Again[21]               Wiz Khalifa            6.58 Apri… \"[C]\" &lt;NA&gt; \n 7 Shape of You[26]                Ed Sheeran             6.42 Janu… \"[D]\" &lt;NA&gt; \n 8 Phonics Song with Two Words[29] ChuChu TV N…           6.31 Marc… \"\"    &lt;NA&gt; \n 9 Uptown Funk[30]                 Mark Ronson            5.49 Nove… \"\"    &lt;NA&gt; \n10 Gangnam Style[31]               Psy                    5.48 July… \"[E]\" &lt;NA&gt; \n\n\nOnce we have this data, we can make cool plots!\n\ntop10 %&gt;% \n  ggplot( aes(x=views_billions, y=reorder(video_name, views_billions))) +\n    geom_bar(stat=\"identity\") +\n    xlab(\"Views (in billions)\") +\n    ylab(\"Videos\") +\n    ggtitle(\"Top 10 Most Watched YouTube Videos of All Time\") +\n    theme_minimal()\n\n\n\n\nIn this case, the list of the names is still not displaying very neatly. For example, rather than \"Baby Shark Dance\"[6] I might want it to just say Baby Shark Dance.\nWe can use the stringr package to remove symbols and numbers from the video names. We will be talking more about stringr later this semester and it’s not something I expect you to be able to do at this point in the semester.\n\nlibrary(stringr)\n\ntop10 %&gt;% \n  mutate(video_name=str_replace_all(video_name, \"[^[:alpha:]]\", \" \")) %&gt;% \n  ggplot(aes(x=views_billions, y=reorder(video_name, views_billions))) +\n    geom_bar(stat=\"identity\") +\n    xlab(\"Views (in billions)\") +\n    ylab(\"Videos\") +\n    ggtitle(\"Top 10 Most Watched YouTube Videos of All Time\") +\n    theme_minimal()\n\n\n\n\n\n\n\n\n\n\nExternal Resources\n\n\n\n\nR for Data Science, Webscraping"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html",
+    "href": "courses/stat0118/118_G_maps.html",
+    "title": "Maps with maps and sf",
+    "section": "",
+    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#qualitative-color-palettes",
+    "href": "courses/stat0118/118_G_maps.html#qualitative-color-palettes",
+    "title": "Maps with maps and sf",
+    "section": "Qualitative Color Palettes",
+    "text": "Qualitative Color Palettes\n\n\n\n\n\n\n\nBest for…\nCategories (unordered)\n\n\nExamples\nSpecies, Groups, Brands\n\n\nRColorBrewer Palettes\n\"Set1\", \"Dark2\", \"Paired\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"Set1\")\n\n\nwesanderson Palettes\n\"GrandBudapest1\", \"Darjeeling1\", \"Moonrise2\"\n\n\nExample R Code\nscale_fill_manual(values = wes_palette(\"GrandBudapest1\"))"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#sequential-color-palettes",
+    "href": "courses/stat0118/118_G_maps.html#sequential-color-palettes",
+    "title": "Maps with maps and sf",
+    "section": "Sequential Color Palettes",
+    "text": "Sequential Color Palettes\n\n\n\n\n\n\n\nBest for…\nOrdered, continuous data\n\n\nExamples\nTemperature, Population Density\n\n\nRColorBrewer Palettes\n\"Blues\", \"Reds\", \"Greens\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"Blues\")\n\n\nviridis Palettes\n\"viridis\", \"magma\", \"plasma\", \"cividis\"\n\n\nExample R Code\nscale_fill_viridis_c(option = \"magma\")\n\n\nBuild your Own\nscale_fill_gradientn(c(\"red\", \"yellow\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote: Be sure that higher values are encoded with the darkest colors!"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#diverging-color-palettes",
+    "href": "courses/stat0118/118_G_maps.html#diverging-color-palettes",
+    "title": "Maps with maps and sf",
+    "section": "Diverging Color Palettes",
+    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n✅ If the data is skewed, consider using the scales package to log -scale.\n🔴 Avoid: Using blue for land in maps"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps.html#adding-labels-with-geom_sf_text",
+    "href": "courses/stat0118/118_G_maps.html#adding-labels-with-geom_sf_text",
+    "title": "Maps with maps and sf",
+    "section": "Adding labels with geom_sf_text()",
+    "text": "Adding labels with geom_sf_text()\n\nmap + \n  scale_fill_viridis_c(option = \"magma\", direction = -1)+ \n  geom_sf_text(aes(label = NAME), size = 1)\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nSince population density naturally drives most data trends, these maps frequently fail to provide any useful or surprising information.\n\n\n\nXKCD\n\n\n🔴 Correlation doesn’t imply causation! Just because two variables show similar patterns doesn’t mean one causes the other.\n✅ Use rates, percentages, or per capita values rather than absolute numbers. Example: Instead of showing total website users per state, show website users per 100,000 residents.\n✅ Use location quotients or z-scores to highlight areas with unusually high or low values relative to expectations. Example: Show the percentage of a state’s population that subscribes to Martha Stewart Living relative to the national average."
+  },
+  {
+    "objectID": "courses/stat0118/118_M_lubridate_homework_solutions.html",
+    "href": "courses/stat0118/118_M_lubridate_homework_solutions.html",
+    "title": "STAT 118: Homework R",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n#LOAD DATA\nlibrary(nycflights23)\ndata(\"flights\")\n\n\n\n1.\nCreate a new column in the flights dataset called departure_datetime which displays the departure datetime (for example, 2023-01-01 05:15:00)\n\n\n2.\nCreate a new column in the flights dataset called sched_departure_datetime which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)\n\n\n3.\nUse an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called calc_dep_delay. Note that your new column calc_dep_delay should have the same values as dep_delay.\n\n\n4.\nCreate a new column that extracts the day of the week from the scheduled departure time. Call this column weekday. The output should be the name of the weekday (e.g., Monday, Tuesday, etc.). You may need to look into the wday function and what options there are for arguments.\n\n\n5.\nCreate a new column called overnight which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time.\n\n\n6.\nWhich hour of the day has the longest average departure delay? What do you think might cause this? Hint: You may want to make a column for the scheduled departure hour.\n\n\n7.\nCreate a calendar-style heatmap of average departure delays using weekday and week.\n\nCreate a new column that rounds the sched_departure_datetime down to the nearest week (use floor_date())\nExtract the weekday from sched_departure_datetime\nSummarize the average delay for each week and weekday\nCreate a heatmap using ggplot and geom_tile. Feel free to look online for whatever information you might need to learn about to use geom_tile().\n\n\n\nCode\nflights %&gt;% \n  mutate(sched_departure_datetime = make_datetime(year, month, day, hour = sched_dep_time %/% 100, min = sched_dep_time %% 100)) %&gt;% \n  mutate(week = floor_date(sched_departure_datetime, \"week\")) |&gt;\n  mutate(weekday = wday(sched_departure_datetime, label = TRUE, abbr = FALSE)) |&gt;\n  group_by(weekday, week) |&gt;\n  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) |&gt;\n  ggplot(aes(x = week, y = fct_rev(weekday), fill = avg_delay)) +\n  geom_tile() +\n  scale_fill_viridis_c() +\n  labs(title = \"Calendar Heatmap of Avg Departure Delays\",\n       x = \"Week\", y = \"Weekday\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "courses/stat0118/118_M_lubridate_notes.html",
+    "href": "courses/stat0118/118_M_lubridate_notes.html",
+    "title": "Working with dates using lubridate",
+    "section": "",
+    "text": "Dates and times are everywhere in data: timestamps on social media posts, transaction dates in sales records, birthdates in survey data. But unlike numbers or strings, dates are tricky—you can’t just subtract them like normal numbers, and parsing them from messy formats can be a headache.\n\nDate Formats\nThink of how many different formats you know of to format a date:\n\n2023 07 06\nWed, Jun 7, 2023\n07-06-23\n06-07-23 14:55 ET\n06/07/2023 2:55pm\n\nYikes!\n\n\nDate, Time, and Datetime\nDate/time data are data that conveys information about, you guessed it, date and/or time! There are three relevant data types when we talk about date/time data:\n\nDate - only has the date (e.g. 2020-05-15)\nTime - only has the time (e.g. 20:45:00)\nDatetime - has both the date and time (e.g. 2020-05-15 20:45:00)\n\n\n\nLubridate\n\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n\n\nStandard Date Format\nThe ymd() function transforms data in all kinds of different formats into a standardized date format displaying year, then month, then day.\n\nymd(\"06 02 04\")\n\n[1] \"2006-02-04\"\n\nymd(\"06/02/04\")\n\n[1] \"2006-02-04\"\n\nymd(\"20060204\")  # works as well\n\n[1] \"2006-02-04\"\n\nymd(\"2006 2 4\")\n\n[1] \"2006-02-04\"\n\nymd(060204)  # works with numbers\n\n[1] \"2006-02-04\"\n\n\nmdy() (month day year) and dmy() (day month year) formats also exist.\n\nymd_hms(\"2020-04-01 10:30:13\")\n\n[1] \"2020-04-01 10:30:13 UTC\"\n\nymd_hm(\"2020/04/01 10.30\")\n\n[1] \"2020-04-01 10:30:00 UTC\"\n\n\n\n\nExtracting Components\n\n\n\nArtwork by @allisonhorst\n\n\nOnce you have a date object, you can easily extract parts of it:\n\nbirthday &lt;- ymd(\"1998-09-27\")\n\nyear(birthday)      # 1998\n\n[1] 1998\n\nmonth(birthday)     # 9\n\n[1] 9\n\nmonth(birthday, label = TRUE)  # \"Sep\"\n\n[1] Sep\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\nday(birthday)       # 27\n\n[1] 27\n\nwday(birthday, label = TRUE)   # \"Sun\"\n\n[1] Sun\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat\n\n\n\n\nDoing Math with Dates\nSet up the object today as today’s date:\n\ntoday &lt;- Sys.Date()\n\nCalculate the age based on today’s date and your birthday:\nWhat is will be the date 28 days from now?\n\n\nSome real life examples:\nRecall the Portal Project – a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\nUnfortunately, because the information about datetime is divided up into different columns, R does not recognize it as date/time data. What we need to do is combine and convert all of these columns into datetime. To do this, we can use the function make_datetime()\nA line plot showing the number of rodents captured per day over time:\nUse the floor_date function to round each date down to the first day of the month, which is great for time series grouping.\nAlternatively, use the floor_date function to round each date down to first day of the year:"
+  },
+  {
+    "objectID": "courses/stat0118/118_J_pivoting_notes.html",
+    "href": "courses/stat0118/118_J_pivoting_notes.html",
+    "title": "reshaping data with tidyr",
+    "section": "",
+    "text": "The goal of tidyr is to help you create tidy data.\n\n\n\nIllustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst\n\n\n\n\n\nhttps://r4ds.hadley.nz/data-tidy\n\n\n\nReshaping with Pivoting – Why?\nData frames are often described as wide or long.\nWide when a row has more than one observation, and the units of observation are on one row each\nLong when a row has only one observation, but the units of observation are repeated down the column\nCredit: datasciencebook.ca\n\n\n\nportal dataset\n\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\n\nportal_wgt_summary &lt;- portal_rodent %&gt;%\n  filter(!is.na(wgt)) %&gt;%\n  group_by(plot, species) %&gt;%\n  summarize(mean_wgt = mean(wgt))\n\nportal_wgt_summary\n\n# A tibble: 480 × 3\n# Groups:   plot [25]\n    plot species mean_wgt\n   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n 1     1 BA          9.1 \n 2     1 DM         43.5 \n 3     1 DO         49.4 \n 4     1 DS        129.  \n 5     1 OL         33.2 \n 6     1 OT         24.3 \n 7     1 PB         32.0 \n 8     1 PE         22.3 \n 9     1 PF          7.12\n10     1 PH         31.4 \n# ℹ 470 more rows\n\n\n\n\nPivot Wider\n\nPracticing transforming this data from long to wide format:\n\n\nPivot Longer\n\nPracticing transforming this data from wide to long format:\n\n\nChallenge\nReshape the rodents data frame with year as columns, plot as rows, and the number of species per plot as the values. You will need to summarize before reshaping, and use the function n_distinct() to get the number of unique species within a particular chunk of data. It’s a powerful function! See ?n_distinct for more."
+  },
+  {
+    "objectID": "courses/stat0118/118_J_pivoting.html",
+    "href": "courses/stat0118/118_J_pivoting.html",
+    "title": "reshaping data with tidyr",
+    "section": "",
+    "text": "The goal of tidyr is to help you create tidy data.\n\n\n\nIllustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst\n\n\n\n\n\nhttps://r4ds.hadley.nz/data-tidy\n\n\n\nReshaping with Pivoting – Why?\nData frames are often described as wide or long.\nWide when a row has more than one observation, and the units of observation are on one row each\nLong when a row has only one observation, but the units of observation are repeated down the column\nCredit: datasciencebook.ca\n\n\n\nportal dataset\n\n#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\nportal_rodent &lt;- read.csv(\"https://github.com/weecology/PortalData/raw/main/Rodents/Portal_rodent.csv\")\n\n\nportal_wgt_summary &lt;- portal_rodent %&gt;%\n  filter(!is.na(wgt)) %&gt;%\n  group_by(plot, species) %&gt;%\n  summarize(mean_wgt = mean(wgt))\n\nportal_wgt_summary\n\n# A tibble: 480 × 3\n# Groups:   plot [25]\n    plot species mean_wgt\n   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n 1     1 BA          9.1 \n 2     1 DM         43.5 \n 3     1 DO         49.4 \n 4     1 DS        129.  \n 5     1 OL         33.2 \n 6     1 OT         24.3 \n 7     1 PB         32.0 \n 8     1 PE         22.3 \n 9     1 PF          7.12\n10     1 PH         31.4 \n# ℹ 470 more rows\n\n\n\n\nPivot Wider\n\nPracticing transforming this data from long to wide format:\n\nwide &lt;- portal_wgt_summary %&gt;% \n  pivot_wider(names_from = species, values_from = mean_wgt)\n\nwide\n\n# A tibble: 25 × 28\n# Groups:   plot [25]\n    plot    BA    DM    DO    DS    OL    OT    PB    PE    PF    PH    PI    PL\n   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1  9.1   43.5  49.4  129.  33.2  24.3  32.0  22.3  7.12  31.4  17.4  25.2\n 2     2  9.4   43.4  49.1  123.  31.7  24.7  33.3  21.9  7.18  32.5  16    25.2\n 3     3  8.66  43.1  49.5  128.  31.0  23.6  32.6  22.5  7.58  28    17.1  22.2\n 4     4 10.2   43.5  49.2  118.  31.8  24.1  30.7  21.1  7.85  NA    18.4  NA  \n 5     5  9.14  43.8  49.8  111.  30.1  24.8  32.0  21.7  8.25  29    NA    24.6\n 6     6  9.33  42.6  48.8  114.  30.5  24.2  31.5  21.8  7.89  NA    17    25  \n 7     7 10     44.4  49.3  126.  32.2  24.4  33.4  23.1  9     30    NA    25.2\n 8     8 10.2   43.4  48.8  127.  28.8  23.9  30.2  21.6  7.06  41    19.8  28  \n 9     9 10.2   43.6  48.7  115.  30.4  23.6  30.0  21.6  7.22  NA    16.7  19  \n10    10 10     44.1  51.7  130   34.4  19.6  33.2  22.6  8     NA    NA    20.8\n# ℹ 15 more rows\n# ℹ 15 more variables: PM &lt;dbl&gt;, PP &lt;dbl&gt;, RM &lt;dbl&gt;, RO &lt;dbl&gt;, SF &lt;dbl&gt;,\n#   SH &lt;dbl&gt;, `NA` &lt;dbl&gt;, OX &lt;dbl&gt;, PX &lt;dbl&gt;, RF &lt;dbl&gt;, SO &lt;dbl&gt;, RX &lt;dbl&gt;,\n#   DX &lt;dbl&gt;, SS &lt;dbl&gt;, SX &lt;dbl&gt;\n\n\n\n\nPivot Longer\n\nPracticing transforming this data from wide to long format:\n\nwide %&gt;% \n  pivot_longer(names_to = \"species\", values_to = \"mean_wgt\", cols=2:28)\n\n# A tibble: 675 × 3\n# Groups:   plot [25]\n    plot species mean_wgt\n   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n 1     1 BA          9.1 \n 2     1 DM         43.5 \n 3     1 DO         49.4 \n 4     1 DS        129.  \n 5     1 OL         33.2 \n 6     1 OT         24.3 \n 7     1 PB         32.0 \n 8     1 PE         22.3 \n 9     1 PF          7.12\n10     1 PH         31.4 \n# ℹ 665 more rows\n\n# or cols = - plot_id\n\n\n\nChallenge\nReshape the rodents data frame with year as columns, plot as rows, and the number of species per plot as the values. You will need to summarize before reshaping, and use the function n_distinct() to get the number of unique species within a particular chunk of data. It’s a powerful function! See ?n_distinct for more.\n\nportal_rodent %&gt;% \n  group_by(year, plot) %&gt;% \n  summarize(unique_species = n_distinct(species)) %&gt;% \n  pivot_wider(names_from = year, values_from = unique_species)\n\n# A tibble: 25 × 50\n    plot `1977` `1978` `1979` `1980` `1981` `1982` `1983` `1984` `1985` `1986`\n   &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;\n 1     1      4      5      7      9      8      9     10      9      6      5\n 2     2      9      9      9     11      9     12     12     12     10      7\n 3     3      9      8      6      9      8     13     12     12      9      8\n 4     4      5      5      5      7      6      6      8      5      7      5\n 5     5      6      4      4      7      6      8      9     10      5      2\n 6     6      4      8      6      8      7     13     13     11      8      8\n 7     7      4      2      4      4      2      6      4      4      5      4\n 8     8      4      7      5      8      9     11      8      8      7      6\n 9     9      6      6      6      8      8      8     10      7      8      5\n10    10      3      1      4      7      8      9      5      3      4      2\n# ℹ 15 more rows\n# ℹ 39 more variables: `1987` &lt;int&gt;, `1988` &lt;int&gt;, `1989` &lt;int&gt;, `1990` &lt;int&gt;,\n#   `1991` &lt;int&gt;, `1992` &lt;int&gt;, `1993` &lt;int&gt;, `1994` &lt;int&gt;, `1995` &lt;int&gt;,\n#   `1996` &lt;int&gt;, `1997` &lt;int&gt;, `1998` &lt;int&gt;, `1999` &lt;int&gt;, `2000` &lt;int&gt;,\n#   `2001` &lt;int&gt;, `2002` &lt;int&gt;, `2003` &lt;int&gt;, `2004` &lt;int&gt;, `2005` &lt;int&gt;,\n#   `2006` &lt;int&gt;, `2007` &lt;int&gt;, `2008` &lt;int&gt;, `2009` &lt;int&gt;, `2010` &lt;int&gt;,\n#   `2011` &lt;int&gt;, `2012` &lt;int&gt;, `2013` &lt;int&gt;, `2014` &lt;int&gt;, `2015` &lt;int&gt;, …"
+  },
+  {
+    "objectID": "courses/stat0118/118_gganimate.html",
+    "href": "courses/stat0118/118_gganimate.html",
+    "title": "Animating plots using gganimate",
+    "section": "",
+    "text": "Artwork by @allisonhorst\n\n\nComing soon!"
+  },
+  {
+    "objectID": "courses/stat0116/index.html",
+    "href": "courses/stat0116/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/stat0116/index.html#stat-116-introduction-to-statistical-science",
+    "href": "courses/stat0116/index.html#stat-116-introduction-to-statistical-science",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Emily Malcolm-White (she/her)",
+    "section": "",
+    "text": "Hi there! 👋\nI’m an educator who believes every student — especially those unsure they belong — deserves to feel seen, supported, and capable. I use creativity, care, and intentionality to make math and computing more approachable and human. I create learning experiences and systems that are welcoming, empowering, and help students see what’s possible for themselves.\nAt Middlebury College, I teach a range of courses, including statistics, data science, and mathematics. I also serve as the Interim Director of the Quantitative Center (Q-Center), a growing initiative dedicated to supporting Middlebury students in developing the quantitative skills they need to thrive - in the classroom and beyond.\nEvery year, I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists. It’s a great way to connect data science with real-world questions in marine ecology."
+  },
+  {
+    "objectID": "courses/stat0118/118_D_ggplot.html",
+    "href": "courses/stat0118/118_D_ggplot.html",
+    "title": "Making plots with ggplot2: Barplots and Scatterplots",
+    "section": "",
+    "text": "ggplot2 is a package built within the tidyverse package for creating awesome graphs!\n\n\n\nArtwork by @allisonhorst\n\n\n\nlibrary(tidyverse)\n\n\n#Import the can_lang dataset \ncan_lang &lt;- read.csv(\"https://raw.githubusercontent.com/ttimbers/canlang/master/inst/extdata/can_lang.csv\")\n\n\nRecall our Top 10 example:\nThis code gave a list of 10 Aboriginal Languages which have the most number of people who speak them as their mother tongue:\n\n1ten_lang &lt;- can_lang %&gt;%\n2  filter(category == \"Aboriginal languages\") %&gt;%\n3  arrange(desc(mother_tongue)) %&gt;%\n4  select(language, mother_tongue) %&gt;%\n5  slice(1:10)\n\n\n1\n\nStart with the can_lang dataset\n\n2\n\nFilter for aboriginal languages only\n\n3\n\narrange the rows from highest number of people who speak the language as their mother tongue, to the lowest number of people who speak the language as their mother tongue\n\n4\n\nonly include the language and mother_tongue columns\n\n5\n\nonly include the top 10 rows\n\n\n\n\n\n\nBarplots\nSuppose we wanted to display this information in a barplot instead of in a table. Let’s take a look at the ggplot syntax:\n\n\n\nCredit: https://github.com/UBC-DSCI/introduction-to-datascience/\n\n\n\n1ten_lang %&gt;%\n2  ggplot(aes(x = language, y = mother_tongue)) +\n3  geom_bar(stat = \"identity\")\n\n\n1\n\nBegin with the ten_lang dataset\n\n2\n\nCreate a plot – the x-axis contains the languages and the y-axis contains the number of people who speak the language as their mother tongue. This sets up the coordinate system, but no visualization appears yet.\n\n3\n\nadd a layer with a barplot. The height of the bars should simply be the number of people who speak the language as their mother tongue. Without stat = \"identity\", geom_bar() defaults to stat = \"count\", which means it counts rows instead of using a y-variable.\n\n\n\n\n\n\n\nIs there any improvements we could make to this graph?\n\n\nTo better view text\nDisplay the bars horizontally instead of vertically!\n\nggplot(ten_lang, aes(x = language, y = mother_tongue)) +\n  geom_bar(stat = \"identity\") +  \n1  coord_flip()\n\n\n1\n\nThis flips the x and y axes!\n\n\n\n\n\n\n#OR\n\nggplot(ten_lang, aes(x = mother_tongue, y = language)) +\n  geom_bar(stat = \"identity\") \n\n\n\n\n\n\nLabels, Colors, and Themes\n\n1ggplot(ten_lang, aes(x = mother_tongue, y = reorder(language, mother_tongue))) +\n2  geom_bar(fill=\"lightblue\", stat = \"identity\") +\n3  ylab(\"Language\") +\n4  xlab(\"Mother Tongue (Number of Canadian Residents)\") +\n5  ggtitle(\"Ten Aboriginal Languages Most Often \\n Reported by Canadian Residents \\n as Their Mother Tongue\") +\n6  theme_minimal()\n\n\n1\n\nThe reorder function helps to reorder the languages from highest to lowest value of mother tongue.\n\n2\n\nChanges the colors of the bars to light blue!\n\n3\n\nUpdates x-axis label\n\n4\n\nUpdates y-axis label\n\n5\n\nadds a title\n\n6\n\nchanges the theme\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nBarplots are good for displaying one categorical variable and one numeric variable. The number variable could be counts (as above) or they could be averages or totals or maximums or minimums (or many other things!)\n\n\n\n\nggplot: scatterplot with geom_point\n\n\n\n\n\n\nTip\n\n\n\nScatterplots are good for displaying the relationship between two numerical variables.\n\n\nThe mtcars dataset was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It’s available inside the ggplot package which is already installed.\n\n#load the data\ndata(mtcars)\n\n\n1mtcars %&gt;%\n2ggplot(aes(x=wt, y=mpg)) +\n3  geom_point()\n\n\n1\n\nBegin with the mtcars dataset\n\n2\n\nset up the plot – weight on the x-axis and miles per gallon on the y-axis\n\n3\n\nAdds a scatter plot layer to the plot.\n\n\n\n\n\n\n\nNote that you can change the color, shape (pch for plotting character) and size of these points!\n\nQuick update to the dataset\n\n#code to update `mtcars` dataset so that `am` is treated as a factor rather than a continuous numeric variable\nmtcars &lt;- mtcars %&gt;%  \n  mutate(am = as.factor(am)) \n\nThis modifies the am column, which represents the transmission type of the car (0 = automatic, 1 = manual). The as.factor(am) function converts the am variable from a numeric type (0 or 1) into a categorical factor.\n\n\n\nInside aes() or outside aes()?\nWhat is the difference between these two graphs?\n\n#color not in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n1  geom_point(color=\"red\")\n\n\n1\n\ncolor the same for all points\n\n\n\n\n\n\n\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n1  geom_point(aes(color=am))\n\n\n1\n\ncolor will vary based on the value of am\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nIf the thing you are trying to change (color, shape, size, etc.) depends on a variable, you should put in inside the aesthetics\nIf the thing you are trying to change (color, shape, size, etc.) should happen for all things, you should not put it inside the aesthetics.\n\n\n\n\n\nCustomizing Colors in Aesthetics\n\n#color in aesthetics\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am)) +\n1  scale_color_manual(values=c(\"black\", \"orange\"))\n\n\n1\n\nThis updates the two colors to black and orange, instead of the default colors.\n\n\n\n\n\n\n\n\n\nGlobal vs. Local Aesthetics\nGlobal aesthetic mappings apply to all geometries and can be defined when you initially call ggplot(). All the geometries added as layers will default to this mapping. Local aesthetic mappings add additional information or override the default mappings.\n\n#color = am as a global aethetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point()\n\n\n\n\n\n#color = am as a local aethetic\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point(aes(color=am))\n\n\n\n\n\n#overwriting color = am as a global aethetic with a local aesthetic\nggplot(mtcars, aes(x=wt, y=mpg, color=am)) +\n  geom_point(color=\"purple\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr_homework.html",
+    "href": "courses/stat0118/118_stringr_homework.html",
+    "title": "STAT 118: Homework",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n#LOAD DATA\ncourses &lt;- read_csv(\"data/courses.csv\")\ncourses &lt;- courses %&gt;%\n  mutate(isCW = str_extract(distros, \"CW\")) %&gt;%\n  mutate(distros = str_remove(distros, \"CW\"))\n\n\n\n1.\nCreate new column called isDED which indicates courses which have “DED” listed inside the distros column.\n\n\n2.\nCreate a new column(s) called courseDEPT and courseCODE and courseSECT which seperate the the department course identifier (ie. STAT0118B-S25) into three separate pieces (ie. STAT, 0118, and A).\n\n\n3.\nHow many classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).\n\n\n4.\nHow many unique classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).\n\n\n5.\nSuppose you really love taking classes with an instructor with the first name “Emily”. Which classes will be offered in Fall 2025 by someone with the first name “Emily”?\n\n\n6.\nSuppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc.\n\n\n7.\nWhich class(es) offer(s) the most number of sections?\n\n\n8.\n“The” is the most popular word in the English language. Count the number of times the word “the” appears in the description of each course. Which course(s) uses the word “the” the most?\n\n\n9.\nA “unicorn class” is defined as a course which is able to satisfy three different distribution requirements. Create a list of all the unicorn classes offered in Fall 2025."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html",
+    "href": "courses/stat0118/118_H_forcats.html",
+    "title": "forcats: working with categorical data",
+    "section": "",
+    "text": "The R package forcats is designed to make working with categorical variables easier and more efficient. It provides a set of functions that allow you to manipulate and analyze categorical data with ease. In this lesson, we’ll cover the basics of the forcats package and some of its most useful functions."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#categorical-variables",
+    "href": "courses/stat0118/118_H_forcats.html#categorical-variables",
+    "title": "forcats: working with categorical data",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nLet’s review what categorical data is. Categorical data is a type of data that consists of categories or labels.\nExamples of categorical data include:\n\nColors (red, blue, green, etc.)\nTypes of vehicles (sedan, SUV, truck)\nEducational degrees (high school, college, graduate school)\n\nCategorical data can be further divided into two types: nominal and ordinal. Nominal data consists of categories that have no inherent order, while ordinal data consists of categories that have a natural order. For example, educational degrees are ordinal data because they can be ordered from least to most advanced."
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#mpg-data",
+    "href": "courses/stat0118/118_H_forcats.html#mpg-data",
+    "title": "forcats: working with categorical data",
+    "section": "mpg Data",
+    "text": "mpg Data\nWe will play with different functions in the forcats packages using the mpg dataset from earlier in the semester.\n\nlibrary(forcats)\nlibrary(tidyverse)\ndata(\"mpg\")\n\nRecall our side-by-side boxplot:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#reordering-factor-levels",
+    "href": "courses/stat0118/118_H_forcats.html#reordering-factor-levels",
+    "title": "forcats: working with categorical data",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\nOne of the most useful functions is fct_relevel(), which allows you to reorder the levels of a factor. This can be useful when you want to change the default ordering of the levels or when you want to group certain levels together.\nIs class a factor?\n\nmpg$class %&gt;% is.factor()\n\n[1] FALSE\n\n\nLet’s make it a factor!\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  as.factor())\n\nLet’s check the levels and their current ordering!\n\nmpg$class %&gt;%  \n  levels()\n\n[1] \"2seater\"    \"compact\"    \"midsize\"    \"minivan\"    \"pickup\"    \n[6] \"subcompact\" \"suv\"       \n\n\nTo reorder the levels with fct_relevel()\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  fct_relevel( \"compact\",\"subcompact\",\"midsize\",\"2seater\",\"minivan\",\"suv\",\"pickup\"))\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"compact\"    \"subcompact\" \"midsize\"    \"2seater\"    \"minivan\"   \n[6] \"suv\"        \"pickup\"    \n\n\nLet’s recreate our side-by-side boxplot now:\n\nmpg %&gt;% \n  ggplot(aes(x=class, y=hwy)) +\n  geom_boxplot()\n\n\n\n\nRather than reordering them manually by typing the order, you could also re-level by some numeric criteria using fct_reorder(). For example:\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;% fct_reorder(hwy, median))\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"pickup\"     \"suv\"        \"minivan\"    \"2seater\"    \"subcompact\"\n[6] \"compact\"    \"midsize\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#renaming-factor-levels-with-fct_recode",
+    "href": "courses/stat0118/118_H_forcats.html#renaming-factor-levels-with-fct_recode",
+    "title": "forcats: working with categorical data",
+    "section": "Renaming Factor levels with fct_recode",
+    "text": "Renaming Factor levels with fct_recode\nSometimes you might not like the way the levels are named.\n\nmpg &lt;- mpg %&gt;% \n  mutate(class = class %&gt;%  fct_recode(\"two-seater\" = \"2seater\"))\n\n## NEW NAME = OLD NAME\n\nmpg$class %&gt;% \n  levels()\n\n[1] \"pickup\"     \"suv\"        \"minivan\"    \"two-seater\" \"subcompact\"\n[6] \"compact\"    \"midsize\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#factor-collapsing-with-fct_collapse",
+    "href": "courses/stat0118/118_H_forcats.html#factor-collapsing-with-fct_collapse",
+    "title": "forcats: working with categorical data",
+    "section": "Factor Collapsing with fct_collapse()",
+    "text": "Factor Collapsing with fct_collapse()\nLet’s say we wanted to create only two categories – cars and larger vehicles.\n\nmpg &lt;- mpg %&gt;% \n  mutate(class_two = class %&gt;%  fct_collapse( cars = c(\"compact\", \"subcompact\", \"midsize\", \"two-seater\"), big = c(\"pickup\", \"suv\", \"minivan\")))\n\nmpg$class_two %&gt;% \n  levels()\n\n[1] \"big\"  \"cars\""
+  },
+  {
+    "objectID": "courses/stat0118/118_H_forcats.html#lumping-into-an-other-category",
+    "href": "courses/stat0118/118_H_forcats.html#lumping-into-an-other-category",
+    "title": "forcats: working with categorical data",
+    "section": "Lumping into an other category",
+    "text": "Lumping into an other category\n\nfct_lump_min(): lumps levels that appear fewer than min times.\nfct_lump_prop(): lumps levels that appear in fewer than (or equal to) prop * n times.\nfct_lump_n() lumps all levels except for the n most frequent (or least frequent if n &lt; 0)\n\n\nmpg %&gt;% \n  count(manufacturer)\n\n# A tibble: 15 × 2\n   manufacturer     n\n   &lt;chr&gt;        &lt;int&gt;\n 1 audi            18\n 2 chevrolet       19\n 3 dodge           37\n 4 ford            25\n 5 honda            9\n 6 hyundai         14\n 7 jeep             8\n 8 land rover       4\n 9 lincoln          3\n10 mercury          4\n11 nissan          13\n12 pontiac          5\n13 subaru          14\n14 toyota          34\n15 volkswagen      27\n\n\nLet’s say we wanted only the manufacturers with at least 15 cars produced. Everything else we want to just be other:\n\nmpg &lt;- mpg %&gt;% \n  mutate(class_lumped = class %&gt;% fct_lump_min(15))\n\nmpg$manufacturer %&gt;% \n  levels()\n\nNULL\n\n\nCreate a table using kableExtra:\n\nlibrary(kableExtra)\n\nmpg %&gt;% \n  count(manufacturer) %&gt;% \n  kbl() %&gt;% \n  kable_styling()\n\n\n\n\nmanufacturer\nn\n\n\n\n\naudi\n18\n\n\nchevrolet\n19\n\n\ndodge\n37\n\n\nford\n25\n\n\nhonda\n9\n\n\nhyundai\n14\n\n\njeep\n8\n\n\nland rover\n4\n\n\nlincoln\n3\n\n\nmercury\n4\n\n\nnissan\n13\n\n\npontiac\n5\n\n\nsubaru\n14\n\n\ntoyota\n34\n\n\nvolkswagen\n27"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html",
+    "href": "courses/stat0118/118_E_ggplot_2.html",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html#without-the-needed-group-command",
+    "href": "courses/stat0118/118_E_ggplot_2.html#without-the-needed-group-command",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "Without the needed group command",
+    "text": "Without the needed group command\n\n# Incorrect: Only one line drawn without group\nggplot(df, aes(x = time, y = value)) +\n  geom_line() +\n  ggtitle(\"Incorrect - Missing Group\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html#with-the-group-command",
+    "href": "courses/stat0118/118_E_ggplot_2.html#with-the-group-command",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "With the group command",
+    "text": "With the group command\n\n# Correct: Separate lines for each category using group\nggplot(df, aes(x = time, y = value, group = category)) +\n  geom_line() +\n  ggtitle(\"Correct - Grouped by Category\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_E_ggplot_2.html#using-color-or-linetype-instead",
+    "href": "courses/stat0118/118_E_ggplot_2.html#using-color-or-linetype-instead",
+    "title": "Making plots with ggplot2: histograms, boxplots, line graphs",
+    "section": "Using color (or linetype) instead",
+    "text": "Using color (or linetype) instead\n\n# Automatically groups by color\nggplot(df, aes(x = time, y = value, color = category)) +\n  geom_line() +\n  ggtitle(\"Grouping by Color\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_N_webscraping_tables_homework.html",
+    "href": "courses/stat0118/118_N_webscraping_tables_homework.html",
+    "title": "STAT 118: Homework N",
+    "section": "",
+    "text": "Code\n#make sure the package is installed on your computer or this won't run! \nlibrary(tidyverse)\nlibrary(rvest)\n\n\n\n1.\nUse read_html to read in all the HTML tables from Vermont’s Wikipedia Page. Save this HTML code as VT_html\n\n\n2.\nUse the appropriate code to save the 1st table on this wikipedia page as a tibble in R with the name Vermont_Table1. Don’t worry about cleaning it up.\n\n\n4.\nUse the appropriate code to scrape the table labelled The population of Vermont by race: 2000–2021. Save this table as tibble named VT_population\n\n\n5.\nUse the table above to recreate the table below. Hint: You may need to revisit our lesson on pivoting!\n\n\n\n6.\nScrape a table of your choice from Wikipedia. Try to pick a simple table with one header, unless you are feeling up for a challenge. Be sure to print out the table for the grader to see."
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_notes.html",
+    "href": "courses/stat0118/118_O_webscraping_text_notes.html",
+    "title": "STAT 118: Notes P",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(rvest)"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_notes.html#titles",
+    "href": "courses/stat0118/118_O_webscraping_text_notes.html#titles",
+    "title": "STAT 118: Notes P",
+    "section": "Titles",
+    "text": "Titles\nFor example, check out the first few lines of html code for Oppenheimer:\n&lt;h3 class=\"lister-item-header\"&gt;\n        &lt;span class=\"lister-item-index unbold text-primary\"&gt;1.&lt;/span&gt;\n    &lt;a href=\"/title/tt15398776/?ref_=adv_li_tt\"\n&gt;Oppenheimer&lt;/a&gt;\n    &lt;span class=\"lister-item-year text-muted unbold\"&gt;(2023)&lt;/span&gt;\n&lt;/h3&gt;\nIn this case, we want to look for the class lister-item-header AND then pull the text inside the &lt;a&gt; (link) tag.\nhtml_elements(\".lister-item-header a\")\n\n\n\n\n\n\nTip\n\n\n\nIn this case, we want ALL titles so we used html_elements(). If we had only wanted the first title we would have used html_element()\n\n\nScrape IMBD for the titles of the 50 most popular feature films in the first 7 months of 2023.\n\ntitle_data &lt;- URL %&gt;%\n  html_elements(\".lister-item-header a\") %&gt;%\n  html_text()\n\ntitle_data"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_notes.html#runtime",
+    "href": "courses/stat0118/118_O_webscraping_text_notes.html#runtime",
+    "title": "STAT 118: Notes P",
+    "section": "Runtime",
+    "text": "Runtime\nScrape IMBD for the runtime of the 50 most popular feature films so far in 2023.\nCheck out the relevant HTML code for Oppenheimer:\n    &lt;p class=\"text-muted \"&gt;\n            &lt;span class=\"certificate\"&gt;R&lt;/span&gt;\n                 &lt;span class=\"ghost\"&gt;|&lt;/span&gt; \n                 &lt;span class=\"runtime\"&gt;180 min&lt;/span&gt;\n                 &lt;span class=\"ghost\"&gt;|&lt;/span&gt; \n            &lt;span class=\"genre\"&gt;\nBiography, Drama, History            &lt;/span&gt;\n    &lt;/p&gt;\nIn this case, we need to reference the class text-muted AND the class runtime.\n\nURL %&gt;%\n  html_nodes(\".text-muted .runtime\") %&gt;%\n  html_text() \n\nAlternatively, we could have called class text-muted AND the 3rd span, but it’s easier and likely more accurate to ask for the class runtime in case runtime is missing for some reason.\nMaybe we want to keep the min on the end, but it forces it into being a stringr rather than a number which makes it difficult to sort or filter.\n\nlibrary(readr)\n# need this package for parse_number()\n\n\n\n\nArtwork by @allisonhorst\n\n\n\nruntime_data &lt;- URL %&gt;%\n  html_nodes(\".text-muted .runtime\") %&gt;%\n  html_text() %&gt;%\n  parse_number() %&gt;% #this picks out only the numbers (and drops characters, in this case, \"mins\")\n  as.numeric()\n\nruntime_data"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_notes.html#ratings",
+    "href": "courses/stat0118/118_O_webscraping_text_notes.html#ratings",
+    "title": "STAT 118: Notes P",
+    "section": "Ratings",
+    "text": "Ratings\nScrape IMBD for the ratings of the 50 most popular feature films in the first 7 months of 2023.\nCheck out the relevant HTML code for Oppenheimer:\n    &lt;div class=\"inline-block ratings-imdb-rating\" name=\"ir\" data-value=\"8.6\"&gt;\n        &lt;span class=\"global-sprite rating-star imdb-rating\"&gt;&lt;/span&gt;\n        &lt;strong&gt;8.6&lt;/strong&gt;\n    &lt;/div&gt;\nLet’s scrape it!\n\nrating_data &lt;- URL %&gt;%\n  html_elements(\".ratings-imdb-rating strong\") %&gt;%\n  html_text() %&gt;%\n  as.numeric()\n\nrating_data\n\n\n\n\n\n\n\nWarning\n\n\n\nNotice that there are only 49 ratings listed, not 50! There is no way to figure out which one is missing besides doing it by hand…\nWhich one is it?\nOnce we figure out which one is it is, we should should add a blank element for the rating for that movie using the append function.\nrating_data &lt;- append(rating_data, values=FALSE, after=11)\n\n\nIt’s Killers of the Flower Moon (#32)!\n\nrating_data &lt;- append(rating_data, values=NA, after=31)\n\nNotice how it is the correct length (50) now!"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_notes.html#number-of-votes",
+    "href": "courses/stat0118/118_O_webscraping_text_notes.html#number-of-votes",
+    "title": "STAT 118: Notes P",
+    "section": "Number of Votes",
+    "text": "Number of Votes\nScrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023.\nRelevant code for Oppenheimer:\n        &lt;p class=\"sort-num_votes-visible\"&gt;\n                &lt;span class=\"text-muted\"&gt;Votes:&lt;/span&gt;\n                &lt;span name=\"nv\" data-value=\"391689\"&gt;391,689&lt;/span&gt;\n        &lt;/p&gt;\nLet’s scrape it!\n\nvotes_data &lt;- URL %&gt;%\n  html_elements(\".sort-num_votes-visible span:nth-child(2)\") %&gt;%\n  html_text() %&gt;%\n  parse_number() %&gt;%\n  as.numeric()\n\nvotes_data\n\n\n\n\n\n\n\nWarning\n\n\n\nSame issue as before! We were supposed to have 50 but only got 49. It’s Killers of the Flower Moon (#32), again!\n\nvotes_data &lt;- append(votes_data, values=NA, after=31)"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text_notes.html#metascore",
+    "href": "courses/stat0118/118_O_webscraping_text_notes.html#metascore",
+    "title": "STAT 118: Notes P",
+    "section": "Metascore",
+    "text": "Metascore\nScrape IMBD for the number of votes of the 50 most popular feature films in the first 7 months of 2023.\nRelevant code for Oppenheimer:\n            &lt;div class=\"inline-block ratings-metascore\"&gt;\n&lt;span class=\"metascore  favorable\"&gt;88        &lt;/span&gt;\n        Metascore\n            &lt;/div&gt;\nLet’s scrape it!\n\nmetascore_data &lt;- URL %&gt;%\n  html_elements(\".metascore\") %&gt;%\n  html_text() %&gt;%\n  parse_number() %&gt;%\n  as.numeric()\n\nmetascore_data\n\n\n\n\n\n\n\nWarning\n\n\n\nYikes! Now we only have 41 when we should have 50.\nWe could manually go through and figure out which 9 are missing or we could reassess how important the metascore data is to us…"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps_notes.html",
+    "href": "courses/stat0118/118_G_maps_notes.html",
+    "title": "Maps with maps and sf",
+    "section": "",
+    "text": "R is fantastic for spacial analysis (not covered in this class… look for classes related to spacial statistics)\nR is great for interactive data visualization (via leaflet or shiny… more on this on Thursday)\nR is okay at spacial data visualization (creating maps).\n\nThere are many different packages in R for creating maps. I’ve found that different packages perform best for different maps. We will talk about a few different ones today.\nIf you have a highly map-centric project, there is nothing wrong with working in ArcGIS or QGIS if you find the mapping tools in R insufficient. There are many recent improvements with new packages (like sp, rgdal and rgeos) which profiles much of the functionality of GIS packages! Exciting! (not very beginner friendly - requires familiarity with GIS concepts)"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps_notes.html#qualitative-color-palettes",
+    "href": "courses/stat0118/118_G_maps_notes.html#qualitative-color-palettes",
+    "title": "Maps with maps and sf",
+    "section": "Qualitative Color Palettes",
+    "text": "Qualitative Color Palettes\n\n\n\n\n\n\n\nBest for…\nCategories (unordered)\n\n\nExamples\nSpecies, Groups, Brands\n\n\nRColorBrewer Palettes\n\"Set1\", \"Dark2\", \"Paired\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"Set1\")\n\n\nwesanderson Palettes\n\"GrandBudapest1\", \"Darjeeling1\", \"Moonrise2\"\n\n\nExample R Code\nscale_fill_manual(values = wes_palette(\"GrandBudapest1\"))"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps_notes.html#sequential-color-palettes",
+    "href": "courses/stat0118/118_G_maps_notes.html#sequential-color-palettes",
+    "title": "Maps with maps and sf",
+    "section": "Sequential Color Palettes",
+    "text": "Sequential Color Palettes\n\n\n\n\n\n\n\nBest for…\nOrdered, continuous data\n\n\nExamples\nTemperature, Population Density\n\n\nRColorBrewer Palettes\n\"Blues\", \"Reds\", \"Greens\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"Blues\")\n\n\nviridis Palettes\n\"viridis\", \"magma\", \"plasma\", \"cividis\"\n\n\nExample R Code\nscale_fill_viridis_c(option = \"magma\")\n\n\nBuild your Own\nscale_fill_gradientn(c(\"red\", \"yellow\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote: Be sure that higher values are encoded with the darkest colors!"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps_notes.html#diverging-color-palettes",
+    "href": "courses/stat0118/118_G_maps_notes.html#diverging-color-palettes",
+    "title": "Maps with maps and sf",
+    "section": "Diverging Color Palettes",
+    "text": "Diverging Color Palettes\n\n\n\n\n\n\n\nBest for…\nData with a central midpoint\n\n\nExamples\nElection Results, Anomaly Detection\n\n\nRColorBrewer Palettes\n\"RdBu\", \"Spectral\"\n\n\nExample R Code\nscale_fill_brewer(palette = \"RdBu\")\n\n\nBuild your Own\nscale_fill_manual(values = c(\"red\", \"orange\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome general guidelines when choosing color palettes:\n\n\n\n✅ Match palette type to data type\n✅ Choose colorblind-friendly palettes when designing for general audiences\n✅ Limit colors to avoid overwhelming the reader - for categortical data limit the number of distinct colors to 5-8 max (beyond that, consider grouping)\n✅ Consider the meaning of colors in your audience’s cultural context.\n🔴 Avoid: Using blue for land in maps"
+  },
+  {
+    "objectID": "courses/stat0118/118_G_maps_notes.html#adding-labels-with-geom_sf_text",
+    "href": "courses/stat0118/118_G_maps_notes.html#adding-labels-with-geom_sf_text",
+    "title": "Maps with maps and sf",
+    "section": "Adding labels with geom_sf_text()",
+    "text": "Adding labels with geom_sf_text()"
+  },
+  {
+    "objectID": "courses/stat0118/118_C_aggregating.html",
+    "href": "courses/stat0118/118_C_aggregating.html",
+    "title": "Aggregating",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
+    "href": "courses/stat0118/118_C_aggregating.html#remove-rows-with-missing-data-with-drop_na",
+    "title": "Aggregating",
+    "section": "Remove rows with missing data with drop_na()",
+    "text": "Remove rows with missing data with drop_na()\n\n2penguins &lt;- penguins %&gt;%\n1  drop_na()\n\n\n1\n\nDrops all the rows in the penguins dataset which has missing data (NA values)\n\n2\n\noverwrite the penguins dataset with the penguins dataset without the missing rows\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIs it appropriate to remove rows with missing data? How many rows have missing data? Do the missing rows have something in common?\nRemoving rows can affect the validity and generalizability of your analysis!"
+  },
+  {
+    "objectID": "courses/stat0118/118_C_aggregating.html#multiple-groups",
+    "href": "courses/stat0118/118_C_aggregating.html#multiple-groups",
+    "title": "Aggregating",
+    "section": "Multiple Groups",
+    "text": "Multiple Groups\nSuppose we wish to have the average bill length and average bill depth broken down by sex AND species:\n\npenguins %&gt;%\n  group_by(species, sex) %&gt;%\n  summarise(average_bill_length = mean(bill_length_mm), \n            average_bill_depth = mean(bill_depth_mm))\n\n# A tibble: 6 × 4\n# Groups:   species [3]\n  species   sex    average_bill_length average_bill_depth\n  &lt;fct&gt;     &lt;fct&gt;                &lt;dbl&gt;              &lt;dbl&gt;\n1 Adelie    female                37.3               17.6\n2 Adelie    male                  40.4               19.1\n3 Chinstrap female                46.6               17.6\n4 Chinstrap male                  51.1               19.3\n5 Gentoo    female                45.6               14.2\n6 Gentoo    male                  49.5               15.7"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr.html#str_detect",
+    "href": "courses/stat0118/118_stringr.html#str_detect",
+    "title": "Working with text using stringr",
+    "section": "str_detect",
+    "text": "str_detect\n\n\n\nartwork by @allisonhorst\n\n\ninputs: - string - pattern\noutput: - TRUE/FALSE\nlittle example:\n\nstr_detect(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] TRUE\n\n\n\nstr_detect(\"Welcome to data science, look at this cool data\", \"pineapple\")\n\n[1] FALSE\n\n\nI only want to take classes in Warner!\n\ncourses %&gt;% \n  filter(str_detect(location, \"WNS\"))\n\n# A tibble: 48 × 9\n   titles      distros department time  location professor description courseNum\n   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    \n 1 Beginning … LNG     Chinese    8:40… \"Warner… Hang Du … \"\\nThis co… CHNS0101…\n 2 Beginning … LNG     Chinese    9:45… \"Warner… Hang Du … \"\\nThis co… CHNS0101…\n 3 Economic S… DED     Economics  12:4… \"Warner… Erick Go… \"\\nAn intr… ECON0111…\n 4 Introducto… SOC     Economics  9:45… \"Warner… David Mu… \"\\nAn intr… ECON0150…\n 5 Introducto… SOC     Economics  11:1… \"Warner… David Mu… \"\\nAn intr… ECON0150…\n 6 Introducto… SOC     Economics  8:15… \"Warner… Cihan Ar… \"\\nAn intr… ECON0150…\n 7 Introducto… SOC     Economics  2:15… \"Warner… &lt;NA&gt;      \"\\nAn intr… ECON0150…\n 8 Introducto… SOC     Economics  2:15… \"Warner… Phani Wu… \"\\nAn intr… ECON0155…\n 9 Introducti… DED     Economics  9:45… \"Warner… German R… \"\\nIn this… ECON0211…\n10 Introducti… DED     Economics  11:1… \"Warner… German R… \"\\nIn this… ECON0211…\n# ℹ 38 more rows\n# ℹ 1 more variable: meet &lt;chr&gt;\n\n\nSuppose I don’t want any classes on Friday. Let’s use str_detect to find our options.\n\nnotFriday &lt;- courses %&gt;% \n  filter(!str_detect(meet, \"Friday\"))\n\nPerhaps I’m interested in immigration.\nThe regex function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.\nFor now, we will only use regex to ignore capitalization.\nIf you’re interested in using regular expressions at some point, this regex cheat sheet will be super helpful.\n\nimmigrationclasses &lt;- courses %&gt;% \n  filter(str_detect(description, regex(\"immigration\", ignore_case=TRUE)))\n\nimmigrationclasses\n\n# A tibble: 7 × 9\n  titles distros department time  location professor description courseNum meet \n  &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;\n1 Immig… AMR HIS Program i… 11:1… \"Axinn … Rachael … \"\\nIn this… AMST0175… \"Tue…\n2 Globa… AMR NOR Economics  12:4… \"Axinn … Erin Wol… \"\\nDoes gl… ECON0420… \"Tue…\n3 Intro… CMP     Internati… 11:1… \"Twilig… Amit Pra… \"\\nThis is… IGST0101… \"Tue…\n4 An In… EUR LN… Italian    9:45… \"Atwate… Thomas V… \"\\nIntende… ITAL0251… \"Fri…\n5 An In… EUR LN… Italian    11:1… \"Atwate… Pat Zupan \"\\nIntende… ITAL0251… \"Fri…\n6 Globa… SOC     Political… 9:45… \"Hillcr… Orion Le… \"\\nHow doe… PSCI0314… \"Tue…\n7 Chris… AMR HI… Religion   1:30… \"Munroe… James Ca… \"\\nReligio… RELI0398… \"Wed…"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr.html#str_extract-and-str_remove",
+    "href": "courses/stat0118/118_stringr.html#str_extract-and-str_remove",
+    "title": "Working with text using stringr",
+    "section": "str_extract and str_remove",
+    "text": "str_extract and str_remove\nstr_extract inputs: - string - pattern str_extract output: - the extracted pattern, if it appears in the the string\nstr_remove inputs: - string - pattern str_extract output: - the string without the pattern, if it appears in the string\nlittle example:\n\nstr_extract(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] \"data\"\n\nstr_extract_all(\"Welcome to data science, look at this cool data\", \"data\")\n\n[[1]]\n[1] \"data\" \"data\"\n\nstr_remove(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] \"Welcome to  science, look at this cool data\"\n\nstr_remove_all(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] \"Welcome to  science, look at this cool \"\n\n\nCW is part of the distribution requirement column. I want CW to be its own column.\n\ncourses %&gt;% \n  mutate(CW = str_extract(distros, \"CW\")) %&gt;% \n  mutate(distros = str_remove(distros, \"CW\"))\n\n# A tibble: 568 × 10\n   titles      distros department time  location professor description courseNum\n   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    \n 1 Cultural C… &lt;NA&gt;    Program i… 2:15… \"Wright… Olga San… \"\\nIn this… AMST0121…\n 2 Immigrant … AMR HIS Program i… 11:1… \"Axinn … Rachael … \"\\nIn this… AMST0175…\n 3 Introducti… AMR HI… Program i… 7:30… \"Axinn … Roberto … \"\\nIn this… AMST0213…\n 4 See the U.… AMR  H… Program i… 11:1… \"Axinn … Deb Evans \"\\nIn this… AMST0231…\n 5 Science Fi… LIT     Program i… 2:15… \"Axinn … Michael … \"\\nTime tr… AMST0253…\n 6 Music and … CMP LIT Program i… 9:45… \"Axinn … William … \"\\nAlthoug… AMST0257…\n 7 &lt;NA&gt;        AMR AR… Program i… 9:45… \"Axinn … Ellery F…  &lt;NA&gt;       AMST0273…\n 8 Viewer Dis… AMR AR… Program i… 2:15… \"Axinn … Ellery F… \"\\nWhat ar… AMST0281…\n 9 Posthuman … LIT     Program i… 11:1… \"Axinn … Michael … \"\\nMedical… AMST0287…\n10 Humanitari… AMR     Program i… 12:4… \"Axinn … Rachael … \"\\nThis pu… AMST0343…\n# ℹ 558 more rows\n# ℹ 2 more variables: meet &lt;chr&gt;, CW &lt;chr&gt;"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr.html#str_sub",
+    "href": "courses/stat0118/118_stringr.html#str_sub",
+    "title": "Working with text using stringr",
+    "section": "str_sub",
+    "text": "str_sub\nstr_sub inputs: - string\n- starting character - ending character str_sub output: - string with only the characters between the start and the end\nlittle example:\n\nstr_sub(\"Welcome to data science, look at this cool data\", start=12, end=23) \n\n[1] \"data science\"\n\n\n\nBounds are inclusive!\n\nMaybe I only want 200 level math classes.\n\nFirst we filter for just math classes.\nThen we can create a new column called level that contains only the sixth character from the courses column.\n\nWe call this a substring, hence the function str_sub.\n\nMathClasses &lt;- courses %&gt;% \n  filter(department == \"Mathematics\") %&gt;% \n  mutate(level=str_sub(courseNum, start=6, end=6)) \n\nMath2Classes &lt;- MathClasses %&gt;% \n  filter(level== \"2\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_stringr.html#str_count",
+    "href": "courses/stat0118/118_stringr.html#str_count",
+    "title": "Working with text using stringr",
+    "section": "str_count",
+    "text": "str_count\nstr_count inputs: - string\n- pattern str_count output: - a count of the number of times the pattern appears in the string\nlittle example:\n\nstr_count(\"Welcome to data science, look at this cool data\", \"data\")\n\n[1] 2\n\n\nMaybe I only want my classes to meet twice a week.\n\ncourses &lt;- courses %&gt;% \n  mutate(dayCount = str_count(meet, \"day\"))\n\n#what's the maximum number of days a week a class meets?\nmax(courses$dayCount)\n\n[1] 6\n\n#what's the mean number of days?\nmean(courses$dayCount)\n\n[1] 2.225352\n\n\nLet’s visualize this data.\n\ncourses %&gt;% \n  ggplot() + \n  geom_bar(aes(x=dayCount %&gt;% as.factor()), fill=\"blue\") + \n  xlab(\"Number of Days Class Meets\") + \n  ylab(\"Number of Classes\") + \n  labs(title=\"How many Days a Week do Classes at Middlebury Meet?\")+\n  theme_classic()"
+  },
+  {
+    "objectID": "courses/stat0118/118_formatting_references.html",
+    "href": "courses/stat0118/118_formatting_references.html",
+    "title": "Formatting References",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "courses/stat0118/118_J_pivoting_homework.html",
+    "href": "courses/stat0118/118_J_pivoting_homework.html",
+    "title": "STAT 118: Homework J",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\n\n\n\nReligious Income Data\nThe Pew Religious Income Survey, conducted in 2007 and 2014, surveys more than 35,000 Americans from all 50 states about their religious affiliations, beliefs and practices, and social and political views. This data comes from 2009.\n\n\nCode\ndata(\"relig_income\") # contained in tidyverse package\n\n\nThis dataset contains three variables:\n\nreligion of the surveyee\nthe annual income bracket of the surveyee\nthe count (number of surveyees)\n\n\n\n1.\nIs this data in wide or long format?\n\n\n2.\nPivot the data (If it’s in long format, make it wide. If it’s in wide format, make it long).\n\n\nFish Encounters Dataset\nThe fish_encounters dataset contains information about fish swimming down a river. Each station recorded if a tagged fish was observed at its monitor stations. Fish travel is one direction (migrating downstream).\n\n\nCode\ndata(\"fish_encounters\") # contained in tidyverse package\n\n\nThe dataset contains three variables:\n\nfish, the fish identifier,\nstation, the measurement stations\nseen = 1 if the fish was seen\n\n\n\n3.\nIs this data in wide or long format?\n\n\n4.\nPivot the data (If it’s in long format, make it wide. If it’s in wide format, make it long).\n\n\n5.\nYou might notice that there are a lot of NA or missing values after pivoting wider. This is means that the fish was not observed at that given station. Let’s replace the NA values with 0s. Repeat your pivot in the previous problem but, add the following to your pivot_wider() function call: values_fill = 0.\n\n\ngapminder Data\n\n\nCode\nlibrary(gapminder)\ndata('gapminder')\n\n\n\n\n6.\nRecreate the following table from the gapminder dataset. Focus on the content first. If you have time, you can try to match the styling.\n\n\n\n7.\nRecreate the following table from the gapminder dataset. Focus on the content first. If you have time, you can try to match the styling."
+  },
+  {
     "objectID": "courses/stat0118/118_maps_points_homework.html",
     "href": "courses/stat0118/118_maps_points_homework.html",
     "title": "STAT 118: Homework L",
     "section": "",
     "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) \nlibrary(leaflet)\nlibrary(spData)\n\n\nChoose one of the datasets provided which displays the latitude and longitude of many locations. Your job will be to create a map which displays the locations of the items on an appropriate map.\n\nDunkin Donuts Locations https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/dunkin_stores.csv\nFarmers Markets in the USA https://github.com/emalcolmwhite/emalcolmwhite.github.io/blob/main/courses/stat0118/data/farmers_markets_from_usda.csv\n\n\n1.\nUse the space below to import in your dataset of choice (choices are on the Canvas Assignment page).\nKeep in mind that you may want to work with ALL locations in the dataset OR you may wish to work with a subset of the locations – totally your choice.\n\n\n2.\nFind an appropriate sf dataset for the locations of your data. Recall the spData package contains many different sf objects, so you might be able to find an appropriate map there.\n\n\n3.\nCreate an ggplot map (using sf objects) which displays the locations from your dataset as points on the map. All points should be the same size (choose an appropriate size and color). Your plot should include a title and appropriate colors.\n\n\n4.\nCreate an ggplot map (using sf objects) which displays the locations from your dataset as points on the map. Your points should vary in size depending on a quantitative variable in your data OR vary in color depending on a categorical variable in your data. Your plot should include a title and appropriate colors.\n\n\n5.\nCreate a leaflet map which displays the locations from your dataset as well-labeled markers on a map."
+  },
+  {
+    "objectID": "courses/stat0118/118_M_lubridate_homework.html",
+    "href": "courses/stat0118/118_M_lubridate_homework.html",
+    "title": "STAT 118: Homework R",
+    "section": "",
+    "text": "Code\n#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(lubridate)\n\n#LOAD DATA\nlibrary(nycflights23)\ndata(\"flights\")\n\n\n\n1.\nCreate a new column in the flights dataset called departure_datetime which displays the departure datetime (for example, 2023-01-01 05:15:00)\n\n\n2.\nCreate a new column in the flights dataset called sched_departure_datetime which displays the scheduled departure datetime (for example, 2013-01-01 05:15:00)\n\n\n3.\nUse an appropriate function to calculate the difference, in minutes, between the scheduled departure and the actual departure time. Save your results in a new column called calc_dep_delay. Note that your new column calc_dep_delay should have the same values as dep_delay.\n\n\n4.\nCreate a new column that extracts the day of the week from the scheduled departure time. Call this column weekday. The output should be the name of the weekday (e.g., Monday, Tuesday, etc.). You may need to look into the wday function and what options there are for arguments.\n\n\n5.\nCreate a new column called overnight which displays a 1 if the flights is overnight and 0 if the flight is not overnight. Hint: If the flight is overnight, the arrival time will be before the departure time.\n\n\n6.\nWhich hour of the day has the longest average departure delay? What do you think might cause this? Hint: You may want to make a column for the scheduled departure hour.\n\n\n7.\nCreate a calendar-style heatmap of average departure delays using weekday and week.\n\nCreate a new column that rounds the sched_departure_datetime down to the nearest week (use floor_date())\nExtract the weekday from sched_departure_datetime\nSummarize the average delay for each week and weekday\nCreate a heatmap using ggplot and geom_tile. Feel free to look online for whatever information you might need to learn about to use geom_tile()."
+  },
+  {
+    "objectID": "courses/stat0118/118_maps_points.html",
+    "href": "courses/stat0118/118_maps_points.html",
+    "title": "Plotting Points on Maps",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(sf) #this is a package needed so R can work with sf objects\n\n#LOAD DATA\nlibrary(spData) #this packages contains the dataset (with sf objects) that we will be using today\ndata(\"us_states\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_maps_points.html#using-openstreet-maps",
+    "href": "courses/stat0118/118_maps_points.html#using-openstreet-maps",
+    "title": "Plotting Points on Maps",
+    "section": "Using OpenStreet Maps",
+    "text": "Using OpenStreet Maps\nA simple map of Warner Hall:\n\nleaflet() %&gt;%\n  addTiles() %&gt;%  \n  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-73.175, lat=44.010, popup=\"Warner Hall\")\n\n\n\n\n\nA map of all airports in the USA:\n\nleaflet(data=airports_count) %&gt;%\n  addTiles() %&gt;% # Add default OpenStreetMap map tiles\n  addMarkers(lng=~lon, lat=~lat, popup=~faa)\n\n\n\n\n\nor using Circle Markers:\n\nleaflet(data=airports_count) %&gt;%\n  addTiles() %&gt;%# Add default OpenStreetMap map tiles\n  addCircleMarkers(lng=~lon, lat=~lat, popup=~faa, radius = ~count/1000, stroke =FALSE, fillOpacity =0.5)"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html",
+    "href": "courses/stat0118/118_O_webscraping_text.html",
+    "title": "Webscraping Text",
+    "section": "",
+    "text": "#LOAD PACKAGES \nlibrary(tidyverse)\nlibrary(rvest)"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html#titles",
+    "href": "courses/stat0118/118_O_webscraping_text.html#titles",
+    "title": "Webscraping Text",
+    "section": "Titles",
+    "text": "Titles\nFor example, check out the lines of html code for the book “Sapians”:\n&lt;div class=\"elementList\" style=\"padding-top: 10px;\"&gt;\n&lt;div class=\"left\" style=\"width: 75%;\"&gt;\n&lt;a title=\"Sapiens: A Brief History of Humankind\" class=\"leftAlignedImage\" href=\"/book/show/23692271-sapiens\"&gt;&lt;img alt=\"Sapiens: A Brief History of Humankind\" src=\"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1703329310l/23692271._SY75_.jpg\" /&gt;&lt;/a&gt;\n&lt;a class=\"bookTitle\" href=\"/book/show/23692271-sapiens\"&gt;Sapiens: A Brief History of Humankind (Paperback)&lt;/a&gt;\n&lt;br /&gt;\n&lt;span class='by'&gt;by&lt;/span&gt;\n&lt;span itemprop='author' itemscope='' itemtype='http://schema.org/Person'&gt;\n&lt;div class='authorName__container'&gt;\n&lt;a class=\"authorName\" itemprop=\"url\" href=\"https://www.goodreads.com/author/show/395812.Yuval_Noah_Harari\"&gt;&lt;span itemprop=\"name\"&gt;Yuval Noah Harari&lt;/span&gt;&lt;/a&gt;\n&lt;/div&gt;\n&lt;/span&gt;\n(shelved 6592 times as &lt;em&gt;science&lt;/em&gt;)\n&lt;br /&gt;\n&lt;span class=\"greyText smallText\"&gt;\navg rating 4.35 —\n1,168,542 ratings  —\npublished 2011\n&lt;/span&gt;\n&lt;/div&gt;"
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html#titles-1",
+    "href": "courses/stat0118/118_O_webscraping_text.html#titles-1",
+    "title": "Webscraping Text",
+    "section": "Titles",
+    "text": "Titles\nIn this case, we want to look for the class bookTitle using html_elements(\".bookTitle\")\n\n\n\n\n\n\nTip\n\n\n\nIn this case, we want ALL titles so we used html_elements(). If we had only wanted the first title we would have used html_element()\n\n\n\ntitles &lt;- URL %&gt;%\n  html_elements(\".bookTitle\") %&gt;%\n  html_text()\n\ntitles\n\n [1] \"A Short History of Nearly Everything (Paperback)\"                                                                                               \n [2] \"The Selfish Gene (Paperback)\"                                                                                                                   \n [3] \"Astrophysics for People in a Hurry (Hardcover)\"                                                                                                 \n [4] \"Sapiens: A Brief History of Humankind (Paperback)\"                                                                                              \n [5] \"Cosmos (Mass Market Paperback)\"                                                                                                                 \n [6] \"The Immortal Life of Henrietta Lacks (Hardcover)\"                                                                                               \n [7] \"What If?: Serious Scientific Answers to Absurd Hypothetical Questions (Hardcover)\"                                                              \n [8] \"The Origin of Species (Hardcover)\"                                                                                                              \n [9] \"The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory (Paperback)\"                                       \n[10] \"The Demon-Haunted World: Science as a Candle in the Dark (Paperback)\"                                                                           \n[11] \"Stiff: The Curious Lives of Human Cadavers (Paperback)\"                                                                                         \n[12] \"\\\"Surely You're Joking, Mr. Feynman!\\\": Adventures of a Curious Character (Paperback)\"                                                          \n[13] \"Why We Sleep: Unlocking the Power of Sleep and Dreams (Hardcover)\"                                                                              \n[14] \"The Gene: An Intimate History (Hardcover)\"                                                                                                      \n[15] \"The Emperor of All Maladies: A Biography of Cancer (Hardcover)\"                                                                                 \n[16] \"The Sixth Extinction: An Unnatural History (Hardcover)\"                                                                                         \n[17] \"The Disappearing Spoon: And Other True Tales of Madness, Love, and the History of the World from the Periodic Table of the Elements (Hardcover)\"\n[18] \"The Man Who Mistook His Wife for a Hat and Other Clinical Tales (Paperback)\"                                                                    \n[19] \"Guns, Germs, and Steel: The Fates of Human Societies (Paperback)\"                                                                               \n[20] \"The Grand Design (Hardcover)\"                                                                                                                   \n[21] \"The Greatest Show on Earth: The Evidence for Evolution (Hardcover)\"                                                                             \n[22] \"Seven Brief Lessons on Physics (Hardcover)\"                                                                                                     \n[23] \"The Fabric of the Cosmos: Space, Time, and the Texture of Reality (Paperback)\"                                                                  \n[24] \"Homo Deus: A History of Tomorrow (ebook)\"                                                                                                       \n[25] \"Brief Answers to the Big Questions (Hardcover)\"                                                                                                 \n[26] \"The God Delusion (Hardcover)\"                                                                                                                   \n[27] \"The Structure of Scientific Revolutions (Paperback)\"                                                                                            \n[28] \"I Contain Multitudes: The Microbes Within Us and a Grander View of Life (Hardcover)\"                                                            \n[29] \"The Body: A Guide for Occupants (Hardcover)\"                                                                                                    \n[30] \"Chaos: Making a New Science (Paperback)\"                                                                                                        \n[31] \"Packing for Mars: The Curious Science of Life in the Void (Paperback)\"                                                                          \n[32] \"Gödel, Escher, Bach: An Eternal Golden Braid (Paperback)\"                                                                                       \n[33] \"Pale Blue Dot: A Vision of the Human Future in Space (Paperback)\"                                                                               \n[34] \"The Universe in a Nutshell (Hardcover)\"                                                                                                         \n[35] \"The Blind Watchmaker: Why the Evidence of Evolution Reveals a Universe Without Design (Paperback)\"                                              \n[36] \"The Hidden Life of Trees: What They Feel, How They Communicate: Discoveries from a Secret World (Hardcover)\"                                    \n[37] \"Behave: The Biology of Humans at Our Best and Worst (Hardcover)\"                                                                                \n[38] \"Bad Science (Paperback)\"                                                                                                                        \n[39] \"Physics of the Impossible (Hardcover)\"                                                                                                          \n[40] \"The Rise and Fall of the Dinosaurs: A New History of a Lost World (Hardcover)\"                                                                  \n[41] \"Entangled Life: How Fungi Make Our Worlds, Change Our Minds & Shape Our Futures (Hardcover)\"                                                    \n[42] \"Death by Black Hole: And Other Cosmic Quandaries (Paperback)\"                                                                                   \n[43] \"Genome: The Autobiography of a Species in 23 Chapters (Paperback)\"                                                                              \n[44] \"The Order of Time (Hardcover)\"                                                                                                                  \n[45] \"Six Easy Pieces: Essentials of Physics Explained by Its Most Brilliant Teacher (Paperback)\"                                                     \n[46] \"A Universe from Nothing: Why There Is Something Rather Than Nothing (Hardcover)\"                                                                \n[47] \"Your Inner Fish: a Journey into the 3.5-Billion-Year History of the Human Body (Hardcover)\"                                                     \n[48] \"The Hot Zone: The Terrifying True Story of the Origins of the Ebola Virus (Paperback)\"                                                          \n[49] \"Bonk: The Curious Coupling of Science and Sex (Paperback)\"                                                                                      \n[50] \"Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific Problem of His Time (Hardcover)\""
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html#authors",
+    "href": "courses/stat0118/118_O_webscraping_text.html#authors",
+    "title": "Webscraping Text",
+    "section": "Authors",
+    "text": "Authors\nIn this case, we want to look for the class authorName using html_elements(\".authorName\")\n\n\n\n\n\n\nTip\n\n\n\nIn this case, we want ALL titles so we used html_elements(). If we had only wanted the first title we would have used html_element()\n\n\n\nauthors &lt;- URL %&gt;%\n  html_elements(\".authorName\") %&gt;%\n  html_text()\n\nauthors\n\n [1] \"Bill Bryson\"           \"Richard Dawkins\"       \"Neil deGrasse Tyson\"  \n [4] \"Yuval Noah Harari\"     \"Carl Sagan\"            \"Rebecca Skloot\"       \n [7] \"Randall Munroe\"        \"Charles Darwin\"        \"Brian Greene\"         \n[10] \"Carl Sagan\"            \"Mary Roach\"            \"Richard P. Feynman\"   \n[13] \"(Contibutor)\"          \"Matthew Walker\"        \"Siddhartha Mukherjee\" \n[16] \"Siddhartha Mukherjee\"  \"Elizabeth Kolbert\"     \"Sam Kean\"             \n[19] \"Oliver Sacks\"          \"Jared Diamond\"         \"Stephen Hawking\"      \n[22] \"Richard Dawkins\"       \"Carlo Rovelli\"         \"Brian Greene\"         \n[25] \"Yuval Noah Harari\"     \"Stephen Hawking\"       \"Richard Dawkins\"      \n[28] \"Thomas S. Kuhn\"        \"Ed Yong\"               \"Bill Bryson\"          \n[31] \"James Gleick\"          \"Mary Roach\"            \"Douglas R. Hofstadter\"\n[34] \"Carl Sagan\"            \"Stephen Hawking\"       \"Richard Dawkins\"      \n[37] \"Peter Wohlleben\"       \"Robert M. Sapolsky\"    \"Ben Goldacre\"         \n[40] \"Michio Kaku\"           \"Steve Brusatte\"        \"Merlin Sheldrake\"     \n[43] \"Neil deGrasse Tyson\"   \"Matt Ridley\"           \"Carlo Rovelli\"        \n[46] \"Richard P. Feynman\"    \"Lawrence M. Krauss\"    \"Neil Shubin\"          \n[49] \"Richard   Preston\"     \"Mary Roach\"            \"Dava Sobel\""
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html#other-info",
+    "href": "courses/stat0118/118_O_webscraping_text.html#other-info",
+    "title": "Webscraping Text",
+    "section": "Other Info",
+    "text": "Other Info\n&lt;span class=\"greyText smallText\"&gt;\navg rating 4.35 —\n1,168,542 ratings  —\npublished 2011\n&lt;/span&gt;\nIn this case, we need to reference the class greyText\n\ninfo &lt;- URL %&gt;%\n  html_elements(\".greyText\") %&gt;%\n  html_text()\n\ninfo\n\n  [1] \"\\n                  avg rating 4.22 —\\n                  407,535 ratings  —\\n                  published 2003\\n                \"  \n  [2] \"Rate this book\"                                                                                                                   \n  [3] \"(Goodreads Author)\"                                                                                                               \n  [4] \"\\n                  avg rating 4.16 —\\n                  187,031 ratings  —\\n                  published 1976\\n                \"  \n  [5] \"Rate this book\"                                                                                                                   \n  [6] \"(Goodreads Author)\"                                                                                                               \n  [7] \"\\n                  avg rating 4.08 —\\n                  195,986 ratings  —\\n                  published 2017\\n                \"  \n  [8] \"Rate this book\"                                                                                                                   \n  [9] \"\\n                  avg rating 4.35 —\\n                  1,168,557 ratings  —\\n                  published 2011\\n                \"\n [10] \"Rate this book\"                                                                                                                   \n [11] \"\\n                  avg rating 4.40 —\\n                  153,771 ratings  —\\n                  published 1980\\n                \"  \n [12] \"Rate this book\"                                                                                                                   \n [13] \"(Goodreads Author)\"                                                                                                               \n [14] \"\\n                  avg rating 4.13 —\\n                  775,348 ratings  —\\n                  published 2010\\n                \"  \n [15] \"Rate this book\"                                                                                                                   \n [16] \"(Goodreads Author)\"                                                                                                               \n [17] \"\\n                  avg rating 4.14 —\\n                  188,324 ratings  —\\n                  published 2014\\n                \"  \n [18] \"Rate this book\"                                                                                                                   \n [19] \"\\n                  avg rating 4.01 —\\n                  119,116 ratings  —\\n                  published 1859\\n                \"  \n [20] \"Rate this book\"                                                                                                                   \n [21] \"\\n                  avg rating 4.10 —\\n                  100,287 ratings  —\\n                  published 1999\\n                \"  \n [22] \"Rate this book\"                                                                                                                   \n [23] \"\\n                  avg rating 4.29 —\\n                  77,237 ratings  —\\n                  published 1995\\n                \"   \n [24] \"Rate this book\"                                                                                                                   \n [25] \"\\n                  avg rating 4.06 —\\n                  231,078 ratings  —\\n                  published 2003\\n                \"  \n [26] \"Rate this book\"                                                                                                                   \n [27] \"(Contibutor)\"                                                                                                                     \n [28] \"\\n                  avg rating 4.27 —\\n                  210,509 ratings  —\\n                  published 1985\\n                \"  \n [29] \"Rate this book\"                                                                                                                   \n [30] \"\\n                  avg rating 4.38 —\\n                  210,037 ratings  —\\n                  published 2017\\n                \"  \n [31] \"Rate this book\"                                                                                                                   \n [32] \"\\n                  avg rating 4.36 —\\n                  52,981 ratings  —\\n                  published 2016\\n                \"   \n [33] \"Rate this book\"                                                                                                                   \n [34] \"\\n                  avg rating 4.34 —\\n                  109,260 ratings  —\\n                  published 2010\\n                \"  \n [35] \"Rate this book\"                                                                                                                   \n [36] \"(Goodreads Author)\"                                                                                                               \n [37] \"\\n                  avg rating 4.16 —\\n                  76,010 ratings  —\\n                  published 2014\\n                \"   \n [38] \"Rate this book\"                                                                                                                   \n [39] \"\\n                  avg rating 3.93 —\\n                  54,009 ratings  —\\n                  published 2010\\n                \"   \n [40] \"Rate this book\"                                                                                                                   \n [41] \"\\n                  avg rating 4.05 —\\n                  236,212 ratings  —\\n                  published 1985\\n                \"  \n [42] \"Rate this book\"                                                                                                                   \n [43] \"\\n                  avg rating 4.04 —\\n                  438,255 ratings  —\\n                  published 1997\\n                \"  \n [44] \"Rate this book\"                                                                                                                   \n [45] \"\\n                  avg rating 4.06 —\\n                  75,945 ratings  —\\n                  published 2010\\n                \"   \n [46] \"Rate this book\"                                                                                                                   \n [47] \"(Goodreads Author)\"                                                                                                               \n [48] \"\\n                  avg rating 4.16 —\\n                  55,086 ratings  —\\n                  published 2009\\n                \"   \n [49] \"Rate this book\"                                                                                                                   \n [50] \"\\n                  avg rating 3.99 —\\n                  63,098 ratings  —\\n                  published 2014\\n                \"   \n [51] \"Rate this book\"                                                                                                                   \n [52] \"\\n                  avg rating 4.13 —\\n                  39,676 ratings  —\\n                  published 2004\\n                \"   \n [53] \"Rate this book\"                                                                                                                   \n [54] \"\\n                  avg rating 4.19 —\\n                  273,715 ratings  —\\n                  published 2015\\n                \"  \n [55] \"Rate this book\"                                                                                                                   \n [56] \"\\n                  avg rating 4.27 —\\n                  82,164 ratings  —\\n                  published 2018\\n                \"   \n [57] \"Rate this book\"                                                                                                                   \n [58] \"(Goodreads Author)\"                                                                                                               \n [59] \"\\n                  avg rating 3.90 —\\n                  277,060 ratings  —\\n                  published 2006\\n                \"  \n [60] \"Rate this book\"                                                                                                                   \n [61] \"\\n                  avg rating 4.03 —\\n                  28,670 ratings  —\\n                  published 1962\\n                \"   \n [62] \"Rate this book\"                                                                                                                   \n [63] \"\\n                  avg rating 4.18 —\\n                  29,489 ratings  —\\n                  published 2016\\n                \"   \n [64] \"Rate this book\"                                                                                                                   \n [65] \"\\n                  avg rating 4.32 —\\n                  92,736 ratings  —\\n                  published 2019\\n                \"   \n [66] \"Rate this book\"                                                                                                                   \n [67] \"(Goodreads Author)\"                                                                                                               \n [68] \"\\n                  avg rating 4.04 —\\n                  39,810 ratings  —\\n                  published 1987\\n                \"   \n [69] \"Rate this book\"                                                                                                                   \n [70] \"\\n                  avg rating 3.95 —\\n                  59,009 ratings  —\\n                  published 2010\\n                \"   \n [71] \"Rate this book\"                                                                                                                   \n [72] \"\\n                  avg rating 4.29 —\\n                  51,144 ratings  —\\n                  published 1979\\n                \"   \n [73] \"Rate this book\"                                                                                                                   \n [74] \"\\n                  avg rating 4.34 —\\n                  38,264 ratings  —\\n                  published 1994\\n                \"   \n [75] \"Rate this book\"                                                                                                                   \n [76] \"\\n                  avg rating 4.19 —\\n                  44,261 ratings  —\\n                  published 2001\\n                \"   \n [77] \"Rate this book\"                                                                                                                   \n [78] \"(Goodreads Author)\"                                                                                                               \n [79] \"\\n                  avg rating 4.09 —\\n                  40,760 ratings  —\\n                  published 1986\\n                \"   \n [80] \"Rate this book\"                                                                                                                   \n [81] \"\\n                  avg rating 4.07 —\\n                  82,665 ratings  —\\n                  published 2015\\n                \"   \n [82] \"Rate this book\"                                                                                                                   \n [83] \"\\n                  avg rating 4.40 —\\n                  28,168 ratings  —\\n                  published 2017\\n                \"   \n [84] \"Rate this book\"                                                                                                                   \n [85] \"\\n                  avg rating 4.06 —\\n                  44,114 ratings  —\\n                  published 2008\\n                \"   \n [86] \"Rate this book\"                                                                                                                   \n [87] \"\\n                  avg rating 4.10 —\\n                  40,702 ratings  —\\n                  published 2008\\n                \"   \n [88] \"Rate this book\"                                                                                                                   \n [89] \"\\n                  avg rating 4.21 —\\n                  36,920 ratings  —\\n                  published 2018\\n                \"   \n [90] \"Rate this book\"                                                                                                                   \n [91] \"(Goodreads Author)\"                                                                                                               \n [92] \"\\n                  avg rating 4.34 —\\n                  44,913 ratings  —\\n                  published 2020\\n                \"   \n [93] \"Rate this book\"                                                                                                                   \n [94] \"(Goodreads Author)\"                                                                                                               \n [95] \"\\n                  avg rating 4.10 —\\n                  31,649 ratings  —\\n                  published 2006\\n                \"   \n [96] \"Rate this book\"                                                                                                                   \n [97] \"\\n                  avg rating 4.06 —\\n                  27,448 ratings  —\\n                  published 1999\\n                \"   \n [98] \"Rate this book\"                                                                                                                   \n [99] \"\\n                  avg rating 4.13 —\\n                  35,548 ratings  —\\n                  published 2017\\n                \"   \n[100] \"Rate this book\"                                                                                                                   \n[101] \"\\n                  avg rating 4.21 —\\n                  29,605 ratings  —\\n                  published 1994\\n                \"   \n[102] \"Rate this book\"                                                                                                                   \n[103] \"\\n                  avg rating 3.94 —\\n                  30,103 ratings  —\\n                  published 2012\\n                \"   \n[104] \"Rate this book\"                                                                                                                   \n[105] \"(Goodreads Author)\"                                                                                                               \n[106] \"\\n                  avg rating 4.04 —\\n                  27,664 ratings  —\\n                  published 2008\\n                \"   \n[107] \"Rate this book\"                                                                                                                   \n[108] \"\\n                  avg rating 4.16 —\\n                  118,332 ratings  —\\n                  published 1994\\n                \"  \n[109] \"Rate this book\"                                                                                                                   \n[110] \"\\n                  avg rating 3.85 —\\n                  59,273 ratings  —\\n                  published 2008\\n                \"   \n[111] \"Rate this book\"                                                                                                                   \n[112] \"\\n                  avg rating 3.99 —\\n                  74,237 ratings  —\\n                  published 1995\\n                \"   \n[113] \"Rate this book\""
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html#putting-it-all-together",
+    "href": "courses/stat0118/118_O_webscraping_text.html#putting-it-all-together",
+    "title": "Webscraping Text",
+    "section": "Putting it all together",
+    "text": "Putting it all together\n\nlength(titles)\n\n[1] 50\n\nlength(authors)\n\n[1] 51\n\nlength(info)\n\n[1] 113\n\n\nOops! They aren’t all the same length, so we can’t put them in the same dataset. There should be 50 books! We need to look at this by hand…\nThe 13th element of authors just says “(Contributers)”. Let’s remove that.\n\nauthors &lt;- authors[-13]\n\nOur info vector has some excessive info (ie. info[58] = (GoodReads Author))\nSometimes webscraping requires some manual massaging. We could try using the full class = \"greyText smallText but using multiple classes html_elements(\".greyText.smallText\")\n\ninfo &lt;- URL %&gt;%\n  html_elements(\".greyText.smallText\") %&gt;%\n  html_text()\n\ninfo\n\n [1] \"\\n                  avg rating 4.22 —\\n                  407,535 ratings  —\\n                  published 2003\\n                \"  \n [2] \"\\n                  avg rating 4.16 —\\n                  187,031 ratings  —\\n                  published 1976\\n                \"  \n [3] \"\\n                  avg rating 4.08 —\\n                  195,986 ratings  —\\n                  published 2017\\n                \"  \n [4] \"\\n                  avg rating 4.35 —\\n                  1,168,557 ratings  —\\n                  published 2011\\n                \"\n [5] \"\\n                  avg rating 4.40 —\\n                  153,771 ratings  —\\n                  published 1980\\n                \"  \n [6] \"\\n                  avg rating 4.13 —\\n                  775,348 ratings  —\\n                  published 2010\\n                \"  \n [7] \"\\n                  avg rating 4.14 —\\n                  188,324 ratings  —\\n                  published 2014\\n                \"  \n [8] \"\\n                  avg rating 4.01 —\\n                  119,116 ratings  —\\n                  published 1859\\n                \"  \n [9] \"\\n                  avg rating 4.10 —\\n                  100,287 ratings  —\\n                  published 1999\\n                \"  \n[10] \"\\n                  avg rating 4.29 —\\n                  77,237 ratings  —\\n                  published 1995\\n                \"   \n[11] \"\\n                  avg rating 4.06 —\\n                  231,078 ratings  —\\n                  published 2003\\n                \"  \n[12] \"(Contibutor)\"                                                                                                                     \n[13] \"\\n                  avg rating 4.27 —\\n                  210,509 ratings  —\\n                  published 1985\\n                \"  \n[14] \"\\n                  avg rating 4.38 —\\n                  210,037 ratings  —\\n                  published 2017\\n                \"  \n[15] \"\\n                  avg rating 4.36 —\\n                  52,981 ratings  —\\n                  published 2016\\n                \"   \n[16] \"\\n                  avg rating 4.34 —\\n                  109,260 ratings  —\\n                  published 2010\\n                \"  \n[17] \"\\n                  avg rating 4.16 —\\n                  76,010 ratings  —\\n                  published 2014\\n                \"   \n[18] \"\\n                  avg rating 3.93 —\\n                  54,009 ratings  —\\n                  published 2010\\n                \"   \n[19] \"\\n                  avg rating 4.05 —\\n                  236,212 ratings  —\\n                  published 1985\\n                \"  \n[20] \"\\n                  avg rating 4.04 —\\n                  438,255 ratings  —\\n                  published 1997\\n                \"  \n[21] \"\\n                  avg rating 4.06 —\\n                  75,945 ratings  —\\n                  published 2010\\n                \"   \n[22] \"\\n                  avg rating 4.16 —\\n                  55,086 ratings  —\\n                  published 2009\\n                \"   \n[23] \"\\n                  avg rating 3.99 —\\n                  63,098 ratings  —\\n                  published 2014\\n                \"   \n[24] \"\\n                  avg rating 4.13 —\\n                  39,676 ratings  —\\n                  published 2004\\n                \"   \n[25] \"\\n                  avg rating 4.19 —\\n                  273,715 ratings  —\\n                  published 2015\\n                \"  \n[26] \"\\n                  avg rating 4.27 —\\n                  82,164 ratings  —\\n                  published 2018\\n                \"   \n[27] \"\\n                  avg rating 3.90 —\\n                  277,060 ratings  —\\n                  published 2006\\n                \"  \n[28] \"\\n                  avg rating 4.03 —\\n                  28,670 ratings  —\\n                  published 1962\\n                \"   \n[29] \"\\n                  avg rating 4.18 —\\n                  29,489 ratings  —\\n                  published 2016\\n                \"   \n[30] \"\\n                  avg rating 4.32 —\\n                  92,736 ratings  —\\n                  published 2019\\n                \"   \n[31] \"\\n                  avg rating 4.04 —\\n                  39,810 ratings  —\\n                  published 1987\\n                \"   \n[32] \"\\n                  avg rating 3.95 —\\n                  59,009 ratings  —\\n                  published 2010\\n                \"   \n[33] \"\\n                  avg rating 4.29 —\\n                  51,144 ratings  —\\n                  published 1979\\n                \"   \n[34] \"\\n                  avg rating 4.34 —\\n                  38,264 ratings  —\\n                  published 1994\\n                \"   \n[35] \"\\n                  avg rating 4.19 —\\n                  44,261 ratings  —\\n                  published 2001\\n                \"   \n[36] \"\\n                  avg rating 4.09 —\\n                  40,760 ratings  —\\n                  published 1986\\n                \"   \n[37] \"\\n                  avg rating 4.07 —\\n                  82,665 ratings  —\\n                  published 2015\\n                \"   \n[38] \"\\n                  avg rating 4.40 —\\n                  28,168 ratings  —\\n                  published 2017\\n                \"   \n[39] \"\\n                  avg rating 4.06 —\\n                  44,114 ratings  —\\n                  published 2008\\n                \"   \n[40] \"\\n                  avg rating 4.10 —\\n                  40,702 ratings  —\\n                  published 2008\\n                \"   \n[41] \"\\n                  avg rating 4.21 —\\n                  36,920 ratings  —\\n                  published 2018\\n                \"   \n[42] \"\\n                  avg rating 4.34 —\\n                  44,913 ratings  —\\n                  published 2020\\n                \"   \n[43] \"\\n                  avg rating 4.10 —\\n                  31,649 ratings  —\\n                  published 2006\\n                \"   \n[44] \"\\n                  avg rating 4.06 —\\n                  27,448 ratings  —\\n                  published 1999\\n                \"   \n[45] \"\\n                  avg rating 4.13 —\\n                  35,548 ratings  —\\n                  published 2017\\n                \"   \n[46] \"\\n                  avg rating 4.21 —\\n                  29,605 ratings  —\\n                  published 1994\\n                \"   \n[47] \"\\n                  avg rating 3.94 —\\n                  30,103 ratings  —\\n                  published 2012\\n                \"   \n[48] \"\\n                  avg rating 4.04 —\\n                  27,664 ratings  —\\n                  published 2008\\n                \"   \n[49] \"\\n                  avg rating 4.16 —\\n                  118,332 ratings  —\\n                  published 1994\\n                \"  \n[50] \"\\n                  avg rating 3.85 —\\n                  59,273 ratings  —\\n                  published 2008\\n                \"   \n[51] \"\\n                  avg rating 3.99 —\\n                  74,237 ratings  —\\n                  published 1995\\n                \"   \n\ninfo &lt;- info[-12]\ninfo\n\n [1] \"\\n                  avg rating 4.22 —\\n                  407,535 ratings  —\\n                  published 2003\\n                \"  \n [2] \"\\n                  avg rating 4.16 —\\n                  187,031 ratings  —\\n                  published 1976\\n                \"  \n [3] \"\\n                  avg rating 4.08 —\\n                  195,986 ratings  —\\n                  published 2017\\n                \"  \n [4] \"\\n                  avg rating 4.35 —\\n                  1,168,557 ratings  —\\n                  published 2011\\n                \"\n [5] \"\\n                  avg rating 4.40 —\\n                  153,771 ratings  —\\n                  published 1980\\n                \"  \n [6] \"\\n                  avg rating 4.13 —\\n                  775,348 ratings  —\\n                  published 2010\\n                \"  \n [7] \"\\n                  avg rating 4.14 —\\n                  188,324 ratings  —\\n                  published 2014\\n                \"  \n [8] \"\\n                  avg rating 4.01 —\\n                  119,116 ratings  —\\n                  published 1859\\n                \"  \n [9] \"\\n                  avg rating 4.10 —\\n                  100,287 ratings  —\\n                  published 1999\\n                \"  \n[10] \"\\n                  avg rating 4.29 —\\n                  77,237 ratings  —\\n                  published 1995\\n                \"   \n[11] \"\\n                  avg rating 4.06 —\\n                  231,078 ratings  —\\n                  published 2003\\n                \"  \n[12] \"\\n                  avg rating 4.27 —\\n                  210,509 ratings  —\\n                  published 1985\\n                \"  \n[13] \"\\n                  avg rating 4.38 —\\n                  210,037 ratings  —\\n                  published 2017\\n                \"  \n[14] \"\\n                  avg rating 4.36 —\\n                  52,981 ratings  —\\n                  published 2016\\n                \"   \n[15] \"\\n                  avg rating 4.34 —\\n                  109,260 ratings  —\\n                  published 2010\\n                \"  \n[16] \"\\n                  avg rating 4.16 —\\n                  76,010 ratings  —\\n                  published 2014\\n                \"   \n[17] \"\\n                  avg rating 3.93 —\\n                  54,009 ratings  —\\n                  published 2010\\n                \"   \n[18] \"\\n                  avg rating 4.05 —\\n                  236,212 ratings  —\\n                  published 1985\\n                \"  \n[19] \"\\n                  avg rating 4.04 —\\n                  438,255 ratings  —\\n                  published 1997\\n                \"  \n[20] \"\\n                  avg rating 4.06 —\\n                  75,945 ratings  —\\n                  published 2010\\n                \"   \n[21] \"\\n                  avg rating 4.16 —\\n                  55,086 ratings  —\\n                  published 2009\\n                \"   \n[22] \"\\n                  avg rating 3.99 —\\n                  63,098 ratings  —\\n                  published 2014\\n                \"   \n[23] \"\\n                  avg rating 4.13 —\\n                  39,676 ratings  —\\n                  published 2004\\n                \"   \n[24] \"\\n                  avg rating 4.19 —\\n                  273,715 ratings  —\\n                  published 2015\\n                \"  \n[25] \"\\n                  avg rating 4.27 —\\n                  82,164 ratings  —\\n                  published 2018\\n                \"   \n[26] \"\\n                  avg rating 3.90 —\\n                  277,060 ratings  —\\n                  published 2006\\n                \"  \n[27] \"\\n                  avg rating 4.03 —\\n                  28,670 ratings  —\\n                  published 1962\\n                \"   \n[28] \"\\n                  avg rating 4.18 —\\n                  29,489 ratings  —\\n                  published 2016\\n                \"   \n[29] \"\\n                  avg rating 4.32 —\\n                  92,736 ratings  —\\n                  published 2019\\n                \"   \n[30] \"\\n                  avg rating 4.04 —\\n                  39,810 ratings  —\\n                  published 1987\\n                \"   \n[31] \"\\n                  avg rating 3.95 —\\n                  59,009 ratings  —\\n                  published 2010\\n                \"   \n[32] \"\\n                  avg rating 4.29 —\\n                  51,144 ratings  —\\n                  published 1979\\n                \"   \n[33] \"\\n                  avg rating 4.34 —\\n                  38,264 ratings  —\\n                  published 1994\\n                \"   \n[34] \"\\n                  avg rating 4.19 —\\n                  44,261 ratings  —\\n                  published 2001\\n                \"   \n[35] \"\\n                  avg rating 4.09 —\\n                  40,760 ratings  —\\n                  published 1986\\n                \"   \n[36] \"\\n                  avg rating 4.07 —\\n                  82,665 ratings  —\\n                  published 2015\\n                \"   \n[37] \"\\n                  avg rating 4.40 —\\n                  28,168 ratings  —\\n                  published 2017\\n                \"   \n[38] \"\\n                  avg rating 4.06 —\\n                  44,114 ratings  —\\n                  published 2008\\n                \"   \n[39] \"\\n                  avg rating 4.10 —\\n                  40,702 ratings  —\\n                  published 2008\\n                \"   \n[40] \"\\n                  avg rating 4.21 —\\n                  36,920 ratings  —\\n                  published 2018\\n                \"   \n[41] \"\\n                  avg rating 4.34 —\\n                  44,913 ratings  —\\n                  published 2020\\n                \"   \n[42] \"\\n                  avg rating 4.10 —\\n                  31,649 ratings  —\\n                  published 2006\\n                \"   \n[43] \"\\n                  avg rating 4.06 —\\n                  27,448 ratings  —\\n                  published 1999\\n                \"   \n[44] \"\\n                  avg rating 4.13 —\\n                  35,548 ratings  —\\n                  published 2017\\n                \"   \n[45] \"\\n                  avg rating 4.21 —\\n                  29,605 ratings  —\\n                  published 1994\\n                \"   \n[46] \"\\n                  avg rating 3.94 —\\n                  30,103 ratings  —\\n                  published 2012\\n                \"   \n[47] \"\\n                  avg rating 4.04 —\\n                  27,664 ratings  —\\n                  published 2008\\n                \"   \n[48] \"\\n                  avg rating 4.16 —\\n                  118,332 ratings  —\\n                  published 1994\\n                \"  \n[49] \"\\n                  avg rating 3.85 —\\n                  59,273 ratings  —\\n                  published 2008\\n                \"   \n[50] \"\\n                  avg rating 3.99 —\\n                  74,237 ratings  —\\n                  published 1995\\n                \""
+  },
+  {
+    "objectID": "courses/stat0118/118_O_webscraping_text.html#seperating-data-in-columns",
+    "href": "courses/stat0118/118_O_webscraping_text.html#seperating-data-in-columns",
+    "title": "Webscraping Text",
+    "section": "Seperating Data in Columns",
+    "text": "Seperating Data in Columns\nWe will need some help of regex (short for regular expression) – a powerful way to search, match, and extract patterns in text.\n\nbooks &lt;- books %&gt;%\n  mutate(\n    # Remove newlines and trim spaces\n    Info = str_squish(Info),\n    \n    # Extract each piece using regex\n    avg_rating = str_extract(Info, \"(?&lt;=avg rating )\\\\d+\\\\.\\\\d+\"),   \n    num_ratings = str_extract(Info, \"\\\\d{1,3}(,\\\\d{3})*(?= ratings)\"),  \n    yr_published = str_extract(Info, \"(?&lt;=published )\\\\d{4}\")\n  ) %&gt;% \n  select(-Info)\n\n🌶️ regex expressions can be very challenging depending on the complexity of the text you are trying to format. You are encouraged to use Google and/or generative AI to help you come up with the appropriate expressions. Below is a quick guide to some of the basics:\n| Pattern | Meaning                                     | Example                          |\n|---------|---------------------------------------------|----------------------------------|\n| `.`     | Any character except newline                | `a.b` matches `acb`, `a2b`       |\n| `\\d`    | Any digit (0–9)                             | `\\d+` matches `2023`, `55`       |\n| `\\w`    | Any word character (letter, number, _)      | `\\w+` matches `hello`, `abc123`  |\n| `\\s`    | Whitespace (space, tab, newline)            | `\\s+` matches spaces/tabs        |\n| `+`     | One or more of the preceding                | `a+` matches `a`, `aa`, `aaa`    |\n| `*`     | Zero or more of the preceding               | `a*` matches ``, `a`, `aa`       |\n| `?`     | Optional (zero or one)                      | `colou?r` matches `color`, `colour` |\n| `^`     | Start of line/string                        | `^The` matches lines starting with `The` |\n| `$`     | End of line/string                          | `end$` matches lines ending with `end` |\n| `[]`    | Match one character inside brackets         | `[aeiou]` matches any vowel      |\n| `[^]`   | Match anything **except** what's in brackets | `[^0-9]` matches non-digits      |\n| `()`    | Grouping for extracting or repeating        | `(\\d{4})` extracts 4-digit numbers |\n| `|`     | OR                                           | `cat|dog` matches `cat` or `dog` |\n| `{n}`   | Exactly n repetitions                       | `\\d{4}` matches exactly four digits |"
+  },
+  {
+    "objectID": "courses/stat0118/118_I_joining.html",
+    "href": "courses/stat0118/118_I_joining.html",
+    "title": "Joining tables with dplyr",
+    "section": "",
+    "text": "#LOAD PACKAGES\nlibrary(tidyverse)\n\n#LOAD DATA\nlibrary(nycflights23)\ndata(\"flights\")\n\nnycflights23 contains information about all 435352 flights departing NYC in 2023."
+  },
+  {
+    "objectID": "courses/stat0118/118_I_joining.html#matching-key-variable-names",
+    "href": "courses/stat0118/118_I_joining.html#matching-key-variable-names",
+    "title": "Joining tables with dplyr",
+    "section": "Matching key variable names",
+    "text": "Matching key variable names\nSome airline names might be easy to guess (ie. “UA” is United Airlines), but what airlines have the code “VX”, “HA”, and “B6”? Data on airline codes is provided in a dataset called airlines.\n\n#data(\"airlines\")\n\nWe want to have all this information in one data frame instead of two separate data frames.\nThe variable carrier in flights match the variable carrier in the airlines dataset – this is our key variable. In this case, they have the same name, but this doesn’t necessarily have to be true.\n\nflights_joined &lt;- flights %&gt;% \n  inner_join(airlines, by=\"carrier\")"
+  },
+  {
+    "objectID": "courses/stat0118/118_I_joining.html#different-key-variable-names",
+    "href": "courses/stat0118/118_I_joining.html#different-key-variable-names",
+    "title": "Joining tables with dplyr",
+    "section": "Different key variable names",
+    "text": "Different key variable names\nSay instead you are interested in the destinations of all domestic flights departing NYC in 2013, and you ask yourself questions like: “What cities are these airports in?”, or “Is”ORD” Orlando?”\n\ndata(\"airports\")\n\nIn airports the airport code is in faa, whereas in flights the airport codes are in origin and dest.\n\nflights_with_airport_names &lt;- flights %&gt;% \n  inner_join(airports, by = c(\"dest\" = \"faa\"))\n\nLet’s construct the chain of pipe operators %&gt;% that computes the number of flights from NYC to each destination, but also includes information about each destination airport:\n\nnamed_dests &lt;- flights %&gt;%\n  group_by(dest) %&gt;%\n  summarize(num_flights = n()) %&gt;%\n  arrange(desc(num_flights)) %&gt;%\n  inner_join(airports, by = c(\"dest\" = \"faa\")) %&gt;%\n  rename(airport_name = name)\nnamed_dests\n\n# A tibble: 114 × 9\n   dest  num_flights airport_name             lat    lon   alt    tz dst   tzone\n   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;                  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;\n 1 BOS         19036 General Edward Lawren…  42.4  -71.0    20    -5 A     Amer…\n 2 ORD         18200 Chicago O'Hare Intern…  42.0  -87.9   672    -6 A     Amer…\n 3 MCO         17756 Orlando International…  28.4  -81.3    96    -5 A     Amer…\n 4 ATL         17570 Hartsfield Jackson At…  33.6  -84.4  1026    -5 A     Amer…\n 5 MIA         16076 Miami International A…  25.8  -80.3     8    -5 A     Amer…\n 6 LAX         15968 Los Angeles Internati…  33.9 -118.    125    -8 A     Amer…\n 7 FLL         14239 Fort Lauderdale Holly…  26.1  -80.2     9    -5 A     Amer…\n 8 CLT         12866 Charlotte Douglas Int…  35.2  -80.9   748    -5 A     Amer…\n 9 DFW         11675 Dallas Fort Worth Int…  32.9  -97.0   607    -6 A     Amer…\n10 SFO         11651 San Francisco Interna…  37.6 -122.     13    -8 A     Amer…\n# ℹ 104 more rows"
+  },
+  {
+    "objectID": "courses/stat0118/118_I_joining.html#multiple-key-variables",
+    "href": "courses/stat0118/118_I_joining.html#multiple-key-variables",
+    "title": "Joining tables with dplyr",
+    "section": "Multiple Key variables",
+    "text": "Multiple Key variables\nIn order to join the flights and weather data frames, we need more than one key variable: year, month, day, hour, and origin. This is because the combination of these 5 variables act to uniquely identify each observational unit in the weather data frame: hourly weather recordings at each of the 3 NYC airports.\n\ndata(\"weather\")\n\n\nflights_weather_joined &lt;- flights %&gt;%\n  inner_join(weather, by = c(\"year\", \"month\", \"day\", \"hour\", \"origin\"))"
+  },
+  {
+    "objectID": "courses/stat0118/118_I_joining.html#why-is-this-useful",
+    "href": "courses/stat0118/118_I_joining.html#why-is-this-useful",
+    "title": "Joining tables with dplyr",
+    "section": "Why is this useful?",
+    "text": "Why is this useful?\nUpdating labels:\n\nflights %&gt;% \nggplot(aes(x = carrier, fill = origin)) +\n  geom_bar() + \n  coord_flip()\n\n\n\n#VS\n\nflights %&gt;% \n  inner_join(airports, by = c(\"origin\" = \"faa\")) %&gt;% \n  rename(origin_airport = name) %&gt;% \n  inner_join(airlines, by = c(\"carrier\")) %&gt;%  \n  rename(carrier_name= name) %&gt;% \nggplot(mapping = aes(x = carrier_name, fill = origin_airport)) +\n  geom_bar() + \n  coord_flip()\n\n\n\n\nExploring relationships between variables in separate tables:\n\nflights_weather_joined %&gt;% \n  filter(dep_delay &gt;0) %&gt;% \n  ggplot(aes(x=temp, y=dep_delay)) +\n  geom_point()"
+  },
+  {
+    "objectID": "courses/stat0118/118_formatting_figures.html",
+    "href": "courses/stat0118/118_formatting_figures.html",
+    "title": "Formatting Figures",
+    "section": "",
+    "text": "Coming Soon!"
+  },
+  {
+    "objectID": "courses/r-by-the-sea/index.html",
+    "href": "courses/r-by-the-sea/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
+  },
+  {
+    "objectID": "courses/r-by-the-sea/index.html#r-by-the-sea",
+    "href": "courses/r-by-the-sea/index.html#r-by-the-sea",
+    "title": "EMW",
+    "section": "",
+    "text": "I co-teach “R by the Sea”, a hands-on data science workshop for marine ecologists, with my husband Easton White who runs the Quantitative Marine Ecology Lab at the University of New Hampshire. It’s a rewarding opportunity to merge data science education with real-world applications in marine ecology.\n\n\n\n\n\nR by the Sea @ Shoals Marine Lab is a two-week boot camp style course designed to help you harness the power of R for ecological and environmental research through project-based learning. Check out the R by the Sea webpage. It contains resources for the most recent iteration of this course.\nFor more information on upcoming offerings and enrolling in the course, check out the Shoals Marine Lab “R by the Sea” website. The course typically runs in May.\n\n\n\n\n\n\n\nR by the Sea @ Japan 2025 is a one-week boot camp style course taught at the University of Tohoku in Sendai, Japan in January 2025. Check out the R by the Sea Japan webpage for more details."
+  },
+  {
+    "objectID": "courses/math102/index.html",
+    "href": "courses/math102/index.html",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
+  },
+  {
+    "objectID": "courses/math102/index.html#math-102-logs-exponentials-and-their-applications",
+    "href": "courses/math102/index.html#math-102-logs-exponentials-and-their-applications",
+    "title": "EMW",
+    "section": "",
+    "text": "More Coming Soon!"
   }
 ]
