@@ -1,0 +1,14 @@
+{
+  "hash": "f6064734e4544183a1d57b216306ce6e",
+  "result": {
+    "markdown": "---\ntitle: \"STAT 118: `gganimate` Homework\"\nauthor: \"YOUR NAME HERE\"\nformat:\n  html: \n    toc: true\n    code-overflow: wrap\n    code-fold: true\n    embed-resources: true\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#LOAD PACKAGES \nlibrary(tidyverse)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

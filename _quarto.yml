@@ -66,6 +66,8 @@ website:
           href: courses/stat0118/118_E_ggplot_2.qmd
         - text: "Customizing Plots: `scales`"
           href: courses/stat0118/118_F_ggplot_3.qmd
+        - text: "Animating Plots: `gganimate`"
+          href: courses/stat0118/118_gganimate.qmd
   
         # Group 4: Specialized Tools
         - text: "🧰 <b> Specialized Tools </b>"

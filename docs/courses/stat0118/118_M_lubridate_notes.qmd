@@ -43,7 +43,11 @@ Date/time data are data that conveys information about, you guessed it, date and
 
 # `Lubridate`
 
+![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png?h=a3760f3882e735d7065627fc060714ce){width=50%}
+
 ```{r}
+#| warning: FALSE
+#| message: FALSE
 #LOAD PACKAGES 
 library(tidyverse)
 library(lubridate)

@@ -1,0 +1,58 @@
+---
+title: "STAT 118: `gganimate` Homework"
+author: "YOUR NAME HERE"
+format:
+  html: 
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+    embed-resources: true
+---
+
+```{r message=FALSE, warning=FALSE}
+#LOAD PACKAGES 
+library(tidyverse)
+```
+
+We will be utilizing the gapminder dataset
+
+```{r}
+library(gapminder)
+```
+
+
+# 1. 
+
+Create a static scatterplot using ggplot2 where:
+
+- X-axis = GDP per capita (gdpPercap)
+- Y-axis = Life expectancy (lifeExp)
+- Size of each point = Population (pop)
+- Color = Continent
+- Use scale_x_log10() for GDP for better spacing.
+
+You should use all years to create the plot. 
+
+```{r}
+
+```
+
+# 2. 
+
+Use gganimate to animate your plot over time. Add a `labs(title = "Year: {frame_time}")` to show the changing year in the title. You will need to save your animation locally to your computer as a .gif file. 
+
+```{r}
+#| cache: TRUE
+
+
+
+#anim <- animate(p, ...)
+#anim_save("gapminder.gif", anim)
+```
+
+
+# 3. 
+Embed the the .gif back into this document using the following. You don't need to do anything here except check that your .gif is being embedded properly. 
+
+![](gapminder.gif)
+
