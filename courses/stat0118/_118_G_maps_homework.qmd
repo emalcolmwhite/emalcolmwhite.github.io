@@ -22,6 +22,7 @@ library(spData) #this packages contains the dataset (with sf objects) that we wi
 data("us_states")
 
 library(rnaturalearth)
+library(rnaturalearthdata)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 africa <- world[world$continent == "Africa", ]
 
