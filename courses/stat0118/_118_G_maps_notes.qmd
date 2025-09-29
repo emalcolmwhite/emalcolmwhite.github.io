@@ -8,7 +8,7 @@ format:
 
 ### Before we get started, some context:
 
-- `R` is ***fantastic*** for spacial analysis (not covered in this class... look for classes related to spacial statistics)
+- `R` is ***fantastic*** for spatial analysis (not covered in this class... look for classes related to spatial statistics)
 - `R` is *great* for interactive data visualization (via `leaflet` or `shiny`... more on this on Thursday)
 - `R` is *okay* at spacial data visualization (creating maps).
   - There are many different packages in `R` for creating maps. I've found that different packages perform best for different maps. We will talk about a few different ones today. 
