@@ -16,6 +16,8 @@ execute:
   warning: FALSE
 ---
 
+![](https://gganimate.com/reference/figures/logo.png){width=20%}
+
 ![Artwork by @allisonhorst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/7606f921-3cf8-4240-b9a6-f31ebbe6cd6c_rw_1920.png?h=173381b1a16193a0f6cd17c89d4a58d5)
 
 ```{r}
@@ -133,3 +135,13 @@ anim_save("katrina.gif", anim)
 ```
 
 You can include this in your file using `![](katrina.gif)` inside plain text. 
+
+:::{.callout-note}
+
+More ideas: 
+
+![Credit: https://gganimate.com/](images/gganimate_gapminder.gif)
+
+![Credit: R by R(yo) https://ryo-n7.github.io/ ](images/gganimate_cameras.gif)
+
+:::
