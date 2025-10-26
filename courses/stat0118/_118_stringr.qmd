@@ -2,7 +2,7 @@
 title: 'working with text with `stringr`'
 subtitle: |
   | ![](https://stringr.tidyverse.org/logo.png){width=10%}
-author: 'Violet Ross'
+author: 'Emily Malcolm-White and Violet Ross'
 institute: 'Middlebury College'
 format:
   html: 
