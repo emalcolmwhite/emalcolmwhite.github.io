@@ -39,7 +39,7 @@ Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` whi
 
 # 3.
 
-How many classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).
+How many classes will be offered in Spring 2026 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).
 
 ```{r}
 
@@ -47,7 +47,7 @@ How many classes will be offered in Fall 2025 which satisfy the DED requirements
 
 
 # 4.
-How many *unique* classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).
+How many *unique* classes will be offered in Spring 2026 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).
 
 ```{r}
 
@@ -55,7 +55,7 @@ How many *unique* classes will be offered in Fall 2025 which satisfy the DED req
 
 
 # 5.
-Suppose you really love taking classes with an instructor with the first name "Emily". Which classes will be offered in Fall 2025 by someone with the first name "Emily"?
+Suppose you are interesed in taking a class which satisfies one of the cultures and civilization requirement (SOA, NOA, MDE, SAF, EUR, or AMR). Which classes will be offered in Spring 2026 which satisfy at least one cultures and civilization tag?
 
 ```{r}
 
@@ -78,15 +78,7 @@ Which class(es) offer(s) the most number of sections?
 ```
 
 # 8.
-"The" is the most popular word in the English language. Count the number of times the word "the" appears in the description of each course. Which course(s) uses the word "the" the most? 
-
-```{r}
-
-```
-
-# 9. 
-
-A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Fall 2025.
+A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Spring 2026.
 
 ```{r}
 
