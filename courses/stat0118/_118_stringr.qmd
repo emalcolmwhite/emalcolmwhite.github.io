@@ -41,7 +41,7 @@ stringr is a package containing a bunch of functions that help us work with stri
 
 # Using `stringr`
 
-**I'm registering for classes for this Fall and am trying to decide which courses to take.**
+**I'm registering for classes for this upcoming Spring and am trying to decide which courses to take.**
   
 Let's look at the course catalog!
 
