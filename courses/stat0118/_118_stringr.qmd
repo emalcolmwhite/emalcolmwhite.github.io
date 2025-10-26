@@ -84,9 +84,10 @@ Suppose I don't want any classes on Friday. Let's use `str_detect` to find our o
 Perhaps I'm interested in artificial intelligence. 
 We can use `str_detect` to find course descriptions that mention artificial intelligence.  
   
-The `regex` function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.  
-For now, we will only use regex to ignore capitalization. 
-If you're interested in using regular expressions at some point, this [regex cheat sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/) will be super helpful.
+The `regex` function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase. If you're interested in using regular expressions at some point, this [regex cheat sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/) will be super helpful.
+
+For now, we will only use regex to ignore capitalization using `ignore_case = TRUE` 
+
 
 ```{r}
 
@@ -150,21 +151,32 @@ little example:
 ```
   
 
-Maybe I only want 200 level math and stats classes.  
-First we filter for just math/stats classes. 
-Then we can create a new column called `level` that contains only the sixth character from the `courses` column.  
+Maybe I want to see what 200 level statistics classes are offered next semester.  
+First we want to create a new column called `dept` that contains only the first four characters from the `course_code` column. 
+Then we can create a new column called `level` that contains only the sixth character from the `course_code` column.  
 
 
-We can then filter our `level` column for specific course levels.
 ```{r}
 
 
 
 ```
-  
+
+Then we can filter for 200 level stats courses: 
+
+```{r}
+
+```
   
   
 ## `str_count`
+
+**str_count inputs**: 
+  
+-  a string (or a column of strings) to count *from*  
+-  a string you want to count the number of instances of  
+  
+**str_count output**: the number of times the second string occurs in your first string
   
   
 little example:
@@ -174,13 +186,6 @@ little example:
 ```
  
   
-**str_count inputs**: 
-  
--  a string (or a column of strings) to count *from*  
--  a string you want to count the number of instances of  
-  
-**str_count output**: the number of times the second string occurs in your first string
-
 
 Maybe I only want my classes to meet twice a week. Let's **count** how many times "day" appears in the `meet` column and put this value in a new column called `dayCount`. `dayCount` represents how many days a week a class meets.
 ```{r}
