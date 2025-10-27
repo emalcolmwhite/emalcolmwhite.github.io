@@ -31,7 +31,7 @@ Create new column called `isDED` which indicates courses which have "DED" listed
 
 # 2.
 
-Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. STAT0118B-S25) into three separate pieces (ie. STAT, 0118, and A). 
+Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. STAT0118B-S26) into three separate pieces (ie. STAT, 0118, and A). 
 
 ```{r}
 
@@ -63,6 +63,19 @@ Suppose you are interesed in taking a class which satisfies one of the cultures 
 
 
 # 6.
+A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Spring 2026.
+
+```{r}
+
+```
+
+# 7.
+Suppose you are interested in taking a class that meets on Wednesday nights (and only Wednesday nights). Are there any classes offered in Spring 2026 that meet this criteria? 
+```{r}
+
+```
+
+# 8.
 Suppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc. 
 
 ```{r}
@@ -70,15 +83,8 @@ Suppose we are interested in how many classes offer 1 section, how many offer 2 
 ```
 
 
-# 7.
+# 9.
 Which class(es) offer(s) the most number of sections? 
-
-```{r}
-
-```
-
-# 8.
-A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Spring 2026.
 
 ```{r}
 
