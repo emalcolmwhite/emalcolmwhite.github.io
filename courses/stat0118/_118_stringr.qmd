@@ -37,7 +37,6 @@ NOT a string:
   
 stringr is a package containing a bunch of functions that help us work with strings.
   
-[**stringr cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
 
 # Using `stringr`
 
@@ -47,7 +46,7 @@ Let's look at the course catalog!
 
 Read in the courses data.
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 
 ```
 
@@ -66,7 +65,7 @@ little example:
 
 ```
 
-I only want to take classes in Warner! Let's filter for rows where we **detect** the word "Warner" in the `location` column.
+I only want to take classes in Warner! Let's filter for rows where we *detect* the word "Warner" in the `location` column.
 ```{r}
 
 
@@ -109,7 +108,7 @@ little example:
   
   
 CW is part of the distribution requirement column. I want CW to be its own column.  
-First we can create a new column called `isCW` by **extracting** instances of "CW" from the `distros` column in each row.  
+First we can create a new column called `isCW` by *extracting* instances of "CW" from the `distros` column in each row.  
 Then we can **remove** all instances of "CW" from the `distros` column.
 ```{r}
 
@@ -148,12 +147,14 @@ We want to create a new column called `level` that contains only the sixth chara
 
 ```
 
-Then we can filter for 200 level stats courses: 
+Then we can filter for 700-level courses: 
 
 ```{r}
 
 ```
-  
+
+Are we sure we've got all the 700-level courses? 
+
   
 ## `str_count`
 
@@ -187,4 +188,5 @@ Let's visualize this data.
 
   
 ```
-  
+
+[**stringr cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
