@@ -2,7 +2,7 @@
 title: 'working with text with `stringr`'
 subtitle: |
   | ![](https://stringr.tidyverse.org/logo.png){width=10%}
-author: 'Violet Ross'
+author: 'Emily Malcolm-White and Violet Ross'
 institute: 'Middlebury College'
 format:
   html: 
@@ -37,17 +37,16 @@ NOT a string:
   
 stringr is a package containing a bunch of functions that help us work with strings.
   
-[**stringr cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
 
 # Using `stringr`
 
-**I'm registering for classes for this Fall and am trying to decide which courses to take.**
+**I'm registering for classes for this upcoming Spring and am trying to decide which courses to take.**
   
 Let's look at the course catalog!
 
 Read in the courses data.
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 
 ```
 
@@ -66,7 +65,7 @@ little example:
 
 ```
 
-I only want to take classes in Warner! Let's filter for rows where we **detect** the word "Warner" in the `location` column.
+I only want to take classes in Warner! Let's filter for rows where we *detect* the word "Warner" in the `location` column.
 ```{r}
 
 
@@ -75,19 +74,6 @@ I only want to take classes in Warner! Let's filter for rows where we **detect**
   
   
 Suppose I don't want any classes on Friday. Let's use `str_detect` to find our options.
-```{r}
-
-
-```
-
-
-Perhaps I'm interested in artificial intelligence. 
-We can use `str_detect` to find course descriptions that mention artificial intelligence.  
-  
-The `regex` function is used to write regular expressions in R. Regular expressions are helpful if you want to search for a pattern rather than a specific word or phrase.  
-For now, we will only use regex to ignore capitalization. 
-If you're interested in using regular expressions at some point, this [regex cheat sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/) will be super helpful.
-
 ```{r}
 
 
@@ -122,7 +108,7 @@ little example:
   
   
 CW is part of the distribution requirement column. I want CW to be its own column.  
-First we can create a new column called `isCW` by **extracting** instances of "CW" from the `distros` column in each row.  
+First we can create a new column called `isCW` by *extracting* instances of "CW" from the `distros` column in each row.  
 Then we can **remove** all instances of "CW" from the `distros` column.
 ```{r}
 
@@ -150,21 +136,34 @@ little example:
 ```
   
 
-Maybe I only want 200 level math and stats classes.  
-First we filter for just math/stats classes. 
-Then we can create a new column called `level` that contains only the sixth character from the `courses` column.  
+Maybe I want to see what 700 level classes are offered next semester. 700-level courses are typically reserved for senior capstone courses, senior projects, and senior thesises. 
+
+We want to create a new column called `level` that contains only the sixth character from the `course_code` column.  
 
 
-We can then filter our `level` column for specific course levels.
 ```{r}
 
 
 
 ```
-  
-  
+
+Then we can filter for 700-level courses: 
+
+```{r}
+
+```
+
+Are we sure we've got all the 700-level courses? 
+
   
 ## `str_count`
+
+**str_count inputs**: 
+  
+-  a string (or a column of strings) to count *from*  
+-  a string you want to count the number of instances of  
+  
+**str_count output**: the number of times the second string occurs in your first string
   
   
 little example:
@@ -174,13 +173,6 @@ little example:
 ```
  
   
-**str_count inputs**: 
-  
--  a string (or a column of strings) to count *from*  
--  a string you want to count the number of instances of  
-  
-**str_count output**: the number of times the second string occurs in your first string
-
 
 Maybe I only want my classes to meet twice a week. Let's **count** how many times "day" appears in the `meet` column and put this value in a new column called `dayCount`. `dayCount` represents how many days a week a class meets.
 ```{r}
@@ -196,4 +188,5 @@ Let's visualize this data.
 
   
 ```
-  
+
+[**stringr cheat sheet**](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)

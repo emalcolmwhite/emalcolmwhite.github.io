@@ -10,12 +10,12 @@ format:
     embed-resources: true
 ---
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 #LOAD PACKAGES 
 library(tidyverse)
 
 #LOAD DATA
-courses <- read_csv("data/courses.csv")
+courses <- read_csv("courses_S26.csv")
 courses <- courses %>%
   mutate(isCW = str_extract(distros, "CW")) %>%
   mutate(distros = str_remove(distros, "CW"))
@@ -31,7 +31,7 @@ Create new column called `isDED` which indicates courses which have "DED" listed
 
 # 2.
 
-Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. STAT0118B-S25) into three separate pieces (ie. STAT, 0118, and A). 
+Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` which seperate the the department course identifier (ie. STAT0118B-S26) into three separate pieces (ie. STAT, 0118, and A). 
 
 ```{r}
 
@@ -39,7 +39,7 @@ Create a new column(s) called `courseDEPT` and `courseCODE` and `courseSECT` whi
 
 # 3.
 
-How many classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).
+How many classes will be offered in Spring 2026 which satisfy the DED requirements? (Classes with multiple sections will contribute several classes to the count).
 
 ```{r}
 
@@ -47,7 +47,7 @@ How many classes will be offered in Fall 2025 which satisfy the DED requirements
 
 
 # 4.
-How many *unique* classes will be offered in Fall 2025 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).
+How many *unique* classes will be offered in Spring 2026 which satisfy the DED requirements? (Classes with multiple sections will only count as one class).
 
 ```{r}
 
@@ -55,7 +55,7 @@ How many *unique* classes will be offered in Fall 2025 which satisfy the DED req
 
 
 # 5.
-Suppose you really love taking classes with an instructor with the first name "Emily". Which classes will be offered in Fall 2025 by someone with the first name "Emily"?
+Suppose you are interesed in taking a class which satisfies one of the cultures and civilization requirement (SOA, NOA, MDE, SAF, EUR, or AMR). Which classes will be offered in Spring 2026 which satisfy at least one cultures and civilization tag?
 
 ```{r}
 
@@ -63,6 +63,19 @@ Suppose you really love taking classes with an instructor with the first name "E
 
 
 # 6.
+A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Spring 2026.
+
+```{r}
+
+```
+
+# 7.
+Suppose you are interested in taking a class that meets on Wednesday nights (and only Wednesday nights). Are there any classes offered in Spring 2026 that meet this criteria? 
+```{r}
+
+```
+
+# 8.
 Suppose we are interested in how many classes offer 1 section, how many offer 2 sections, how many offer 3 sections, etc. First, calculate the number of classes which offer 1 sections, 2 sections, 3 sections, etc. 
 
 ```{r}
@@ -70,23 +83,8 @@ Suppose we are interested in how many classes offer 1 section, how many offer 2 
 ```
 
 
-# 7.
+# 9.
 Which class(es) offer(s) the most number of sections? 
-
-```{r}
-
-```
-
-# 8.
-"The" is the most popular word in the English language. Count the number of times the word "the" appears in the description of each course. Which course(s) uses the word "the" the most? 
-
-```{r}
-
-```
-
-# 9. 
-
-A "unicorn class" is defined as a course which is able to satisfy three different distribution requirements -- a college writing class, an academic distribution requirement, and a regional requirement. Create a list of all the unicorn classes offered in Fall 2025.
 
 ```{r}
 
