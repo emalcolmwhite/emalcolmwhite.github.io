@@ -88,8 +88,22 @@ Recreate the following table from the `gapminder` dataset. Focus on the content 
 
 ![](https://github.com/emalcolmwhite/STAT0118/blob/main/J_Pivoting/images/gapminder_us_table.png?raw=true)
 
+```{r}
+
+```
+
 # 7.
 
 Recreate the following table from the `gapminder` dataset. Focus on the content first. If you have time, you can try to match the styling.
 
 ![](https://github.com/emalcolmwhite/STAT0118/blob/main/J_Pivoting/images/gapminder_table.jpg?raw=true)
+
+```{r}
+
+```
+
+# 8. Consider the table "The population of Vermont by race: 2000–2021" from the Vermont Wikipedia Page: [https://en.wikipedia.org/wiki/Vermont](https://en.wikipedia.org/wiki/Vermont). Webscrape this data into R. Reshape this data so that the column names are race, year, and population. Do not display any information about the totals. 
+
+```{r}
+
+```
