@@ -16,9 +16,7 @@ execute:
   warning: FALSE
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
-```
+
 ![](https://tidyr.tidyverse.org/logo.png){width=30%}
 
 The goal of `tidyr` is to help you create tidy data. 
@@ -28,19 +26,9 @@ The goal of `tidyr` is to help you create tidy data.
 
 ![https://r4ds.hadley.nz/data-tidy](https://r4ds.hadley.nz/images/tidy-1.png)
 
-# Reshaping with Pivoting -- Why? 
+# Today's dataset: `portal` 
 
-Data frames are often described as wide or long. 
-
-*Wide* when a row has more than one observation, and the units of observation are on one row each
-
-*Long* when a row has only one observation, but the units of observation are repeated down the column
-
-[Credit: datasciencebook.ca](https://github.com/UBC-DSCI/introduction-to-datascience/blob/main/img/wrangling/pivot_functions.001.jpeg?raw=true)
-
-![](https://datacarpentry.org/R-ecology-lesson/fig/tidyr-pivot_wider_longer.gif)
-
-# `portal` dataset 
+The Portal Project dataset comes from a long-term ecological study that began in 1977 near Portal, Arizona, USA. Researchers have been collecting data continuously for nearly 50 years, making it one of the longest-running ecological studies in the world.
 
 ```{r}
 #LOAD PACKAGES
@@ -52,6 +40,7 @@ portal_rodent <- read.csv("https://github.com/weecology/PortalData/raw/main/Rode
 
 
 ```{r}
+# SOME SUMMARY STATS
 portal_wgt_summary <- portal_rodent %>%
   filter(!is.na(wgt)) %>%
   group_by(plot, species) %>%
@@ -60,9 +49,13 @@ portal_wgt_summary <- portal_rodent %>%
 portal_wgt_summary
 ```
 
-# Pivot Wider
+# Pivot Wider with `portal`
 
 ![](https://datacarpentry.org/R-ecology-lesson/fig/pivot_wider_graphic.png)
+
+![](https://datacarpentry.org/R-ecology-lesson/fig/tidyr-pivot_wider_longer.gif)
+
+**`pivot_wider()` reduces the number of rows and increases the number of columns.**
 
 Practicing transforming this data from long to wide format: 
 
@@ -70,17 +63,110 @@ Practicing transforming this data from long to wide format:
 
 ```
 
+`pivot_wider()` is helpful when:
+
+- You have key-value pairs (e.g., variable names and values) that you want to turn into actual columns.
+- You want to summarize or compare values side-by-side across categories or time periods.
+- You’re preparing data for modeling or presentation where wide format is more natural.
 
 
 # Pivot Longer
 
+`pivot_longer()` is helpful when:
+
+- You have multiple columns representing the same kind of data (e.g., test scores, years, conditions) and you want to gather them into key-value pairs.
+
 ![](https://datacarpentry.org/R-ecology-lesson/fig/pivot_longer_graphic.png)
+
+**`pivot_longer()` reduces the number of columns and increases the number of rows**
 
 Practicing transforming this data from wide to long format: 
 
 ```{r}
 
 ```
+
+
+# Common Pitfalls
+
+## Missing Combinations in `pivot_wider()`
+
+```{r}
+example <- tibble(
+  species_id = c("DM", "DM", "DO"),
+  month = c("jan", "feb", "jan"),
+  avg_weight = c(40, 38, 31)
+)
+
+example
+```
+
+```{r}
+example %>% 
+  pivot_wider(
+    names_from = month,
+    values_from = avg_weight
+  )
+```
+
+Fix: Use `values_fill` to replace missing values with 0 (or another placeholder)
+
+##  Duplicate combinations in `pivot_wider()`
+
+```{r}
+example <- tibble(
+  species_id = c("DM", "DM", "DO"),
+  month = c("jan", "jan", "jan"),
+  avg_weight = c(40, 42, 31)
+)
+
+example
+```
+
+```{r}
+example %>% 
+  pivot_wider(
+    names_from = month,
+    values_from = avg_weight
+  )
+```
+Fix: Tell R how to combine duplicates — for example, by taking the mean: `values_fn = mean`
+
+## Column names encode multiple variables in `pivot_longer()`
+
+```{r}
+example <- tibble(
+  species_id = c("DM", "DO"),
+  weight_male = c(40, 32),
+  weight_female = c(38, 31)
+)
+
+example
+```
+
+```{r}
+```
+
+
+```{r}
+example %>% 
+  pivot_longer(
+    cols = starts_with("weight"), ## CHECK THIS OUT!
+    names_to = "sex",
+    values_to = "weight"
+  )
+```
+Fix: 
+
+```{r}
+example %>% 
+  pivot_longer(
+    cols = starts_with("weight"),
+    names_to = c(".value", "sex"),
+    names_sep = "_"
+  )
+```
+
 
 # Challenge
 
