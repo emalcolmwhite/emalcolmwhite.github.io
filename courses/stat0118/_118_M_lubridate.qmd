@@ -98,7 +98,7 @@ What is will be the date 28 days from now?
 
 ```
 
-# Some real life examples: 
+# Portal Data
 
 Recall the Portal Project --  a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants and plants and their respective responses to climate.
 
@@ -119,16 +119,23 @@ A line plot showing the number of rodents captured per day over time:
  
 ```
 
-Use the `floor_date` function to round each date down to the first day of the month, which is great for time series grouping. 
+Recreate the above line plot for 2020 only. 
 
 ```{r}
 
 ```
 
-Alternatively, use the `floor_date` function to round each date down to first day of the year: 
+Recreate the above line plot March 15 - Dec 31, 2020. 
 
 ```{r}
 
 ```
+
+Determine on which days of the week most rodents are observed (when most sampling happens). 
+
+```{r}
+
+```
+
 
 
